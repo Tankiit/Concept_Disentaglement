@@ -1,0 +1,103 @@
+================================================================================
+DISENTANGLED CONCEPT VAE - VALIDATION REPORT
+================================================================================
+
+CONCEPT-FACTOR ALIGNMENT SUMMARY
+--------------------------------------------------
+Content Concepts Average Alignment: 0.577
+Style Concepts Average Alignment:   0.484
+Overall Average Alignment:          0.530
+
+DISENTANGLEMENT METRICS
+------------------------------
+Average Modularity:     0.012
+Average Compactness:    0.040
+Average SAP Score:      0.065
+Average MIG Score:      0.099
+Overall Disentanglement: 0.054
+
+FACTOR-SPECIFIC ANALYSIS
+----------------------------------------
+
+DIGIT_CLASS:
+  Modularity Score:  0.013
+  SAP Score:         0.078
+  MIG Score:         0.090
+
+THICKNESS:
+  Modularity Score:  0.025
+  SAP Score:         0.220
+  MIG Score:         0.271
+
+SLANT:
+  Modularity Score:  0.017
+  SAP Score:         0.064
+  MIG Score:         0.108
+
+SIZE:
+  Modularity Score:  0.014
+  SAP Score:         0.100
+  MIG Score:         0.160
+
+POSITION_X:
+  Modularity Score:  0.001
+  SAP Score:         0.001
+  MIG Score:         0.006
+
+POSITION_Y:
+  Modularity Score:  0.002
+  SAP Score:         0.009
+  MIG Score:         0.049
+
+INTENSITY:
+  Modularity Score:  0.006
+  SAP Score:         0.019
+  MIG Score:         0.058
+
+ASPECT_RATIO:
+  Modularity Score:  0.018
+  SAP Score:         0.032
+  MIG Score:         0.050
+
+CONCEPT-SPECIFIC ANALYSIS
+----------------------------------------
+Content Concepts:
+  Content 0: Compactness = 0.051
+  Content 1: Compactness = 0.023
+  Content 2: Compactness = 0.032
+  Content 3: Compactness = 0.038
+  Content 4: Compactness = 0.036
+  Content 5: Compactness = 0.015
+  Content 6: Compactness = 0.075
+  Content 7: Compactness = 0.018
+  Content 8: Compactness = 0.055
+  Content 9: Compactness = 0.033
+  Content 10: Compactness = 0.028
+  Content 11: Compactness = 0.034
+  Content 12: Compactness = 0.067
+  Content 13: Compactness = 0.076
+  Content 14: Compactness = 0.038
+  Content 15: Compactness = 0.047
+
+Style Concepts:
+  Style 0: Compactness = 0.032
+  Style 1: Compactness = 0.032
+  Style 2: Compactness = 0.045
+  Style 3: Compactness = 0.039
+  Style 4: Compactness = 0.043
+  Style 5: Compactness = 0.039
+  Style 6: Compactness = 0.031
+  Style 7: Compactness = 0.027
+
+
+INTERPRETATION GUIDELINES
+----------------------------------------
+• Modularity (0-1): Higher = each factor captured by fewer concepts
+• Compactness (0-1): Higher = each concept captures fewer factors
+• SAP Score (0+): Higher = better separation between top concepts per factor
+• MIG Score (0-1): Higher = better mutual information gap
+• Overall Score (0-1): Higher = better overall disentanglement
+
+QUALITY ASSESSMENT
+------------------------------
+POOR: Little to no disentanglement detected
