@@ -1,6 +1,3 @@
-from dataclasses import dataclass
-import torch
-
 @dataclass
 class DisentangledVAEConfig:
     """Configuration for factorized disentangled VAE"""
@@ -24,7 +21,7 @@ class DisentangledVAEConfig:
     
     # Other loss weights
     reconstruction_weight: float = 1.0
-    kl_weight: float = 0.001  # This will be annealed
+    kl_weight: float = 1.0  # This will be multiplied by beta
     factorization_weight: float = 0.01
     sparsity_weight: float = 0.001
     orthogonality_weight: float = 0.01
@@ -36,7 +33,7 @@ class DisentangledVAEConfig:
     
     # Dataset specific
     num_classes: int = 0
-    device: str = 'mps' if torch.backends.mps.is_available() else 'cpu'
+    device: str = 'cuda' if torch.cuda.is_available() else 'cpu'
     
     def __post_init__(self):
         """Set dataset-specific configurations"""
