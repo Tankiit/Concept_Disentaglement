@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spatial-possibility-cbm"
+version = "0.1.0"
+description = "Patch-grounded possibilistic/credal concept composition via pySDD, cross-validated against PASP credal semantics."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.24",
+    "pysdd>=1.0",
+]
+
+[project.optional-dependencies]
+# Real OpenCLIP-based part-prototype scoring (clip_part_prototypes.py's
+# encode_clip_* functions). Not needed for concept_composition_sdd alone.
+openclip = [
+    "torch>=2.0",
+    "open_clip_torch>=2.24.0",
+    "transformers>=4.30",
+    "pillow>=9.0",
+]
+# For crosscheck.pasta_crosscheck — also requires the `pastasolver` CLI:
+#   pip install "spatial-possibility-cbm[crosscheck]"
+#   pip install git+https://github.com/damianoazzolini/pasta
+crosscheck = [
+    "clingo>=5.6",
+]
+dev = [
+    "pytest>=7.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["spatial_possibility_cbm*"]

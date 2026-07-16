@@ -1,0 +1,16 @@
+# Core dependencies (from pyproject.toml)
+numpy>=1.24
+pysdd>=1.0
+
+# Optional: testing
+# pytest>=7.0
+
+# Optional: OpenCLIP-based real-image pipeline
+# torch>=2.0
+# open_clip_torch>=2.24.0
+# transformers>=4.30
+# pillow>=9.0
+
+# Optional: PASP cross-check support
+# clingo>=5.6
+# git+https://github.com/damianoazzolini/pasta
