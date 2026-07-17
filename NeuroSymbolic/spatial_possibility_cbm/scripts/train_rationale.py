@@ -59,18 +59,56 @@ class RationaleHead(nn.Module):
         self.temp = temp
         self.min_hard_patches = max(1, int(np.ceil(min_hard_mass * GRID * GRID)))
 
+    @staticmethod
+    def _neighbors(index):
+        r, c = divmod(index, GRID)
+        if r > 0:
+            yield index - GRID
+        if r + 1 < GRID:
+            yield index + GRID
+        if c > 0:
+            yield index - 1
+        if c + 1 < GRID:
+            yield index + 1
+
+    def _connected_hard_mask(self, logits):
+        """Largest thresholded component, grown contiguously to the size floor."""
+        active = set(torch.nonzero(torch.sigmoid(logits) > 0.5, as_tuple=False).flatten().tolist())
+        components = []
+        unseen = set(active)
+        while unseen:
+            component = {unseen.pop()}
+            stack = list(component)
+            while stack:
+                p = stack.pop()
+                for q in self._neighbors(p):
+                    if q in unseen:
+                        unseen.remove(q)
+                        component.add(q)
+                        stack.append(q)
+            components.append(component)
+        if components:
+            region = max(components, key=len)
+        else:
+            region = {int(logits.argmax().item())}
+
+        # Add the strongest boundary patch at each step. This preserves one
+        # connected component while guaranteeing the hard minimum mass.
+        while len(region) < self.min_hard_patches:
+            boundary = {
+                q for p in region for q in self._neighbors(p) if q not in region
+            }
+            best = max(boundary, key=lambda q: float(logits[q]))
+            region.add(best)
+        mask = torch.zeros_like(logits, dtype=torch.bool)
+        mask[list(region)] = True
+        return mask
+
     def _gate(self, patches, hard):
         logits = self.gate(patches).squeeze(-1)
         if not hard:
             return torch.sigmoid(logits / self.temp)
-        mask = torch.sigmoid(logits) > 0.5
-        too_small = mask.sum(dim=1) < self.min_hard_patches
-        if too_small.any():
-            top = logits[too_small].topk(self.min_hard_patches, dim=1).indices
-            repaired = torch.zeros_like(mask[too_small])
-            repaired.scatter_(1, top, True)
-            mask[too_small] = repaired
-        return mask.float()
+        return torch.stack([self._connected_hard_mask(row) for row in logits]).float()
 
     def concept_from_region(self, patches, mask):
         """

@@ -187,6 +187,63 @@ def extract_derm7pt(C, model, device, items, model_tag, split, cache_root: Path)
     return cache_dir
 
 
+def load_cub(data_root: Path, split: str):
+    images = {}
+    for line in (data_root / "images.txt").read_text().splitlines():
+        image_id, relpath = line.split(maxsplit=1)
+        images[int(image_id)] = relpath
+    split_flags = {}
+    for line in (data_root / "train_test_split.txt").read_text().splitlines():
+        image_id, is_train = map(int, line.split())
+        split_flags[image_id] = is_train
+    want_train = split == "train"
+    return [
+        (f"{image_id}::{images[image_id]}", data_root / "images" / images[image_id])
+        for image_id in sorted(images)
+        if bool(split_flags[image_id]) == want_train
+    ]
+
+
+def extract_cub_local(
+    C, model, device, items, model_tag, split, cache_root: Path, batch_size=16
+):
+    cache_dir = cache_root / "cub" / model_tag / split
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    pending = [
+        (item_id, path)
+        for item_id, path in items
+        if not (cache_dir / _key(model_tag, split, item_id)).exists()
+    ]
+    for start in range(0, len(pending), batch_size):
+        chunk = pending[start : start + batch_size]
+        tensors = []
+        for _, path in chunk:
+            with Image.open(path) as image:
+                tensors.append(C.EVAL_TF(image.convert("RGB")))
+        x = torch.stack(tensors).to(device)
+        with torch.no_grad():
+            out = model(x)
+        cls_batch = out["cls_token"].detach().cpu().numpy()
+        patch_batch = out["patch_tokens"].detach().cpu().numpy()
+        for j, (item_id, image_path) in enumerate(chunk):
+            patches = patch_batch[j]
+            assert patches.shape[0] == C.GRID * C.GRID, (
+                f"{image_path}: expected {C.GRID ** 2} patches, got {patches.shape}"
+            )
+            assert np.ptp(patches, axis=0).max() > 1e-6, (
+                f"{image_path}: tiled pooled-vector patch bug"
+            )
+            np.savez_compressed(
+                cache_dir / _key(model_tag, split, item_id),
+                cls=cls_batch[j].astype(np.float32),
+                mean=patches.mean(0).astype(np.float32),
+                patches=patches.astype(np.float32),
+            )
+        if start % (batch_size * 25) == 0:
+            print(f"{split}: {min(start + len(chunk), len(pending))}/{len(pending)}")
+    return cache_dir
+
+
 def load_pooled_by_id(cache_dir, item_ids, model_tag, split, pooling="mean"):
     return np.stack(
         [np.load(cache_dir / _key(model_tag, split, iid))[pooling] for iid in item_ids]
@@ -233,11 +290,23 @@ if __name__ == "__main__":
     tag = "lastvit_190k" if weights else "stock_vit"
 
     if args.dataset == "cub":
-        if args.split == "train":
-            ap.error("CUB extraction currently exposes only the test split")
-        items = C.load_split(test_only=True)
-        cdir = extract_cub(C, model, device, items, tag, "test", args.cache)
-        print("cached ->", cdir, "| items", len(items), "| tag", tag, "| grid", C.GRID)
+        if hasattr(C, "load_split"):
+            items = C.load_split(test_only=True)
+            cdir = extract_cub(C, model, device, items, tag, "test", args.cache)
+            print("cached ->", cdir, "| items", len(items), "| tag", tag, "| grid", C.GRID)
+        else:
+            splits = ("train", "test") if args.split in {"both", "all"} else (args.split,)
+            if "valid" in splits:
+                ap.error("Official CUB provides train/test, not a validation split")
+            for split in splits:
+                items = load_cub(args.data_root, split)
+                cdir = extract_cub_local(
+                    C, model, device, items, tag, split, args.cache
+                )
+                print(
+                    "cached ->", cdir, "| items", len(items),
+                    "| tag", tag, "| grid", C.GRID,
+                )
     else:
         if args.split == "both":
             splits = ("train", "test")
