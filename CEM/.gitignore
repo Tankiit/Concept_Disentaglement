@@ -1,0 +1,8 @@
+# Local experiment artifacts
+results/
+status.md
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/

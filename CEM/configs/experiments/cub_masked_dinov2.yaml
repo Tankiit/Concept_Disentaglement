@@ -1,0 +1,15 @@
+extends: shared_defaults.yaml
+dataset:
+  name: cub
+  root: /Users/tanmoy/research/data/CUB_200_2011/CUB_200_2011
+  split: train
+training:
+  epochs: 50
+masking:
+  image_size: 224
+  radius: 32
+  fill: zero
+extraction:
+  base_model: facebook/dinov2-base
+  batch_size: 32
+  feature_file: cub_masked_dinov2.npz
