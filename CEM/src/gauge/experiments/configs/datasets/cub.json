@@ -1,0 +1,30 @@
+{
+  "name": "cub",
+  "global_group": "GLOBAL",
+  "part_names": {
+    "1": "back", "2": "beak", "3": "belly", "4": "breast",
+    "5": "crown", "6": "left_eye", "7": "left_leg", "8": "left_wing",
+    "9": "nape", "10": "right_eye", "11": "right_leg",
+    "12": "right_wing", "13": "tail", "14": "throat", "15": "forehead"
+  },
+  "part_to_group": {
+    "back": "back", "beak": "beak", "belly": "belly", "breast": "breast",
+    "crown": "crown", "nape": "nape", "tail": "tail", "throat": "throat",
+    "forehead": "forehead", "left_eye": "eyes", "right_eye": "eyes",
+    "left_leg": "legs", "right_leg": "legs", "left_wing": "wings",
+    "right_wing": "wings"
+  },
+  "concept_prefix_to_group": {
+    "has_bill_shape": "beak", "has_bill_length": "beak", "has_bill_color": "beak",
+    "has_crown_color": "crown", "has_forehead_color": "forehead",
+    "has_nape_color": "nape", "has_throat_color": "throat",
+    "has_breast_color": "breast", "has_breast_pattern": "breast",
+    "has_belly_color": "belly", "has_belly_pattern": "belly",
+    "has_back_color": "back", "has_back_pattern": "back",
+    "has_wing_color": "wings", "has_wing_shape": "wings", "has_wing_pattern": "wings",
+    "has_tail_shape": "tail", "has_upper_tail_color": "tail",
+    "has_under_tail_color": "tail", "has_eye_color": "eyes", "has_leg_color": "legs",
+    "has_size": "GLOBAL", "has_shape": "GLOBAL", "has_primary_color": "GLOBAL",
+    "has_upperparts_color": "GLOBAL", "has_underparts_color": "GLOBAL"
+  }
+}
