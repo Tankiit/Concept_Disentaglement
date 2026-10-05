@@ -1,0 +1,22 @@
+# Freeze BEFORE the main run. Pilot may change it; main run uses fresh redraws.
+code_revision: TODO            # git sha of reach/
+manifest_version: v0.2         # TODO confirm contents from repo
+generator: reach_native        # TODO(API) real generator name; not the generic label-flip one
+prediction_target: TODO        # state explicitly (class posterior at x)
+candidate_family:
+  known_class_mixtures: true
+  unseen_slot: {delta_max: TODO, smoothness_h: TODO}   # bump_scale is definitional
+ball: {kernel: TODO, space: pca32_or_class_loglik, eps_n: "c * n**-0.5", c: TODO, confidence: TODO}
+n_grid: [TODO, TODO, TODO]     # >=3 nested prefixes, preregistered
+m_grid: [TODO, TODO, TODO]     # R2, one backbone
+eta_grid: [0.0, TODO, TODO]    # R3, corruption mechanism must be stated
+redraws: {pilot: 3, main: TODO}
+strata: {supported: TODO, unsupported: TODO}   # from generating distribution / proposition
+expected:                      # sign + status, written before running
+  W_cls:   {acq: n, sign: negative, status: proposition}
+  W_label: {acq: n, sign: zero,     status: invariant_by_construction}
+  W_label_m: {acq: m, sign: negative, status: construction_dependent}
+  W_cov_supported:   {acq: n, sign: negative, status: proposition}
+  W_cov_unsupported: {acq: n, sign: zero,     status: proposition}
+tolerances: {additivity_residual: TODO, invariance: 1.0e-8}
+gates: {ball_resolution_min: 1.0}   # at smallest n, actual manifest definition

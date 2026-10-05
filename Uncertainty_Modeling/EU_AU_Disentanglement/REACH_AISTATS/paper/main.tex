@@ -1,0 +1,68 @@
+% REACH -- AISTATS 2027 submission (official aistats2027.sty; anonymous by default).
+%
+% ANONYMISATION (check before upload):
+%   - no author names, affiliations, acknowledgements, grant numbers, or repo/Modal URLs
+%   - cite own prior work in the third person
+%   - strip PDF metadata and figure metadata; supplementary code without user paths or app names
+\documentclass[twoside]{article}
+\usepackage{aistats2027}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,booktabs,graphicx,natbib,xcolor,amsfonts}
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+\hypersetup{pdfauthor={},pdftitle={}}
+
+\newcommand{\Wcls}{\ensuremath{W_{\mathrm{cls}}}}
+\newcommand{\Wlab}{\ensuremath{W_{\mathrm{label}}}}
+\newcommand{\Wunk}{\ensuremath{W_{\mathrm{unk}}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+
+\begin{document}
+\twocolumn[
+\aistatstitle{Which Data Would Reduce This Uncertainty?\\ Acquisition-Attributed Epistemic Widths for Frozen Classifiers}
+\aistatsauthor{Anonymous Authors}
+\aistatsaddress{Anonymous Institution}]
+
+\begin{abstract}
+% Frozen abstract (lock doc), verbatim except "an estimate per-input answer" -> "an estimated
+% per-input answer" (author-approved rewording that keeps the hedge).
+Epistemic uncertainty is uncertainty that more data can reduce, but which data? For a frozen
+classifier with a labeled reference set and additional unlabeled examples, we provide an estimated
+per-input answer. From the log we form a maximum mean discrepancy ball of input densities that the log cannot
+exclude, spanning prevalence mixtures of the known classes plus a slot for an unseen class. The
+spread of the induced label posteriors defines three epistemic widths: prevalence, label and
+coverage, each tied to a different acquisition. Under frozen class-conditionals, we characterize
+how class distinguishability and support determine when more logging narrows the prevalence and
+coverage widths, while the label width, fixed by the labeled reference, remains unchanged. In
+controlled synthetic experiments that vary log size, labeled sample size, and label noise, we test
+these responses, compare prevalence estimation with an EM-based bootstrap baseline, and check ball
+inclusion together with informativeness.
+\end{abstract}
+
+\input{sections/intro}
+\input{sections/setup}
+\input{sections/theory}
+\input{sections/related}
+\input{sections/experiments}
+\input{sections/limitations}
+
+\subsection*{AI use statement}
+In this work, we used generative AI tools to write and run experiment and analysis code, to help design
+and write the pre-registration files, to draft Lean formalisations of the deterministic proof steps, to
+search for and check related work, to run simulated peer reviews of drafts, and to draft and edit the text.
+We did not use generative AI tools to generate the research question or the frozen abstract. We have
+reviewed all AI-assisted work: every reported number is regenerated from the released scripts and result
+files, the Lean statements are machine-checked with only Lean's standard axioms, every citation was checked
+against the cited work, and the authors checked the proofs in the appendix. We take responsibility for the
+final content of this work, including text, claims, or artifacts produced with the aid of generative AI.
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\input{sections/checklist}
+
+\clearpage
+\input{sections/appendix}
+\end{document}

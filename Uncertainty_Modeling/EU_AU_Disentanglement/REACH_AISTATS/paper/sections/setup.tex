@@ -1,0 +1,71 @@
+\section{Setup}
+\label{sec:setup}
+
+\paragraph{Frozen classifier and cells.} A classifier trained once is never updated. It maps each
+input to one of $d$ cells: in our experiments the predicted class of a linear-discriminant head on
+frozen features, plus one outlier cell for inputs far from every class mean. There are $K$ known
+sources (classes, or groups of classes) with cell distributions $A_1,\dots,A_K\in\Delta_d$, and one
+slot for an unseen source with declared distribution $q\in\Delta_d$; stack them as the rows of
+$A\in\mathbb{R}^{(K+1)\times d}$. Deployment draws $n$ i.i.d.\ cells from $p^{*}=w^{*\top}A$ with
+unknown $w^{*}\in\Delta_{K+1}$, and $\hat p_n$ is their histogram. Source $k$ emits label $Y=1$ with
+probability $\theta_k$, independently of the cell given the source. The \emph{frozen
+class-conditionals} assumption is that the rows $A_k$ are the same in reference and deployment;
+label shift satisfies it, covariate shift in general does not. When the cells are the predicted
+classes, $A$ is the head's confusion matrix and $w^{\top}A=\hat p_n$ is the moment equation of
+black-box shift estimation \citep{lipton2018detecting}; the categorical kernel below adds no
+information beyond it. What we add is a set rather than a point, and its use.
+
+\paragraph{The ball.} With the categorical kernel $k(x,x')=\mathbf 1\{x=x'\}$, the kernel mean
+embedding of a cell law is its probability vector and the maximum mean discrepancy (MMD) between two
+laws is their Euclidean distance; matching the log by a mixture of known embeddings is kernel mean
+matching \citep{zhang2013domain,iyer2014maximum}. We keep every mixture the log cannot exclude:
+\begin{equation}
+\mathcal W_n=\{\,w\in\Delta_{K+1}:\ \lVert w^{\top}\hat A-\hat p_n\rVert_2\le \varepsilon_n+r\,\},
+\label{eq:ball}
+\end{equation}
+with $\varepsilon_n=(1+\sqrt{2\log(1/\alpha)})/\sqrt n$ (\cref{lem:ball}), $\hat A$ the rows estimated
+from $m$ labelled reference images per source, and $r$ their radius ($r=0$, $\hat A=A$ when rows are
+known). The failure budget $\alpha$ is split between the log, the references and the label channel.
+
+\paragraph{Three widths.} For a probe cell $x$ and source $k$, each width is the range of one
+posterior; they are distinct estimands, not an additive decomposition.
+\begin{itemize}
+\item \emph{Prevalence} $\Wcls(x)$: range of $w_kA_k(x)/\sum_{j\le K}w_jA_j(x)$ over $w\in\mathcal W_n$.
+\item \emph{Label} $\Wlab(x)$: range of the label posterior at fixed anchor weights over the
+label-channel intervals, i.e.\ over whatever the labels estimate. In the synthetic study labels
+estimate the source label rates $\theta$; on real data, where the label is the source, labels
+estimate the rows, and $\Wlab$ ranges over the entries $A_k(x)$. The two instances share a role
+(the width that only labels narrow) but not an estimand, and \cref{prop:b} covers the first only.
+\item \emph{Coverage} $\Wunk(x)$: range of $w_{K+1}q(x)/w^{\top}A(x)$ over $w\in\mathcal W_n$, the
+share of the probe that the known classes may fail to cover. The unseen source is a declared
+component, so this is closed-set inference with one extra row, not open-set detection.
+\end{itemize}
+Each endpoint is a linear-fractional program over the ball, a second-order cone program after the
+Charnes--Cooper change of variables \citep{charnes1962programming}. A probe that some admissible
+mixture gives zero mass has an undefined posterior and receives $[0,1]$ by policy; if the ball is
+empty the declared family is rejected and the method abstains.
+
+\paragraph{Joint intervals.} $\Wcls$ and $\Wunk$ evaluate the posterior at $\hat A$. A valid interval
+for the true posterior must also range over the row entries, which we bound by per-entry Hoeffding
+intervals $[\underline A_k(x),\overline A_k(x)]$ on their own share of $\alpha$; for fixed weights the
+extremes sit at interval endpoints, so each side is again one cone program. The \emph{joint} interval
+does this over the ball of radius $\varepsilon_n+r$, which counts reference error twice (in $r$ and in
+the entries). The \emph{tight} joint interval counts it once: it keeps the weights $w$ for which the log
+histogram lies within $\varepsilon_n$ of the box $\{x:\sum_jw_j\underline A_j(x)\le x_c\le\sum_jw_j\overline
+A_j(x)\}$, still a cone constraint and valid on the same event, since the true marginal lies in that box.
+This is the constraint region of \citet{li2026matrix} with its per-cell tolerance on the log replaced by
+the Euclidean MMD tolerance; it is ``tight'' only in counting reference error once, not in being sharp.
+Joint intervals carry \emph{inclusion} of the target (we reserve ``coverage'' for the width $\Wunk$);
+the three widths carry attribution.
+
+\paragraph{Attribution by pinning.} The three widths range over different posteriors, so their largest
+need not name the source that limits the certified interval (\cref{sec:exp-attribution}). REACH-pin
+re-solves the tight joint interval with one source pinned at its current estimate, the log (histogram moved
+to the nearest feasible point, tolerance $0$), the rows ($\hat A$), or the unseen mass (its nearest feasible
+value), and names the source whose pinning narrows the interval most. Nothing is fitted.
+
+\paragraph{From widths to an acquisition.} At budget $B$, with one label costing $c$ unlabelled inputs,
+REACH predicts how more log or more labels would change the joint width, holding current estimates
+fixed, and recommends the larger reduction; if the ball rejects the declared family or the probe is the
+outlier cell, it recommends labels from the deployment domain. The rule carries no guarantee:
+\cref{sec:exp-blindspot} tests it under shift and \cref{sec:exp-exchange} when the class-conditionals hold.

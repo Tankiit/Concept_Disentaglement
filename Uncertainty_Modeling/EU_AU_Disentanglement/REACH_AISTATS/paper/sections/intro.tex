@@ -1,0 +1,57 @@
+\section{Introduction}
+\label{sec:intro}
+
+Epistemic uncertainty is said to be what more data would reduce, but the phrase leaves open
+\emph{which} data. Most deployments can buy three kinds: more unlabelled inputs from the
+deployment stream, more labelled examples of the classes already known, and labelled examples of
+a class not seen before. A single scalar does not say which of these would help at a given
+input. We make the acquisition explicit for a setting practitioners already
+have: a classifier trained once and then frozen, the labelled data it was trained against, and a
+growing unlabelled log of the inputs it meets in deployment. From the log we form the set of
+deployment distributions that are mixtures of the known classes (plus one candidate novel source)
+and lie within a computable distance of what the log shows, and the spread of the label
+posteriors this set admits splits into three parts: prevalence, label, and coverage of novelty.
+
+The split matters because the parts answer to different acquisitions. When the class distributions
+are known, uncertainty about how common each class is falls only with more of the deployment stream,
+uncertainty about the label rates falls only with labels, and a novel source can be told apart from a
+change in known prevalences only when its inputs fall somewhere the known classes do not. When the
+class distributions are themselves estimated from labels, as in practice, labels and log both move the
+prevalence width, at an exchange rate the theory motivates: each acquisition acts through the part of
+the radius it controls. A score that merges everything, such as ensemble disagreement, moves
+with every acquisition that feeds it and cannot say which one helps (\cref{sec:exp-synthetic}).
+\citet{young2026epistemic} argues the conceptual point, that reducibility is relative to an
+acquisition class; we supply estimators, finite-sample inclusion and tests of the acquisition
+decisions they imply, including one that fails.
+
+\paragraph{Approach.} The frozen classifier maps inputs to finitely many cells, so each class is a
+distribution over cells and the deployment law is a mixture of them. With the categorical kernel,
+the maximum mean discrepancy (MMD) between such laws is the Euclidean distance between cell
+histograms, so the set of mixtures consistent with the log is a ball whose radius has an explicit
+constant. Each width is the range of one posterior over that ball, computed without relaxation by a
+second-order cone program. When the class distributions are themselves estimated from labels,
+we widen the intervals to range over their estimation error as well, and these joint intervals
+carry the coverage claim.
+
+\paragraph{Contributions.}
+\begin{itemize}
+\item Three widths with distinct estimands (prevalence, label, coverage) and joint intervals that keep
+finite-sample inclusion when class distributions are estimated, including a tight version that counts
+reference error once (\cref{sec:setup}).
+\item Conditions under which each width contracts, the exchange rate between log and labels they imply,
+and where coverage identification stops, with machine-checked cores (\cref{sec:theory}).
+\item A pre-registered synthetic study that varies log size, labeled sample size and label noise: with
+known rows each width responds to the acquisition it tracks, ensemble mutual information responds to all
+three, the ball includes the truth in every seed, and EMQ with a bootstrap loses inclusion where
+prevalence is not identified (\cref{sec:exp-synthetic}).
+\item A CIFAR-10 audit with two frozen encoders against a finite-sample constraint region and a
+two-stage bootstrap (\cref{sec:exp-real}); a registered test showing that under shift the widths do not
+choose data better than a constant policy (\cref{sec:exp-blindspot}); and a registered test on a blind
+encoder showing that, when the class-conditionals hold, the radius exchange rate picks the acquisition
+that tightens a certified interval more; on real features the gain over always buying more log is small,
+the choice is per deployment rather than per input, and data-free bookkeeping of the two radii does as
+well as the full method (\cref{sec:exp-exchange}).
+\item A per-input attribution scored against an oracle: the argmax of the widths fails, and a registered
+pinned-estimate rule beats the best input-independent rule on CIFAR-10, Gaussian-feature and synthetic
+worlds (\cref{sec:exp-attribution}). All registered outcomes, failures included, are in \cref{app:outcomes}.
+\end{itemize}

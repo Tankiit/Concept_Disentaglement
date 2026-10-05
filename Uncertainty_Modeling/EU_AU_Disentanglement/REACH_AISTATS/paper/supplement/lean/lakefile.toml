@@ -1,0 +1,13 @@
+name = "Reach"
+version = "0.1.0"
+defaultTargets = ["Reach"]
+
+[leanOptions]
+autoImplicit = false
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+
+[[lean_lib]]
+name = "Reach"

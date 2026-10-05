@@ -1,0 +1,335 @@
+% §5 Experiments. Every number below is traceable to a file under results/; the source is
+% given in a comment next to the claim. Regenerate with the commands in README.md.
+\section{Experiments}
+\label{sec:experiments}
+
+We test one prediction: each width responds to exactly one acquisition. $\Wcls$ and $\Wunk$
+should contract with the unlabelled log and ignore labels; $\Wlab$ should contract with labels,
+widen with label noise, and ignore the log. A single epistemic score cannot have this
+structure. \Cref{sec:exp-synthetic} checks the prediction where every component has a known
+ground truth. \Cref{sec:exp-real} asks whether the guarantee and the attribution survive frozen
+CLIP features on CIFAR-10.
+
+\subsection{Protocol}
+\label{sec:exp-protocol}
+
+\paragraph{Response slopes.} For each acquisition we sweep its budget on a log-spaced grid and
+hold the other two at a base value ($n=4096$, $m=256$, $\eta=0$ in the synthetic study). The
+response of a width is the least-squares slope of $\log(\text{mean width})$ against
+$\log(\text{budget})$, so $-1/2$ is the parametric rate. Confidence intervals come from a
+bootstrap over seeds. A seed shares its draws across the grid, so it is the independent
+replicate; cells and probes are not.
+
+\paragraph{What counts as no response.} A slope is never exactly zero in finite samples, so we
+calibrate ``$\approx 0$'' against a placebo instead of choosing a margin. For each cell we
+re-evaluate the base budget on fresh, disjoint seeds, assign them to the grid levels at random,
+and refit the slope; any slope there is Monte Carlo noise of that estimator at that seed count.
+A response is called nonzero when its slope lies outside the $1-\alpha/K$ quantile of the
+absolute placebo slopes, with $\alpha=0.05$ and $K=25$ pre-registered cells. The resulting
+tolerance $\tau$ is reported per cell and never exceeds $0.043$.
+% results/response_l2_s128/summary.json: placebo_alpha_per_cell=0.002, max_tau=0.0429
+Placebo levels are unpaired while the real grid is paired by seed, which makes the null wider
+than the paired noise: the test is conservative for a signed response and liberal for
+$\approx 0$. Some invariances hold by construction, because a width never reads that
+acquisition (for instance, $\Wcls$ never reads labels). We mark these $0^{\ast}$ and do not
+count them as evidence.
+
+\paragraph{Pre-registration and resolution gate.} The expected sign of every cell was written to
+\texttt{train/expectations.py} before the first run; its SHA-256 is recorded in each run
+manifest. Before any slope is reported, the pipeline checks that the ball can resolve a $0.4$
+shift of mixture weight between the two closest sources, i.e.\ that
+$\mathrm{res} = \lVert 0.4(\mu_i-\mu_j)\rVert/(\varepsilon_n+r_{\mathrm{ref}}) > 1$ at the
+smallest $n$, and refuses to write results otherwise.
+
+\paragraph{Uncertainty set.} All intervals are computed over the exact MMD ball
+(\cref{sec:setup}). Linear-fractional extrema become second-order cone programs after the
+Charnes--Cooper change of variables. A coordinatewise outer box gives the same decisions on
+synthetic data but is about $30\%$ wider there, and near-vacuous with ten sources.
+% box vs l2: results/response_s128 vs results/response_l2_s128, W_cls on_support n=65536: 0.033 vs 0.023
+
+\paragraph{Baselines.} EMQ \citep{saerens2002adjusting} with a multinomial bootstrap of the log
+gives percentile intervals for the same estimands as $\Wcls$ and $\Wunk$; it is the
+prevalence-only comparison and carries no finite-sample guarantee. A bootstrap ensemble that
+resamples both the log and the labels gives one scalar per input: the mutual information
+$\mathrm{H}(\bar p)-\overline{\mathrm{H}(p)}$ between members and prediction. It stands in for
+the scalar epistemic scores the introduction argues against.
+
+\subsection{Synthetic response matrix}
+\label{sec:exp-synthetic}
+
+\paragraph{Worlds.} Three sources over four input cells: two known sources with prevalences
+$0.65$ and $0.35$ of the known mass, and a novel source with mass $\delta=0.1$. Clean label
+rates are $\theta=(0.2,0.8,0.9)$. Probe cells are labelled \emph{on support} (both known sources
+place mass there), \emph{boundary} (known-source overlap), and \emph{off support} (no source
+places mass, so the conditional is undefined and the interval is $[0,1]$ by policy). In
+\emph{separated} the novel source is outside the convex hull of the known conditionals; in
+\emph{confounded} it is their midpoint, inside the hull, where the log cannot identify novelty;
+in \emph{absent}, $\delta=0$. Grids are $n\in\{2^{10},\dots,2^{16}\}$,
+$m\in\{2^{5},\dots,2^{11}\}$ and $\eta\in\{0.0125,\dots,0.2\}$, with 128 seeds per budget.
+
+\begin{table}[t]
+\centering
+\caption{Response matrix, \emph{separated} world, on-support probes. Each entry is the
+log-log slope of mean width against one acquisition; arrows mark responses outside the placebo
+band, and $0^{\ast}$ marks invariance by construction. 95\% bootstrap half-widths are below
+$0.03$ for every entry. The three REACH widths each respond to one acquisition (two for
+$\Wlab$, which reads labels and their noise); the ensemble score responds to all three.}
+\label{tab:synthetic}
+\input{tables/synthetic_matrix}
+\end{table}
+
+\paragraph{Attribution.} \Cref{tab:synthetic} shows the predicted pattern. $\Wcls$ contracts
+with the log at the parametric rate (slope $-0.51$, 95\% CI $[-0.508,-0.503]$) and does not
+read labels. $\Wlab$ contracts with labels ($-0.47$) and widens with label noise ($+0.16$),
+with no response to the log. $\Wunk$ contracts with the log ($-0.49$) on support, and stays at
+$1$ at every $n$ off support.
+% results/response_l2_s128/response_matrix.csv
+Across all three worlds, 23 of the 25 pre-registered cells agree. Boundary probes give the same
+signs at lower absolute width (e.g.\ $\Wcls$ falls from $0.42$ to $0.05$ rather than from $0.19$
+to $0.02$).
+
+The ensemble score responds to every acquisition: $-0.03$ in $n$, $-0.82$ in $m$, $+0.44$ in
+$\eta$. Its magnitude is dominated by the label channel, so on these probes it is almost
+insensitive to the log even though the prevalence width falls by a factor of eight over the same
+grid. A practitioner reading the ensemble score would therefore buy labels to reduce an
+uncertainty that more unlabelled data would also have reduced, and could not tell the two
+apart.
+
+\paragraph{The two failures.} Both disagreements are in the \emph{confounded} world, where we
+pre-registered that $\Wunk$ would not respond to $n$. It does respond weakly: the slope is
+$-0.09$ on support and $-0.04$ on the boundary, against $-0.49$ in the separated world.
+The width itself stays large, falling from $1.0$ to $0.69$ (on support) and $0.86$ (boundary)
+at $n=2^{16}$.
+% results/response_l2_s128: confounded W_unk width_at_max 0.685 / 0.861
+The finite-$n$ slope is the ball shrinking onto the identified set, which is a wide interval
+rather than a point. Novelty is not identified there, but ``no response'' was the wrong
+prediction; ``a response attenuated five-fold onto a width that does not go to zero'' is the
+right one. We report the pre-registered decision unchanged.
+
+\paragraph{Coverage.} The ball contains the true marginal in every seed at every $n$, in all
+three worlds (Clopper--Pearson lower bound $0.977$ at nominal $0.975$). Probe intervals for
+$\Wcls$ and the total posterior cover the truth in every seed. EMQ+bootstrap is about three
+times narrower and close to nominal when the model is identified (coverage $0.92$--$0.96$ in
+\emph{separated}). In \emph{confounded}, its coverage falls from $0.73$ at $n=2^{10}$ to $0$ at
+$n\ge 2^{15}$: EM picks one point of a non-identified set, and the bootstrap reports the
+sampling spread around that point, which shrinks onto the wrong value
+(\cref{fig:coverage}, left).
+% results/response_l2_s128/summary.json probe_coverage
+\Cref{fig:wcls} shows $\Wcls$ against $n$ for both region types, with the resolution gate:
+resolution is $2.44$ at the smallest $n$ and rises as $n^{1/2}$.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig2_wcls_vs_n.pdf}
+\caption{Left: $\Wcls$ (solid) and the EMQ+bootstrap width (dotted) against $n$, on-support
+and boundary probes, \emph{separated} world; the dashed line has slope $-1/2$. Right: ball
+resolution (\cref{sec:exp-protocol}); the gate requires it to exceed $1$ (dashed) at the
+smallest $n$.}
+\label{fig:wcls}
+\end{figure}
+
+\subsection{Real-shift audit: CIFAR-10 with a frozen CLIP encoder}
+\label{sec:exp-real}
+
+\paragraph{Pipeline.} Images pass through a frozen CLIP ViT-B/32 \citep{radford2021clip}; we
+fit PCA to 32 dimensions and an equal-prior Gaussian LDA head on a 10{,}000-image development
+split of the training set. Nothing is fine-tuned. Input cells are the LDA-predicted class plus
+an outlier cell for points whose Mahalanobis distance to every class mean exceeds the
+development 99th percentile. The mixture components are the cell distributions of each source,
+i.e.\ columns of the head's confusion matrix, estimated from $m$ labelled reference images per
+source drawn from the remaining 40{,}000 training images. Under label shift these columns do not
+move, which is the frozen-conditionals assumption. The deployment log is drawn from the test
+set; the head is 91.2\% accurate on clean test images. Each arm uses 50 seeds, and the expected
+sign of every tested cell was registered in \texttt{real/expectations.py} before these runs.
+Coverage is judged at the cone solver's accuracy ($10^{-6}$): where an exact extremum is $0$
+the solver returns values of order $10^{-9}$.
+% results/audit_*_label_shift_held_out/summary.json: meta, expectations_sha256, coverage_tolerance
+
+\paragraph{Estimated components need a joint interval.} With oracle components, $\Wcls$ is a
+valid interval for the class posterior. With estimated components it is not: it optimises over
+mixture weights with the component estimates plugged in, so reference error enters only through
+the ball's radius and never through the target. We therefore report a \emph{joint} interval,
+whose extrema range over the ball and over the label-channel interval of each component entry.
+For fixed weights the extremes sit at interval endpoints, so each side is still one
+linear-fractional program. The joint interval carries the coverage claim on real data; $\Wcls$
+and $\Wlab$ remain the attribution. The distinction is visible below: plug-in $\Wcls$ covers
+$0.98$ under clean label shift and $0.58$ under the strongest corruption, while the joint
+interval covers $1.00$ and $0.93$.
+
+\paragraph{How many sources.} With one source per class, the ball cannot resolve sources whose
+deployment mass is below its radius. At $m=2000$ the radius is dominated by the reference term,
+about $0.10$ after a union bound over sources, so rare classes are close to vacuous. We report a
+four-superclass grouping as the headline (vehicles of air and sea, road vehicles, pets, other
+animals), with within-group composition held fixed so deployment remains pure label shift over
+sources. The ten-source run is reported alongside it as the limitation it is. Both pass the
+resolution gate ($1.14$ and $1.62$ at $n=500$).
+% results/audit_{super4,classes}_label_shift_held_out/summary.json ball_resolution_gate
+
+\begin{table}[t]
+\centering
+\caption{CIFAR-10 label shift with Dirichlet(1) prevalences, frozen CLIP ViT-B/32,
+$n=16{,}000$, $m=2000$, 50 seeds. Per-probe coverage of the true class posterior and mean width
+on known-class cells. Below: response of the joint width to each acquisition, others at base.}
+\label{tab:real}
+\input{tables/real_audit}
+\end{table}
+
+\paragraph{Label shift.} Each seed draws its deployment prevalences from a symmetric
+Dirichlet(1) over sources, so prevalence varies across replicates and is known exactly for each.
+\Cref{tab:real} gives the coverage result. The joint interval covers the true posterior in every
+seed at every $n$, for both groupings. EMQ+bootstrap, run on the same estimated components,
+covers $0.54$ at $n=500$ and $0.13$ at $n=16{,}000$ (super4; $0.71$ and $0.17$ with ten sources).
+The cause is the one from the confounded synthetic world, reached by a different route:
+reference error is ignored, so the bootstrap interval shrinks onto a biased point
+(\cref{fig:coverage}, centre).
+% results/audit_*_label_shift_held_out/summary.json n_axis_coverage, arm=label_shift
+
+\paragraph{Attribution.} All 13 pre-registered cells agree for super4, and 12 of 13 with ten
+sources. Within the label channel the pattern matches the synthetic study: $\Wlab$ does not
+read the log, contracts with labels (slope $-0.31$) and widens with label noise ($+0.21$). The
+joint width responds to all three, about $1.6$ times more strongly to labels than to the log
+($-0.11$ in $m$ against $-0.07$ in $n$), so beyond a few thousand log images labels are the
+binding acquisition. On real data $m$ and $\eta$ also move $\Wcls$ ($-0.19$ and $+0.12$),
+because labels estimate the components the ball is built from; we registered these
+cross-effects as signed in advance rather than as zero. EMQ+bootstrap does not respond to labels
+or noise at all (both slopes inside the placebo band), and the ensemble score responds to $n$
+and $m$ but not to $\eta$, because its members resample the debiased components and never see
+the noise level. The one disagreement is the ten-source joint width under noise: it is already
+at $0.99$ at $\eta=0.025$ and cannot widen further, so its slope is inside the placebo band.
+% results/audit_super4_label_shift_held_out/response_matrix.csv on_support; classes summary.json disagreeing
+
+\paragraph{Label noise.} Each reference label is flipped with known probability $\eta$ to a
+uniformly chosen other source. The flip matrix $M$ is known and invertible for
+$\eta<(k-1)/k$, so the components are recovered as $M^{-1}$ times the noisy-label histograms
+and projected onto the simplex. Their radius has two parts: cell sampling given which images
+landed under each noisy label, and the deviation of the realised flip counts from their means,
+which vanishes as $\sqrt{\eta}$; $M^{-1}$ inflates both by at most $\lVert M^{-1}\rVert_\infty$.
+Over $\eta\in\{0.025,\dots,0.3\}$ the joint interval covers in every seed (super4: width $0.92$
+to $1.00$; $\Wlab$ $0.59$ to $0.97$). EMQ+bootstrap covers between $0.11$ and $0.18$.
+% results/audit_super4_label_shift_held_out/summary.json eta_axis_coverage
+
+\paragraph{Held-out classes, present and absent.} We remove ship and truck from the labelled set
+and the head; their distance to the hull of the known components is $s=0.22$. In one arm they
+make up $\delta=0.1$ of the log, in the other they are absent ($\delta=0$). The novel component
+is estimated from the withheld classes' training images, so, as for $\Wcls$, the plug-in $\Wunk$
+is the attribution and a joint novelty interval, which also ranges over the novel and known
+component entries (\cref{sec:theory}, Remark), carries coverage. The joint novelty interval covers
+the truth in every seed, in both arms, for both backbones and both groupings. Plug-in $\Wunk$
+does not: with DINOv2 features and novelty present it covers only $0.88$--$0.89$. Both widths
+contract in both arms. With CLIP and super4 sources, plug-in $\Wunk$ falls from $0.70$ to $0.43$
+with novelty present and from $0.64$ to $0.37$ with novelty absent, where the true novel
+posterior is $0$; the joint widths fall from $0.92$ to $0.72$ and from $0.89$ to $0.66$. Both arms
+are on support in the sense of \cref{prop:c}: the known classes keep every cell populated, so
+the contraction is the predicted one. The off-support case, a width that never shrinks, is shown
+only in the synthetic study, where it holds by the vacuous policy. With a declared uniform novel
+component the coverage still holds, $\Wunk$ barely moves ($0.97\to0.86$), and our residual
+diagnostic never flags the misspecification (rate $0$ in all runs). We therefore make no claim
+that the audit detects a wrong novelty model.
+% results/audit_{clip,dinov2}_{super4,classes}_held_out_v2/summary.json and response_matrix.csv
+
+\paragraph{Covariate shift.} CIFAR-10-C \citep{hendrycks2019benchmarking} breaks the
+frozen-conditionals assumption: the label set stays clean and only the log sees the corruption.
+Head accuracy falls from $0.83$ at severity 1 to $0.57$ at severity 5. Over 15 corruptions,
+20 seeds each, with super4 sources, the incompatibility flag rises with severity from $0.06$ to
+$0.55$. The joint interval covers at least $0.987$ through severity 4 and $0.93$ at severity 5,
+while plug-in $\Wcls$ falls from $0.95$ to $0.58$ and EMQ+bootstrap from $0.12$ to $0.05$
+(\cref{fig:coverage}, right). Pooling hides failures: at severity 5, elastic transform ($0.74$),
+motion blur ($0.85$), JPEG ($0.87$) and frost ($0.90$) under-cover while flagged in fewer than half
+their runs. With ten sources the flag fires in at most $6\%$ of runs and coverage at severity 5
+is $0.91$, with ten corruptions under-covering unflagged.
+% results/audit_{super4,classes}_corruption/summary.json (severity, severity_by_corruption); run on Modal
+
+\paragraph{A second backbone.} To check that nothing above is specific to CLIP, we repeat the
+label-shift and held-out arms with a self-supervised DINOv2 ViT-S/14 encoder \citep{oquab2024dinov2},
+which sees no text. Its head is more accurate ($95.2\%$ against $91.2\%$) and passes the resolution
+gate ($1.22$ with super4 sources, $1.75$ with ten). The pre-registered cells agree as before: 13 of
+13 with super4 sources and 12 of 13 with ten, where the same saturated noise cell is the one
+disagreement. The joint interval covers in every seed in every arm; at $n=16{,}000$ its width is
+$0.69$ (super4; $0.86$ with ten sources) and EMQ+bootstrap covers $0.10$ ($0.23$). The response
+pattern of the joint width is the same as with CLIP: $-0.07$ in $n$, $-0.12$ in $m$, $+0.04$ in
+$\eta$. We did not repeat the corruption arm for DINOv2.
+% results/audit_dinov2_{super4,classes}_label_shift_held_out/summary.json, response_matrix.csv
+
+\paragraph{Where \cref{prop:c} stops: a novel class beside its siblings.} On CIFAR-100 we take
+four trees (maple, oak, palm, pine) and five vehicles as known, grouped into two sources, and add
+either willow, a sibling of the known trees, or whale, unrelated to every known class, as the novel
+source with $\delta=0.1$. We registered that willow should give a smaller separation $s$, a flatter
+$\Wunk$ slope, and a wider final $\Wunk$ than whale, not a low $\Wunk$. With 400 reference images
+per class the novel component's radius alone is about $0.21$, and the resolution gate passes only
+for $n\ge 8{,}000$; we therefore report this arm descriptively. With CLIP features all three
+predictions hold: $s=0.30$ against $0.46$, slope $-0.02$ (inside the placebo band) against $-0.09$,
+and final width $0.57$ against $0.51$. With DINOv2 features only the slope prediction holds
+($-0.03$ against $-0.06$): under that encoder's partition willow is \emph{further} from the known
+hull than whale ($s=0.35$ against $0.32$), and the final widths reverse accordingly. The joint
+novelty interval covers in all four runs. The lesson for \cref{prop:c} is that the relevant
+quantity is $s$ measured in the encoder's cell space, not semantic similarity: whether a sibling
+class is ``inside the support'' depends on the representation.
+% results/audit_c100g_{in,out}_{clip,dinov2}/summary.json; gate fails for n < 8000 (min 0.66-0.69 at n=500).
+% Deviation from registration (real/expectations.py): known classes grouped into two sources after
+% singleton sources failed the gate at every n; disclose in the appendix.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig3_coverage.pdf}
+\caption{Per-probe coverage of REACH and EMQ+bootstrap. Left: synthetic; the REACH curves for
+both worlds lie on $1.0$. Centre: CIFAR-10 label shift with Dirichlet(1) prevalences, four
+superclass sources. Right: CIFAR-10-C pooled over 15 corruptions, with the rate at which the
+mixture-incompatibility diagnostic fires. Dashed: nominal $0.95$.}
+\label{fig:coverage}
+\end{figure*}
+
+\subsection{Shifts nobody constructed: does the regime choose the action?}
+\label{sec:exp-blindspot}
+
+On natural and corrupted shifts there is no ground-truth width, so the test is behavioural: take
+the acquisition REACH recommends at each cell and measure what it actually buys on held-out
+shifted data, against the same check for a scalar epistemic score. Protocol, budget and claims
+were registered before the test was written (\texttt{real/blindspot\_prereg.py}).
+
+\paragraph{Design.} Shift splits are clean CIFAR-10 test, CIFAR-10.1 \citep{recht2019imagenet}, a
+natural re-collection, and the 75 CIFAR-10-C splits; each is cut once into disjoint log, label
+and evaluation pools. An episode draws deployment prevalences from Dirichlet(1) over the four
+superclass sources and starts from clean components ($m=2000$) and a log of $1000$ shifted
+images. Two actions cost the same $5000$ units at a price of $50$ unlabelled images per label:
+\emph{reweight} grows the log to $6000$ and refits EMQ; \emph{add labels} buys $100$ shifted labels
+and shrinks the components towards them (prior strength $50$). The payoff of an action at a
+cell is the reduction in held-out negative log-likelihood there. REACH's regime uses only the
+starting state: \emph{off-frame} if the mixture is flagged incompatible or the cell is the outlier
+cell, otherwise \emph{log resolves} or \emph{label-limited} by which action shrinks the joint width
+more at that cost. Off-frame and label-limited recommend labels. The baseline is ensemble mutual
+information, whose members resample both log and labels; its tercile-to-action map is tuned on
+calibration seeds 0--9, which favours it, and both are evaluated on seeds 10--19.
+
+\begin{table}[t]
+\centering
+\caption{Realised payoff (reduction in held-out NLL, nats) of each action, by ensemble-MI
+tercile and REACH regime, mass-weighted over cells; last column: share of cells where labels
+pay more. 75 CIFAR-10-C splits, clean CIFAR-10 and CIFAR-10.1, evaluation seeds.}
+\label{tab:blindspot}
+\input{tables/blindspot}
+\end{table}
+
+\paragraph{Results.} All three registered claims hold. Within a fixed MI tercile, the advantage
+of labels over reweighting is larger where REACH recommends labels: by $0.83$ nats (95\% CI
+$[0.69, 0.97]$) in the lowest tercile and $0.57$ $[0.47, 0.66]$ in the middle one; in the highest
+tercile the difference is $0.07$ $[-0.01, 0.14]$. The blind spot is the first block of
+\cref{tab:blindspot}: cells where ensemble MI is lowest, and its tuned map therefore reweights,
+but REACH flags the frame as broken, are where labels pay most ($1.20$ nats, best in $88\%$ of
+cells). REACH's recommendation has lower regret than the tuned baseline map by $0.085$ nats per
+cell $[0.060, 0.111]$ and matches the better action more often ($0.62$ against $0.57$). The
+advantage of labels rises monotonically with corruption severity (Spearman $1.0$), as it should
+when the components move.
+% results/blindspot/summary.json: H1, H2, H3; prereg_sha256 e699e72d...
+
+\paragraph{What the natural shift adds, and what it does not.} Almost all of this effect comes
+from CIFAR-10-C. On CIFAR-10.1 the head loses seven points of accuracy ($84.5\%$ against
+$91.2\%$), yet REACH never flags the mixture as incompatible and neither action buys much: the
+better action gains $0.008$ nats on average, and $100$ shifted labels slightly hurt
+($-0.010$). REACH's lower regret there ($0.008$ $[0.005, 0.012]$) comes from not spending on
+labels where the tuned baseline does. So on this natural shift the two scores disagree but the
+stakes are small, and the honest reading is that CIFAR-10.1 is not a shift where the choice of
+acquisition matters for this head. The regime earns its keep where the components move.
+% results/blindspot/rows.csv.gz, split=cifar10_1 / clean / severity>0, evaluation seeds; regret
+% differences by family: cifar10_1 -0.0083 [-0.0116,-0.0053], clean -0.0024, C10C -0.0868.
+
+\paragraph{Not run.} CIFAR-10H, ImageNet-R/Sketch, DomainNet, and the corruption arm for DINOv2 were not run.

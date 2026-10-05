@@ -1,0 +1,207 @@
+\begin{thebibliography}{31}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Alexandari et~al.(2020)Alexandari, Kundaje, and
+  Shrikumar]{alexandari2020maximum}
+Amr Alexandari, Anshul Kundaje, and Avanti Shrikumar.
+\newblock Maximum likelihood with bias-corrected calibration is hard-to-beat at
+  label shift adaptation.
+\newblock In \emph{International Conference on Machine Learning}, pages
+  222--232, 2020.
+
+\bibitem[Azizzadenesheli et~al.(2019)Azizzadenesheli, Liu, Yang, and
+  Anandkumar]{azizzadenesheli2019regularized}
+Kamyar Azizzadenesheli, Anqi Liu, Fanny Yang, and Animashree Anandkumar.
+\newblock Regularized learning for domain adaptation under label shifts.
+\newblock In \emph{International Conference on Learning Representations}, 2019.
+
+\bibitem[Charnes and Cooper(1962)]{charnes1962programming}
+Abraham Charnes and William~W. Cooper.
+\newblock Programming with linear fractional functionals.
+\newblock \emph{Naval Research Logistics Quarterly}, 9\penalty0
+  (3--4):\penalty0 181--186, 1962.
+
+\bibitem[Depeweg et~al.(2018)Depeweg, Hernandez-Lobato, Doshi-Velez, and
+  Udluft]{depeweg2018decomposition}
+Stefan Depeweg, Jose-Miguel Hernandez-Lobato, Finale Doshi-Velez, and Steffen
+  Udluft.
+\newblock Decomposition of uncertainty in {B}ayesian deep learning for
+  efficient and risk-sensitive learning.
+\newblock In \emph{International Conference on Machine Learning}, pages
+  1184--1193, 2018.
+
+\bibitem[Dussap et~al.(2023)Dussap, Blanchard, and
+  Ch{\'e}rief-Abdellatif]{dussap2023label}
+Bastien Dussap, Gilles Blanchard, and Badr-Eddine Ch{\'e}rief-Abdellatif.
+\newblock Label shift quantification with robustness guarantees via
+  distribution feature matching.
+\newblock \emph{arXiv preprint arXiv:2306.04376}, 2023.
+
+\bibitem[Garg et~al.(2020)Garg, Wu, Balakrishnan, and Lipton]{garg2020unified}
+Saurabh Garg, Yifan Wu, Sivaraman Balakrishnan, and Zachary Lipton.
+\newblock A unified view of label shift estimation.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~33, pages 3290--3300, 2020.
+
+\bibitem[Garg et~al.(2022)Garg, Balakrishnan, and Lipton]{garg2022domain}
+Saurabh Garg, Sivaraman Balakrishnan, and Zachary~C. Lipton.
+\newblock Domain adaptation under open set label shift.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2022.
+
+\bibitem[Gruber et~al.(2023)Gruber, Schenk, Schierholz, Kreuter, and
+  Kauermann]{gruber2023sources}
+Cornelia Gruber, Patrick~Oliver Schenk, Malte Schierholz, Frauke Kreuter, and
+  G{\"o}ran Kauermann.
+\newblock Sources of uncertainty in supervised machine learning -- a
+  statisticians' view.
+\newblock \emph{arXiv preprint arXiv:2305.16703}, 2023.
+
+\bibitem[He et~al.(2016)He, Zhang, Ren, and Sun]{he2016deep}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In \emph{IEEE Conference on Computer Vision and Pattern Recognition},
+  2016.
+
+\bibitem[Hendrycks and Dietterich(2019)]{hendrycks2019benchmarking}
+Dan Hendrycks and Thomas Dietterich.
+\newblock Benchmarking neural network robustness to common corruptions and
+  perturbations.
+\newblock In \emph{International Conference on Learning Representations}, 2019.
+
+\bibitem[Houlsby et~al.(2011)Houlsby, Husz{\'a}r, Ghahramani, and
+  Lengyel]{houlsby2011bayesian}
+Neil Houlsby, Ferenc Husz{\'a}r, Zoubin Ghahramani, and M{\'a}t{\'e} Lengyel.
+\newblock Bayesian active learning for classification and preference learning.
+\newblock \emph{arXiv preprint arXiv:1112.5745}, 2011.
+
+\bibitem[H{\"u}llermeier and Waegeman(2021)]{hullermeier2021aleatoric}
+Eyke H{\"u}llermeier and Willem Waegeman.
+\newblock Aleatoric and epistemic uncertainty in machine learning: An
+  introduction to concepts and methods.
+\newblock \emph{Machine Learning}, 110\penalty0 (3):\penalty0 457--506, 2021.
+
+\bibitem[Iyer et~al.(2014)Iyer, Nath, and Sarawagi]{iyer2014maximum}
+Arun Iyer, Saketha Nath, and Sunita Sarawagi.
+\newblock Maximum mean discrepancy for class ratio estimation: Convergence
+  bounds and kernel selection.
+\newblock In \emph{International Conference on Machine Learning}, pages
+  530--538, 2014.
+
+\bibitem[Kossen et~al.(2021)Kossen, Farquhar, Gal, and
+  Rainforth]{kossen2021active}
+Jannik Kossen, Sebastian Farquhar, Yarin Gal, and Tom Rainforth.
+\newblock Active testing: Sample-efficient model evaluation.
+\newblock In \emph{International Conference on Machine Learning}, 2021.
+
+\bibitem[Krizhevsky(2009)]{krizhevsky2009learning}
+Alex Krizhevsky.
+\newblock Learning multiple layers of features from tiny images.
+\newblock Technical report, University of Toronto, 2009.
+
+\bibitem[Lakshminarayanan et~al.(2017)Lakshminarayanan, Pritzel, and
+  Blundell]{lakshminarayanan2017simple}
+Balaji Lakshminarayanan, Alexander Pritzel, and Charles Blundell.
+\newblock Simple and scalable predictive uncertainty estimation using deep
+  ensembles.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2017.
+
+\bibitem[Li et~al.(2026)Li, Han, and Ma]{li2026matrix}
+Mushan Li, Kihyun Han, and Yanyuan Ma.
+\newblock From matrix inversion to constraints: Provably tighter confidence
+  regions for importance weights in label shift.
+\newblock \emph{arXiv preprint arXiv:2609.14802}, 2026.
+
+\bibitem[Lipton et~al.(2018)Lipton, Wang, and Smola]{lipton2018detecting}
+Zachary Lipton, Yu-Xiang Wang, and Alexander Smola.
+\newblock Detecting and correcting for label shift with black box predictors.
+\newblock In \emph{International Conference on Machine Learning}, pages
+  3122--3130, 2018.
+
+\bibitem[Liu et~al.(2025)Liu, Liu, Tian, Li, and Qin]{liu2025semiparametric}
+Siyan Liu, Yukun Liu, Qinglong Tian, Pengfei Li, and Jing Qin.
+\newblock Semiparametric learning from open-set label shift data.
+\newblock \emph{arXiv preprint arXiv:2509.14522}, 2025.
+
+\bibitem[Oquab et~al.(2024)Oquab, Darcet, Moutakanni, Vo, Szafraniec, Khalidov,
+  Fernandez, Haziza, Massa, El-Nouby, et~al.]{oquab2024dinov2}
+Maxime Oquab, Timoth{\'e}e Darcet, Th{\'e}o Moutakanni, Huy~V. Vo, Marc
+  Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel Haziza, Francisco Massa,
+  Alaaeldin El-Nouby, et~al.
+\newblock {DINOv2}: Learning robust visual features without supervision.
+\newblock \emph{Transactions on Machine Learning Research}, 2024.
+
+\bibitem[Podkopaev and Ramdas(2021)]{podkopaev2021distribution}
+Aleksandr Podkopaev and Aaditya Ramdas.
+\newblock Distribution-free uncertainty quantification for classification under
+  label shift.
+\newblock In \emph{Conference on Uncertainty in Artificial Intelligence}, 2021.
+
+\bibitem[Rabanser et~al.(2019)Rabanser, G{\"u}nnemann, and
+  Lipton]{rabanser2019failing}
+Stephan Rabanser, Stephan G{\"u}nnemann, and Zachary~C. Lipton.
+\newblock Failing loudly: An empirical study of methods for detecting dataset
+  shift.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2019.
+
+\bibitem[Radford et~al.(2021)Radford, Kim, Hallacy, Ramesh, Goh, Agarwal,
+  Sastry, Askell, Mishkin, Clark, Krueger, and Sutskever]{radford2021clip}
+Alec Radford, Jong~Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh,
+  Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark,
+  Gretchen Krueger, and Ilya Sutskever.
+\newblock Learning transferable visual models from natural language
+  supervision.
+\newblock In \emph{International Conference on Machine Learning}, 2021.
+
+\bibitem[Ramaswamy et~al.(2016)Ramaswamy, Scott, and
+  Tewari]{ramaswamy2016mixture}
+Harish~G. Ramaswamy, Clayton Scott, and Ambuj Tewari.
+\newblock Mixture proportion estimation via kernel embedding of distributions.
+\newblock In \emph{International Conference on Machine Learning}, 2016.
+
+\bibitem[Recht et~al.(2018)Recht, Roelofs, Schmidt, and
+  Shankar]{recht2018cifar}
+Benjamin Recht, Rebecca Roelofs, Ludwig Schmidt, and Vaishaal Shankar.
+\newblock Do {CIFAR}-10 classifiers generalize to {CIFAR}-10?
+\newblock \emph{arXiv preprint arXiv:1806.00451}, 2018.
+
+\bibitem[Saerens et~al.(2002)Saerens, Latinne, and
+  Decaestecker]{saerens2002adjusting}
+Marco Saerens, Patrice Latinne, and Christine Decaestecker.
+\newblock Adjusting the outputs of a classifier to new a priori probabilities:
+  A simple procedure.
+\newblock \emph{Neural Computation}, 14\penalty0 (1):\penalty0 21--41, 2002.
+
+\bibitem[Si et~al.(2024)Si, Park, Lee, Dobriban, and Bastani]{si2023pac}
+Wenwen Si, Sangdon Park, Insup Lee, Edgar Dobriban, and Osbert Bastani.
+\newblock {PAC} prediction sets under label shift.
+\newblock In \emph{International Conference on Learning Representations}, 2024.
+
+\bibitem[Tian et~al.(2023)Tian, Zhang, and Zhao]{tian2023elsa}
+Qinglong Tian, Xin Zhang, and Jiwei Zhao.
+\newblock {ELSA}: Efficient label shift adaptation through the lens of
+  semiparametric models.
+\newblock In \emph{International Conference on Machine Learning}, pages
+  34120--34142, 2023.
+
+\bibitem[Young(2026)]{young2026epistemic}
+Robin Young.
+\newblock Epistemic uncertainty is not the reducible kind.
+\newblock \emph{arXiv preprint arXiv:2606.12646}, 2026.
+
+\bibitem[Zhang et~al.(2013)Zhang, Sch{\"o}lkopf, Muandet, and
+  Wang]{zhang2013domain}
+Kun Zhang, Bernhard Sch{\"o}lkopf, Krikamol Muandet, and Zhikun Wang.
+\newblock Domain adaptation under target and conditional shift.
+\newblock In \emph{International Conference on Machine Learning}, 2013.
+
+\bibitem[Zhao et~al.(2021)Zhao, Liu, Anandkumar, and Yue]{zhao2021active}
+Eric Zhao, Anqi Liu, Animashree Anandkumar, and Yisong Yue.
+\newblock Active learning under label shift.
+\newblock In \emph{International Conference on Artificial Intelligence and
+  Statistics}, 2021.
+
+\end{thebibliography}

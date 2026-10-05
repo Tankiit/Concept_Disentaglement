@@ -1,0 +1,96 @@
+\section{When each width contracts}
+\label{sec:theory}
+
+Let $T=\{v\in\mathbb R^{K+1}:\mathbf 1^{\top}v=0\}$ be the tangent space of the simplex and
+\[
+\sigma(A)=\min_{v\in T,\ \lVert v\rVert_2=1}\lVert v^{\top}A\rVert_2
+\]
+the smallest singular value of the embedding map on weight changes: our measure of class
+distinguishability. $\sigma(A)>0$ iff the rows of $A$ are affinely independent, and
+$\sigma(A)\le s$, where $s=\operatorname{dist}(q,\operatorname{conv}\{A_k\}_{k\le K})$ separates the
+unseen slot from the known classes (\cref{app:proofs}). So whenever the unseen row is in $A$, every
+bound below that needs $\sigma>0$ also needs $s>0$. Proofs are in \cref{app:proofs}.
+
+\begin{lemma}[Ball inclusion]
+\label{lem:ball}
+Under (L1) an i.i.d.\ log and (L2) the deployment law in the declared family, $p^{*}=w^{*\top}A$,
+McDiarmid's inequality gives $\Pr(\lVert \hat p_n-p^{*}\rVert_2\le\varepsilon_n)\ge 1-\alpha$. If also
+(L3) $\lVert\hat A_k-A_k\rVert_2\le r$ for every row, then $w^{*}\in\mathcal W_n$, and every interval
+computed over $\mathcal W_n$, and over label-channel intervals that hold on their own events, contains
+its target.
+\end{lemma}
+
+\begin{proposition}[Prevalence contraction]
+\label{prop:bprime}
+On the event of \cref{lem:ball}, for every probe $x$,
+\[
+\Wcls(x)\le L(x)\,\frac{2(\varepsilon_n+r)}{\sigma(\hat A)},\qquad
+L(x)=\frac{2\sqrt{K}\max_{k\le K}\hat A_k(x)}{\min_{w\in\mathcal W_n}\sum_{j\le K}w_j\hat A_j(x)},
+\]
+provided (B$'$1) $\sigma(\hat A)>0$ and (B$'$2) the probe keeps known mass over the ball. Since
+$\sigma(\hat A)\ge\sigma(A)-\sqrt{K+1}\,r$, the bound is $O(n^{-1/2})$ with known rows and
+$O(n^{-1/2}+m^{-1/2})$ with rows from $m$ labels, as long as $\sigma(A)$ and the probe mass stay
+bounded away from zero.
+\end{proposition}
+
+\paragraph{Exchange rate.} Holding $\sigma(\hat A)$ and $L(x)$ fixed, the bound of \cref{prop:bprime}
+depends on the two acquisitions through the radius $\varepsilon_n+r_m$, with $\varepsilon_n\propto
+n^{-1/2}$ from the log and $r_m\propto m^{-1/2}$ from the references. At a budget $B$ with label price $c$
+the bound's radius factor therefore falls more under the log iff
+$\varepsilon_{n}-\varepsilon_{n+B}>r_m-r_{m+B/(cK)}$, so which acquisition tightens the bound more changes
+with the starting budgets and the price. This is a property of the bound, not of the width, and it is
+data-free. \Cref{sec:exp-exchange} tests whether it nevertheless predicts which acquisition tightens a
+certified interval the proposition does not cover.
+
+The constant shows where the proposition fails first: when rows are nearly affinely dependent
+($\sigma\to0$, which the resolution gate of \cref{sec:exp-protocol} measures), and when a probe
+carries little known mass, which is why one source per CIFAR-10 class is close to vacuous for rare
+classes (\cref{sec:exp-real}). The $m^{-1/2}$ term is the cross-effect of labels on $\Wcls$ seen on
+real data.
+
+\begin{proposition}[Label-information limit]
+\label{prop:b}
+Suppose (B1) frozen class-conditionals with known rows and (B2) $Y$ independent of the cell given the
+source. Then the law of the log does not depend on $\theta$. For any $\theta\neq\theta'$ and any
+interval procedure that uses only the log and covers at level $1-\alpha$ under both, both values lie
+in the interval with probability at least $1-2\alpha$, at every $n$; at a probe with known-source
+shares $\pi_k(x)$ the label-posterior interval therefore has width at least
+$|\sum_k\pi_k(x)(\theta_k-\theta'_k)|$ with that probability. With $m$ labels per source and a known
+symmetric flip rate $\eta<1/2$, the label-channel half-width is $O(\sqrt{\log(1/\alpha)/m}/(1-2\eta))$.
+\end{proposition}
+
+\Cref{prop:b} concerns $\theta$, the synthetic instance of $\Wlab$. On real data $\Wlab$ ranges over
+row entries, about which the log is not silent, so there its invariance to $n$ holds by
+construction (fixed anchor weights) and is not evidence for \cref{prop:b}. The proposition is the
+label-shift instance of the non-identification argument of \citet{young2026epistemic}.
+
+\begin{proposition}[Coverage: where it contracts and where it stops]
+\label{prop:c}
+On the event of \cref{lem:ball}, for a probe $x$ with $q(x)>0$:
+(i) if (C1) $\sigma(\hat A)>0$ with the unseen row included and (C2) the probe has positive mass under
+every $w\in\mathcal W_n$, then $\Wunk(x)\le L_{\mathrm{unk}}(x)\,2(\varepsilon_n+r)/\sigma(\hat A)$ with
+$L_{\mathrm{unk}}(x)=2\sqrt{K+1}\max_{j}\hat A_j(x)/\min_{w\in\mathcal W_n}w^{\top}\hat A(x)$, which
+vanishes as $n,m\to\infty$;
+(ii) if $q\in\operatorname{conv}\{A_k\}$ ($s=0$) and $w^{*}$ has slack, then at every $n$ the ball
+contains a segment of weights with the same marginal and different unseen mass, so $\Wunk(x)$ is
+bounded below by a positive constant that does not shrink with $n$;
+(iii) if some $w\in\mathcal W_n$ gives the probe zero mass, the interval is $[0,1]$ at every $n$.
+\end{proposition}
+
+The same segment changes the mix of known sources, so at a probe with $q(x)>0$ that two or more known
+sources share, the prevalence width (with true rows, or the joint interval) is generically bounded below
+as well; (B$'$1) fails because $\sigma\le s=0$.
+
+Support alone is therefore not enough: separation is needed too, measured in the encoder's cell
+space, and (iii) is a policy for an undefined posterior, not a theorem. The proposition takes $q$ as
+declared; with only an admissible class $\mathcal Q$ of unseen distributions the interval must also
+range over $\mathcal Q$, and identification then needs conditions of the kind studied for mixture
+proportion estimation and open-set label shift \citep{ramaswamy2016mixture,garg2022domain}. The
+bounds above concern plug-in widths; we do not claim a rate for the joint intervals.
+
+\paragraph{Machine-checked cores.} We verified in Lean~4 with Mathlib the deterministic step of
+\cref{lem:ball}, the diameter bound $\sigma\lVert w-w'\rVert\le2(\varepsilon_n+r)$ and the posterior
+Lipschitz bound behind \cref{prop:bprime}, the two-point argument of \cref{prop:b}, and the
+non-identification segment of \cref{prop:c}(ii) (\cref{app:lean}); each depends only on Lean's
+standard axioms. Not formalised: the concentration inequality, the $\ell_1$-to-$\ell_2$ constant, and
+the modelling step from (B1)--(B2) to equal log laws, which the Lean statement takes as a hypothesis.

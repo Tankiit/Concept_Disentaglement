@@ -1,0 +1,22 @@
+% generated from results/exchange_{synthetic,resnet50,clip}/summary.json and rows.csv.gz (prereg a70683e3)
+\begin{tabular}{lccc}
+\toprule
+ & synthetic & ResNet-50 & CLIP \\
+ & (blind) & (blind) & (seen) \\
+\midrule
+cells where labels are better & 14/27 & 4/27 & 4/27 \\
+predicted sign correct & 1.00 & 1.00 & 1.00 \\
+corr.\ predicted vs realised gain & 0.995 & 0.999 & 1.000 \\
+\midrule
+regret: REACH & 0.0019 & 0.0001 & 0.0001 \\
+\quad radius bookkeeping & 0.0019 & 0.0000 & 0.0001 \\
+\quad always log & 0.0540 & 0.0032 & 0.0035 \\
+\quad always labels & 0.0487 & 0.0411 & 0.0426 \\
+\quad ensemble MI (tuned) & 0.0224 & 0.0032 & 0.0035 \\
+REACH $-$ best constant, 95\% CI & $[-0.0514,-0.0424]$ & $[-0.0036,-0.0026]$ & $[-0.0040,-0.0028]$ \\
+\midrule
+tight width (vs.\ region) & 0.83 (0.79) & 0.90 (0.89) & 0.89 (0.88) \\
+tight $\le$ joint, share of probes & 1.00 & 1.00 & 1.00 \\
+tight inclusion (min over bases) & 1.00 & 1.00 & 1.00 \\
+\bottomrule
+\end{tabular}

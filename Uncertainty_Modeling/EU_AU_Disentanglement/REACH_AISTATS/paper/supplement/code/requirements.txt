@@ -1,0 +1,10 @@
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+matplotlib>=3.7
+cvxpy>=1.4
+clarabel>=0.6
+torch>=2.1          # feature extraction only
+torchvision>=0.16   # feature extraction only
+open_clip_torch>=2.20  # feature extraction only
+modal>=0.60         # optional: remote execution used for the paper's runs

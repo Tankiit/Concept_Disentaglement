@@ -1,0 +1,17 @@
+\begin{tabular}{lcccc}
+\toprule
+ & raw widths & budget-majority & REACH-pin & pin $-$ majority [95\% CI] \\
+\midrule
+C10 held-out, 3 encoders & 0.284 & 0.045 & 0.0016 & $-0.043$ $[-0.047, -0.039]$ \\
+C10 label shift, 3 encoders & 0.361 & 0.014 & 0.0012 & $-0.013$ $[-0.020, -0.007]$ \\
+C100 held-out, CLIP & 0.400 & 0.009 & 0.0115 & $+0.002$ $[-0.003, +0.008]$ \\
+C100 held-out, DINOv2 & 0.404 & 0.009 & 0.0028 & $-0.007$ $[-0.008, -0.005]$ \\
+C100 label shift, CLIP & 0.307 & 0.001 & 0.0126 & $+0.011$ $[+0.005, +0.018]$ \\
+C100 label shift, DINOv2 & 0.267 & 0.002 & 0.0041 & $+0.002$ $[-0.000, +0.005]$ \\
+Gaussian features, held-out & 0.213 & 0.057 & 0.0125 & $-0.044$ $[-0.063, -0.026]$ \\
+Classifier worlds (synthetic) & 0.266 & 0.022 & 0.0146 & $-0.007$ $[-0.010, -0.005]$ \\
+C10 label shift, $4\times$ acquisition & 0.042 & 0.005 & 0.0005 & $-0.005$ $[-0.009, -0.002]$ \\
+\midrule
+C10 pooled (registered P1) & 0.298 & 0.039 & 0.0015 & $-0.038$ $[-0.043, -0.033]$ \\
+\bottomrule
+\end{tabular}

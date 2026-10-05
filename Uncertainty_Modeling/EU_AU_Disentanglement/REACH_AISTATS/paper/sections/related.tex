@@ -1,0 +1,66 @@
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Prevalence under label shift.} EMQ \citep{saerens2002adjusting}, black-box shift
+estimation \citep{lipton2018detecting}, its regularised variant \citep{azizzadenesheli2019regularized},
+calibrated maximum likelihood \citep{alexandari2020maximum}, the unified view of
+\citet{garg2020unified}, semiparametric estimation \citep{tian2023elsa}, MMD class-ratio estimation
+\citep{iyer2014maximum} and distribution feature matching \citep{dussap2023label} estimate
+prevalence under frozen class-conditionals; with hard predictions as cells our ball is a confidence
+set for the black-box moment system. Finite-sample sets for it exist: \citet{si2023pac} propagate
+intervals through Gaussian elimination to build PAC prediction sets, \citet{li2026matrix} replace
+inversion by a constraint region solved by linear programs, account for an estimated confusion
+matrix, and bound the region's diameter, and \citet{podkopaev2021distribution} give conformal
+guarantees under label shift. Our prevalence width is the same kind of object; \cref{sec:exp-real}
+runs a constraint region after \citet{li2026matrix} side by side with ours. What we add is the label
+and coverage components, the attribution of each to an acquisition, and a test of that attribution.
+
+\paragraph{Unseen classes.} Under open-set label shift a new class arrives with unknown prevalence;
+\citet{garg2022domain} identify its proportion under separability, building on mixture proportion
+estimation \citep{ramaswamy2016mixture}, and \citet{liu2025semiparametric} give asymptotic intervals.
+Our coverage width uses a \emph{declared} unseen component and is closed-set: with $q$ declared,
+separation $s>0$ is all that \cref{prop:c} needs, whereas with $q$ unknown identification requires
+conditions such as separability \citep{garg2022domain} or a density-ratio model
+\citep{liu2025semiparametric}.
+
+\paragraph{Decomposing uncertainty and choosing data.} The aleatoric/epistemic split
+\citep{hullermeier2021aleatoric} is usually measured by mutual information between parameters and
+prediction \citep{depeweg2018decomposition}, estimated with ensembles \citep{lakshminarayanan2017simple};
+\citet{gruber2023sources} survey the sources of uncertainty from a statistician's view.
+\citet{young2026epistemic} argues that reducibility is relative to an acquisition class, separates
+uncertainty reducible by more of the same data from uncertainty reducible only by different data,
+and shows that ensemble disagreement need not track the epistemic term; our \cref{prop:b} is the
+label-shift instance of that argument. Our contribution relative to it is constructive: estimators
+with finite-sample inclusion for one deployment setting, their attribution to three acquisitions,
+and a test of whether that attribution chooses data well. Acquisition by information gain \citep{houlsby2011bayesian}, including under label shift
+\citep{zhao2021active}, chooses which inputs to label for a fixed model class, and active testing
+\citep{kossen2021active} chooses which points to label to evaluate a model; we choose between kinds of
+data (more log or more labels) at a price, and the quantity we value is the width of a certified
+interval rather than expected information. Detecting that the class-conditionals have moved is
+dataset-shift detection \citep{rabanser2019failing}; our incompatibility test is a conservative instance,
+and \cref{sec:exp-blindspot} shows that its power, not the widths, limits acquisition under shift.
+
+\begin{table}[t]
+\centering\small
+\caption{What each method provides. Guarantee: finite-sample inclusion at each budget. Acquisition:
+a rule for choosing between kinds of data (REACH: heuristic under shift, \cref{sec:exp-blindspot};
+radius-based under frozen class-conditionals, \cref{sec:exp-exchange}). $^\dagger$Prediction sets for
+labels, with exact guarantees under known importance weights. $^\ddagger$Under frozen class-conditionals,
+a data-free comparison of radii; it applies to the constraint region as well.}
+\label{tab:related}
+\setlength{\tabcolsep}{3pt}
+\resizebox{\columnwidth}{!}{\begin{tabular}{lcccccc}
+\toprule
+ & guarantee & prev. & labels & unseen & attribution & acquisition \\
+\midrule
+EMQ + bootstrap & -- & \checkmark & -- & -- & -- & -- \\
+BBSE / RLLS & -- & \checkmark & -- & -- & -- & -- \\
+\citet{si2023pac} & \checkmark & \checkmark & -- & -- & -- & -- \\
+\citet{podkopaev2021distribution} & sets$^\dagger$ & -- & -- & -- & -- & -- \\
+\citet{li2026matrix} & \checkmark & \checkmark & \checkmark & -- & -- & -- \\
+OSLS \citep{garg2022domain} & -- & \checkmark & -- & \checkmark & -- & -- \\
+Ensemble MI & -- & \multicolumn{3}{c}{one scalar} & -- & -- \\
+REACH & \checkmark & \checkmark & \checkmark & declared & \checkmark & radius rule$^\ddagger$ \\
+\bottomrule
+\end{tabular}}
+\end{table}
