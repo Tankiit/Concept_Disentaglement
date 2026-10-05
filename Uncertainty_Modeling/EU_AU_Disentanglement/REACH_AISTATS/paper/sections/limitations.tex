@@ -2,11 +2,9 @@
 \label{sec:limitations}
 
 REACH estimates no aleatoric uncertainty; its guarantees concern finitely many cells of a frozen
-classifier, hold per budget, and rest on the declared mixture family, and on real features its intervals
-are wide (\cref{sec:exp-real}). The raw widths are not on a common scale; the pinned rule fixes attribution
-but beats a constant only where several sources compete. Choosing log or labels per deployment is a radius
-exchange rate that data-free bookkeeping handles as well. Under shift the acquisition rule loses to a
-constant, and a stronger incompatibility test is the main open problem: with Gaussian features shifted
-inside the head's subspace (exploratory), inclusion is near $0.8$ at drift of one to two ball radii while
-the test is silent (\cref{fig:a4}). Separation in feature space need not survive the frozen head
-(\cref{fig:a3}). The unseen component is declared, and our data are one image family.
+classifier, hold per budget and rest on the declared mixture family; its real intervals, on one image
+family, are wide. The raw
+widths are not on a common scale; pinning makes attribution estimable but beats a constant only where
+several sources compete, and neither it nor the radius rule beats simple constants at choosing data. REACH is not a drift monitor: under an exploratory in-subspace Gaussian shift,
+inclusion is near $0.8$ at drift of one to two ball radii with the incompatibility test silent
+(\cref{fig:a4}). Feature-space novelty need not survive the frozen head (\cref{fig:a3}).

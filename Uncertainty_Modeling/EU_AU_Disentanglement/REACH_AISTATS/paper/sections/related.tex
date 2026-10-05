@@ -17,7 +17,7 @@ and coverage components, the attribution of each to an acquisition, and a test o
 
 \paragraph{Unseen classes.} Under open-set label shift a new class arrives with unknown prevalence;
 \citet{garg2022domain} identify its proportion under separability, building on mixture proportion
-estimation \citep{ramaswamy2016mixture}, and \citet{liu2025semiparametric} give asymptotic intervals.
+estimation \citep{ramaswamy2016mixture,blanchard2010semi}, and \citet{liu2025semiparametric} give asymptotic intervals.
 Our coverage width uses a \emph{declared} unseen component and is closed-set: with $q$ declared,
 separation $s>0$ is all that \cref{prop:c} needs, whereas with $q$ unknown identification requires
 conditions such as separability \citep{garg2022domain} or a density-ratio model
@@ -30,7 +30,11 @@ prediction \citep{depeweg2018decomposition}, estimated with ensembles \citep{lak
 \citet{young2026epistemic} argues that reducibility is relative to an acquisition class, separates
 uncertainty reducible by more of the same data from uncertainty reducible only by different data,
 and shows that ensemble disagreement need not track the epistemic term; our \cref{prop:b} is the
-label-shift instance of that argument. Our contribution relative to it is constructive: estimators
+label-shift instance of that argument, and the relative value of labelled and unlabelled samples under an
+unknown mixing parameter goes back to \citet{castelli1996relative}. Fixing a source to attribute uncertainty to it is the logic
+of partial perfect information \citep{felli1998sensitivity}, Sobol'--Shapley sensitivity \citep{owen2014sobol}
+and removal-based explanation \citep{covert2021explaining,watson2023explaining}; REACH-pin applies it to data
+acquisitions and certified intervals. Our contribution relative to it is constructive: estimators
 with finite-sample inclusion for one deployment setting, their attribution to three acquisitions,
 and a test of whether that attribution chooses data well. Acquisition by information gain \citep{houlsby2011bayesian}, including under label shift
 \citep{zhao2021active}, chooses which inputs to label for a fixed model class, and active testing
@@ -46,7 +50,8 @@ and \cref{sec:exp-blindspot} shows that its power, not the widths, limits acquis
 a rule for choosing between kinds of data (REACH: heuristic under shift, \cref{sec:exp-blindspot};
 radius-based under frozen class-conditionals, \cref{sec:exp-exchange}). $^\dagger$Prediction sets for
 labels, with exact guarantees under known importance weights. $^\ddagger$Under frozen class-conditionals,
-a data-free comparison of radii; it applies to the constraint region as well.}
+a data-free comparison of radii; it applies to the constraint region as well. $^\S$Per input, scored against an
+oracle (\cref{sec:exp-attribution}); pinning the log and rows also applies to the constraint region.}
 \label{tab:related}
 \setlength{\tabcolsep}{3pt}
 \resizebox{\columnwidth}{!}{\begin{tabular}{lcccccc}
@@ -60,7 +65,7 @@ BBSE / RLLS & -- & \checkmark & -- & -- & -- & -- \\
 \citet{li2026matrix} & \checkmark & \checkmark & \checkmark & -- & -- & -- \\
 OSLS \citep{garg2022domain} & -- & \checkmark & -- & \checkmark & -- & -- \\
 Ensemble MI & -- & \multicolumn{3}{c}{one scalar} & -- & -- \\
-REACH & \checkmark & \checkmark & \checkmark & declared & \checkmark & radius rule$^\ddagger$ \\
+REACH & \checkmark & \checkmark & \checkmark & declared & pinning$^\S$ & radius rule$^\ddagger$ \\
 \bottomrule
 \end{tabular}}
 \end{table}

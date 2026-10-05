@@ -144,8 +144,8 @@ of the deployment pool (the unseen row included); unseen, the constraint $w_{K+1
 use the current estimates instead: $w_0=\arg\min_w\operatorname{dist}(\hat p_n,\text{box}(w))$ and the
 nearest box point $x_0$ (log); $\hat A$ with tolerance $\max(\varepsilon_n,\text{best-fit residual})$ so the
 set is non-empty (rows); $w_{K+1}=w_{0,K+1}$ (unseen). A removal that empties the set is never named.
-Budget-majority and the logistic map of the widths are fitted on calibration seeds $0$--$9$; real evaluation
-seeds are $30$--$59$, run for the first time in this test. The finite-acquisition outcome compares the
+The per-budget modal rule and the logistic map of the widths are fitted on calibration seeds $0$--$9$; real
+evaluation seeds are $30$--$59$ (see \cref{app:deviations} on their prior use). The finite-acquisition outcome compares the
 realised narrowing from $n\to4n$ and $m\to4m$ at $m\in\{125,500\}$ on the CIFAR-10 label-shift settings.
 
 \paragraph{Classifier worlds.} $K$ known sources, \emph{per} cells per source and one outlier cell
@@ -163,7 +163,18 @@ $\lambda\in\{0,0.5,1\}$, three draws. They pass through exactly the head and aud
 Covariate shift adds $\tau v$ to the test features: in the registered design $v$ is a random unit vector,
 in the exploratory run it is $u_0$.
 
-\paragraph{Compute.} The synthetic study runs on a laptop CPU in minutes. Feature extraction ran on one
+\paragraph{Class-wise allocation.} Budget $B=K m_0$ new labelled references at a deployment; rules:
+uniform, proportional to the fitted prevalence, REACH-alloc (proportional to the mean narrowing of the tight
+interval when row $k$ is pinned at $\hat A_k$), and the same with true rows (reference). Allocations are
+integer, capped at the available stream (4000 per source on CIFAR), excess redistributed. Outcomes after
+acquiring: mean tight width over probes, and the $\ell_1$ error of the fitted known-source prevalences.
+Real: CIFAR-10 label shift (super4, classes; three encoders) and CIFAR-100, $n\in\{2000,32000\}$,
+$m_0\in\{125,500\}$, seeds 60--89 (never used before); synthetic: classifier worlds with $\lambda=1$,
+$m_0\in\{50,500\}$, seeds 10--19.
+
+\paragraph{Compute.} One tight-interval endpoint is a cone program with $K+1$ weights and $d$ cells; REACH-pin
+needs $8$--$16$ such programs per probe cell, about $50$--$180$ per deployment, each solved in milliseconds.
+\paragraph{Compute (runs).} The synthetic study runs on a laptop CPU in minutes. Feature extraction ran on one
 A10G GPU; the real audits and the blind-spot test ran on 32-core CPU containers, each in under an
 hour.
 
@@ -176,6 +187,19 @@ hour.
 \caption{Synthetic, world \emph{separated}. Left: $\Wcls$ (solid) and EMQ+bootstrap width (dotted)
 against $n$; dashed slope $-1/2$. Right: ball resolution, which must exceed $1$ at the smallest $n$.}
 \end{figure}
+
+\paragraph{Acquisition and exchange-rate details.} In the acquisition test (\cref{sec:exp-blindspot}) the
+registered contrast H1u (labels' advantage where REACH recommends them, unflagged cells) is $-0.049$
+($[-0.101,0.019]$) at 1:50, negative in three of five settings, and significantly negative at $M_0=10$ ($-0.078$,
+$[-0.152,-0.020]$); fixing the version-1 defects raised REACH's regret at 1:50 from $0.032$ to $0.084$. In the
+exchange-rate test, ``always more log'' is right in 23 of 27 real cells and so would pass E1 too; the
+predicted-versus-realised correlation of $0.995$--$1.000$ in \cref{tab:exchange} is over cell means with both
+actions pooled, and within cells it is $0.92$--$0.97$ on real features and $0.37$ for the synthetic label action.
+
+\paragraph{Shift band in detail.} In the exploratory in-subspace Gaussian shift at $\rho\in(1,2]$, $51\%$ of
+answered intervals are $[0,1]$; inclusion among the others is $0.58$, and on the drifted class's own cell it
+is $0.004$ at mean width $0.32$, with the incompatibility test silent. Head accuracy there has fallen to
+$0.64$, so a simple accuracy or label-distribution monitor would likely fire first.
 
 \paragraph{Second backbone.} With DINOv2 ViT-S/14 \citep{oquab2024dinov2} the head is $95.2\%$
 accurate and the resolution gate reads $1.22$ (super4) and $1.75$ (ten sources). 13 of 13 registered
@@ -208,9 +232,10 @@ inside the support is a property of the representation, not of the label hierarc
 \section{All pre-registered outcomes}
 \label{app:outcomes}
 
-\Cref{tab:outcomes-early,tab:outcomes-late} list every registered prediction with its outcome. Of the 24
-directional claims registered for the attribution, Gaussian-feature and dose-response studies, 17 hold and
-7 fail; the failures and their likely causes are plotted in \cref{fig:a1,fig:a2,fig:a3,fig:a4,fig:a5,fig:a6}.
+\Cref{tab:outcomes-early,tab:outcomes-late} list every registered prediction with its outcome. Of the 28
+directional claims registered for the attribution, Gaussian-feature, dose-response and allocation studies,
+17 hold and 11 fail; the failures and their likely causes are plotted in
+\cref{fig:a1,fig:a2,fig:a3,fig:a4,fig:a5,fig:a6,fig:a7}.
 Numbers are evaluation-seed means; brackets are 95\% bootstrap intervals.
 
 \begin{table}[!htbp]
@@ -235,7 +260,7 @@ Exchange rate E1--E4 & all hold on synthetic and blind ResNet-50 & PASS \\
 \centering\footnotesize
 \caption{Registered outcomes of the attribution (v1, v2), Gaussian-feature (G) and dose-response (D)
 studies. Pre-registrations: \texttt{real/bridge\_prereg.py}, \texttt{real/bridge2\_prereg.py} with
-\texttt{real/bridge2\_amendment.py}, \texttt{real/gauss\_dose\_prereg.py}.}
+\texttt{real/bridge2\_amendment.py}, \texttt{real/gauss\_dose\_prereg.py}, \texttt{real/alloc\_prereg.py} (AL).}
 \label{tab:outcomes-late}
 \begin{tabular}{p{4.6cm}p{7.6cm}p{1.2cm}}
 \toprule
@@ -246,13 +271,14 @@ v1 D1: $\Wcls$ falls with $\sigma(\hat A)$ & coefficient $+1.10$ $[1.02,1.23]$; 
 v1 D2: $\Wunk$ falls with $s$ (40 candidates) & Spearman $-0.03$ $[-0.14,0.11]$; pooled across $K$ (\cref{fig:a3}) & FAIL \\
 v1 D3: $\Wlab$ includes, tracks row error & inclusion $1.000$; positive in 21/24 & PASS \\
 v1 D4: drift ratio $\rho$ vs inclusion, flag & Spearman $-0.72$, $+0.65$ (\cref{fig:a4}) & PASS \\
+v1 D4 (descriptive) & shift limits $62.5\%$ of answered inputs; the flag fires on none of them; no width names it & reported \\
 v2 P1: REACH-pin beats budget-majority (C10) & $-0.038$ $[-0.043,-0.033]$ & PASS \\
-v2 P2/P3: same, classifier worlds; accuracy $\ge0.7$ & $-0.0075$ $[-0.010,-0.005]$; $0.91$ & PASS \\
-v2 P4: same, $4\times$ acquisition & $-0.005$ $[-0.009,-0.002]$ & PASS \\
+v2 P2/P3: same, classifier worlds; accuracy $\ge0.7$ & $-0.0075$ $[-0.010,-0.005]$; $0.91$. Rests on $m=5\cdot10^4$, added in the amendment: without it $-0.0001$ $[-0.003,0.002]$ & PASS \\
+v2 P4: same, $4\times$ acquisition (CIFAR-10) & $-0.0067$ $[-0.011,-0.003]$, but ties always-labels ($-0.00001$ $[-0.00005,0.0000]$) and radius bookkeeping ($-0.0012$ $[-0.0027,0.0003]$); $43\%$ exact ties & PASS (tie with constants) \\
 v2 P6: inclusion $\ge0.95$ & $1.000$ in every arm & PASS \\
 G1: REACH-pin beats budget-majority & $-0.044$ $[-0.063,-0.026]$ & PASS \\
 G2: inclusion & $1.000$ & PASS \\
-G3: $\rho$ vs inclusion, flag & registered shifts too weak ($\rho\le0.35$), flag never fires (\cref{fig:a4}) & FAIL \\
+G3: $\rho$ vs inclusion, flag & registered shifts too weak (mean $\rho$ per unit $0.13$, max $1.74$), flag never fires (\cref{fig:a4}) & FAIL \\
 G4a: $\Wcls$ falls with $\Delta$ & Spearman $-0.89$ $[-0.94,-0.77]$ & PASS \\
 G4b: $\Wunk$ falls with $s$ & Spearman $+0.41$ $[0.28,0.57]$; $s\le0.2$ in every world (\cref{fig:a3}) & FAIL \\
 Dcls-1: $n$-rate of $\Wcls$ in $[-0.75,-0.25]$ & $-0.40$ $[-0.41,-0.38]$ & PASS \\
@@ -262,7 +288,11 @@ Dlab-1: $\Wlab$ monotone in $\eta$ (Spearman $=1$ in $\ge80\%$) & $67\%$; non-de
 Dlab-2: label-interval inclusion & $1.000$ at every $\eta$ & PASS \\
 Dlab-3: $\Wlab$ tracks realised error & Spearman $0.30$, positive in 36/36 & PASS \\
 Dunk-1: $\Wunk$ falls with $s$, $K$ fixed & Spearman $-0.97$ $[-0.97,-0.94]$ (\cref{fig:a3}) & PASS \\
-Dunk-2: no contraction at $s=0$; contraction for large $s$ & slopes $-0.095$ (bound $-0.1$, narrowly) and $-0.53$ & PASS \\
+Dunk-2: no contraction at $s=0$; contraction for large $s$ & slopes $-0.095$ $[-0.108,-0.084]$ (point above $-0.1$, CI straddles it) and $-0.53$; at $s=0$ the width approaches the identified-set floor $0.394$ & PASS \\
+AL1: allocation by pinned gains narrows width vs uniform and proportional (C10) & vs uniform $-0.0018$ $[-0.0043,0.0005]$; vs proportional $+0.0026$ $[0.0008,0.0048]$ (\cref{fig:a7}) & FAIL \\
+AL2: same, synthetic & vs uniform $-0.0021$ $[-0.0031,-0.0012]$; vs proportional $+0.0002$ $[-0.0004,0.0009]$ & FAIL \\
+AL3: lower prevalence error vs uniform (C10) & $-0.0005$ $[-0.0016,0.0006]$ & FAIL \\
+AL4: same, synthetic & $+0.0035$ $[0.0008,0.0073]$ & FAIL \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -271,9 +301,10 @@ Dunk-2: no contraction at $s=0$; contraction for large $s$ & slopes $-0.095$ (bo
 \centering
 \includegraphics[width=.9\textwidth]{figures/figA1_attribution.pdf}
 \caption{Oracle regret of naming the limiting source, per setting (log scale near $0$). REACH-pin beats
-budget-majority on every CIFAR-10 setting, the Gaussian world, the classifier worlds and the $4\times$
-acquisition outcome; on CIFAR-100, where the rows limit 90--99\% of inputs, it ties twice and loses once
-(CI excluding $0$). The raw-width argmax is worst everywhere.}
+the per-budget modal rule on every CIFAR-10 setting, the Gaussian world and the classifier worlds; on
+CIFAR-100, where the rows limit 90--99\% of inputs, it ties twice and loses once (CI excluding $0$). Last row:
+realised narrowing from $4\times$ more log or labels (CIFAR-10), where it ties always-labels. The raw-width
+argmax is worst everywhere.}
 \label{fig:a1}
 \end{figure}
 
@@ -291,7 +322,8 @@ $\sigma$ but smaller per-class mass. Right (Dcls-2, passed): with $K=4$ fixed, $
 \includegraphics[width=\textwidth]{figures/figA3_separation.pdf}
 \caption{Coverage width and separation in cell space. Left (v1 D2, failed pooled): real held-out classes;
 within CIFAR-100 ($K=2$) the width falls with $s$. Centre (G4b, failed): Gaussian features; the head's PCA
-projects the novel direction away, so $s\le0.2$ and the width follows how diffusely the novel class spreads.
+projects the novel direction away, so $s\le0.2$ and the width follows how diffusely the novel class spreads
+(a known effect of heads fitted on known classes; cf.\ \citealp{wang2022vim,vanamersfoort2020uncertainty}).
 Right (Dunk-1, passed): categorical worlds with $K=4$ fixed.}
 \label{fig:a3}
 \end{figure}
@@ -319,10 +351,19 @@ registered ``Spearman $=1$'' criterion.}
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=.9\textwidth]{figures/figA6_pin_limits.pdf}
-\caption{Where REACH-pin does not help (classifier worlds). Left: with $m=50$ labels per source the rows
-limit almost every input and the pinned rows are poor, so pinning loses to budget-majority. Right: by
-placement of the unseen source.}
+\caption{Where REACH-pin does not help (classifier worlds). Left: with $m=50$ labels per source the
+modal rule is near-perfect and pinning loses; it wins at every $m\ge500$, and the pooled win rests on
+$m=5\cdot10^4$. Right: by placement of the unseen source.}
 \label{fig:a6}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.9\textwidth]{figures/figA7_allocation.pdf}
+\caption{Class-wise label allocation (AL1--AL4, failed). Mean paired difference of REACH-alloc minus each
+rule, after acquiring the labels, with two-way bootstrap 95\% intervals. Left: certified width. Right:
+prevalence error. Allocation by oracle pins (grey) is no better than by estimated pins.}
+\label{fig:a7}
 \end{figure}
 
 \clearpage
@@ -402,5 +443,16 @@ classifier-like worlds and larger label budgets before any claim was scored. The
 smoke runs and a width probe on single worlds that used seed 5, an evaluation seed. The amendment's
 docstring states ``$\sim$15:40''; the file was written at 15:01, before the run launched.
 \item The in-subspace Gaussian shift (\cref{fig:a4}, right) was run after the registered shift design
-failed and is exploratory.
+failed and is exploratory; its run manifest nevertheless carries the registration's hash.
+\item P4 (finite acquisition) was registered on CIFAR-10 settings, but the run's name filter also matched
+the CIFAR-100 settings; the numbers first reported pooled both. All P4 numbers here are rescored on CIFAR-10
+only. Comparisons with always-labels, always-log and radius bookkeeping, the share of exact ties, and results
+on non-vacuous probes were added after round-4 review and are not registered.
+\item Smoke runs of attribution v2 used real seeds 30--56 (24 episodes per part) and were inspected for code
+correctness only, before the full run; seeds 30--49 had also appeared in the \cref{sec:exp-real} audits, so
+the v2 real evaluation seeds are not fresh in the strict sense. The amendment's width probe used synthetic
+evaluation seed 5, and the largest label budget $m=5\cdot10^4$ was added after that probe showed the rows
+dominating, explicitly to give the log a chance to dominate; P2 rests on that budget.
+\item \texttt{real/dose.py} was edited 17\,s after its rows were written, to fix a type error in the analysis;
+the shipped code reproduces the rows exactly.
 \end{enumerate}

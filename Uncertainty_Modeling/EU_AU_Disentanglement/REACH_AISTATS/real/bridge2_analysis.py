@@ -45,6 +45,8 @@ def choices(df, srcs, truth, cal, width_cols):
     out = dict(REACH_pin=argmax_cols(df, [f'P_{s}' for s in srcs], list(srcs)),
                REACH=argmax_cols(df, width_cols, list(srcs)),
                radius=np.where(df.eps > df.r_entry, 'log', 'rows'))
+    for src in srcs:
+        out[f'always_{src}'] = np.full(len(df), src)
     key = pd.Series(list(zip(df.setting, df.n, df.m)), index=df.index)
     maj = pd.Series(truth[cal]).groupby(key[cal].to_numpy()).agg(lambda s: s.value_counts().index[0])
     glob = pd.Series(truth[cal]).value_counts().index[0]
@@ -101,7 +103,16 @@ def evaluate_block(df, cal_seeds, eval_seeds, prefix='D', finite=False):
                                        share=pd.Series(c[pos]).value_counts(normalize=True).round(3).to_dict())
     res['contrasts'] = {f'{a} - {b}': boot_contrast(ev, a, b, 'cluster')
                         for a, b in (('REACH_pin', 'budget_majority'), ('REACH_pin', 'REACH_cal'),
-                                     ('REACH_pin', 'REACH'), ('REACH_pin', 'radius'))}
+                                     ('REACH_pin', 'REACH'), ('REACH_pin', 'radius'),
+                                     ('REACH_pin', 'always_rows'))}
+    # Reported after round 4 (not registered): exact ties between sources, and non-vacuous probes.
+    gains = ev[[f'{prefix}_{s}' for s in srcs]].to_numpy(float)
+    gains = np.where(np.isfinite(gains), gains, -np.inf)
+    res['tie_share'] = float(np.mean(np.sum(np.isclose(gains, gains.max(1, keepdims=True), atol=1e-9), 1) > 1))
+    nv = ev[ev.W < .99]
+    res['vacuous_share'] = float(np.mean(ev.W >= .99))
+    if len(nv) > 50:
+        res['non_vacuous'] = dict(n_eval=int(len(nv)), **{name: float(nv[f'reg_{name}'].mean()) for name in ch})
     return res, ev
 
 
@@ -132,7 +143,9 @@ def analyse_all(root):
         out['P1_c10_pooled']['passes'] = out['P1_c10_pooled']['contrasts']['REACH_pin - budget_majority']['ci95'][1] < 0
         for (data, arm, enc), g in real.groupby(['data', 'arm', 'encoder']):
             blocks[f'P1_{data}_{arm}_{enc}'] = evaluate_block(g, rc, re_)[0]
-        fin = real[real.F_log.notna()] if 'F_log' in real else real.iloc[:0]
+        # P4 is registered on CIFAR-10 label-shift settings only; bridge2.py's name filter ('L/c10')
+        # also matched 'L/c100', so CIFAR-100 rows carry F columns and are dropped here (deviation).
+        fin = real[real.F_log.notna() & (real.data == 'c10')] if 'F_log' in real else real.iloc[:0]
         if len(fin):
             r, _ = evaluate_block(fin, rc, re_, prefix='F', finite=True)
             r['passes'] = r['contrasts']['REACH_pin - budget_majority']['ci95'][1] < 0

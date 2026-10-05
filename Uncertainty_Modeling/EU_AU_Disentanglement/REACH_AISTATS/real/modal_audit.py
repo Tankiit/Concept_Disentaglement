@@ -149,3 +149,22 @@ def gauss(arms: str = 'held_out shift'):
 def gauss_explore():
     """EXPLORATORY: shift inside the head's subspace, larger tau."""
     print(gauss_remote.remote('shift', '--shift-dir mean --taus 0 0.5 1 2 4 8', 'shift_explore_mean'))
+
+
+@app.function(image=image, volumes={'/vol': volume}, cpu=32, memory=65536, timeout=8*3600)
+def alloc_remote(part: str):
+    import os, subprocess
+    os.makedirs('/root/reach/cache', exist_ok=True)
+    if not os.path.exists('/root/reach/cache/features'):
+        os.symlink('/vol/features', '/root/reach/cache/features')
+    subprocess.run(['python', '-m', 'real.alloc', '--part', part, '--out', f'/vol/results/alloc/{part}'],
+                   cwd='/root/reach', check=True)
+    volume.commit()
+    return part
+
+
+@app.local_entrypoint()
+def alloc(parts: str = 'c10_clip c10_dinov2 c10_resnet50 c100_clip c100_dinov2 syn_K3_p1 syn_K3_p3 syn_K6_p1 '
+                       'syn_K6_p2 syn_K10_p1'):
+    for done in alloc_remote.map(parts.split(), return_exceptions=True, wrap_returned_exceptions=False):
+        print('finished', done, flush=True)

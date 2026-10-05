@@ -54,32 +54,35 @@ def attribution_rows(per_encoder=True):
             continue
         name = ('C10' if data == 'c10' else 'C100')+(' held-out' if arm == 'held_out' else ' label shift')
         name += f', {ENC[enc]}' if enc else ', 3 encoders'
-        p = r['predictors']
-        rows.append((name, data, p['REACH']['regret'], p['budget_majority']['regret'], p['REACH_pin']['regret'],
-                     r['contrasts']['REACH_pin - budget_majority']))
-    p = g['G1']['predictors']
-    rows.append(('Gaussian features, held-out', 'gauss', p['REACH']['regret'], p['budget_majority']['regret'],
-                 p['REACH_pin']['regret'], g['G1']['contrasts']['REACH_pin - budget_majority']))
-    s = b2['P2_P3_synthetic']; p = s['predictors']
-    rows.append(('Classifier worlds (synthetic)', 'syn', p['REACH']['regret'], p['budget_majority']['regret'],
-                 p['REACH_pin']['regret'], s['contrasts']['REACH_pin - budget_majority']))
-    f = b2['P4_finite']; p = f['predictors']
-    rows.append(('C10 label shift, $4\\times$ acquisition', 'fin', p['REACH']['regret'], p['budget_majority']['regret'],
-                 p['REACH_pin']['regret'], f['contrasts']['REACH_pin - budget_majority']))
+        rows.append(_row(name, data, r))
+    rows.append(_row('Gaussian features, held-out', 'gauss', g['G1']))
+    rows.append(_row('Classifier worlds (synthetic)', 'syn', b2['P2_P3_synthetic']))
+    rows.append(_row('C10 label shift, $4\\times$ acquisition', 'fin', b2['P4_finite']))
     return rows
+
+
+def _row(name, data, r):
+    """(label, data, raw, modal, pin, contrast, radius, always_rows)."""
+    p = r['predictors']
+    return (name, data, p['REACH']['regret'], p['budget_majority']['regret'], p['REACH_pin']['regret'],
+            r['contrasts']['REACH_pin - budget_majority'], p['radius']['regret'], p['always_rows']['regret'])
 
 
 def table_attribution():
     b2 = J('bridge2/analysis.json')
     P1 = b2['P1_c10_pooled']
-    lines = [r'\begin{tabular}{lcccc}', r'\toprule',
-             r' & raw widths & budget-majority & REACH-pin & pin $-$ majority [95\% CI] \\', r'\midrule']
-    for label, data, raw, maj, pin, con in attribution_rows(per_encoder=False):
+    lines = [r'\begin{tabular}{lcccccc}', r'\toprule',
+             r' & raw widths & radius & always rows & modal & REACH-pin & pin $-$ modal [95\% CI] \\', r'\midrule']
+    for label, data, raw, maj, pin, con, rad, rows_ in attribution_rows(per_encoder=False):
+        if data == 'fin':
+            continue  # the 4x acquisition outcome is reported in the appendix (tie with always-rows)
         ci = con['ci95']
-        lines.append(f'{label} & {raw:.3f} & {maj:.3f} & {pin:.4f} & ${con["point"]:+.3f}$ $[{ci[0]:+.3f}, {ci[1]:+.3f}]$ \\\\')
+        lines.append(f'{label} & {raw:.3f} & {rad:.3f} & {rows_:.3f} & {maj:.3f} & {pin:.4f} & '
+                     f'${con["point"]:+.3f}$ $[{ci[0]:+.3f}, {ci[1]:+.3f}]$ \\\\')
     c = P1['contrasts']['REACH_pin - budget_majority']
     lines += [r'\midrule',
-              f'C10 pooled (registered P1) & {P1["regret"]["REACH"]:.3f} & {P1["regret"]["budget_majority"]:.3f} & '
+              f'C10 pooled (registered P1) & {P1["regret"]["REACH"]:.3f} & {P1["regret"]["radius"]:.3f} & '
+              f'{P1["regret"]["always_rows"]:.3f} & {P1["regret"]["budget_majority"]:.3f} & '
               f'{P1["regret"]["REACH_pin"]:.4f} & ${c["point"]:+.3f}$ $[{c["ci95"][0]:+.3f}, {c["ci95"][1]:+.3f}]$ \\\\',
               r'\bottomrule', r'\end{tabular}']
     (TAB/'attribution.tex').write_text('\n'.join(lines)+'\n')
@@ -90,18 +93,20 @@ def figA1():
     rows = attribution_rows()
     fig, ax = plt.subplots(figsize=(7, 3.2))
     y = np.arange(len(rows))[::-1]
-    for i, (lab, data, raw, maj, pin, con) in enumerate(rows):
+    for i, (lab, data, raw, maj, pin, con, rad, rws) in enumerate(rows):
         ax.plot([maj, raw], [y[i]]*2, color='#dddddd', lw=1, zorder=0)
     ax.scatter([r[2] for r in rows], y, color=C['raw'], label='raw widths (argmax $W_{cls},W_{label},W_{unk}$)', s=18)
-    ax.scatter([r[3] for r in rows], y, color=C['maj'], marker='s', label='budget-majority (input-independent)', s=18)
+    ax.scatter([r[3] for r in rows], y, color=C['maj'], marker='s', label='per-budget modal (input-independent)', s=18)
     ax.scatter([r[4] for r in rows], y, color=C['pin'], marker='D', label='REACH-pin', s=18)
     ax.set_yticks(y); ax.set_yticklabels([r[0].replace('$4\\times$', '4x') for r in rows])
     ax.set_xscale('symlog', linthresh=.01); ax.set_xlim(0, .6)
-    ax.set_xlabel('oracle regret (width units; lower is better), evaluation seeds')
+    ax.set_xlabel('regret in width units (oracle removal; last row: realised 4x acquisition); lower is better')
     ax.legend(loc='upper center', bbox_to_anchor=(.45, 1.16), ncol=3, frameon=False)
     for i, r in enumerate(rows):
         lo, hi = r[5]['ci95']
         tag = 'pin loses' if lo > 0 else ('tie' if hi >= 0 else None)
+        if r[1] == 'fin':
+            tag = 'ties always-rows'
         if tag:
             ax.annotate(tag, (r[4], y[i]), xytext=(4, 4), textcoords='offset points', fontsize=6, color=C['raw'])
     save(fig, 'figA1_attribution.pdf')
@@ -219,7 +224,27 @@ def figA6():
     save(fig, 'figA6_pin_limits.pdf')
 
 
+def figA7():
+    a = J('alloc/analysis.json')
+    arms = [('real_c10', 'CIFAR-10'), ('synthetic', 'classifier worlds'), ('real_c100', 'CIFAR-100')]
+    comps = [('uniform', 'vs uniform', C['maj']), ('proportional', 'vs proportional', C['cal']),
+             ('oracle', 'vs oracle pins', '#bbbbbb')]
+    fig, axs = plt.subplots(1, 2, figsize=(7, 2.4))
+    for ax, (O, title) in zip(axs, (('O1', 'certified width (lower is better)'), ('O2', 'prevalence error (lower is better)'))):
+        for j, (key, lab, col) in enumerate(comps):
+            for i, (arm, _) in enumerate(arms):
+                c = a[arm][O][f'reach - {key}']
+                x = i+(j-1)*.25
+                ax.errorbar(x, c['point'], yerr=[[c['point']-c['ci95'][0]], [c['ci95'][1]-c['point']]],
+                            fmt='o', color=col, ms=4, capsize=2, label=lab if i == 0 else None)
+        ax.axhline(0, color='k', lw=.6)
+        ax.set_xticks(range(len(arms))); ax.set_xticklabels([n for _, n in arms])
+        ax.set_title(f'REACH-alloc minus rule: {title}', fontsize=7)
+    axs[0].legend(frameon=False, fontsize=6)
+    save(fig, 'figA7_allocation.pdf')
+
+
 if __name__ == '__main__':
     table_attribution()
-    for f in (figA1, figA2, figA3, figA4, figA5, figA6):
+    for f in (figA1, figA2, figA3, figA4, figA5, figA6, figA7):
         f()

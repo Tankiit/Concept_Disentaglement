@@ -56,13 +56,15 @@ A_j(x)\}$, still a cone constraint and valid on the same event, since the true m
 This is the constraint region of \citet{li2026matrix} with its per-cell tolerance on the log replaced by
 the Euclidean MMD tolerance; it is ``tight'' only in counting reference error once, not in being sharp.
 Joint intervals carry \emph{inclusion} of the target (we reserve ``coverage'' for the width $\Wunk$);
-the three widths carry attribution.
+the three widths name the sources, and attribution on a common scale is by pinning.
 
 \paragraph{Attribution by pinning.} The three widths range over different posteriors, so their largest
-need not name the source that limits the certified interval (\cref{sec:exp-attribution}). REACH-pin
-re-solves the tight joint interval with one source pinned at its current estimate, the log (histogram moved
-to the nearest feasible point, tolerance $0$), the rows ($\hat A$), or the unseen mass (its nearest feasible
-value), and names the source whose pinning narrows the interval most. Nothing is fitted.
+need not name the source that limits the certified interval (\cref{sec:exp-attribution}). REACH-pin takes
+the tight joint interval of $P(\text{source}=\hat y(x)\mid x)$ over all sources and re-solves it with one
+source pinned at its current estimate, the log (histogram moved to the nearest feasible point, tolerance
+$0$), the rows ($\hat A$), or the unseen mass (its nearest feasible value), naming the source whose pinning
+narrows the interval most. Nothing is fitted; pinning the log or the rows applies to the constraint region
+of \citet{li2026matrix} as well, and only the unseen pin needs the declared component.
 
 \paragraph{From widths to an acquisition.} At budget $B$, with one label costing $c$ unlabelled inputs,
 REACH predicts how more log or more labels would change the joint width, holding current estimates

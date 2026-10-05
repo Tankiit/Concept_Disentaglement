@@ -52,6 +52,8 @@ that tightens a certified interval more; on real features the gain over always b
 the choice is per deployment rather than per input, and data-free bookkeeping of the two radii does as
 well as the full method (\cref{sec:exp-exchange}).
 \item A per-input attribution scored against an oracle: the argmax of the widths fails, and a registered
-pinned-estimate rule beats the best input-independent rule on CIFAR-10, Gaussian-feature and synthetic
-worlds (\cref{sec:exp-attribution}). All registered outcomes, failures included, are in \cref{app:outcomes}.
+pinned-estimate rule names the limiting source better than any input-independent rule on CIFAR-10,
+Gaussian-feature and synthetic worlds; but neither it nor a registered class-wise label allocation built on
+it improves an acquisition outcome over simple constants (\cref{sec:exp-attribution}). All registered
+outcomes, failures included, are in \cref{app:outcomes}.
 \end{itemize}
