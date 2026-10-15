@@ -1,0 +1,22 @@
+{
+	"nodes": [
+		{"id": "n1", "type": "text", "text": "## Inputs\n- Unlabelled **log**\n- **Labeled reference**\n- Frozen classifier\n- Declared mixture family + acquisition protocol", "x": -560, "y": -120, "width": 300, "height": 180, "color": "4"},
+		{"id": "n2", "type": "text", "text": "## MMD ball\nDensities the log **cannot exclude**:\nprevalences of K known sources\n+ unseen-class slot\n(`--set l2` = exact)", "x": -160, "y": -120, "width": 300, "height": 180, "color": "4"},
+		{"id": "n3", "type": "text", "text": "## LP intervals\nEvery quantity a certified range\n(Charnes–Cooper).\nJoint intervals carry **inclusion**.", "x": 240, "y": -120, "width": 300, "height": 180, "color": "4"},
+		{"id": "n4", "type": "text", "text": "## Three widths (per cell x)\n- W_cls — prevalence → more **log**\n- W_lab — label → more **labels**\n- W_unk — coverage → **discovery**\nAttribution by **pinning**", "x": 640, "y": -120, "width": 320, "height": 200, "color": "6"},
+		{"id": "n5", "type": "text", "text": "## Acquisition decision\nBudget B, label cost c:\nwhich data shrinks the joint width\n(matched arms guardrail)", "x": 640, "y": 180, "width": 320, "height": 160, "color": "6"},
+		{"id": "n6", "type": "text", "text": "## Evidence\n- gates.py kill rules\n- Synthetic response matrix\n- Real CLIP audit\n- Prereg registry (real/)", "x": 240, "y": 180, "width": 300, "height": 160, "color": "5"},
+		{"id": "n7", "type": "text", "text": "## AISTATS 2027\nmain.tex + sections\nLean (Reach.lean)\nmain_submission.pdf + supplement", "x": -160, "y": 180, "width": 300, "height": 160, "color": "5"},
+		{"id": "n8", "type": "text", "text": "# REACH\nWhich data would reduce\nthis uncertainty?", "x": -560, "y": 180, "width": 300, "height": 160, "color": "3"}
+	],
+	"edges": [
+		{"id": "e1", "fromNode": "n1", "fromSide": "right", "toNode": "n2", "toSide": "left"},
+		{"id": "e2", "fromNode": "n2", "fromSide": "right", "toNode": "n3", "toSide": "left"},
+		{"id": "e3", "fromNode": "n3", "fromSide": "right", "toNode": "n4", "toSide": "left"},
+		{"id": "e4", "fromNode": "n4", "fromSide": "bottom", "toNode": "n5", "toSide": "top"},
+		{"id": "e5", "fromNode": "n6", "fromSide": "top", "toNode": "n3", "toSide": "bottom", "label": "validates"},
+		{"id": "e6", "fromNode": "n7", "fromSide": "top", "toNode": "n2", "toSide": "bottom", "label": "formalizes"},
+		{"id": "e7", "fromNode": "n6", "fromSide": "left", "toNode": "n7", "toSide": "right"},
+		{"id": "e8", "fromNode": "n8", "fromSide": "top", "toNode": "n1", "toSide": "bottom"}
+	]
+}
