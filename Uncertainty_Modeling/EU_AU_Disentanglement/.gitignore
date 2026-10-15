@@ -6,8 +6,7 @@
 # collaborator-facing documents are tracked; the internal AISTATS evidence plan and
 # PAPER_PLAN stay local.
 *.md
-!README.md
-!COLLABORATOR_PLAN.md
+*.MD
 VALIDATION.json
 
 # Generated experiment output. A single pilot run is ~1.2 MB of rows.csv/JSON/PNG and

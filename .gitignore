@@ -40,6 +40,14 @@ venv.bak/
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 
+# Markdown files (no MD in git)
+*.md
+*.MD
+
+# Obsidian vault & canvas
+.obsidian/
+*.canvas
+
 # Pytest / coverage / linters
 .pytest_cache/
 .coverage
@@ -71,13 +79,6 @@ logs/
 
 # Lean / Lake build artifacts
 .lake/
-
-# Obsidian workspace & local cache (keep markdown notes, canvas, app.json)
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.obsidian/cache/
-.obsidian/indexeddb/
-.obsidian/local/
 
 # OS generated files
 .DS_Store
