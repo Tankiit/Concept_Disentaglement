@@ -1,13 +1,57 @@
-# Byte-compiled / optimized / DLL files
+# ==============================================================================
+# Global .gitignore: Only important source code & configurations to be committed
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Documentation & Notes (Strictly ignore all Markdown & Obsidian vault)
+# ------------------------------------------------------------------------------
+*.md
+*.MD
+*.markdown
+.obsidian/
+*.canvas
+
+# ------------------------------------------------------------------------------
+# 2. Local uploads, temporary staging, and cloud transfer folders
+# ------------------------------------------------------------------------------
+drive_upload/
+*_upload/
+upload/
+uploads/
+tmp/
+temp/
+*.tmp
+
+# ------------------------------------------------------------------------------
+# 3. Machine Learning data, feature caches, weights, checkpoints & logs
+# ------------------------------------------------------------------------------
+*.npz
+*.npy
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.bin
+*.onnx
+cache/
+checkpoints/
+results/
+wandb/
+runs/
+logs/
+data_cache/
+
+# ------------------------------------------------------------------------------
+# 4. Python bytecode, compilation, and package artifacts
+# ------------------------------------------------------------------------------
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-
-# C extensions
-*.so
-
-# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -27,7 +71,9 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Virtual environments
+# ------------------------------------------------------------------------------
+# 5. Virtual environments & package managers
+# ------------------------------------------------------------------------------
 .env
 .venv
 env/
@@ -36,19 +82,15 @@ ENV/
 env.bak/
 venv.bak/
 
-# Jupyter Notebook
+# ------------------------------------------------------------------------------
+# 6. Jupyter Notebook checkpoints & autosaves
+# ------------------------------------------------------------------------------
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 
-# Markdown files (no MD in git)
-*.md
-*.MD
-
-# Obsidian vault & canvas
-.obsidian/
-*.canvas
-
-# Pytest / coverage / linters
+# ------------------------------------------------------------------------------
+# 7. Testing, coverage, linting & type checks
+# ------------------------------------------------------------------------------
 .pytest_cache/
 .coverage
 .coverage.*
@@ -60,27 +102,28 @@ coverage.xml
 .ruff_cache/
 .hypothesis/
 
-# Machine learning, checkpoints, caches, and datasets
-*.npz
-*.npy
-*.pt
-*.pth
-*.ckpt
-*.h5
-*.pkl
-*.pickle
-*.joblib
-cache/
-checkpoints/
-results/
-wandb/
-runs/
-logs/
-
-# Lean / Lake build artifacts
+# ------------------------------------------------------------------------------
+# 8. Lean / Lake formal verification build artifacts
+# ------------------------------------------------------------------------------
 .lake/
 
-# OS generated files
+# ------------------------------------------------------------------------------
+# 9. LaTeX auxiliary build files (preserve .tex, .sty, .bib, and submission .bbl)
+# ------------------------------------------------------------------------------
+*.aux
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.blg
+*.out
+*.toc
+*.nav
+*.snm
+*.vrb
+
+# ------------------------------------------------------------------------------
+# 10. Operating system artifacts & editor settings
+# ------------------------------------------------------------------------------
 .DS_Store
 .DS_Store?
 ._*
@@ -88,8 +131,6 @@ logs/
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# IDE and editors
 .idea/
 .vscode/
 *.swp
