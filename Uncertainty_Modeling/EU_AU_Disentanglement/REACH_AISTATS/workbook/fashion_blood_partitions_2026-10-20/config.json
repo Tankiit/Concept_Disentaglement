@@ -1,0 +1,93 @@
+{
+  "frozen_artifacts": {
+    "workbook/mnist_reach_novelty_2026-10-19/digit_net.pt": "f293a91c7ec4352e686c5fbd5e798c1881800248c7429c6f917b8519224164a3",
+    "workbook/mnist_reach_novelty_2026-10-19/partition.npz": "70d89df8663e0d89e99fa9bf39001cf4f7ef7344af7e97fee703eabf1d13056c",
+    "workbook/boundary_reach_2026-10-20/boundary_head.pt": "6d4996ffe850a90b1c13686e22a2d934a231d575e20fa7b81a5aabb52d821b44",
+    "workbook/boundary_reach_2026-10-20/config.json": "32115ce226b37cf44bdedb419269d5974373eb9dc97d67a1cae5d67133e96409"
+  },
+  "datasets": {
+    "mnist": "9f751e8933e12cf22d67c1c946cfbd23257bec0b2d159fdfc7bbc8cb4cda9b38",
+    "fashion": "d9b112470b3ace2522ca22ca93b194eb52fe1c8da3ce61dd0a72cc7501797fdc",
+    "blood": "bed32e421d936fde02c8aecdad7acf3e90f0a2d9d0ab7fba96097429a2a5cfcc",
+    "letters": "ac3d0812786849b7a1d5dee08658c26268454e69ec16ea1fd02fd683d2e0f48d"
+  },
+  "thresholds": {
+    "margin_cut": 2.648625373840332,
+    "distance_cut": 32.47117891078421,
+    "tu_cut": 0.7545481235116197,
+    "eu_cut": 0.29515195730618954
+  },
+  "partitions": {
+    "prediction": 10,
+    "margin": 20,
+    "support": 20,
+    "margin_support": 40,
+    "original_lda": 11
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "budgets": [
+    [
+      1000,
+      200
+    ],
+    [
+      4000,
+      1000
+    ]
+  ],
+  "novel_reference_draws": 1300,
+  "delta": [
+    0,
+    0.05,
+    0.2
+  ],
+  "alpha": 0.05,
+  "paired_across_partitions": true,
+  "nested_budgets": true,
+  "inference": "independent with-replacement draws from fixed empirical test populations; novel classes balanced",
+  "limitations": "one encoder and one head; no new independent images or population-level coverage claim",
+  "historical_lda_exact_reproduction": false,
+  "historical_reproduction": [
+    {
+      "dataset": "mnist",
+      "n": 5001,
+      "mismatches": 0,
+      "indices": []
+    },
+    {
+      "dataset": "fashion",
+      "n": 5000,
+      "mismatches": 1,
+      "indices": [
+        4603
+      ]
+    },
+    {
+      "dataset": "blood",
+      "n": 1712,
+      "mismatches": 0,
+      "indices": []
+    }
+  ]
+}

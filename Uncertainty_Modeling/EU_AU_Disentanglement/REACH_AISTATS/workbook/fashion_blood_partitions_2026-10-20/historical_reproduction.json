@@ -1,0 +1,22 @@
+[
+  {
+    "dataset": "mnist",
+    "n": 5001,
+    "mismatches": 0,
+    "indices": []
+  },
+  {
+    "dataset": "fashion",
+    "n": 5000,
+    "mismatches": 1,
+    "indices": [
+      4603
+    ]
+  },
+  {
+    "dataset": "blood",
+    "n": 1712,
+    "mismatches": 0,
+    "indices": []
+  }
+]

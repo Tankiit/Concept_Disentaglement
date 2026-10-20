@@ -1,0 +1,25 @@
+Encoded mnist 10000
+Encoded fashion 10000
+Encoded blood 3421
+Encoded letters 20800
+Completed sampling seed 0
+Completed sampling seed 1
+Completed sampling seed 2
+Completed sampling seed 3
+Completed sampling seed 4
+Completed sampling seed 5
+Completed sampling seed 6
+Completed sampling seed 7
+Completed sampling seed 8
+Completed sampling seed 9
+Completed sampling seed 10
+Completed sampling seed 11
+Completed sampling seed 12
+Completed sampling seed 13
+Completed sampling seed 14
+Completed sampling seed 15
+Completed sampling seed 16
+Completed sampling seed 17
+Completed sampling seed 18
+Completed sampling seed 19
+Completed 4800 region evaluations.
