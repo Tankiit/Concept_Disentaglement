@@ -1,0 +1,11 @@
+cache/features/timm_resnet18_c10test.npz: X (10000, 512), classes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], mean feature norm 7.736
+cache/features/timm_resnet18_c10test.npz: X (10000, 512), classes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], mean feature norm 7.736
+loss per 5 epochs: [0.9882, 0.2511, 0.1792, 0.1375, 0.1143, 0.0967, 0.0888, 0.0767] -> 0.0686
+
+split  group    loss  mean EU (nats)   rows
+val    kkc    0.1641          0.0136    600
+val    uuc       nan          0.0436   2000
+test   kkc    0.0833          0.0113    300
+test   uuc       nan          0.0433   5000
+val: EU AUROC kkc vs uuc = 0.862
+test: EU AUROC kkc vs uuc = 0.846

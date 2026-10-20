@@ -1,0 +1,49 @@
+{'epoch': 1, 'loss': 0.8373270008881887}
+{'epoch': 2, 'loss': 0.193326704009374}
+{'epoch': 3, 'loss': 0.11826012936035792}
+{'epoch': 4, 'loss': 0.08634116258372863}
+{'epoch': 5, 'loss': 0.07192703014512856}
+Diagnostics {'cnn_known_accuracy': 0.9804039192161568, 'letters': {'entropy_auroc': 0.8369393332871886, 'distance_auroc': 0.8642609362742836, 'outlier_cell_fraction': 0.3110576923076923, 'cell_hull_distance': 0.3220163108476869}, 'kmnist': {'entropy_auroc': 0.907428874225155, 'distance_auroc': 0.9405636872625475, 'outlier_cell_fraction': 0.5664, 'cell_hull_distance': 0.5977943215819936}}
+Finished digits_uniform baseline records 33
+Finished digits_uniform n_low records 66
+Finished digits_uniform n_high records 99
+Finished digits_uniform m_low records 132
+Finished digits_uniform m_high records 165
+Finished digits_uniform r_low records 198
+Finished digits_uniform r_high records 231
+Finished digits_shift baseline records 264
+Finished digits_shift n_low records 297
+Finished digits_shift n_high records 330
+Finished digits_shift m_low records 363
+Finished digits_shift m_high records 396
+Finished digits_shift r_low records 429
+Finished digits_shift r_high records 462
+Finished letters_05 baseline records 495
+Finished letters_05 n_low records 528
+Finished letters_05 n_high records 561
+Finished letters_05 m_low records 594
+Finished letters_05 m_high records 627
+Finished letters_05 r_low records 660
+Finished letters_05 r_high records 693
+Finished letters_20 baseline records 726
+Finished letters_20 n_low records 759
+Finished letters_20 n_high records 792
+Finished letters_20 m_low records 825
+Finished letters_20 m_high records 858
+Finished letters_20 r_low records 891
+Finished letters_20 r_high records 924
+Finished kmnist_05 baseline records 957
+Finished kmnist_05 n_low records 990
+Finished kmnist_05 n_high records 1023
+Finished kmnist_05 m_low records 1056
+Finished kmnist_05 m_high records 1089
+Finished kmnist_05 r_low records 1122
+Finished kmnist_05 r_high records 1155
+Finished kmnist_20 baseline records 1188
+Finished kmnist_20 n_low records 1221
+Finished kmnist_20 n_high records 1254
+Finished kmnist_20 m_low records 1287
+Finished kmnist_20 m_high records 1320
+Finished kmnist_20 r_low records 1353
+Finished kmnist_20 r_high records 1386
+Finished pilot.

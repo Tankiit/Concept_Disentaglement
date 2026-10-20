@@ -1,0 +1,15 @@
+
+reference_200_per_class:
+dev         10000 cifar10_train: [982, 1036, 1009, 1050, 984, 994, 986, 1010, 999, 950]
+reference    2000 cifar10_train: [200, 200, 200, 200, 200, 200, 200, 200, 200, 200]
+log          5000 cifar10_test: [488, 505, 512, 497, 507, 488, 491, 495, 504, 513]
+eval         5000 cifar10_test: [512, 495, 488, 503, 493, 512, 509, 505, 496, 487]
+
+full_reference:
+dev         10000 cifar10_train: [982, 1036, 1009, 1050, 984, 994, 986, 1010, 999, 950]
+reference   40000 cifar10_train: [4018, 3964, 3991, 3950, 4016, 4006, 4014, 3990, 4001, 4050]
+log          5000 cifar10_test: [488, 505, 512, 497, 507, 488, 491, 495, 504, 513]
+eval         5000 cifar10_test: [512, 495, 488, 503, 493, 512, 509, 505, 496, 487]
+
+Verified disjointness, row/label alignment, and expected pool totals.
+No CLIP feature values were loaded, and no notebook cells were executed.

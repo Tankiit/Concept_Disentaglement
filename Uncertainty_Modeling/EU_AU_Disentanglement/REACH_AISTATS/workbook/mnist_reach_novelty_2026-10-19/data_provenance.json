@@ -1,0 +1,144 @@
+{
+  "mnist_train": {
+    "url": "https://huggingface.co/datasets/ylecun/mnist/resolve/77f3279092a1c1579b2250db8eafed0ad422088c/mnist/train-00000-of-00001.parquet",
+    "sha256": "f2c01285a9f89399335b00ee4e8d499dc4e46db5e39c74903ce5618d895eb3bf",
+    "rows": 60000,
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "shape": [
+      60000,
+      28,
+      28
+    ]
+  },
+  "mnist_test": {
+    "url": "https://huggingface.co/datasets/ylecun/mnist/resolve/77f3279092a1c1579b2250db8eafed0ad422088c/mnist/test-00000-of-00001.parquet",
+    "sha256": "d49fcf556ce25b002b302e318ce4a11098bbfe5d4499c3f35d7c72297c52374b",
+    "rows": 10000,
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "shape": [
+      10000,
+      28,
+      28
+    ]
+  },
+  "letters_train": {
+    "url": "https://huggingface.co/datasets/tanganke/emnist_letters/resolve/4236c26fe034bc5b23851adc00067fa87b8ac16b/emnist-letters/train-00000-of-00001.parquet",
+    "sha256": "756ccd59b40c47fd5a7fc622ed1c34d32576d64edc37aaf9accc89de2bf0bb35",
+    "rows": 124800,
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "shape": [
+      124800,
+      28,
+      28
+    ]
+  },
+  "letters_test": {
+    "url": "https://huggingface.co/datasets/tanganke/emnist_letters/resolve/4236c26fe034bc5b23851adc00067fa87b8ac16b/emnist-letters/test-00000-of-00001.parquet",
+    "sha256": "76421442e28d4ba81c10016df2713d18105df34169f405e0eb43470e88b5d98e",
+    "rows": 20800,
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "shape": [
+      20800,
+      28,
+      28
+    ]
+  },
+  "kmnist_test": {
+    "url": "https://huggingface.co/datasets/tanganke/kmnist/resolve/6b345bef535b98131f1d945d552906452d19b2f9/kmnist/test-00000-of-00001.parquet",
+    "sha256": "6a0b2095400a7816350bb46b79425d822f37c0f16bad93cc7fefcfe793a8d472",
+    "rows": 10000,
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "shape": [
+      10000,
+      28,
+      28
+    ]
+  }
+}

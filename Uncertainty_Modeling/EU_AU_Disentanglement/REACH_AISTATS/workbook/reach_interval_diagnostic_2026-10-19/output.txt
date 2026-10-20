@@ -1,0 +1,21 @@
+                        case     n  joint_lower  joint_upper  joint_width  plugin_width lower_status     upper_status
+                   estimated  1000      0.00000      1.00000      1.00000       1.00000      optimal zero_mass_policy
+                oracle_exact  1000      0.00000      0.98552      0.98552       0.98552      optimal          optimal
+oracle_with_reference_bounds  1000      0.00000      1.00000      1.00000       1.00000      optimal zero_mass_policy
+    estimated_bounds_removed  1000      0.00000      0.97084      0.97084       0.97084      optimal          optimal
+                   estimated  4000      0.00000      1.00000      1.00000       1.00000      optimal zero_mass_policy
+                oracle_exact  4000      0.00000      0.93686      0.93686       0.93686      optimal          optimal
+oracle_with_reference_bounds  4000      0.00000      1.00000      1.00000       1.00000      optimal zero_mass_policy
+    estimated_bounds_removed  4000      0.00000      0.94840      0.94840       0.94840      optimal          optimal
+                   estimated 16000      0.00000      1.00000      1.00000       1.00000      optimal zero_mass_policy
+                oracle_exact 16000      0.00000      0.87570      0.87570       0.87570      optimal          optimal
+oracle_with_reference_bounds 16000      0.00000      1.00000      1.00000       1.00000      optimal zero_mass_policy
+    estimated_bounds_removed 16000      0.00000      0.91631      0.91631       0.91631      optimal          optimal
+                   estimated 64000      0.00000      1.00000      1.00000       1.00000      optimal zero_mass_policy
+                oracle_exact 64000      0.02263      0.54268      0.52005       0.52005      optimal          optimal
+oracle_with_reference_bounds 64000      0.00000      1.00000      1.00000       1.00000      optimal zero_mass_policy
+    estimated_bounds_removed 64000      0.11810      0.75628      0.63818       0.63818      optimal          optimal
+       oracle_exact_marginal     0      0.20587      0.20587     -0.00000      -0.00000      optimal          optimal
+Known entry lower sum: 0.8209872399070903 q lower: 0.01309393236199377 entry radius: 0.15401276009290968
+Exact source matrix rank: 11 condition number: 3.541784435689326
+Original baseline reproduced; interval checks passed.

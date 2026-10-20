@@ -1,0 +1,39 @@
+{
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "delta": [
+    0.05,
+    0.2
+  ],
+  "baseline": {
+    "n": 1000,
+    "m": 200,
+    "r": 50
+  },
+  "n": [
+    250,
+    1000,
+    4000
+  ],
+  "m": [
+    50,
+    200,
+    1000
+  ],
+  "r": [
+    10,
+    50,
+    200
+  ],
+  "n_boot": 20,
+  "members": 5,
+  "model_retrained": false,
+  "partition_refitted": false,
+  "novel_reference": "EMNIST letters only",
+  "base": "workbook/mnist_reach_novelty_2026-10-19",
+  "checkpoint_sha256": "f293a91c7ec4352e686c5fbd5e798c1881800248c7429c6f917b8519224164a3",
+  "partition_sha256": "70d89df8663e0d89e99fa9bf39001cf4f7ef7344af7e97fee703eabf1d13056c"
+}

@@ -1,0 +1,9 @@
+config,pool,source,rows,class_0,class_1,class_2,class_3,class_4,class_5,class_6,class_7,class_8,class_9
+reference_200_per_class,dev,cifar10_train,10000,982,1036,1009,1050,984,994,986,1010,999,950
+reference_200_per_class,reference,cifar10_train,2000,200,200,200,200,200,200,200,200,200,200
+reference_200_per_class,log,cifar10_test,5000,488,505,512,497,507,488,491,495,504,513
+reference_200_per_class,eval,cifar10_test,5000,512,495,488,503,493,512,509,505,496,487
+full_reference,dev,cifar10_train,10000,982,1036,1009,1050,984,994,986,1010,999,950
+full_reference,reference,cifar10_train,40000,4018,3964,3991,3950,4016,4006,4014,3990,4001,4050
+full_reference,log,cifar10_test,5000,488,505,512,497,507,488,491,495,504,513
+full_reference,eval,cifar10_test,5000,512,495,488,503,493,512,509,505,496,487

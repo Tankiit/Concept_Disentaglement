@@ -1,0 +1,11 @@
+label,class_name,group,train,val,test
+0,airplane,kkc,700,200,100
+1,automobile,kkc,700,200,100
+2,bird,uuc,0,0,1000
+3,cat,uuc,0,0,1000
+4,deer,uuc,0,1000,0
+5,dog,uuc,0,0,1000
+6,frog,uuc,0,1000,0
+7,horse,uuc,0,0,1000
+8,ship,kkc,700,200,100
+9,truck,uuc,0,0,1000

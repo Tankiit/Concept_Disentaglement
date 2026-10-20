@@ -1,0 +1,24 @@
+/tmp/tmp6z5y3j1_/synthetic.npz: X (1000, 4), classes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], mean feature norm 1.880
+seed=0
+  kkc=[np.int64(0), np.int64(1), np.int64(8)]
+  kuc=[]
+  uuc=[np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(9)]
+  train: 210 rows, classes [0, 1, 8]
+  val: 260 rows, classes [0, 1, 4, 6, 8]
+  test: 530 rows, classes [0, 1, 2, 3, 5, 7, 8, 9]
+
+Rows per split and group:
+train: {'kkc': 210, 'kuc': 0, 'uuc': 0}; total=210
+val: {'kkc': 60, 'kuc': 0, 'uuc': 200}; total=260
+test: {'kkc': 30, 'kuc': 0, 'uuc': 500}; total=530
+Validation unknown classes: [np.int64(4), np.int64(6)]
+Test unknown classes: [np.int64(2), np.int64(3), np.int64(5), np.int64(7), np.int64(9)]
+Unknown class overlap: []
+
+One training batch:
+X: shape=(8, 4), dtype=torch.float32
+y: shape=(8,), dtype=torch.int64
+index: shape=(8,), dtype=torch.int64
+Original row IDs: [0, 1, 2, 3, 4, 5, 6, 8]
+Original labels: [0, 0, 0, 0, 0, 0, 0, 0]
+Features match original rows: True

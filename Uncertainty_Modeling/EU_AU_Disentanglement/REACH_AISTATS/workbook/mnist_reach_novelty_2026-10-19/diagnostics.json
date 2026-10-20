@@ -1,0 +1,15 @@
+{
+  "cnn_known_accuracy": 0.9804039192161568,
+  "letters": {
+    "entropy_auroc": 0.8369393332871886,
+    "distance_auroc": 0.8642609362742836,
+    "outlier_cell_fraction": 0.3110576923076923,
+    "cell_hull_distance": 0.3220163108476869
+  },
+  "kmnist": {
+    "entropy_auroc": 0.907428874225155,
+    "distance_auroc": 0.9405636872625475,
+    "outlier_cell_fraction": 0.5664,
+    "cell_hull_distance": 0.5977943215819936
+  }
+}

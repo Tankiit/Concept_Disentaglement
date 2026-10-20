@@ -26,6 +26,10 @@ def weight_interval(ball, index):
     k = len(ball.conditionals)
     if not 0 <= int(index) < k:
         raise ValueError('Weight index out of range')
+    if ball.set_kind == 'l2':
+        cost = np.zeros(k); cost[int(index)] = 1.
+        result = ball.ratio_interval(cost, cost, np.ones(k))
+        return dict(result, width=result['upper']-result['lower'])
     cost = np.zeros(k); cost[int(index)] = 1.
     out = {}
     for name, sign in (('lower', 1.), ('upper', -1.)):
@@ -71,6 +75,13 @@ class MMDBall:
         a = self.conditionals.T
         return np.vstack([a,-a]), np.concatenate([self.empirical+self.radius,-self.empirical+self.radius])
     def feasible(self):
+        if self.set_kind == 'l2':
+            result = self.ratio_interval(np.zeros(len(self.conditionals)),
+                                         np.zeros(len(self.conditionals)),
+                                         np.ones(len(self.conditionals)))
+            if result['status'] not in ('optimal', 'empty_set'):
+                raise RuntimeError('Could not determine L2 feasibility: ' + result['status'])
+            return result['status'] == 'optimal'
         a,b = self.inequalities()
         result = linprog(np.zeros(len(self.conditionals)), A_ub=a, b_ub=b,
                          A_eq=np.ones((1,len(self.conditionals))), b_eq=[1], bounds=(0,None),method='highs')
