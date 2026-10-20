@@ -10,6 +10,9 @@
 *.markdown
 .obsidian/
 *.canvas
+0[0-9]_*/
+*_Wiki/
+*_wiki/
 
 # ------------------------------------------------------------------------------
 # 2. Local uploads, temporary staging, and cloud transfer folders

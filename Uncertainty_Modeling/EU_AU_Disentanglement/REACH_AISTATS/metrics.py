@@ -208,3 +208,52 @@ if __name__ == "__main__":
         print(f"{name:4s} mean per group: {means}")
     for key, per in M["separate"].items():
         print(f"{key}: " + (", ".join(f"{n}={a:.3f}" for n, a in per.items()) or "no pairs"))
+
+
+def fill_knn(M, X_lab, y_lab, eval_pools, k=10, q=0.95):
+    """kNN slot metrics via exact L2 search (sklearn; faiss's threadpool deadlocks
+    after torch/cvxpy load in the full suite, and these pools are small).
+
+    slot_acc_loo: leave-one-out global kNN vote (k+1 search, self dropped, majority).
+    tau_c: per-class q-quantile of the k-th-neighbour distance within the class
+    (self excluded). frac_outside_<group>: fraction of that pool whose nearest-class
+    calibrated distance (min over classes of d_k / tau_c) exceeds 1.
+    """
+    from sklearn.neighbors import NearestNeighbors
+    X_lab = np.asarray(X_lab, dtype=np.float32)
+    classes = [int(c) for c in np.unique(y_lab)]
+    gnn = NearestNeighbors(n_neighbors=k + 1).fit(X_lab)
+    _, Ig = gnn.kneighbors(X_lab, k + 1)               # self at distance 0 dropped
+    votes = y_lab[Ig[:, 1:]]
+    pred = np.array([np.bincount(v).argmax() for v in votes])
+    taus, class_nn = {}, {}
+    for c in classes:
+        rows = X_lab[y_lab == c]
+        nn = NearestNeighbors(n_neighbors=k + 1).fit(rows)
+        Dc, _ = nn.kneighbors(rows, k + 1)             # self (distance 0) dropped
+        taus[c] = float(np.quantile(Dc[:, -1], q))
+        class_nn[c] = NearestNeighbors(n_neighbors=k).fit(rows)
+
+    M['knn']['slot_acc_loo'] = float((pred == y_lab).mean())
+    M['knn']['tau_c'] = taus
+    for g, (Xe, ye) in eval_pools.items():
+        Q = np.asarray(Xe, dtype=np.float32)
+        per_class = np.stack([class_nn[c].kneighbors(Q, k)[0][:, -1] / taus[c]
+                              for c in classes], axis=1)
+        M['knn'][f'frac_outside_{g}'] = float((per_class.min(axis=1) > 1.0).mean())
+    return M
+
+
+def fill_diversity(M, stacks):
+    """stacks: {name: (members, N, K) probability stack}. MI scale = spread of the
+    per-row ensemble MI (TU - AU) across rows, plus the member count for provenance."""
+    for name, P in stacks.items():
+        P = np.asarray(P, dtype=np.float64)
+        mean = P.mean(0)
+        tu = -(mean * np.log(np.clip(mean, 1e-12, None))).sum(-1)
+        au = -(P * np.log(np.clip(P, 1e-12, None))).sum(-1).mean(0)
+        mi = tu - au
+        M['diversity'][f'mi_scale_{name}'] = {
+            'mean': float(mi.mean()), 'std': float(mi.std()),
+            'max': float(mi.max()), 'n_members': int(P.shape[0])}
+    return M

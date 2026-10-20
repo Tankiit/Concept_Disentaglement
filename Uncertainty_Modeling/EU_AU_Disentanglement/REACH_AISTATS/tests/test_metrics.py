@@ -1,5 +1,9 @@
 """metrics: ensemble MI/AU/MSP decomposition, separation, reporting."""
+import os
+os.environ.setdefault('OMP_NUM_THREADS', '1')   # cross-lib OpenMP nesting deadlocks the suite
 import unittest
+import faulthandler
+faulthandler.dump_traceback_later(150, exit=True)  # dump all stacks if the suite hangs
 import numpy as np
 
 from metrics import fill_data_and_split, fill_scores, fill_separation, new_metrics, report
@@ -77,6 +81,38 @@ class TestReport(unittest.TestCase):
         fill_separation(M, {k: np.zeros(4) for k in ("MI", "AU", "MSP")},
                         {"known": np.ones(4, bool), "uuc": np.array([1, 0, 0, 0], bool)})
         report(M)  # uuc has n=1 < 200 -> should be flagged, not crash
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+
+class TestFillKnn(unittest.TestCase):
+    def test_separable_blobs_and_outside_fractions(self):
+        from metrics import fill_knn
+        rng = np.random.default_rng(0)
+        X_lab = np.vstack([rng.normal(-2, .3, size=(60, 4)), rng.normal(2, .3, size=(60, 4))])
+        y_lab = np.array([0] * 60 + [1] * 60)
+        X_in = rng.normal(-2, .3, size=(30, 4))          # known-like pool
+        X_far = rng.normal(20, .3, size=(30, 4))         # far pool
+        M = new_metrics()
+        fill_knn(M, X_lab, y_lab,
+                 {'known': (X_in, np.zeros(30, int)), 'uuc': (X_far, np.ones(30, int))},
+                 k=5, q=0.95)
+        self.assertEqual(M['knn']['slot_acc_loo'], 1.0)  # separable -> perfect LOO vote
+        self.assertLess(M['knn']['frac_outside_known'], 0.2)
+        self.assertGreater(M['knn']['frac_outside_uuc'], 0.8)
+
+
+class TestFillDiversity(unittest.TestCase):
+    def test_identical_members_have_zero_mi_scale(self):
+        from metrics import fill_diversity
+        P = np.full((4, 6, 3), 1 / 3)
+        M = new_metrics()
+        fill_diversity(M, {'seed': P, 'bootstrap': P})
+        for name in ('mi_scale_seed', 'mi_scale_bootstrap'):
+            self.assertEqual(M['diversity'][name]['mean'], 0.0)
+            self.assertEqual(M['diversity'][name]['n_members'], 4)
 
 
 if __name__ == "__main__":
