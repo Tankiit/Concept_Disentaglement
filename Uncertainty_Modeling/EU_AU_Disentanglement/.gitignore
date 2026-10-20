@@ -7,7 +7,10 @@
 # PAPER_PLAN stay local.
 *.md
 *.MD
+*.markdown
 VALIDATION.json
+drive_upload/
+*_upload/
 
 # Generated experiment output. A single pilot run is ~1.2 MB of rows.csv/JSON/PNG and
 # every new run adds another directory, so results are rebuilt rather than committed.
