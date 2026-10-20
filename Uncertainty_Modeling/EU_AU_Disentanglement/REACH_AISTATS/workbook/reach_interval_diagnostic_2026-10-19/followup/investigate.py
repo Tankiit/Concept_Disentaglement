@@ -69,9 +69,32 @@ def joint_interval(lo, hi, plo, phi, cell):
             return np.nan, np.nan, 'empty_set'
         if check.status != 'optimal':
             raise RuntimeError('Feasibility fallback: '+check.status)
-    den = np.zeros(size+1); den[cell:size:d] = 1
+    # cell=None bounds total mass of the final source, not a cell posterior.
+    den = np.zeros(size+1)
+    if cell is None:
+        den[:size] = 1
+    else:
+        den[cell:size:d] = 1
+        mass = linprog(den[:size], A_ub=matrix[:,:-1], b_ub=-matrix[:,-1],
+                       A_eq=np.ones((1,size)), b_eq=[1.], bounds=(0.,None), method='highs')
+        if not mass.success:
+            z = cp.Variable(size, nonneg=True)
+            check = cp.Problem(cp.Minimize(den[:size]@z),
+                               [matrix[:,:-1]@z <= -matrix[:,-1], cp.sum(z)==1])
+            check.solve(solver=cp.CLARABEL)
+            if check.status != 'optimal':
+                raise RuntimeError('Could not certify minimum probe mass: '+check.status)
+            min_mass = check.value
+        else:
+            min_mass = mass.fun
+        if min_mass <= 1e-10:
+            return 0., 1., 'zero_mass_policy'
     eq = np.stack([total, den])
-    cost = np.zeros(size+1); cost[(k-1)*d+cell] = 1
+    cost = np.zeros(size+1)
+    if cell is None:
+        cost[(k-1)*d:size] = 1
+    else:
+        cost[(k-1)*d+cell] = 1
     values = []
     for sign in (1., -1.):
         res = linprog(sign*cost, A_ub=rows, b_ub=rhs, A_eq=eq,
@@ -94,10 +117,6 @@ def joint_interval(lo, hi, plo, phi, cell):
         assert np.max(matrix@solution-np.asarray(rhs)) < 1e-6
         assert np.max(np.abs(eq@solution-[0., 1.])) < 1e-6
         values.append(float(np.clip(sign*objective, 0, 1)))
-    # We use cells with positive log lower bounds in this experiment.
-    # For a zero-mass-compatible cell retain the existing vacuous policy.
-    if plo[cell] == 0:
-        return 0., 1., 'zero_lower_log_bound_policy'
     return *values, 'optimal'
 
 

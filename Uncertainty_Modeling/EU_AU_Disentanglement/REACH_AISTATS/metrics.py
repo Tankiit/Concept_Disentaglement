@@ -52,12 +52,13 @@ def fill_scores(M, P, masks):
 
     mean p over members; H = entropy(mean p); AU = mean member entropy;
     MI = H - AU (epistemic, BALD; asserted >= -1e-8); MSP = max of mean p.
-    Per group store {mean, ci over MEMBERS, n}: MI's spread is a leave-one-member-
-    out jackknife; AU and MSP get the direct per-member spread. Returns the
+    Per group store {mean, row-bootstrap ci, n}, conditional on the fitted members.
+    This is not uncertainty across retraining or class inventories. Returns the
     per-row scores {name: (N,) array} for fill_separation.
     """
     P = np.asarray(P, dtype=np.float64)
-    T = len(P)
+    if P.ndim != 3 or P.shape[0] < 2 or not np.isfinite(P).all() or np.any(P < 0) or not np.allclose(P.sum(-1), 1):
+        raise ValueError('Require at least two members and normalized finite probabilities')
     mean_p = P.mean(0)
     AU = _entropy(P).mean(0)
     MI = _entropy(mean_p) - AU
@@ -65,27 +66,19 @@ def fill_scores(M, P, masks):
     MSP = mean_p.max(-1)
     rows = {"MI": MI, "AU": AU, "MSP": MSP}
 
-    def member_values(name):
-        if name == "AU":
-            return [_entropy(P[t])[m].mean() for t in range(T)]
-        if name == "MSP":
-            return [P[t][m].max(-1).mean() for t in range(T)]
-        out = []
-        for t in range(T):                          # MI: jackknife over members
-            Pk = np.delete(P, t, axis=0)
-            out.append(float((_entropy(Pk.mean(0)) - _entropy(Pk).mean(0))[m].mean()))
-        return out
-
     for name, s in rows.items():
         M["scores"][name] = {}
         for g, m in masks.items():
             if not m.any():
                 M["scores"][name][g] = {"mean": None, "ci": None, "n": 0}
                 continue
-            per_member = member_values(name)
-            lo, hi = np.quantile(per_member, [.025, .975])
+            values = s[m]
+            rng = np.random.default_rng(0)
+            means = [values[rng.integers(len(values), size=len(values))].mean() for _ in range(500)]
+            lo, hi = np.quantile(means, [.025, .975])
             M["scores"][name][g] = {"mean": float(s[m].mean()),
-                                    "ci": (float(lo), float(hi)), "n": int(m.sum())}
+                                    "ci": (float(lo), float(hi)), "n": int(m.sum()),
+                                    "ci_scope": "row bootstrap conditional on fitted members"}
     return rows
 
 
@@ -167,7 +160,8 @@ if __name__ == "__main__":
     MEMBERS = 5
     probs, accs = [], []
     for s in range(MEMBERS):
-        head = Head(k=len(classes))
+        torch.manual_seed(s)
+        head = Head(d=X.shape[1], k=len(classes))
         train(head, train_ld, lut, epochs=40, seed=s)
         head.eval()
         rows, ys = [], []

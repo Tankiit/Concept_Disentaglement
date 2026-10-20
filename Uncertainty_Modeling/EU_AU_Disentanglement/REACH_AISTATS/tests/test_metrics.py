@@ -32,6 +32,8 @@ class TestFillScores(unittest.TestCase):
         entry = M["scores"]["MI"]["known"]
         self.assertEqual(entry["n"], 3)
         self.assertAlmostEqual(entry["mean"], np.log(2), places=6)
+        np.testing.assert_allclose(entry['ci'], [np.log(2),np.log(2)])
+        self.assertIn('conditional',entry['ci_scope'])
         self.assertEqual(M["scores"]["MSP"]["known"]["mean"], 0.5)
 
     def test_empty_group_is_recorded_as_none(self):
@@ -83,8 +85,6 @@ class TestReport(unittest.TestCase):
         report(M)  # uuc has n=1 < 200 -> should be flagged, not crash
 
 
-if __name__ == "__main__":
-    unittest.main()
 
 
 class TestFillKnn(unittest.TestCase):
@@ -113,6 +113,7 @@ class TestFillDiversity(unittest.TestCase):
         for name in ('mi_scale_seed', 'mi_scale_bootstrap'):
             self.assertEqual(M['diversity'][name]['mean'], 0.0)
             self.assertEqual(M['diversity'][name]['n_members'], 4)
+
 
 
 if __name__ == "__main__":

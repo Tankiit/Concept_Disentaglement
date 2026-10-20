@@ -13,10 +13,14 @@ from probly.quantification import quantify
 from probly.evaluation.ood import evaluate_ood
 
 from metrics import *
+from real.uncertainty_audit import mc_probs, uncertainty
 
 from sklearn.neighbors import NearestNeighbors
 from sklearn.decomposition import PCA
-import faiss
+try:
+    import faiss
+except ImportError:
+    faiss = None  # exact sklearn search is sufficient for the small audit pools
 
 def prep(Z):
     Z = np.ascontiguousarray(Z, dtype=np.float32)   # faiss needs float32, C-contiguous
@@ -28,13 +32,20 @@ def fit_class_indices(Z_lab, y_idx, K):
     for c in range(K):
         Zc = prep(Z_lab[y_idx == c])
         assert len(Zc) > 0, f"class {c} empty"
-        index = faiss.IndexFlatL2(d)        # exact search; TODO: keep flat, see hint 1
-        index.add(Zc)
+        if faiss is None:
+            index = NearestNeighbors().fit(Zc)
+        else:
+            index = faiss.IndexFlatL2(d)
+            index.add(Zc)
         indices.append(index)
     return indices
 
 def kth_dist(index, Q, k, exclude_self=False):
     n_q = k + 1 if exclude_self else k
+    if isinstance(index, NearestNeighbors):
+        assert index.n_samples_fit_ >= n_q, "class has fewer rows than k (+1)"
+        distances, _ = index.kneighbors(prep(Q), n_neighbors=n_q)
+        return distances[:, -1]  # sklearn already returns Euclidean distances
     assert index.ntotal >= n_q, "class has fewer rows than k (+1)"
     D, I = index.search(prep(Q), n_q)       # D is SQUARED L2
     assert (I >= 0).all(), "missing neighbours returned"
@@ -290,9 +301,8 @@ def make_loader(X, y, indices, batch_size=256, shuffle=False, seed=0):
 
 
 # --- training: measure loss + EU (BALD under MC-dropout) ------------------------
-# EU = H(mean_t p_t) - mean_t H(p_t): high where the model has seen no data
-# (expected on uuc rows), low on seen support. Dropout-EU is an approximation,
-# but it is the one that responds to data, which is the point here.
+# EU = H(mean_t p_t) - mean_t H(p_t): dropout disagreement. Whether it tracks
+# unseen support or confident errors is an empirical question, not a guarantee.
 
 class Head(nn.Module):
     def __init__(self, d=512, hidden=128, k=3, p=0.5):
@@ -319,11 +329,9 @@ class ETFHead(nn.Module):
     """Project frozen features to the ETF space; the classifier itself is FIXED.
 
     Trainable part: the linear projector only (no ReLU -- ETF prototypes need
-    signed coordinates). Logits = scale * normalised(z) @ ETF, so training pulls
-    same-class features onto their prototype. Note: dropout-BALD is the WRONG EU
-    estimator here (it tracks boundary jitter of collapsed points, not novelty)
-    -- run it to see the contrast with Head, and reach for the kNN/prototype
-    distances for ETF-side uncertainty.
+    signed coordinates). Logits = scale * normalised(z) @ ETF. Evaluate dropout
+    disagreement and support distances separately; neither is assumed to detect
+    novelty for every architecture or training regime.
     """
 
     def __init__(self, d_in=512, d_etf=32, k=3, scale=10., p=0.5):
@@ -357,12 +365,7 @@ def train(head, loader, lut, epochs=40, lr=1e-3, seed=0):
 
 
 def eu_bald(head, X, T=30):
-    head.train()                                   # keep dropout stochastic
-    with torch.no_grad():
-        p = torch.stack([F.softmax(head(X), dim=1) for _ in range(T)])
-    mean = p.mean(0)
-    return -(mean * mean.clamp_min(1e-12).log()).sum(-1) \
-        + (p * p.clamp_min(1e-12).log()).sum(-1).mean(0)
+    return torch.from_numpy(uncertainty(mc_probs(head, X, T))['eu'])
 
 
 def evaluate(head, loader, lut, T=30):
@@ -412,7 +415,7 @@ if __name__ == "__main__":
     ap.add_argument("--epochs", type=int, default=40, help="number of epochs")
     ap.add_argument("--lr", type=float, default=1e-3, help="learning rate")
     ap.add_argument("--head", choices=("mlp", "etf"), default="mlp",
-                    help="mlp: dropout BALD separates known/novel; etf: fixed readout, EU inverts (contrast)")
+                    help="compare an MLP readout with a fixed-prototype ETF readout")
     ap.add_argument("--seed", type=int, default=0, help="random seed")
     ap.add_argument("--kuc", type=int, default=None, help="number of known-unknown classes")
     ap.add_argument("--uuc-val", type=int, default=None, help="number of UUC classes in val")
@@ -444,7 +447,8 @@ if __name__ == "__main__":
     test = {g: make_loader(X, y, group_idx(world, "test", g), batch_size=512) for g in groups}
 
     # train on kkc: loss should fall; then EU separates known (low) from novel (high)
-    head = ETFHead(d_in=X.shape[1], k=len(classes)) if args.head == "etf" else Head(k=len(classes))
+    torch.manual_seed(args.seed)
+    head = ETFHead(d_in=X.shape[1], k=len(classes)) if args.head == "etf" else Head(d=X.shape[1], k=len(classes))
     losses = train(head, train_ld, lut, epochs=args.epochs, lr=args.lr, seed=args.seed)
     print("loss per 5 epochs:", [round(l, 4) for l in losses[::5]], "->", round(losses[-1], 4))
 
