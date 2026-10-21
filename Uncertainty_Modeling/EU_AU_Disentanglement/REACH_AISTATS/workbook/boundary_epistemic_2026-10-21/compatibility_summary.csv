@@ -1,0 +1,11 @@
+partition,depth,rejection,residual_lower
+margin_support,0.0,0.0,0.0
+margin_support,0.5,1.0,0.06746936509257248
+margin_support,1.0,1.0,0.9680981609383107
+margin_support,2.0,1.0,0.2766830320013574
+margin_support,4.0,1.0,0.7052850321338371
+prediction,0.0,0.0,0.0
+prediction,0.5,0.0,0.0
+prediction,1.0,0.0,0.0
+prediction,2.0,0.0,0.0
+prediction,4.0,0.0,0.0

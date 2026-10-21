@@ -1,0 +1,9 @@
+{
+  "records": 10140,
+  "unique_records": true,
+  "no_heldout_training_or_partition_images": true,
+  "targets_and_endpoints_verified": true,
+  "paired_nested_draws_verified": true,
+  "label_candidate_invariance": true,
+  "analytic_checks_passed": true
+}

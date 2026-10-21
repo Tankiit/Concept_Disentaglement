@@ -1,0 +1,10 @@
+{
+  "records": 14784,
+  "finite_ordered": true,
+  "invariance_checks": true,
+  "exact_floor_checks": true,
+  "analytic_confounded_floors_verified": false,
+  "empty_sets": 0,
+  "zero_mass": 0,
+  "coverage_failures": 0
+}

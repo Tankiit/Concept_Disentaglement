@@ -1,0 +1,28 @@
+{
+  "seed": 20261021,
+  "train_images": 18000,
+  "partition_images": 6000,
+  "epochs": 5,
+  "train_classes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "heldout_classes": [
+    6,
+    7,
+    8,
+    9
+  ],
+  "device": "cuda",
+  "known_accuracy": 0.9888907312220195,
+  "known_outlier_fraction": 0.0074614491792405905,
+  "heldout_outlier_fraction": 0.05341395817586294,
+  "heldout_mean_confidence": 0.7830289006233215,
+  "heldout_confident_fraction": 0.3925422020660116,
+  "model_sha256": "070daaaad9a7bc8d6ed0d12af1a00b0af8e9668752497370b0fc00176e36d9c3",
+  "scope": "Fresh six-output CNN; only 0--5 in training and partition fitting. Test digit laws used after freezing for finite-pool REACH simulations."
+}

@@ -1,0 +1,50 @@
+{
+  "seed": 20261020,
+  "head": "input dropout .2 + linear 64 -> 10",
+  "head_epochs": 100,
+  "mc_passes": 100,
+  "fit_size": 4000,
+  "calibration_size": 3000,
+  "test_size": 1000,
+  "model_sha256": "f293a91c7ec4352e686c5fbd5e798c1881800248c7429c6f917b8519224164a3",
+  "margin_cut": 2.648625373840332,
+  "distance_cut": 32.47117891078421,
+  "tu_cut": 0.7545481235116197,
+  "eu_cut": 0.29515195730618954,
+  "budgets": [
+    [
+      1000,
+      200
+    ],
+    [
+      4000,
+      1000
+    ]
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "inference": "independent finite-pool reference/log draws, paired across partitions and depths",
+  "interpretation": "unexplained mass under stable clean class conditionals; NOT semantic novelty",
+  "n": 4000,
+  "r_per_class": 1000,
+  "m_target": 512,
+  "alpha_split": {
+    "known": 0.025,
+    "log": 0.0125,
+    "label": 0.0125
+  },
+  "source_input_sha256": "718b1a45c345ba26d19b5f400403b56d05d331d906243e6197aaa3beb6f620b1",
+  "scores_sha256": "4555f0f75aa5dad524a3eec3178f38bffad878fe561f92f3527b3eb3c14fe783",
+  "comparison": "Saved MNIST model/trajectory inputs, fresh paired MC scores (seed 20261024). Not a CLIP notebook rerun. W_cls is known-only; W_label is clean-reference anchored; W_residual is arbitrary unexplained mass, not semantic novelty.",
+  "averaging": "Observed-cell weights over the same 973 initially correct rows; raw per-cell values also saved. Empty known-only sets remain NaN widths and count as target non-retention."
+}
