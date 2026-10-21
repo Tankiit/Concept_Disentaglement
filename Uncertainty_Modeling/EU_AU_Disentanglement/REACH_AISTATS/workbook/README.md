@@ -25,6 +25,10 @@ their parent workbook date, and entries on the same date are not a precise execu
 | 2026-10-21 | [Individual digits and held-out digits](digit_sources_2026-10-21/RESULTS.md) | Restores ten individual digit sources for reference controls and trains a separate 0–5 classifier to test held-out digits 6–9. |
 | 2026-10-21 | [Boundary disagreement versus REACH](boundary_epistemic_2026-10-21/RESULTS.md) | Compares dropout disagreement, class intervals, label intervals, and source-model rejection on identical boundary-crossing trajectories. |
 | 2026-10-21 | [Candidate camouflage](camouflage_2026-10-21/RESULTS.md) | Gradually blends the EMNIST candidate law into a known-digit mixture to distinguish finite-evidence uncertainty from exact nonidentifiability. |
+| 2026-10-21 | [Source identities under camouflage](camouflage_identities_2026-10-21/RESULTS.md) | Adds reliable source-identity observations at 99% and 100% camouflage to measure which epistemic widths shrink with additional evidence. |
+| 2026-10-21 | [Reference acquisition under camouflage](camouflage_references_2026-10-21/RESULTS.md) | Holds identities fixed and increases digit references, candidate references, or both to isolate how source-law estimation affects the three epistemic widths. |
+| 2026-10-21 | [Target-label acquisition under camouflage](camouflage_labels_2026-10-21/RESULTS.md) | Varies synthetic target-label budgets with other evidence fixed and uses exact-rate controls to isolate remaining source-law uncertainty in W_label. |
+| 2026-10-21 | [Candidate-law misspecification](candidate_mismatch_2026-10-21/RESULTS.md) | Deploys Fashion or Blood with matching or wrong candidate references to measure rejection, coverage failures, and narrow-but-wrong membership intervals. |
 
 Each linked report records its assumptions and limitations; the experiments use
 different targets and evidence settings, so their widths are not automatically comparable.

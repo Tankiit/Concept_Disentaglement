@@ -1,0 +1,9 @@
+{
+  "records": 6600,
+  "parent_baseline_and_exact_controls_match": true,
+  "targets_verified": true,
+  "nested_reference_counts": true,
+  "candidate_only_label_invariance": true,
+  "empty_records": 0,
+  "missed_targets": 0
+}

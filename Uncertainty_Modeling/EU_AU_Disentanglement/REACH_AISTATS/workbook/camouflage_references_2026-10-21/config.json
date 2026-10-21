@@ -1,0 +1,40 @@
+{
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "scales": [
+    1,
+    4,
+    16
+  ],
+  "arms": [
+    "known_only",
+    "candidate_only",
+    "both"
+  ],
+  "camouflage": [
+    0.99,
+    1.0
+  ],
+  "identities": 8192,
+  "deployment_inputs": 16000,
+  "target_labels_per_digit": 512,
+  "baseline_known_refs_per_digit": 1000,
+  "baseline_candidate_refs": 6500,
+  "alpha_per_family": 0.01,
+  "extra_reference_seed_prefix": 20261027,
+  "input_hashes": {
+    "camouflage_2026-10-21/config.json": "f1f760cf415aebdb866e91b2f62fd723df4bd3643f3ba52ae9594f2dca8678d3",
+    "camouflage_2026-10-21/draws.json": "a7da83b077019f0df58800d1066ae6e5794c2353be70a31463aa1f5a71787e3b",
+    "camouflage_identities_2026-10-21/identity_draws.json": "0af221845f19fd16b807717bb6885d0548aec2667e00e396a160a605827d9d70"
+  }
+}
