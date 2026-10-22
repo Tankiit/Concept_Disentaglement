@@ -1,3 +1,17 @@
+Current priorities (updated 2026-10-22): [CVPR research roadmap](CVPR_ROADMAP.md).
+The initial [contribution audit](contribution_audit_2026-10-22/AUDIT.md) and
+[graded mismatch experiment](graded_mismatch_2026-10-22/RESULTS.md) are complete.
+The [bounded source-model sensitivity baseline](candidate_sensitivity_2026-10-22/RESULTS.md)
+is also complete, followed by the [coupled TV comparison](candidate_tv_2026-10-22/RESULTS.md)
+and [proposed budget justification](candidate_tv_2026-10-22/BUDGET_JUSTIFICATION.md).
+The [candidate image-audit pilot](candidate_audit_2026-10-22/RESULTS.md) is complete:
+direct estimation is more informative than conservative audit-to-TV calibration,
+as predicted by set containment. Next: design a cost-matched visual acquisition
+evaluation with meaningful target labels and direct-estimation baselines. Full
+novelty clearance and general calibration remain open.
+Use that document for the ordered research plan; the list below preserves earlier
+experiment ideas and completion notes.
+
 1. A continuous “camouflage” experiment. Gradually mix the candidate cell law toward a mixture of known-source laws. Track the transition from distinguishable to weakly distinguishable to exactly confounded. Compare finite-sample widths with exact identification floors. This separates “we need more data” from “this information cannot resolve the ambiguity.”
    Completed first control: [ten-source camouflage workbook](camouflage_2026-10-21/RESULTS.md). Exact and estimated references, two log budgets, five camouflage levels, and analytically checked identification floors; probability-space simulation, not image morphing. Completed [source-identity acquisition follow-up](camouflage_identities_2026-10-21/RESULTS.md): reliable identities reduce W_cls and W_unk at 99% and 100% camouflage while the reference-anchored W_label remains unchanged. Completed [reference-budget sweep](camouflage_references_2026-10-21/RESULTS.md): with 8,192 identities fixed, increasing digit references mainly reduces W_cls and also W_label; increasing candidate references mainly reduces W_unk. Next: vary target-label acquisition with other evidence fixed.
 2. Give REACH the wrong candidate. Supply Fashion reference information but deploy Blood, or deploy mixtures of several novel datasets while declaring only one. Record rejection, coverage failures and narrow-but-wrong intervals. This tests whether REACH recognizes when its explanation of the data is inadequate.

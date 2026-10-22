@@ -1,0 +1,12 @@
+{
+  "records": 15840,
+  "runs": 480,
+  "image_roles_disjoint_within_seed": true,
+  "image_scores_verified": true,
+  "audit_bounds_recomputed": true,
+  "direct_contained_in_audit_tv": true,
+  "truths_verified": true,
+  "audit_upper_bound_misses": 0,
+  "direct_target_misses": 0,
+  "audit_tv_target_misses": 0
+}

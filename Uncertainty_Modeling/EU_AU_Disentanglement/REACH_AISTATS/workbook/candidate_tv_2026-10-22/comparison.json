@@ -1,0 +1,9 @@
+{
+  "paired_records": 13860,
+  "paired_nonempty": 12540,
+  "max_width_reduction": 0.4263406147065417,
+  "mean_width_reduction": 0.0020915301904529475,
+  "different_rejection_records": 0,
+  "different_coverage_records": 0,
+  "intervals_reduced_by_more_than_001": 470
+}

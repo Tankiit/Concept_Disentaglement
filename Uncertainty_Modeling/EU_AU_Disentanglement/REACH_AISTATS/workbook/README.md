@@ -1,5 +1,9 @@
 # REACH experiment workbook
 
+Current research direction: [CVPR roadmap and ordered next steps](CVPR_ROADMAP.md).
+Read this roadmap before planning new experiments; it records the current assessment,
+open questions, and evidence needed beyond the completed controls.
+
 Experiments, diagnostics, and preparation studies ordered from oldest to newest.
 Dates follow the workbook names or recorded plan dates; nested follow-ups use
 their parent workbook date, and entries on the same date are not a precise execution timeline.
@@ -29,6 +33,12 @@ their parent workbook date, and entries on the same date are not a precise execu
 | 2026-10-21 | [Reference acquisition under camouflage](camouflage_references_2026-10-21/RESULTS.md) | Holds identities fixed and increases digit references, candidate references, or both to isolate how source-law estimation affects the three epistemic widths. |
 | 2026-10-21 | [Target-label acquisition under camouflage](camouflage_labels_2026-10-21/RESULTS.md) | Varies synthetic target-label budgets with other evidence fixed and uses exact-rate controls to isolate remaining source-law uncertainty in W_label. |
 | 2026-10-21 | [Candidate-law misspecification](candidate_mismatch_2026-10-21/RESULTS.md) | Deploys Fashion or Blood with matching or wrong candidate references to measure rejection, coverage failures, and narrow-but-wrong membership intervals. |
+| 2026-10-22 | [Contribution and theory audit](contribution_audit_2026-10-22/AUDIT.md) | Compares REACH with related methods, reconciles target definitions, and develops an explicit compatible-but-wrong counterexample and proof plan. |
+| 2026-10-22 | [Graded candidate mismatch](graded_mismatch_2026-10-22/RESULTS.md) | Keeps Fashion deployment fixed while varying the declared candidate law to locate coverage failures before rejection. |
+| 2026-10-22 | [Candidate-law sensitivity baseline](candidate_sensitivity_2026-10-22/RESULTS.md) | Expands candidate coordinate bounds at fixed error budgets to measure recovery of coverage and the loss of interval informativeness. |
+| 2026-10-22 | [Coupled TV sensitivity](candidate_tv_2026-10-22/RESULTS.md) | Compares a total-variation candidate region with coordinate boxes and documents an independent-audit protocol for error-budget justification. |
+| 2026-10-22 | [Candidate image audit versus direct estimation](candidate_audit_2026-10-22/RESULTS.md) | Uses disjoint cached image evidence to compare an audit-derived TV bound with direct candidate-law estimation, finding the latter more informative. |
+| 2026-10-22 | [Visual acquisition — protocol only](visual_acquisition_2026-10-22/PROTOCOL.md) | Specifies equal-cost image annotation comparisons, real parity targets, direct estimation baselines and a second representation while exposing shared label information. |
 
 Each linked report records its assumptions and limitations; the experiments use
 different targets and evidence settings, so their widths are not automatically comparable.
