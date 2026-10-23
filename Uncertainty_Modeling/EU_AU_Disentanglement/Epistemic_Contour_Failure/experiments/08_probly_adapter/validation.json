@@ -1,0 +1,18 @@
+{
+  "known_binary_mi_nats": 0.3680642071684971,
+  "formula_and_axis_checks": "passed",
+  "max_random_start_parameter_gap": 9.625994402615023e-09,
+  "seed": 20261028,
+  "repetitions": 30,
+  "members": 199,
+  "python": "3.13.5",
+  "probly": "0.9.1",
+  "raw_columns": "mi,total,aleatoric,radius,support_variance,init_mi,error_truth(s),mi_5,mi_20,mi_50",
+  "library_source_sha256": {
+    "transformation/ensemble/_common.py": "ab96761a7a19461476e1c1655fd6df989b8e4ac0c58755744a3074db15e9186c",
+    "quantification/decomposition/entropy/_common.py": "26a004ee6593b6dbfcef6f62b1cffad7a7930a9c2e0540c06dc91771a37dfb50",
+    "representation/sample/array.py": "0340bc62169a65ac3153173b3bec0692a45baec67da9cb4f77d9cd85896a1041",
+    "representation/distribution/array_categorical.py": "e65f33a0fcfc62a36d66cb4a4de9696e2aa4fc3f1ac0913820dd781a7f8c3848",
+    "quantification/measure/sample/_common.py": "7293e46e51fbc3c2ab0a88a768d904b98fbe7c3ad9243d5b1c5d77a8916d8ee8"
+  }
+}

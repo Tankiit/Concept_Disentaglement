@@ -1,0 +1,3 @@
+12 independent BFGS checks; maximum mean negative log-likelihood gap 8.881784197e-16.
+300 random parameter-box lower-bound checks passed.
+Seed 20261028.

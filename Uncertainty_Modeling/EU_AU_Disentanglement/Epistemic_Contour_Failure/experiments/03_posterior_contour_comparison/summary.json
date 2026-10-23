@@ -1,0 +1,225 @@
+{
+  "seed": 20261024,
+  "replicates_per_setting": 400,
+  "grid_step": 0.001,
+  "population_grid_projection_center": 0.0,
+  "maximum_endpoint_change_under_grid_refinement": 0.000500000000000167,
+  "aware_control": {
+    "coverage_each_world": 1.0,
+    "contour_set_diameter": 0.4,
+    "posterior_weights": [
+      0.5,
+      0.5
+    ]
+  },
+  "rows": [
+    {
+      "setting": "mixture",
+      "n": 100,
+      "true_center": -0.2,
+      "coverage": 0.4825,
+      "coverage_wilson95": [
+        0.4339305630449019,
+        0.5314023672567983
+      ],
+      "mean_contour_set_diameter": 0.3935175,
+      "mean_hausdorff_error": 0.20128743087432405,
+      "mean_estimated_center": -0.0015875312436184111
+    },
+    {
+      "setting": "mixture",
+      "n": 100,
+      "true_center": 0.2,
+      "coverage": 0.4975,
+      "coverage_wilson95": [
+        0.4487588886795848,
+        0.5462886727920866
+      ],
+      "mean_contour_set_diameter": 0.3935175,
+      "mean_hausdorff_error": 0.20310001626286273,
+      "mean_estimated_center": -0.0015875312436184111
+    },
+    {
+      "setting": "mixture",
+      "n": 1000,
+      "true_center": -0.2,
+      "coverage": 0.0,
+      "coverage_wilson95": [
+        0.0,
+        0.009512294334295988
+      ],
+      "mean_contour_set_diameter": 0.12428499999999999,
+      "mean_hausdorff_error": 0.19828877163498176,
+      "mean_estimated_center": -0.001711228365018227
+    },
+    {
+      "setting": "mixture",
+      "n": 1000,
+      "true_center": 0.2,
+      "coverage": 0.0,
+      "coverage_wilson95": [
+        0.0,
+        0.009512294334295988
+      ],
+      "mean_contour_set_diameter": 0.12428499999999999,
+      "mean_hausdorff_error": 0.20171122836501823,
+      "mean_estimated_center": -0.001711228365018227
+    },
+    {
+      "setting": "mixture",
+      "n": 10000,
+      "true_center": -0.2,
+      "coverage": 0.0,
+      "coverage_wilson95": [
+        0.0,
+        0.009512294334295988
+      ],
+      "mean_contour_set_diameter": 0.039290000000000026,
+      "mean_hausdorff_error": 0.19984805878754705,
+      "mean_estimated_center": -0.00015194121245295372
+    },
+    {
+      "setting": "mixture",
+      "n": 10000,
+      "true_center": 0.2,
+      "coverage": 0.0,
+      "coverage_wilson95": [
+        0.0,
+        0.009512294334295988
+      ],
+      "mean_contour_set_diameter": 0.039290000000000026,
+      "mean_hausdorff_error": 0.20015194121245294,
+      "mean_estimated_center": -0.00015194121245295372
+    },
+    {
+      "setting": "mixture",
+      "n": 100000,
+      "true_center": -0.2,
+      "coverage": 0.0,
+      "coverage_wilson95": [
+        0.0,
+        0.009512294334295988
+      ],
+      "mean_contour_set_diameter": 0.01237750000000001,
+      "mean_hausdorff_error": 0.20024682011702788,
+      "mean_estimated_center": 0.0002468201170278639
+    },
+    {
+      "setting": "mixture",
+      "n": 100000,
+      "true_center": 0.2,
+      "coverage": 0.0,
+      "coverage_wilson95": [
+        0.0,
+        0.009512294334295988
+      ],
+      "mean_contour_set_diameter": 0.01237750000000001,
+      "mean_hausdorff_error": 0.19975317988297217,
+      "mean_estimated_center": 0.0002468201170278639
+    },
+    {
+      "setting": "clean_0",
+      "n": 100,
+      "true_center": -0.2,
+      "coverage": 0.965,
+      "coverage_wilson95": [
+        0.9421148604670827,
+        0.9790387058020219
+      ],
+      "mean_contour_set_diameter": 0.39346000000000003,
+      "mean_hausdorff_error": 0.0720874604715015,
+      "mean_estimated_center": -0.19564992661933714
+    },
+    {
+      "setting": "clean_0",
+      "n": 1000,
+      "true_center": -0.2,
+      "coverage": 0.9675,
+      "coverage_wilson95": [
+        0.945195847176234,
+        0.9809101576211993
+      ],
+      "mean_contour_set_diameter": 0.12422250000000001,
+      "mean_hausdorff_error": 0.023146263901465697,
+      "mean_estimated_center": -0.2003550086405852
+    },
+    {
+      "setting": "clean_0",
+      "n": 10000,
+      "true_center": -0.2,
+      "coverage": 0.95,
+      "coverage_wilson95": [
+        0.9240363649362812,
+        0.9674025701628522
+      ],
+      "mean_contour_set_diameter": 0.03926749999999994,
+      "mean_hausdorff_error": 0.007895936700571624,
+      "mean_estimated_center": -0.19976443765960517
+    },
+    {
+      "setting": "clean_0",
+      "n": 100000,
+      "true_center": -0.2,
+      "coverage": 0.9675,
+      "coverage_wilson95": [
+        0.945195847176234,
+        0.9809101576211993
+      ],
+      "mean_contour_set_diameter": 0.012399999999999975,
+      "mean_hausdorff_error": 0.00250855875231112,
+      "mean_estimated_center": -0.19996428193722224
+    },
+    {
+      "setting": "clean_1",
+      "n": 100,
+      "true_center": 0.2,
+      "coverage": 0.965,
+      "coverage_wilson95": [
+        0.9421148604670827,
+        0.9790387058020219
+      ],
+      "mean_contour_set_diameter": 0.39344750000000006,
+      "mean_hausdorff_error": 0.07786885770816347,
+      "mean_estimated_center": 0.20478108164205464
+    },
+    {
+      "setting": "clean_1",
+      "n": 1000,
+      "true_center": 0.2,
+      "coverage": 0.965,
+      "coverage_wilson95": [
+        0.9421148604670827,
+        0.9790387058020219
+      ],
+      "mean_contour_set_diameter": 0.12426000000000002,
+      "mean_hausdorff_error": 0.023432534246961775,
+      "mean_estimated_center": 0.20064373627144916
+    },
+    {
+      "setting": "clean_1",
+      "n": 10000,
+      "true_center": 0.2,
+      "coverage": 0.9475,
+      "coverage_wilson95": [
+        0.9210780249287258,
+        0.9654084716420792
+      ],
+      "mean_contour_set_diameter": 0.03929999999999999,
+      "mean_hausdorff_error": 0.008102695938974997,
+      "mean_estimated_center": 0.1997235665567053
+    },
+    {
+      "setting": "clean_1",
+      "n": 100000,
+      "true_center": 0.2,
+      "coverage": 0.9725,
+      "coverage_wilson95": [
+        0.951434518114386,
+        0.9845763637397043
+      ],
+      "mean_contour_set_diameter": 0.012380000000000013,
+      "mean_hausdorff_error": 0.00245457117379458,
+      "mean_estimated_center": 0.1998935605267061
+    }
+  ]
+}

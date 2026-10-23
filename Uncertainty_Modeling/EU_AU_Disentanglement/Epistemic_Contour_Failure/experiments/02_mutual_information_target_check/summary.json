@@ -1,0 +1,13 @@
+{
+  "posterior_world_weights": [
+    0.5,
+    0.5
+  ],
+  "world_entropy_bits": 1.0,
+  "next_mixture_cell_MI_bits": 0.0,
+  "next_clean_cell_MI_bits": 0.028147733280010422,
+  "contour_membership_MI_in_disagreement_region_bits": 1.0,
+  "posterior_center_x_variance": 0.04,
+  "posterior_check_max_error": 0.0,
+  "note": "Two known candidate worlds; exact diagnostic, not a learned classifier or general prior over contamination."
+}

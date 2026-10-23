@@ -1,0 +1,34 @@
+{
+  "seed": 20261029,
+  "reps": 5,
+  "members": 5,
+  "analytic_contour_error": 0.0024488226618476962,
+  "refinement": [
+    {
+      "scenario": "clean",
+      "n": 1000,
+      "contour_change": 0.0025273195229920105
+    },
+    {
+      "scenario": "clean",
+      "n": 100000,
+      "contour_change": 0.0024825943329075746
+    },
+    {
+      "scenario": "shared_mixture",
+      "n": 1000,
+      "contour_change": 0.0024870049408833796
+    },
+    {
+      "scenario": "shared_mixture",
+      "n": 100000,
+      "contour_change": 0.00248370560703536
+    }
+  ],
+  "torch": "2.14.1+cpu",
+  "probly": "0.9.1",
+  "backend_sha256": "032cb7e9a1dc09fb3746cb8b03ea38f3ebf16533a10a492ea054b63aef3111a5",
+  "max_gradient": 5.061880805247155e-06,
+  "max_polish_l1": 0.0020155916517947295,
+  "max_polish_nll_improvement": 5.685892393358927e-06
+}
