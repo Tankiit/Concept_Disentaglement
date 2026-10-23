@@ -38,7 +38,8 @@ their parent workbook date, and entries on the same date are not a precise execu
 | 2026-10-22 | [Candidate-law sensitivity baseline](candidate_sensitivity_2026-10-22/RESULTS.md) | Expands candidate coordinate bounds at fixed error budgets to measure recovery of coverage and the loss of interval informativeness. |
 | 2026-10-22 | [Coupled TV sensitivity](candidate_tv_2026-10-22/RESULTS.md) | Compares a total-variation candidate region with coordinate boxes and documents an independent-audit protocol for error-budget justification. |
 | 2026-10-22 | [Candidate image audit versus direct estimation](candidate_audit_2026-10-22/RESULTS.md) | Uses disjoint cached image evidence to compare an audit-derived TV bound with direct candidate-law estimation, finding the latter more informative. |
-| 2026-10-22 | [Visual acquisition — protocol only](visual_acquisition_2026-10-22/PROTOCOL.md) | Specifies equal-cost image annotation comparisons, real parity targets, direct estimation baselines and a second representation while exposing shared label information. |
+| 2026-10-22 | [Visual acquisition — one-seed smoke](visual_acquisition_2026-10-22/RESULTS.md) | Validates equal-cost real-image annotation accounting and direct baselines, finding modest width contraction but no certified decisions in the initial CNN run. |
+| 2026-10-22 | [Visual acquisition — oracle diagnosis](visual_acquisition_2026-10-22/DIAGNOSIS.md) | Uses exact-source, weight and log controls to identify finite source-law uncertainty as a major bottleneck and rule out a population identification floor in this setup. |
 
 Each linked report records its assumptions and limitations; the experiments use
 different targets and evidence settings, so their widths are not automatically comparable.

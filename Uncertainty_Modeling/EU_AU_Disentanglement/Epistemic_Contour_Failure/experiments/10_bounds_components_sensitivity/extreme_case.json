@@ -1,0 +1,16 @@
+{
+  "config": "wide5",
+  "dataset": "clean_1000_1",
+  "scenario": "clean",
+  "n": "1000",
+  "truth": "0",
+  "mi_nats": "0.0002541949586645878",
+  "contour_error": "2.2601537446700486",
+  "member_radius": "1.8084381813426753",
+  "inside_member_radius": "0",
+  "limit": "12.0",
+  "enclosed_mass": "1.0",
+  "quadrature_mass": "0.9999999999997483",
+  "level": "0.007088009557877571",
+  "fine_grid_contour_change": 0.003375070818991901
+}

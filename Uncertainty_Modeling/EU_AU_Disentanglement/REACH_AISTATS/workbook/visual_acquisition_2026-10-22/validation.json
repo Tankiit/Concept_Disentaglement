@@ -1,0 +1,14 @@
+{
+  "records": 1056,
+  "settings": 16,
+  "image_roles_disjoint": true,
+  "purchase_costs_and_nested_prefixes_verified": true,
+  "saved_counts_verified": true,
+  "truth_verified": true,
+  "baseline_equal_across_arms": true,
+  "analytic_solver_checks": 2,
+  "zero_count_policy_verified": true,
+  "decision_mass_normalized": true,
+  "observed_nonempty_misses": 0,
+  "rejected_interval_records": 0
+}

@@ -1,0 +1,12 @@
+{
+  "records": 3696,
+  "baseline_records_reproduced": 528,
+  "controls_nested_in_baseline": true,
+  "exact_sources_weights_point_identified": true,
+  "exact_sources_log_point_identified": true,
+  "source_law_rank": 11,
+  "smallest_singular_value": 0.19593075690322892,
+  "all_recorded_truths_covered": true,
+  "rejected_records": 0,
+  "warning": "One split; oracle controls are not deployable baselines; alpha control changes guarantee scope"
+}

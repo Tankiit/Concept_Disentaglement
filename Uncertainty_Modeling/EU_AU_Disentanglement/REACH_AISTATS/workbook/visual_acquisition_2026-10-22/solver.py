@@ -2,7 +2,7 @@
 import numpy as np
 from scipy.optimize import linprog
 
-def interval(lo,hi,pl,ph,wl,wh,cell,source,jl=None,jh=None):
+def interval(lo,hi,pl,ph,wl,wh,cell,source,jl=None,jh=None,diagnostics=None):
     k,d=lo.shape;size=k*d;rows=[]
     for s in range(k):
         total=np.zeros(size);total[s*d:(s+1)*d]=1
@@ -21,6 +21,8 @@ def interval(lo,hi,pl,ph,wl,wh,cell,source,jl=None,jh=None):
     if source is not None:den[(k-1)*d+cell]=0
     num=np.zeros(size);num[(k-1 if source is None else source)*d+cell]=1
     mass=linprog(den,A_ub=matrix[:,:-1],b_ub=-matrix[:,-1],A_eq=np.ones((1,size)),b_eq=[1.],bounds=(0,None))
+    if diagnostics is not None:
+        diagnostics['minimum_mass'] = float(mass.fun) if mass.success else np.nan
     if mass.status==2:return np.nan,np.nan,'empty_set'
     assert mass.success,mass.message
     if mass.fun<=1e-10:return 0.,1.,'zero_mass_policy'
