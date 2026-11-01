@@ -1,13 +1,13 @@
-# Keep this subtree lean: source code plus one README. Everything ignored below is a
-# private working document, a generated artifact, or a cache, and is reproducible by
-# running the commands in REACH_AISTATS/README.md.
+# Keep generated artifacts and caches local. Markdown documentation throughout
+# REACH_AISTATS is eligible for version control, including workbook reports.
 
-# Working documents: private plans, notes, drafts, status metadata. Only the two
-# collaborator-facing documents are tracked; the internal AISTATS evidence plan and
-# PAPER_PLAN stay local.
+# Ignore Markdown elsewhere in this subtree, overriding the global rule only for
+# REACH_AISTATS documentation at any depth.
 *.md
 *.MD
 *.markdown
+!REACH_AISTATS/**/*.[mM][dD]
+!REACH_AISTATS/**/*.[mM][aA][rR][kK][dD][oO][wW][nN]
 VALIDATION.json
 drive_upload/
 *_upload/

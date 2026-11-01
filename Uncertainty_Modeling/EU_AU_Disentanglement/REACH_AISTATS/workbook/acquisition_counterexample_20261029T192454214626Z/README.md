@@ -1,0 +1,1 @@
+Start with executed.ipynb, RESULTS.md and PROOF_AND_PROTOCOL.md. SOURCES.md lists theoretical dependencies. Exact tables are independent of simulation; replicate_results.csv.gz and acquisition_draws.npz retain all simulated observations. The runner saves the executed notebook and hashed artifact manifest.
