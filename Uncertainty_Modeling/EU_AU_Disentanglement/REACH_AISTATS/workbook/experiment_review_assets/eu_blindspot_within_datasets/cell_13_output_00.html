@@ -1,0 +1,195 @@
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>n</th>
+      <th>task_accuracy</th>
+      <th>TU</th>
+      <th>AU</th>
+      <th>EU</th>
+      <th>P_unknown</th>
+      <th>warning_rate</th>
+      <th>low_TU_low_EU_rate</th>
+      <th>low_TU_low_EU_known_rate</th>
+    </tr>
+    <tr>
+      <th>dataset</th>
+      <th>role</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">blood</th>
+      <th>kkc</th>
+      <td>600</td>
+      <td>0.8067</td>
+      <td>0.9147</td>
+      <td>0.8870</td>
+      <td>0.0277</td>
+      <td>0.2192</td>
+      <td>0.0850</td>
+      <td>0.8367</td>
+      <td>0.7333</td>
+    </tr>
+    <tr>
+      <th>kuc</th>
+      <td>200</td>
+      <td>0.4100</td>
+      <td>1.0657</td>
+      <td>1.0407</td>
+      <td>0.0250</td>
+      <td>0.3455</td>
+      <td>0.0350</td>
+      <td>0.9000</td>
+      <td>0.5050</td>
+    </tr>
+    <tr>
+      <th>uuc_test</th>
+      <td>600</td>
+      <td>0.0883</td>
+      <td>0.5456</td>
+      <td>0.5210</td>
+      <td>0.0246</td>
+      <td>0.1213</td>
+      <td>0.0767</td>
+      <td>0.8550</td>
+      <td>0.7683</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">emnist</th>
+      <th>kkc</th>
+      <td>2600</td>
+      <td>0.7550</td>
+      <td>1.1877</td>
+      <td>1.0275</td>
+      <td>0.1602</td>
+      <td>0.1149</td>
+      <td>0.0596</td>
+      <td>0.8423</td>
+      <td>0.7896</td>
+    </tr>
+    <tr>
+      <th>kuc</th>
+      <td>600</td>
+      <td>0.7467</td>
+      <td>1.3341</td>
+      <td>1.1534</td>
+      <td>0.1807</td>
+      <td>0.4933</td>
+      <td>0.0367</td>
+      <td>0.8500</td>
+      <td>0.1933</td>
+    </tr>
+    <tr>
+      <th>uuc_test</th>
+      <td>1400</td>
+      <td>0.4821</td>
+      <td>1.3836</td>
+      <td>1.1986</td>
+      <td>0.1850</td>
+      <td>0.3463</td>
+      <td>0.0507</td>
+      <td>0.7100</td>
+      <td>0.3350</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">fashion</th>
+      <th>kkc</th>
+      <td>800</td>
+      <td>0.8912</td>
+      <td>0.5271</td>
+      <td>0.4967</td>
+      <td>0.0304</td>
+      <td>0.1662</td>
+      <td>0.0425</td>
+      <td>0.8262</td>
+      <td>0.8238</td>
+    </tr>
+    <tr>
+      <th>kuc</th>
+      <td>200</td>
+      <td>0.2750</td>
+      <td>0.9045</td>
+      <td>0.8637</td>
+      <td>0.0408</td>
+      <td>0.3587</td>
+      <td>0.0250</td>
+      <td>0.6050</td>
+      <td>0.5950</td>
+    </tr>
+    <tr>
+      <th>uuc_test</th>
+      <td>800</td>
+      <td>0.2138</td>
+      <td>0.8159</td>
+      <td>0.7748</td>
+      <td>0.0411</td>
+      <td>0.2821</td>
+      <td>0.0850</td>
+      <td>0.6125</td>
+      <td>0.5962</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">mnist</th>
+      <th>kkc</th>
+      <td>800</td>
+      <td>0.8900</td>
+      <td>0.4219</td>
+      <td>0.3807</td>
+      <td>0.0412</td>
+      <td>0.0976</td>
+      <td>0.0375</td>
+      <td>0.8450</td>
+      <td>0.8112</td>
+    </tr>
+    <tr>
+      <th>kuc</th>
+      <td>200</td>
+      <td>0.7750</td>
+      <td>0.7300</td>
+      <td>0.6751</td>
+      <td>0.0549</td>
+      <td>0.6348</td>
+      <td>0.0450</td>
+      <td>0.6650</td>
+      <td>0.1300</td>
+    </tr>
+    <tr>
+      <th>uuc_test</th>
+      <td>800</td>
+      <td>0.6000</td>
+      <td>0.8383</td>
+      <td>0.7674</td>
+      <td>0.0709</td>
+      <td>0.4595</td>
+      <td>0.0388</td>
+      <td>0.3775</td>
+      <td>0.1888</td>
+    </tr>
+  </tbody>
+</table>
+</div>

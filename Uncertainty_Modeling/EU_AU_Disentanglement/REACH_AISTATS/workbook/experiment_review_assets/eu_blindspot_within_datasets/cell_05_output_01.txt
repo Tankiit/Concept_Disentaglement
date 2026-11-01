@@ -1,0 +1,34 @@
+                        rows
+dataset split role          
+blood   test  kkc        600
+              kuc        200
+              uuc_test   600
+        train kkc       1200
+              kuc        400
+        val   kkc        300
+              kuc        100
+              uuc_val    100
+emnist  test  kkc       2600
+              kuc        600
+              uuc_test  1400
+        train kkc       5200
+              kuc       1200
+        val   kkc       1300
+              kuc        300
+              uuc_val    300
+fashion test  kkc        800
+              kuc        200
+              uuc_test   800
+        train kkc       1600
+              kuc        400
+        val   kkc        400
+              kuc        100
+              uuc_val    100
+mnist   test  kkc        800
+              kuc        200
+              uuc_test   800
+        train kkc       1600
+              kuc        400
+        val   kkc        400
+              kuc        100
+              uuc_val    100

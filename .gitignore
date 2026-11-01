@@ -13,7 +13,7 @@
 0[0-9]_*/
 *_Wiki/
 *_wiki/
-
+fMoW/
 # ------------------------------------------------------------------------------
 # 2. Local uploads, temporary staging, and cloud transfer folders
 # ------------------------------------------------------------------------------
@@ -139,3 +139,7 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Downloaded experiment datasets stay local.
+/Uncertainty_Modeling/EU_AU_Disentanglement/REACH_AISTATS/data/**/*.parquet
+/Uncertainty_Modeling/EU_AU_Disentanglement/REACH_AISTATS/data/**/*.zip

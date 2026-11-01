@@ -1,0 +1,7 @@
+train_mnist (10000, 64) mean norm: 1.0
+train_letters (5200, 64) mean norm: 1.0
+cal_mnist (2000, 64) mean norm: 1.0
+test_mnist (2000, 64) mean norm: 1.0
+test_letters (5200, 64) mean norm: 1.0
+test_fashion (2000, 64) mean norm: 1.0
+test_blood (1600, 64) mean norm: 1.0

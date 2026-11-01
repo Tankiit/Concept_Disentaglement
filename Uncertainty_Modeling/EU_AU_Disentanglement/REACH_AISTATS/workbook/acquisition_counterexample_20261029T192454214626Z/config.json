@@ -1,0 +1,33 @@
+{
+  "seed": 20261029,
+  "repeats": 10000,
+  "budgets": [
+    0,
+    1,
+    2,
+    5,
+    10,
+    20,
+    50,
+    100,
+    200
+  ],
+  "p_low": 0.2,
+  "p_high": 0.8,
+  "prior_q": 0.5,
+  "prior_weight_range": [
+    0.25,
+    0.75
+  ],
+  "confidence_alpha": 0.05,
+  "cost_per_observation": 1,
+  "target": "deployment probability P(Y=1)",
+  "reference_label_channel": "target label from known source 0",
+  "versions": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "torch": "2.14.1",
+    "probly": "0.9.0"
+  }
+}

@@ -1,0 +1,1 @@
+The last column is a missed-warning rate for OOD; for MNIST it can include correct predictions.

@@ -1,0 +1,31 @@
+{
+  "seed": 0,
+  "datasets": [
+    "mnist",
+    "emnist",
+    "fashion",
+    "blood"
+  ],
+  "epochs": 15,
+  "train_per_class": 400,
+  "val_per_class": 80,
+  "test_per_class": 100,
+  "reference_per_class_cap": 200,
+  "dropout": 0.25,
+  "mc_passes": 20,
+  "alpha": 0.05,
+  "cell_confidence_threshold": 0.7,
+  "candidate": "equal OOD-class-weight reference histogram, treated as specified",
+  "source_target": "known-class membership conditional on known membership",
+  "quantification": "maximum coordinate probability width",
+  "architecture": "SmallCNN(\n  (net): Sequential(\n    (0): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n    (1): ReLU()\n    (2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n    (3): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n    (4): ReLU()\n    (5): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)\n    (6): Flatten(start_dim=1, end_dim=-1)\n    (7_0): Dropout(p=0.25, inplace=False)\n    (7_1): Linear(in_features=1568, out_features=64, bias=True)\n    (8): ReLU()\n    (9_0): Dropout(p=0.25, inplace=False)\n    (9_1): Linear(in_features=64, out_features=4, bias=True)\n  )\n)",
+  "device": "cpu",
+  "versions": {
+    "torch": "2.14.1",
+    "probly": "0.9.0",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1"
+  }
+}

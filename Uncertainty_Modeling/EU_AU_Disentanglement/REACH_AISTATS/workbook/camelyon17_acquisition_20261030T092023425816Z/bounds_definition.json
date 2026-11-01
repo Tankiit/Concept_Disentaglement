@@ -1,0 +1,11 @@
+{
+  "event_class": 1,
+  "n_cells": 4,
+  "alpha_per_box": 3.846153846153846e-05,
+  "candidate": "specified third source with estimated reference cell law, not arbitrary unknown OOD",
+  "source_events": "P(S=0 | C, S in {0,1}) and P(S=2 | C)",
+  "label_event": "P(Y=event | C) under equal known-source reference weights and cell-conditional rates",
+  "guarantee": "conditional empirical-resampling box coverage; transfer requires stable source cell laws",
+  "budgets": "inputs/IDs: n fields; reference inputs: 3*floor(n/3); labels: 2*C*floor(n/(2*C)); fixed initial information",
+  "missing_cell": "unobserved conditional label rate uses [0,1]"
+}

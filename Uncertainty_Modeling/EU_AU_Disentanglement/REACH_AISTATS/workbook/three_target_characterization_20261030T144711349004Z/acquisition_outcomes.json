@@ -1,0 +1,4634 @@
+{
+  "finite/known_membership/unresolved/unlabeled_input": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/known_membership/unresolved/source_identity": [
+    {
+      "outcome": 0,
+      "probability": 0.4,
+      "posterior": [
+        0.125,
+        0.37499999999999994,
+        0.125,
+        0.37499999999999994
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.4,
+      "posterior": [
+        0.37499999999999994,
+        0.125,
+        0.37499999999999994,
+        0.125
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/known_membership/unresolved/deployment_label": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.3,
+        0.3,
+        0.2,
+        0.2
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.2,
+        0.2,
+        0.3,
+        0.3
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/known_membership/unresolved/reference_label": [
+    {
+      "outcome": 0,
+      "probability": 0.25,
+      "posterior": [
+        0.3,
+        0.3,
+        0.2,
+        0.2
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.25,
+      "posterior": [
+        0.2,
+        0.2,
+        0.3,
+        0.3
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.25,
+      "posterior": [
+        0.3,
+        0.3,
+        0.2,
+        0.2
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.25,
+      "posterior": [
+        0.2,
+        0.2,
+        0.3,
+        0.3
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/known_membership/oracle_U0/unlabeled_input": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/known_membership/oracle_U0/source_identity": [
+    {
+      "outcome": 0,
+      "probability": 0.2,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.6,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/known_membership/oracle_U0/deployment_label": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.6,
+        0.0,
+        0.4,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.4,
+        0.0,
+        0.6,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/known_membership/oracle_U0/reference_label": [
+    {
+      "outcome": 0,
+      "probability": 0.25,
+      "posterior": [
+        0.6,
+        0.0,
+        0.4,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.25,
+      "posterior": [
+        0.4,
+        0.0,
+        0.6,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.25,
+      "posterior": [
+        0.6,
+        0.0,
+        0.4,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.25,
+      "posterior": [
+        0.4,
+        0.0,
+        0.6,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/known_membership/oracle_U1/unlabeled_input": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/known_membership/oracle_U1/source_identity": [
+    {
+      "outcome": 0,
+      "probability": 0.6,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/known_membership/oracle_U1/deployment_label": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.6,
+        0.0,
+        0.4
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.4,
+        0.0,
+        0.6
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/known_membership/oracle_U1/reference_label": [
+    {
+      "outcome": 0,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        0.6,
+        0.0,
+        0.4
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        0.4,
+        0.0,
+        0.6
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        0.6,
+        0.0,
+        0.4
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        0.4,
+        0.0,
+        0.6
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/candidate_membership/unresolved/unlabeled_input": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "finite/candidate_membership/unresolved/source_identity": [
+    {
+      "outcome": 0,
+      "probability": 0.30000000000000004,
+      "posterior": [
+        0.3333333333333333,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.16666666666666666
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.30000000000000004,
+      "posterior": [
+        0.3333333333333333,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.16666666666666666
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.4,
+      "posterior": [
+        0.125,
+        0.37499999999999994,
+        0.125,
+        0.37499999999999994
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "finite/candidate_membership/unresolved/deployment_label": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.3,
+        0.3,
+        0.2,
+        0.2
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.2,
+        0.2,
+        0.3,
+        0.3
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "finite/candidate_membership/unresolved/reference_label": [
+    {
+      "outcome": 0,
+      "probability": 0.25,
+      "posterior": [
+        0.3,
+        0.3,
+        0.2,
+        0.2
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.25,
+      "posterior": [
+        0.2,
+        0.2,
+        0.3,
+        0.3
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.25,
+      "posterior": [
+        0.3,
+        0.3,
+        0.2,
+        0.2
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.25,
+      "posterior": [
+        0.2,
+        0.2,
+        0.3,
+        0.3
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "finite/candidate_membership/oracle_U0/unlabeled_input": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/candidate_membership/oracle_U0/source_identity": [
+    {
+      "outcome": 0,
+      "probability": 0.4,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.4,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/candidate_membership/oracle_U0/deployment_label": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.6,
+        0.0,
+        0.4,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.4,
+        0.0,
+        0.6,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/candidate_membership/oracle_U0/reference_label": [
+    {
+      "outcome": 0,
+      "probability": 0.25,
+      "posterior": [
+        0.6,
+        0.0,
+        0.4,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.25,
+      "posterior": [
+        0.4,
+        0.0,
+        0.6,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.25,
+      "posterior": [
+        0.6,
+        0.0,
+        0.4,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.25,
+      "posterior": [
+        0.4,
+        0.0,
+        0.6,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/candidate_membership/oracle_U1/unlabeled_input": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "finite/candidate_membership/oracle_U1/source_identity": [
+    {
+      "outcome": 0,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.6,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "finite/candidate_membership/oracle_U1/deployment_label": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.6,
+        0.0,
+        0.4
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.4,
+        0.0,
+        0.6
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "finite/candidate_membership/oracle_U1/reference_label": [
+    {
+      "outcome": 0,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        0.6,
+        0.0,
+        0.4
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        0.4,
+        0.0,
+        0.6
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        0.6,
+        0.0,
+        0.4
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        0.4,
+        0.0,
+        0.6
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "finite/reference_target/unresolved/unlabeled_input": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "finite/reference_target/unresolved/source_identity": [
+    {
+      "outcome": 0,
+      "probability": 0.6,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.2,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "finite/reference_target/unresolved/deployment_label": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.3,
+        0.3,
+        0.2,
+        0.2
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.2,
+        0.2,
+        0.3,
+        0.3
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "finite/reference_target/unresolved/reference_label": [
+    {
+      "outcome": 0,
+      "probability": 0.25,
+      "posterior": [
+        0.35,
+        0.25,
+        0.25,
+        0.15000000000000002
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.25,
+      "posterior": [
+        0.15,
+        0.25,
+        0.25,
+        0.35
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.25,
+      "posterior": [
+        0.15000000000000002,
+        0.45,
+        0.04999999999999999,
+        0.35
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.25,
+      "posterior": [
+        0.35,
+        0.05,
+        0.45,
+        0.15
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "finite/reference_target/oracle_U0/unlabeled_input": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "finite/reference_target/oracle_U0/source_identity": [
+    {
+      "outcome": 0,
+      "probability": 0.6,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.2,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "finite/reference_target/oracle_U0/deployment_label": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.6,
+        0.0,
+        0.4,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.4,
+        0.0,
+        0.6,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "finite/reference_target/oracle_U0/reference_label": [
+    {
+      "outcome": 0,
+      "probability": 0.3,
+      "posterior": [
+        0.5833333333333334,
+        0.0,
+        0.4166666666666667,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.2,
+      "posterior": [
+        0.37499999999999994,
+        0.0,
+        0.625,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.1,
+      "posterior": [
+        0.7500000000000001,
+        0.0,
+        0.24999999999999994,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.4,
+      "posterior": [
+        0.43749999999999994,
+        0.0,
+        0.5625,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "finite/reference_target/oracle_U1/unlabeled_input": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    }
+  ],
+  "finite/reference_target/oracle_U1/source_identity": [
+    {
+      "outcome": 0,
+      "probability": 0.6,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    }
+  ],
+  "finite/reference_target/oracle_U1/deployment_label": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.6,
+        0.0,
+        0.4
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.4,
+        0.0,
+        0.6
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    }
+  ],
+  "finite/reference_target/oracle_U1/reference_label": [
+    {
+      "outcome": 0,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.625,
+        0.0,
+        0.37500000000000006
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.0,
+        0.4166666666666667,
+        0.0,
+        0.5833333333333334
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.4,
+      "posterior": [
+        0.0,
+        0.5625,
+        0.0,
+        0.43749999999999994
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.1,
+      "posterior": [
+        0.0,
+        0.25,
+        0.0,
+        0.7499999999999999
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    }
+  ],
+  "finite/aligned_reference_control/unresolved/unlabeled_input": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/aligned_reference_control/unresolved/source_identity": [
+    {
+      "outcome": 0,
+      "probability": 0.4,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.4,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/aligned_reference_control/unresolved/deployment_label": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.3,
+        0.3,
+        0.2,
+        0.2
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.2,
+        0.2,
+        0.3,
+        0.3
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/aligned_reference_control/unresolved/reference_label": [
+    {
+      "outcome": 0,
+      "probability": 0.25,
+      "posterior": [
+        0.35,
+        0.25,
+        0.25,
+        0.15000000000000002
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.25,
+      "posterior": [
+        0.15,
+        0.25,
+        0.25,
+        0.35
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.25,
+      "posterior": [
+        0.25,
+        0.35,
+        0.15000000000000002,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.25,
+      "posterior": [
+        0.25,
+        0.15,
+        0.35,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/aligned_reference_control/oracle_U0/unlabeled_input": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/aligned_reference_control/oracle_U0/source_identity": [
+    {
+      "outcome": 0,
+      "probability": 0.4,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.4,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/aligned_reference_control/oracle_U0/deployment_label": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.6,
+        0.0,
+        0.4,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.4,
+        0.0,
+        0.6,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/aligned_reference_control/oracle_U0/reference_label": [
+    {
+      "outcome": 0,
+      "probability": 0.3,
+      "posterior": [
+        0.5833333333333334,
+        0.0,
+        0.4166666666666667,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.2,
+      "posterior": [
+        0.37499999999999994,
+        0.0,
+        0.625,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.625,
+        0.0,
+        0.37500000000000006,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.3,
+      "posterior": [
+        0.4166666666666667,
+        0.0,
+        0.5833333333333334,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/aligned_reference_control/oracle_U1/unlabeled_input": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/aligned_reference_control/oracle_U1/source_identity": [
+    {
+      "outcome": 0,
+      "probability": 0.4,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.4,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/aligned_reference_control/oracle_U1/deployment_label": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.6,
+        0.0,
+        0.4
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.4,
+        0.0,
+        0.6
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "finite/aligned_reference_control/oracle_U1/reference_label": [
+    {
+      "outcome": 0,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.625,
+        0.0,
+        0.37500000000000006
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.3,
+      "posterior": [
+        0.0,
+        0.4166666666666667,
+        0.0,
+        0.5833333333333334
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.3,
+      "posterior": [
+        0.0,
+        0.5833333333333334,
+        0.0,
+        0.4166666666666667
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.2,
+      "posterior": [
+        0.0,
+        0.37499999999999994,
+        0.0,
+        0.625
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/known_membership/unresolved/input_law": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/known_membership/unresolved/source_weights": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/known_membership/unresolved/deployment_label_law": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "lower": [
+        0.25,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/known_membership/unresolved/reference_label_laws": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "lower": [
+        0.25,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/known_membership/oracle_U0/input_law": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/known_membership/oracle_U0/source_weights": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/known_membership/oracle_U0/deployment_label_law": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/known_membership/oracle_U0/reference_label_laws": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "lower": [
+        0.25,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.25,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/known_membership/oracle_U1/input_law": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/known_membership/oracle_U1/source_weights": [
+    {
+      "outcome": 1,
+      "probability": 1.0,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/known_membership/oracle_U1/deployment_label_law": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "lower": [
+        0.75,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/known_membership/oracle_U1/reference_label_laws": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "lower": [
+        0.75,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/candidate_membership/unresolved/input_law": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "oracle/candidate_membership/unresolved/source_weights": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "oracle/candidate_membership/unresolved/deployment_label_law": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.4,
+        0.6
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "oracle/candidate_membership/unresolved/reference_label_laws": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.4,
+        0.6
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "oracle/candidate_membership/oracle_U0/input_law": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/candidate_membership/oracle_U0/source_weights": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/candidate_membership/oracle_U0/deployment_label_law": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/candidate_membership/oracle_U0/reference_label_laws": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/candidate_membership/oracle_U1/input_law": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "oracle/candidate_membership/oracle_U1/source_weights": [
+    {
+      "outcome": 1,
+      "probability": 1.0,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "oracle/candidate_membership/oracle_U1/deployment_label_law": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.4,
+        0.6
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "lower": [
+        0.5,
+        0.6,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "oracle/candidate_membership/oracle_U1/reference_label_laws": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.4,
+        0.6
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "lower": [
+        0.5,
+        0.6,
+        0.6
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "oracle/reference_target/unresolved/input_law": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "oracle/reference_target/unresolved/source_weights": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "oracle/reference_target/unresolved/deployment_label_law": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "oracle/reference_target/unresolved/reference_label_laws": [
+    {
+      "outcome": 0,
+      "probability": 0.25,
+      "posterior": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.3,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.7,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    }
+  ],
+  "oracle/reference_target/oracle_U0/input_law": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "oracle/reference_target/oracle_U0/source_weights": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "oracle/reference_target/oracle_U0/deployment_label_law": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.7,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "oracle/reference_target/oracle_U0/reference_label_laws": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.7,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.7,
+        0.2
+      ]
+    }
+  ],
+  "oracle/reference_target/oracle_U1/input_law": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    }
+  ],
+  "oracle/reference_target/oracle_U1/source_weights": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    }
+  ],
+  "oracle/reference_target/oracle_U1/deployment_label_law": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.3,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    }
+  ],
+  "oracle/reference_target/oracle_U1/reference_label_laws": [
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.75,
+        0.3,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.3,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "lower": [
+        0.75,
+        0.5,
+        0.2
+      ],
+      "upper": [
+        0.75,
+        0.5,
+        0.2
+      ]
+    }
+  ],
+  "oracle/aligned_reference_control/unresolved/input_law": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/aligned_reference_control/unresolved/source_weights": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/aligned_reference_control/unresolved/deployment_label_law": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/aligned_reference_control/unresolved/reference_label_laws": [
+    {
+      "outcome": 0,
+      "probability": 0.25,
+      "posterior": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.25,
+      "posterior": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "lower": [
+        0.5,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/aligned_reference_control/oracle_U0/input_law": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/aligned_reference_control/oracle_U0/source_weights": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/aligned_reference_control/oracle_U0/deployment_label_law": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/aligned_reference_control/oracle_U0/reference_label_laws": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 2,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/aligned_reference_control/oracle_U1/input_law": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/aligned_reference_control/oracle_U1/source_weights": [
+    {
+      "outcome": 0,
+      "probability": 1.0,
+      "posterior": [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/aligned_reference_control/oracle_U1/deployment_label_law": [
+    {
+      "outcome": 0,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "lower": [
+        0.5,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ],
+  "oracle/aligned_reference_control/oracle_U1/reference_label_laws": [
+    {
+      "outcome": 1,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        0.5,
+        0.4,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "outcome": 3,
+      "probability": 0.5,
+      "posterior": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "lower": [
+        0.5,
+        0.6,
+        0.2
+      ],
+      "upper": [
+        0.5,
+        0.6,
+        0.2
+      ]
+    }
+  ]
+}

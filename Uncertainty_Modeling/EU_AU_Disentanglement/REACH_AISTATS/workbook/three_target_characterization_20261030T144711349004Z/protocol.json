@@ -1,0 +1,43 @@
+{
+  "families": [
+    "known_membership",
+    "candidate_membership",
+    "reference_target",
+    "aligned_reference_control"
+  ],
+  "states": [
+    "unresolved",
+    "oracle_U0",
+    "oracle_U1"
+  ],
+  "targets": [
+    "known_membership",
+    "reference_target",
+    "candidate_membership"
+  ],
+  "cell_law": [
+    0.5,
+    0.3,
+    0.2
+  ],
+  "finite_channels": [
+    "unlabeled_input",
+    "source_identity",
+    "deployment_label",
+    "reference_label"
+  ],
+  "oracle_channels": [
+    "input_law",
+    "source_weights",
+    "deployment_label_law",
+    "reference_label_laws"
+  ],
+  "reference_anchor": [
+    0.5,
+    0.5
+  ],
+  "prior": "independent uniform H,U",
+  "interval": "support hull, not a confidence or credible interval",
+  "computation": "exact finite enumeration; rational deployment-law cancellation; numerical independent LP checks",
+  "seed": null
+}

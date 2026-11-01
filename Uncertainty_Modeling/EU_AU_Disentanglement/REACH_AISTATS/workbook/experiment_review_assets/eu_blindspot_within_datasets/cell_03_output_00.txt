@@ -1,0 +1,13 @@
+    dataset  split                       source   rows  classes
+0     mnist  train               official_train  47995       10
+1     mnist    val               official_train  12005       10
+2     mnist   test                official_test  10000       10
+3    emnist  train               official_train  99840       26
+4    emnist    val               official_train  24960       26
+5    emnist   test                official_test  20800       26
+6   fashion  train  official_test_repartitioned   6000       10
+7   fashion    val  official_test_repartitioned   2000       10
+8   fashion   test  official_test_repartitioned   2000       10
+9     blood  train               official_train  11959        8
+10    blood    val                 official_val   1712        8
+11    blood   test                official_test   3421        8

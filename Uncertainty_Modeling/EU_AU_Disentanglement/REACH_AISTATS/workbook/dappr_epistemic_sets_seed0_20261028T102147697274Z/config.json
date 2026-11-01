@@ -1,0 +1,35 @@
+{
+  "seed": 0,
+  "datasets": [
+    "mnist",
+    "emnist",
+    "fashion",
+    "blood"
+  ],
+  "id_class_count": {
+    "mnist": 4,
+    "emnist": 13,
+    "fashion": 4,
+    "blood": 3
+  },
+  "train_per_class": 400,
+  "val_per_class": 80,
+  "test_per_class": 100,
+  "epochs": 15,
+  "batch_size": 128,
+  "learning_rate": 0.002,
+  "weight_decay": 0.0001,
+  "warmup_epochs": 2,
+  "dropout": 0.5,
+  "mc_passes": 20,
+  "rho": 0.5,
+  "bound_tolerance": 1e-05,
+  "bound_max_iter": 200,
+  "device": "cpu",
+  "torch_version": "2.14.1+cu130",
+  "probly_version": "0.9.0",
+  "helper_sha256": "bfffa8138f8f395d0f701e32a9d17802038829a6a4dd32770c65df2a842b037b",
+  "set_definition": "w=(1-rho)/T+rho*q; q in simplex",
+  "scalar_score": "midpoint of lower and numerical outer upper endpoint",
+  "fashion_protocol": "official test pool repartitioned 60/20/20"
+}

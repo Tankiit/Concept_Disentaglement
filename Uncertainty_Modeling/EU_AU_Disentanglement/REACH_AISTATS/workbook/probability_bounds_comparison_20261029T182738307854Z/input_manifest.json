@@ -1,0 +1,52 @@
+[
+  {
+    "path": "real/probability_bounds.py",
+    "bytes": 9048,
+    "sha256": "62dd3560d117685e0c12065917f6e0728041bb26298d02d81de13c179d9088ff"
+  },
+  {
+    "path": "real/source_acquisition.py",
+    "bytes": 4472,
+    "sha256": "47a18ae3c649f0bbcc48c1795b7f65c84102d85f0ad6384f0131b63d041e5596"
+  },
+  {
+    "path": "cache/mnist_reach/blood_test.npz",
+    "bytes": 2342979,
+    "sha256": "bed32e421d936fde02c8aecdad7acf3e90f0a2d9d0ab7fba96097429a2a5cfcc"
+  },
+  {
+    "path": "cache/mnist_reach/bloodmnist_original.npz",
+    "bytes": 35461855,
+    "sha256": "062023e186f537e26b3c21ea3b2614ddfc475e8a14825dfd20663bbb7e37bddc"
+  },
+  {
+    "path": "cache/mnist_reach/fashion_test.npz",
+    "bytes": 4427784,
+    "sha256": "d9b112470b3ace2522ca22ca93b194eb52fe1c8da3ce61dd0a72cc7501797fdc"
+  },
+  {
+    "path": "cache/mnist_reach/kmnist_test.npz",
+    "bytes": 3087191,
+    "sha256": "804c6c7a488e9310c39c675efc9785acfbe84ad74b8d16f1132ae0f22b7d9629"
+  },
+  {
+    "path": "cache/mnist_reach/letters_test.npz",
+    "bytes": 5105807,
+    "sha256": "ac3d0812786849b7a1d5dee08658c26268454e69ec16ea1fd02fd683d2e0f48d"
+  },
+  {
+    "path": "cache/mnist_reach/letters_train.npz",
+    "bytes": 31317271,
+    "sha256": "49831a531c9f6ce61f6d48ab8fa3e5256db8f1e1749bb7e2ea1be30bc8f175a2"
+  },
+  {
+    "path": "cache/mnist_reach/mnist_test.npz",
+    "bytes": 1641608,
+    "sha256": "9f751e8933e12cf22d67c1c946cfbd23257bec0b2d159fdfc7bbc8cb4cda9b38"
+  },
+  {
+    "path": "cache/mnist_reach/mnist_train.npz",
+    "bytes": 9866058,
+    "sha256": "3b13ce46679e2c1d4591f74789ea1d877a3da45cf65e252fe1b4609543f4e10e"
+  }
+]

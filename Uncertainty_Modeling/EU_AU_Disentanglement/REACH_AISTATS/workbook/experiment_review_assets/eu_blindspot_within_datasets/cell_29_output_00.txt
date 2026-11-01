@@ -1,0 +1,27 @@
+         known_test_accuracy  n_UUC  original_quadrant_n  \
+dataset                                                    
+mnist                   0.89    800                   31   
+emnist                  0.76   1400                   71   
+fashion                 0.89    800                   68   
+blood                   0.81    600                   46   
+
+         original_quadrant_pct  EU_flagged_known_errors_n  \
+dataset                                                     
+mnist                     3.88                         23   
+emnist                    5.07                         44   
+fashion                   8.50                         68   
+blood                     7.67                         45   
+
+         EU_flagged_known_errors_pct  silent_known_errors_n  \
+dataset                                                       
+mnist                           2.88                    151   
+emnist                          3.14                    469   
+fashion                         8.50                    477   
+blood                           7.50                    461   
+
+         silent_known_errors_pct  EU_warning_coverage_pct  
+dataset                                                    
+mnist                      18.88                    13.22  
+emnist                     33.50                     8.58  
+fashion                    59.62                    12.48  
+blood                      76.83                     8.89  

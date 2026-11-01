@@ -1,0 +1,4 @@
+mnist training accuracy: 0.875
+emnist training accuracy: 0.7717
+fashion training accuracy: 0.787
+blood training accuracy: 0.6769

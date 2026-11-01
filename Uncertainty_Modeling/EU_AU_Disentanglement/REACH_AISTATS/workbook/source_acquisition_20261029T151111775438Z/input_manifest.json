@@ -1,0 +1,57 @@
+[
+  {
+    "path": "workbook/dappr_epistemic_sets_seed0_20261029T085507170686Z/scores.csv",
+    "sha256": "94fdc4e438af0bdf052c5d99e1dc2b0014afdcd5cfb0ef7d3126a649b839f560",
+    "bytes": 1228531
+  },
+  {
+    "path": "workbook/dappr_epistemic_sets_seed0_20261029T085507170686Z/class_roles.csv",
+    "sha256": "9f5821c0a344a32e0d439d8c509dda87dfd1541933a93e8f3800d071634bfe4e",
+    "bytes": 705
+  },
+  {
+    "path": "workbook/dappr_epistemic_sets_seed0_20261029T085507170686Z/assignments.csv",
+    "sha256": "f274e701610a46ab2dcc0b1de8541ad328f40c5f8052e09dae55257352f74137",
+    "bytes": 627734
+  },
+  {
+    "path": "workbook/dappr_epistemic_sets_seed0_20261029T085507170686Z/config.json",
+    "sha256": "288eec58b56a9655d801b8069ea8d093346c89c37bd3e814530df68de3a6212f",
+    "bytes": 839
+  },
+  {
+    "path": "workbook/dappr_epistemic_sets_seed0_20261029T085507170686Z/mnist_dropout_predictions.npz",
+    "sha256": "8308982147b1dcb08cd23fc93df62a88e1f0323cec06fbd54d234abce44feee0",
+    "bytes": 608088
+  },
+  {
+    "path": "workbook/dappr_epistemic_sets_seed0_20261029T085507170686Z/emnist_dropout_predictions.npz",
+    "sha256": "334585030750f758ea3b59b29e5bc0b33dc08b9ef5e9f9956f1a6ffb8397106f",
+    "bytes": 5204263
+  },
+  {
+    "path": "workbook/dappr_epistemic_sets_seed0_20261029T085507170686Z/fashion_dropout_predictions.npz",
+    "sha256": "ab47f82ccfbfca0d715ab904bb0265564cd3dff51022c697f42cb42e33b0a581",
+    "bytes": 611323
+  },
+  {
+    "path": "workbook/dappr_epistemic_sets_seed0_20261029T085507170686Z/blood_dropout_predictions.npz",
+    "sha256": "9629e0f846daaf6f0b137c8413f92c54652800f215f0be09d8bf1c101f552706",
+    "bytes": 360957
+  },
+  {
+    "path": "real/source_acquisition.py",
+    "sha256": "47a18ae3c649f0bbcc48c1795b7f65c84102d85f0ad6384f0131b63d041e5596",
+    "bytes": 4472
+  },
+  {
+    "path": "paper/sections/setup.tex",
+    "sha256": "fb61509557b45b48237df32c151e491b3711a443cfec0a287beea1b844a5bdfa",
+    "bytes": 5980
+  },
+  {
+    "path": "paper/sections/theory.tex",
+    "sha256": "7a12793cc12ce1a703c4716ba65fd95b8d4c0cc85583e9cb45e340cffb4592bb",
+    "bytes": 6434
+  }
+]

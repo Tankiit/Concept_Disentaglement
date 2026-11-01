@@ -1,0 +1,9 @@
+dataset,regime,probe,cells,affine_difference_smallest_singular_value
+mnist,image_derived,0,4,0.10389780944187313
+mnist,confounded,0,4,4.8074067159589095e-17
+emnist,image_derived,2,13,0.28119358197529504
+emnist,confounded,2,13,2.5018537765542006e-17
+fashion,image_derived,1,4,0.04249974410384063
+fashion,confounded,1,4,8.092071311423671e-17
+blood,image_derived,0,3,0.1460822049366006
+blood,confounded,0,3,5.5511151231257815e-17

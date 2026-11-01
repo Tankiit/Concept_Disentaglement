@@ -1,0 +1,9 @@
+                              rows
+pool          dataset split       
+cal_mnist     mnist   train   2000
+test_blood    blood   test    1600
+test_fashion  fashion test    2000
+test_letters  letters test    5200
+test_mnist    mnist   test    2000
+train_letters letters train   5200
+train_mnist   mnist   train  10000

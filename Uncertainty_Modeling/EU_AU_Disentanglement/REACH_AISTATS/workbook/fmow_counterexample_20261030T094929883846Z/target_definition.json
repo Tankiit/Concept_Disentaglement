@@ -1,0 +1,4 @@
+{
+  "positive_class": 42,
+  "selection": "tumor=1 if binary, else modal training class; frozen before heldout labels"
+}

@@ -1,0 +1,4 @@
+mnist: original quadrant observed = True; confident known-class errors flagged by EU = 23; confident known-class errors missed by EU = 151.
+emnist: original quadrant observed = True; confident known-class errors flagged by EU = 44; confident known-class errors missed by EU = 469.
+fashion: original quadrant observed = True; confident known-class errors flagged by EU = 68; confident known-class errors missed by EU = 477.
+blood: original quadrant observed = True; confident known-class errors flagged by EU = 45; confident known-class errors missed by EU = 461.

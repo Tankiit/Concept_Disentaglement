@@ -1,0 +1,5 @@
+dataset,source_score_min,source_score_max,candidate_only_law_inside_marginal_box,num_cells
+mnist,1.0,1.0,False,8
+emnist,1.0,1.0,True,26
+fashion,1.0,1.0,False,8
+blood,1.0,1.0,True,6
