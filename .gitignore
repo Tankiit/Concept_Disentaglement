@@ -8,6 +8,10 @@
 *.md
 *.MD
 *.markdown
+# Keep collaborator planning doc versioned.
+!**/COLLABORATOR_PLAN.md
+!**/collaborator_plan.md
+!**/collaborator plan.md
 .obsidian/
 *.canvas
 0[0-9]_*/
@@ -24,6 +28,8 @@ uploads/
 tmp/
 temp/
 *.tmp
+*.zip
+*.ipynb
 
 # ------------------------------------------------------------------------------
 # 3. Machine Learning data, feature caches, weights, checkpoints & logs

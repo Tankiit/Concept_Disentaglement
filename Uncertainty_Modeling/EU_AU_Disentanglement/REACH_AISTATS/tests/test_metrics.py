@@ -6,7 +6,8 @@ import faulthandler
 faulthandler.dump_traceback_later(150, exit=True)  # dump all stacks if the suite hangs
 import numpy as np
 
-from metrics import fill_data_and_split, fill_scores, fill_separation, new_metrics, report
+from metrics import (CIFAR10_CLASSES, cifar10_names, fill_data_and_split,
+                     fill_scores, fill_separation, new_metrics, report)
 
 
 def deterministic_disagreement(n=3):
@@ -57,6 +58,45 @@ class TestFillSeparation(unittest.TestCase):
         self.assertEqual(M["separate"]["auroc_known_vs_uuc"]["MSP"], 1.0)  # MSP enters as 1-MSP
         self.assertEqual(M["separate"]["auroc_known_vs_uuc"]["MI"], 1.0)
         self.assertEqual(M["separate"]["auroc_known_vs_kuc"], {})          # empty kuc -> no pairs
+
+
+class TestClassIdentity(unittest.TestCase):
+    """Step-1 discipline: ids map to the standard CIFAR-10 order, everywhere."""
+
+    def test_standard_order_spot_checks(self):
+        self.assertEqual(len(CIFAR10_CLASSES), 10)
+        for i, name in [(0, "airplane"), (1, "automobile"), (4, "deer"),
+                        (8, "ship"), (9, "truck")]:
+            self.assertEqual(CIFAR10_CLASSES[i], name)
+
+    def test_names_covers_present_ids_and_rejects_non_cifar10_ids(self):
+        self.assertEqual(cifar10_names([4, 1, 8]), {1: "automobile", 4: "deer", 8: "ship"})
+        with self.assertRaises(AssertionError):
+            cifar10_names([10])                       # c100-style id: not CIFAR-10
+
+    def test_toy_world_records_names_and_named_per_split_counts(self):
+        M = new_metrics()
+        X = np.random.default_rng(0).normal(size=(6, 3))
+        y = np.array([1, 1, 4, 4, 2, 2])              # notebook world shape: kuc=deer
+        out = dict(idx={"train": np.array([0, 1, 2, 3]), "val": np.array([], int),
+                        "test": np.array([4, 5])},
+                   kkc=[1], kuc=[4], uuc=[2])
+        fill_data_and_split(M, X, y, out)
+        self.assertEqual(M["data"]["class_names"], {1: "automobile", 2: "bird", 4: "deer"})
+        self.assertEqual(M["split"]["classes_per_split"]["test"],
+                         {"bird (2)": 2})
+        self.assertEqual(M["split"]["uuc_in_test"], [2])
+
+    def test_non_cifar10_ids_leave_names_none(self):
+        M = new_metrics()
+        X = np.random.default_rng(0).normal(size=(4, 3))
+        y = np.array([10, 10, 11, 11])                # CIFAR-100-style ids
+        out = dict(idx={"train": np.array([0, 1]), "val": np.array([], int),
+                        "test": np.array([2, 3])},
+                   kkc=[10], kuc=[], uuc=[11])
+        fill_data_and_split(M, X, y, out)
+        self.assertIsNone(M["data"]["class_names"])
+        self.assertEqual(M["split"]["classes_per_split"]["test"], {11: 2})
 
 
 class TestFillDataAndSplit(unittest.TestCase):

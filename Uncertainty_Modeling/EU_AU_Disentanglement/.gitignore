@@ -8,6 +8,9 @@
 *.md
 *.MD
 *.markdown
+!**/COLLABORATOR_PLAN.md
+!**/collaborator_plan.md
+!**/collaborator plan.md
 VALIDATION.json
 drive_upload/
 *_upload/

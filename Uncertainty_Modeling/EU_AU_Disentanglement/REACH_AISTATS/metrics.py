@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 
 SECTIONS = {
-    "data":      ["n_rows", "feat_dim", "feat_norm_mean", "classes_present"],
+    "data":      ["n_rows", "feat_dim", "feat_norm_mean", "classes_present", "class_names"],
     "split":     ["kkc", "kuc", "uuc", "n_kkc", "rows_per_split",
                   "classes_per_split", "uuc_in_val", "uuc_in_test", "leak_free"],
     "head":      ["n_members", "recipe", "acc_known_per_member", "acc_known_ens"],
@@ -16,6 +16,19 @@ SECTIONS = {
 }
 
 MIN_GROUP = 200  # report() flags groups below this
+
+# Standard CIFAR-10 label order (torchvision CIFAR10.classes). The cached feature
+# files inherit these ids from the extractor; every table that names a class by id
+# goes through cifar10_names() so a mislabelled identity cannot pass silently.
+CIFAR10_CLASSES = ["airplane", "automobile", "bird", "cat", "deer", "dog",
+                   "frog", "horse", "ship", "truck"]
+
+
+def cifar10_names(y):
+    """id -> name for a CIFAR-10 label array; asserts ids are valid CIFAR-10 ids."""
+    ids = sorted({int(i) for i in np.unique(y)})
+    assert all(0 <= i < len(CIFAR10_CLASSES) for i in ids), f"not CIFAR-10 ids: {ids}"
+    return {i: CIFAR10_CLASSES[i] for i in ids}
 
 
 def new_metrics():
@@ -29,19 +42,25 @@ def _entropy(p):
 
 def fill_data_and_split(M, X, y, out):
     """Everything here is free: no model needed."""
+    present = sorted(np.unique(y).tolist())
     M["data"].update(
         n_rows=len(X), feat_dim=X.shape[1],
         feat_norm_mean=float(np.linalg.norm(X.astype(np.float32), axis=1).mean()),
-        classes_present=sorted(np.unique(y).tolist()))
+        classes_present=present,
+        class_names=(cifar10_names(present) if all(0 <= int(c) < 10 for c in present)
+                     else None))
     kkc, kuc, uuc = set(out["kkc"]), set(out["kuc"]), set(out["uuc"])
     per = {n: dict(zip(*[a.tolist() for a in np.unique(y[ix], return_counts=True)]))
            for n, ix in out["idx"].items()}
+    if M["data"]["class_names"] is not None:
+        per = {n: {f"{M['data']['class_names'][int(c)]} ({int(c)})": int(m)
+                   for c, m in cs.items()} for n, cs in per.items()}
+    uuc_in = {n: sorted(set(y[out["idx"][n]].tolist()) & uuc) for n in ("val", "test")}
     M["split"].update(
         kkc=sorted(kkc), kuc=sorted(kuc), uuc=sorted(uuc), n_kkc=len(kkc),
         rows_per_split={n: len(ix) for n, ix in out["idx"].items()},
         classes_per_split=per,
-        uuc_in_val=sorted(set(per["val"]) & uuc),
-        uuc_in_test=sorted(set(per["test"]) & uuc),
+        uuc_in_val=uuc_in["val"], uuc_in_test=uuc_in["test"],
         leak_free=all(not (set(out["idx"][a]) & set(out["idx"][b]))
                       for a, b in [("train", "val"), ("train", "test"), ("val", "test")]))
     return M
@@ -148,6 +167,14 @@ def report(M):
         small = {g: n for g, n in sizes.items() if 0 < n < MIN_GROUP}
         if small:
             print(f"SMALL GROUPS (n < {MIN_GROUP}):", small)
+    names = M["data"].get("class_names")
+    per = M["split"].get("classes_per_split")
+    if names and per:                      # step-1 discipline: names + n, every run
+        print("class identities (CIFAR-10):",
+              {g: names.get(int(g), "?") for g in M["split"]["kkc"]
+               + M["split"]["kuc"] + M["split"]["uuc"]})
+        for split, cs in per.items():
+            print(f"  {split:5s} per-class n:", cs)
 
 
 if __name__ == "__main__":
