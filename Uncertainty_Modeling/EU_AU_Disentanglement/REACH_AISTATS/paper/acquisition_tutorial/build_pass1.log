@@ -1,0 +1,458 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./acquisition_tutorial.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-06-18>
+(/home/mtleao/.TinyTeX/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
+(/home/mtleao/.TinyTeX/texmf-dist/tex/latex/base/size11.clo)) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/base/inputenc.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/home/mtleao/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty)) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def))) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/tools/longtable.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/tools/array.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty))) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (/home/mtleao/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/url/url.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/float/float.sty) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+No file acquisition_tutorial.aux.
+(/home/mtleao/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+[1{/home/mtleao/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/home/mtleao/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}] (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (/home/mtleao/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd)
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
+[]|$\T1/lmtt/m/n/10.95 source _ acquisition _ four _
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]|$\T1/lmtt/m/n/10.95 acquisition _ counterexample .
+
+Underfull \hbox (badness 1067) in paragraph at lines 38--39
+[]|\T1/lmr/m/n/10.95 Study hospital-source prob-a-bil-ity bounds
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+[]|$\T1/lmtt/m/n/10.95 camelyon17 _ counterexample .
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.44 \tableofcontents
+                      [1]
+No file acquisition_tutorial.toc.
+[2]
+No file acquisition_tutorial.lof.
+[3]
+Chapter 1.
+[4{/home/mtleao/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/home/mtleao/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/home/mtleao/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}] [5{/home/mtleao/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] [6] [7]
+Chapter 2.
+[8]
+
+LaTeX Warning: Reference `eq:mass' on page 9 undefined on input line 209.
+
+
+LaTeX Warning: Reference `eq:rowbox' on page 9 undefined on input line 214.
+
+[9] [10]
+
+LaTeX Warning: Reference `eq:mixture' on page 11 undefined on input line 245.
+
+[11]
+Chapter 3.
+[12] [13]
+
+LaTeX Warning: Reference `fig:laws' on page 14 undefined on input line 301.
+
+
+LaTeX Warning: Reference `eq:family' on page 14 undefined on input line 303.
+
+[14
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.313 
+       <./figures/run1_source_laws.png>]
+
+LaTeX Warning: Reference `eq:anchored' on page 15 undefined on input line 316.
+
+
+LaTeX Warning: Reference `fig:mnist' on page 15 undefined on input line 323.
+
+
+LaTeX Warning: Reference `fig:mnist' on page 15 undefined on input line 323.
+
+[15
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.324 E
+       MNIST has 13 prediction cells, giving more coordinates whose probabil... <./figures/run1_mnist_acquisition_curves.png>] [16
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.332 R
+       eference acquisition in the image-derived known-membership panel reac... <./figures/run1_emnist_acquisition_curves.png>]
+
+LaTeX Warning: Reference `eq:family' on page 17 undefined on input line 334.
+
+[17
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.340 I
+       n the image-derived regime, identities reduce candidate width to 0.04... <./figures/run1_fashion_acquisition_curves.png>] [18
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.347 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.347 
+       <./figures/run1_blood_acquisition_curves.png> <./figures/run1_candidate_endpoints.png>] [19]
+Chapter 4.
+
+LaTeX Warning: Reference `eq:mi' on page 20 undefined on input line 378.
+
+
+LaTeX Warning: Reference `eq:toy-mi' on page 20 undefined on input line 385.
+
+[20]
+
+LaTeX Warning: Reference `eq:bayes-toy' on page 21 undefined on input line 411.
+
+[21] [22] [23]
+Chapter 5.
+[24
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.469 I
+       nitially both worlds share MI 0.192744757 and endpoint range $[0.1470... <./figures/run2_risk.png>] [25
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.478 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.478 
+       <./figures/run2_epistemic_bounds.png> <./figures/run2_confidence_width.png>] [26
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.485 \chapter
+              {The image pilots: data, neural representations, and source bo... <./figures/run2_policy_regret.png>]
+Chapter 6.
+[27] [28] [29] [30]
+
+LaTeX Warning: Reference `eq:radius' on page 31 undefined on input line 609.
+
+[31] [32]
+Chapter 7.
+[33
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.627 
+       <./figures/run3_acquisition_bounds.png>]
+
+LaTeX Warning: Reference `fig:camacq' on page 34 undefined on input line 638.
+
+
+LaTeX Warning: Reference `fig:camacq' on page 34 undefined on input line 638.
+
+[34
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.642 
+       <./figures/run5_acquisition_bounds.png>] [35]
+Chapter 8.
+[36]
+
+LaTeX Warning: Reference `eq:totalvar' on page 37 undefined on input line 721.
+
+
+LaTeX Warning: Reference `eq:tmean' on page 37 undefined on input line 728.
+
+[37] [38]
+
+LaTeX Warning: Reference `eq:beta-target' on page 39 undefined on input line 794.
+
+[39] [40]
+Chapter 9.
+
+LaTeX Warning: Reference `eq:vid' on page 41 undefined on input line 813.
+
+
+LaTeX Warning: Reference `eq:vlabel' on page 41 undefined on input line 813.
+
+[41] [42
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.829 
+       <./figures/run4_acquisition_curves.png>]
+Overfull \hbox (10.54433pt too wide) in paragraph at lines 831--832
+\T1/lmr/m/n/10.95 Initial tar-get en-clo-sures are $\OT1/lmr/m/n/10.95 [0\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 450397852\OML/lmm/m/it/10.95 ; \OT1/lmr/m/n/10.95 0\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 686987828]$ \T1/lmr/m/n/10.95 for state 390 and $\OT1/lmr/m/n/10.95 [0\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 462620967\OML/lmm/m/it/10.95 ; \OT1/lmr/m/n/10.95 0\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 689706103]$
+[43]
+Chapter 10.
+
+Underfull \hbox (badness 1168) in paragraph at lines 853--854
+\T1/lmr/m/n/10.95 State 287 starts at squared er-ror 0.000177179259. One iden-tity gives ex-pected er-ror
+
+LaTeX Warning: Reference `eq:changeerror' on page 44 undefined on input line 855.
+
+[44] [45
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.869 T
+       his figure is especially useful because it shows both internal poster... <./figures/run6_acquisition_curves.png>]
+Overfull \hbox (39.4397pt too wide) in paragraph at lines 872--873
+\T1/lmr/m/n/10.95 The ini-tial cred-i-ble en-clo-sures are $\OT1/lmr/m/n/10.95 [0\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 042460817\OML/lmm/m/it/10.95 ; \OT1/lmr/m/n/10.95 0\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 173041926]$ \T1/lmr/m/n/10.95 for state 287 and $\OT1/lmr/m/n/10.95 [0\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 038274954\OML/lmm/m/it/10.95 ; \OT1/lmr/m/n/10.95 0\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 160133696]$
+
+Underfull \hbox (badness 2302) in paragraph at lines 874--875
+\T1/lmr/m/n/10.95 Sam-pled Probly es-ti-mates are 0.001900505516 and 0.001899761804, ver-sus quadra-ture
+[46]
+Chapter 11.
+[47]
+
+LaTeX Warning: Reference `eq:tmean' on page 48 undefined on input line 900.
+
+
+LaTeX Warning: Reference `eq:heldout' on page 48 undefined on input line 902.
+
+[48]
+Chapter 12.
+[49] [50]
+Appendix A.
+(./numerical_tables.tex
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.2 on input line 66.
+
+[51] [52]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.7 on input line 215.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.8 on input line 272.
+
+[53]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.9 on input line 325.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.10 on input line 378.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.11 on input line 431.
+
+[54]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.12 on input line 484.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.13 on input line 537.
+
+[55]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.14 on input line 590.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.15 on input line 643.
+
+[56]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.16 on input line 696.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.17 on input line 731.
+
+[57]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.18 on input line 762.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.20 on input line 826.
+
+[58]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.22 on input line 872.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.23 on input line 893.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.24 on input line 946.
+
+[59]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.25 on input line 967.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.27 on input line 1019.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.29 on input line 1065.
+
+[60]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.30 on input line 1086.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.31 on input line 1139.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.32 on input line 1160.
+
+[61]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.35 on input line 1219.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.37 on input line 1253.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.38 on input line 1274.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.39 on input line 1291.
+
+[62]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.40 on input line 1308.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.41 on input line 1357.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.42 on input line 1406.
+
+[63]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.44 on input line 1446.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.46 on input line 1480.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.47 on input line 1501.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.48 on input line 1518.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.49 on input line 1535.
+
+[64]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.50 on input line 1584.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table A.51 on input line 1633.
+
+) [65]
+Appendix B.
+[66] [67]
+Appendix C.
+(./provenance.tex
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+[]\T1/lmr/m/n/10.95 Online note-book: [][]$\T1/lmtt/m/n/10.95 https : / / github . com / Tankiit / Concept _ Disentaglement / blob /
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+\T1/lmtt/m/n/10.95 reach-[]mateus-[]workbook / Uncertainty _ Modeling / EU _ AU _ Disentanglement / REACH _ AISTATS /
+(/home/mtleao/.TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd)
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+[]\T1/lmr/m/n/10.95 Online note-book: [][]$\T1/lmtt/m/n/10.95 https : / / github . com / Tankiit / Concept _ Disentaglement / blob /
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+\T1/lmtt/m/n/10.95 reach-[]mateus-[]workbook / Uncertainty _ Modeling / EU _ AU _ Disentanglement / REACH _ AISTATS /
+[68{/home/mtleao/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
+[]\T1/lmr/m/n/10.95 Online note-book: [][]$\T1/lmtt/m/n/10.95 https : / / github . com / Tankiit / Concept _ Disentaglement / blob /
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
+\T1/lmtt/m/n/10.95 reach-[]mateus-[]workbook / Uncertainty _ Modeling / EU _ AU _ Disentanglement / REACH _ AISTATS /
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
+[]\T1/lmr/m/n/10.95 Online note-book: [][]$\T1/lmtt/m/n/10.95 https : / / github . com / Tankiit / Concept _ Disentaglement / blob /
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
+\T1/lmtt/m/n/10.95 reach-[]mateus-[]workbook / Uncertainty _ Modeling / EU _ AU _ Disentanglement / REACH _ AISTATS /
+[69]
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
+[]\T1/lmr/m/n/10.95 Online note-book: [][]$\T1/lmtt/m/n/10.95 https : / / github . com / Tankiit / Concept _ Disentaglement / blob /
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
+\T1/lmtt/m/n/10.95 reach-[]mateus-[]workbook / Uncertainty _ Modeling / EU _ AU _ Disentanglement / REACH _ AISTATS /
+[70]
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+[]\T1/lmr/m/n/10.95 Online note-book: [][]$\T1/lmtt/m/n/10.95 https : / / github . com / Tankiit / Concept _ Disentaglement / blob /
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+\T1/lmtt/m/n/10.95 reach-[]mateus-[]workbook / Uncertainty _ Modeling / EU _ AU _ Disentanglement / REACH _ AISTATS /
+)
+
+LaTeX Warning: Reference `eq:radius' on page 71 undefined on input line 982.
+
+
+LaTeX Warning: Reference `eq:cc' on page 71 undefined on input line 983.
+
+[71]
+Underfull \hbox (badness 10000) in paragraph at lines 985--986
+[][]$\T1/lmtt/m/n/10.95 https : / / openaccess . thecvf . com / content _ cvpr _ 2016 / html / He _ Deep _ Residual _
+
+Underfull \hbox (badness 10000) in paragraph at lines 990--991
+\T1/lmtt/m/n/10.95 com / content _ cvpr _ 2018 / html / Christie _ Functional _ Map _ of _ CVPR _ 2018 _ paper .
+
+Package longtable Warning: Table widths have changed. Rerun LaTeX.
+
+[72] (./acquisition_tutorial.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `acquisition_tutorial.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)</home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></home/mtleao/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on acquisition_tutorial.pdf (73 pages, 2618439 bytes).
+Transcript written on acquisition_tutorial.log.

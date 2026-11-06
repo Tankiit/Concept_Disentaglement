@@ -1,0 +1,11 @@
+{
+  "pdf_pages": 78,
+  "figures": 14,
+  "latex_warnings": 0,
+  "overfull_boxes": 0,
+  "unresolved_references": 0,
+  "duplicate_pdf_destinations": 0,
+  "narrative_source_words": 16658,
+  "artifact_checks": "artifact_checks.json",
+  "visual_review": "Rendered sample pages inspected: narrative/figure layout, numerical source-law tables, and Beta action-value/quadrature equations."
+}

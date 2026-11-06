@@ -1,0 +1,29 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1}{\ignorespaces Source probability laws. Columns of panels distinguish datasets; panel rows distinguish the image-derived and confounded regimes. Within a panel, each row is one source and each column is a frozen prediction cell. The shared color mapping runs from probability zero to one.}}{18}{figure.3.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces MNIST acquisition responses at the fixed probe. Shading is the range of six repeat widths. Dashed lines are the target-specific exact-information benchmarks described in the text.}}{19}{figure.3.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces EMNIST Letters acquisition responses, with the same layout and color meanings as Figure~\ref {fig:mnist}.}}{20}{figure.3.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Fashion-MNIST acquisition responses for image-derived and confounded candidate laws.}}{21}{figure.3.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces BloodMNIST acquisition responses, interpreted within the specified finite-cell simulation.}}{22}{figure.3.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Candidate membership intervals for predetermined repeat 0 in the confounded regime. Horizontal segments show lower and upper endpoints; dotted vertical lines show the generating target.}}{22}{figure.3.6}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7}{\ignorespaces Exact expected posterior variance (lines) and Monte Carlo means (points) for World M on the left and World L on the right.}}{28}{figure.5.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Expected predictive mutual information and expected lower/upper MI endpoints under the declared prior-weight family.}}{29}{figure.5.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Mean span of the accepted target-probability set, conditional on a nonempty set. Both retained hypotheses produce width 0.6; a single retained hypothesis produces width zero.}}{29}{figure.5.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Worst-world one-step regret for a policy receiving only the shared predictive representation, as a function of its probability of choosing identity acquisition.}}{30}{figure.5.10}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {11}{\ignorespaces CAMELYON17 probability-width responses. Each point averages four cells and five repeats equally. The panels show candidate membership, known membership, and anchored reference-label probability.}}{37}{figure.7.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces FMoW probability-width responses. The layout, action palette, budget accounting, and equal averaging over four cells and five repeats match Figure~\ref {fig:camacq}.}}{38}{figure.7.12}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {13}{\ignorespaces CAMELYON17 selected-state acquisition trajectories. Columns show states 390 and 566. Top panels average posterior variance; bottom panels average squared error against the shared held-out prevalence, with Monte Carlo error bars.}}{46}{figure.9.13}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {14}{\ignorespaces FMoW selected-state acquisition trajectories. The top row shows posterior variance and the bottom row held-out prevalence MSE. Columns retain the model-selected roles of states 287 and 561.}}{49}{figure.10.14}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
