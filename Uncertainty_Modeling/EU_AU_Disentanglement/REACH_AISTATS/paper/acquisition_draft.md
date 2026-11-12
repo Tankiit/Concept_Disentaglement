@@ -26,6 +26,12 @@ Our contributions are:
 3. Controlled simulations demonstrating that different acquisition channels contract different target intervals, including a confounded regime where unlabeled inputs do not identify candidate membership.
 4. An auditable empirical record of two image pilots and two prespecified held-out counterexample tests, including the negative FMoW result.
 
+**Main figure (Fig 1, generated from recorded outputs + the pinned dataset only — `real/fig1_main.py` → `paper/figures/fig1_main.pdf`):**
+
+![Figure 1: Which data would reduce which uncertainty?](figures/fig1_main.png)
+
+**(A)** A real deployment patch from the CAMELYON17 pilot (candidate hospital; a row of the recorded run's own image selection, Sec. 4.3) with the two questions that attach to it: which source it belongs to (P(known hospital), P(hospital 2)) and whether tumor is present (P(tumor)). **(B)** Interval-width contraction of each target after acquiring 2,048 observations of each channel, from the recorded real-record pilot: hospital IDs contract only the two membership widths (−18% known, −27% candidate; 1.00→0.82, 0.99→0.72); tumor labels contract only the tumor-probability width (−27%; 0.86→0.62); unlabeled patches contract nothing. No single acquisition reduces every uncertainty — the data bought must match the question asked. Patch provenance: `figures/fig1_patch_camelyon.json` (pinned HF mirror `wltjr1007/Camelyon17-WILDS` @ d784d534…, shard test-00002, row 1007).
+
 We do not claim that MI is an incorrect measure of predictive disagreement, that scalarization is always inadequate, or that interval width measures epistemic uncertainty in a universal sense. The claims are conditional on the target definitions, source model, sampling channels, and finite-cell representations specified below.
 
 ## 2. Problem Setup

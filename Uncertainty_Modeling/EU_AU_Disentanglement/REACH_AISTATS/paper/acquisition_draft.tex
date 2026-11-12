@@ -22,13 +22,22 @@ Predictive uncertainty summarizes uncertainty about a model's predictions, but i
 
 \section{Introduction}
 
-Uncertainty estimates are often used to decide what to inspect next. A classifier may report predictive entropy, mutual information over an ensemble, or a range of plausible probabilities. These summaries address different questions, and none automatically answers the operational one: \emph{which observation should be acquired to improve knowledge of this particular target?} This distinction follows the broader separation between predictive variability and incomplete knowledge discussed by \citet{hullermeier2021}.
+Uncertainty estimates are often used to decide what to inspect next. A classifier may report predictive entropy, mutual information over an ensemble, or a range of plausible probabilities. These summaries address different questions, and none automatically answers the operational one: \emph{which observation should be acquired to improve knowledge of this particular target?} (Figure~\ref{fig:main}) This distinction follows the broader separation between predictive variability and incomplete knowledge discussed by \citet{hullermeier2021}.
 
 The answer depends on what is unknown and what a proposed acquisition reveals. If deployment data are a mixture of known sources and a candidate source, unlabeled inputs can reveal the mixture's input marginal. Source identities can reveal mixture proportions directly. Reference inputs can refine source-conditional input laws. Target labels can refine source-conditional label rates. Those channels need not be interchangeable, even when they concern the same deployment population.
 
 We examine the relation between a predictive representation and acquisition-specific uncertainty in finite-source models. We distinguish three probability targets that are sometimes conflated: membership in one known source conditional on being in the known-source set; membership in a specified candidate source; and a reference-anchored target-label probability. We construct intervals by optimizing each target over a set of source models compatible with observations and explicit finite-sample constraints. These intervals are target-specific identification summaries, not a decomposition of uncertainty into additive components.
 
 Our main logical result is deliberately small. Two worlds can induce exactly the same predictive distribution over a common target, and therefore the same predictive MI, while different observation channels have different expected value in the two worlds. The result isolates a limitation of policies restricted to a predictive representation. An acquisition-aware Bayesian procedure with the correct channel likelihood can distinguish the worlds and update correctly.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig1_main.pdf}
+\caption{\textbf{Which data would reduce which uncertainty?}
+\textbf{(A)}~A real deployment patch from the CAMELYON17 pilot (candidate hospital; a row of the recorded run's own image selection, Sec.~4.3). Two questions attach to it: which source it belongs to (the membership targets $P(\text{known hospital})$, $P(\text{hospital 2})$) and whether tumor is present ($P(\text{tumor})$).
+\textbf{(B)}~Interval-width contraction of each target after acquiring 2{,}048 observations of each channel, from the recorded real-record pilot: hospital IDs contract only the two membership widths ($-18\%$ known, $-27\%$ candidate; $1.00{\to}0.82$, $0.99{\to}0.72$); tumor labels contract only the tumor-probability width ($-27\%$; $0.86{\to}0.62$); unlabeled patches contract nothing. No single acquisition reduces every uncertainty --- the data bought must match the question asked. Custom group-disjoint splits; interval widths, not benchmark scores; all numbers and the image are read from the recorded artifacts cited in Secs.~3--4.}
+\label{fig:main}
+\end{figure}
 
 We complement the exact result with four groups of experiments: an image-derived finite-cell study with simulated acquisitions; an exact two-world counterexample; real-record counterexample searches on CAMELYON17 and FMoW; and image-based CAMELYON17 and FMoW pilots. The empirical studies are exploratory. They use custom group-disjoint splits and do not establish benchmark-level performance or broad generalization.
 
