@@ -518,6 +518,52 @@ Standing caveat unchanged: scalar-score AUROC only; envelopes are not membership
 above is a cleaner positive than anything in the hardness line so far; both share the
 negative-set naming discipline and the class-identity machinery.
 
+## Addendum 9 Nov 2026 — credal-head baseline arm (relative-likelihood set)
+
+**Question.** Does a relative-likelihood credal predictor, {h : L(h)/L(h_ML) ≥ τ},
+support any claim on the epistemic-set data that the sampled envelope (width_novel, the
+W_unk analogue) cannot? It is built from the same K+1 MC-dropout stack. It is
+ensemble-based with **no DRE**, so the AISTATS lock and the REACH/RL separation hold, and
+the DRE predictor stays with the RL paper.
+
+**Answer: no.** The pre-registered verdict rule fired (P2 holds), so the arm is kept as a
+baseline row. Code is in `credal_head.py` and `tests/test_credal_head.py` (25 tests; the
+suite now has 147 passing). Results are in `results/credal_head/`. `PRED` and a dated
+`PRED_AMENDMENT` were both written to disk before any scoring. The stack was reproduced
+bitwise from the delivered `results/epistemic_sets/rows.csv`.
+
+**Two exact properties** (both pinned by tests):
+- The set is the KL ball {h : KL(p̄‖h) ≤ −log τ}, so it depends on the stack only
+  through the mean p̄ and carries no disagreement information.
+- The unknown-slot width is symmetric, g_τ(p) = g_τ(1−p), with a floor of 1−τ at both
+  ends. Its AUROC therefore equals that of −|p̄(unk) − ½| exactly, and τ does not affect
+  any rank readout.
+
+**Numbers** (pooled AUROC, pos uuc | neg kkc, mean over 5 seeds):
+
+| method | pooled AUROC |
+| --- | --- |
+| set_median | 0.950 |
+| P_unknown | 0.946 |
+| credal width | 0.924 |
+| width_novel | 0.916 |
+| BALD | 0.888 |
+
+Paired by seed, the credal width beats width_novel in 5/5 seeds and loses to P_unknown
+and set_median in 5/5. It loses because the symmetry sends the 28% of confidently-novel
+uuc rows (P_unknown ≥ 0.99) back down to the known-row floor.
+
+**Consequence for the CVPR text.** Do not attribute width_novel's win over BALD to
+"pure set-ness". A width with zero disagreement information does slightly better (0.924),
+and both widths correlate with BALD equally (Spearman 0.87). Detail and the full PRED
+scorecard are on the vault page `05_Epistemic_Sets`.
+
+**Pre-registration hygiene.** A unit test caught a KL-direction arithmetic error in P1's
+rationale before any scoring. P1 was kept verbatim and fails as written. A dated amendment
+added P1′, which passes. One post-run fix to the analysis code is logged in `manifest.json`:
+the identity check now uses float64 p̄ instead of the tied float32 column. No score
+changed.
+
 ## Decisions still open
 
 1. Hardness source. *Recommendation: DINOv2 kNN distance primary, taxonomy near/far secondary,
