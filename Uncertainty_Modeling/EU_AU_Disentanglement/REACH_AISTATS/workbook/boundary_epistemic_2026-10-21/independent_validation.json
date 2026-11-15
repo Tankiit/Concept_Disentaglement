@@ -1,0 +1,9 @@
+{
+  "analytic_LP_cases": 5,
+  "records": 7500,
+  "paired_points_verified": true,
+  "uncertainty_bounds_verified": true,
+  "endpoints_verified": true,
+  "empty_sets_preserved": true,
+  "reference_label_invariance": true
+}

@@ -1,0 +1,18 @@
+{
+  "weights": [
+    0.0,
+    0.09287304059307044,
+    0.0950239749888153,
+    0.094115382720431,
+    0.13891006787690252,
+    0.1231095748873042,
+    0.10609702209687619,
+    0.14561616483202508,
+    0.10071930262421679,
+    0.10353546938035854,
+    0.0
+  ],
+  "denominator": 0.0,
+  "mixture_residual": 0.17197152580403108,
+  "interpretation": "Exact zero in upper-bound surrogate denominator; feasible well inside original radius."
+}

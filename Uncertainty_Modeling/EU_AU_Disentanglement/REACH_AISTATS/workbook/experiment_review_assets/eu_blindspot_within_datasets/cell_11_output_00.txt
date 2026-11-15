@@ -1,0 +1,5 @@
+   dataset     n    q_tu    q_eu  known_accuracy
+0    mnist   400  0.7906  0.0757          0.8850
+1   emnist  1300  1.7179  0.2549          0.7723
+2  fashion   400  0.9959  0.0555          0.8950
+3    blood   300  1.2314  0.0377          0.8200

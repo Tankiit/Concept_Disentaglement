@@ -1,0 +1,38 @@
+{
+  "seed": 20261020,
+  "head": "input dropout .2 + linear 64 -> 10",
+  "head_epochs": 100,
+  "mc_passes": 100,
+  "fit_size": 4000,
+  "calibration_size": 3000,
+  "test_size": 1000,
+  "model_sha256": "f293a91c7ec4352e686c5fbd5e798c1881800248c7429c6f917b8519224164a3",
+  "margin_cut": 2.648625373840332,
+  "distance_cut": 32.47117891078421,
+  "tu_cut": 0.7545481235116197,
+  "eu_cut": 0.29515195730618954,
+  "budgets": [
+    [
+      1000,
+      200
+    ],
+    [
+      4000,
+      1000
+    ]
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "inference": "independent finite-pool reference/log draws, paired across partitions and depths",
+  "interpretation": "unexplained mass under stable clean class conditionals; NOT semantic novelty"
+}

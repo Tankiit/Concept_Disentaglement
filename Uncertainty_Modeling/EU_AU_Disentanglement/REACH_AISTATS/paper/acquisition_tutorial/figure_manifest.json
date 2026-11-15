@@ -1,0 +1,72 @@
+[
+  {
+    "figure": "run1_blood_acquisition_curves.png",
+    "source": "workbook/source_acquisition_20261029T151111775438Z/blood_acquisition_curves.png",
+    "sha256": "9948870d089300d391e79949ebd075106d5accfdf97374fa424d7ff7997293c9"
+  },
+  {
+    "figure": "run1_candidate_endpoints.png",
+    "source": "workbook/source_acquisition_20261029T151111775438Z/candidate_endpoints.png",
+    "sha256": "2082519d314567ecc568112344bf0f3a5198cb7802557ceac29e5d2873220c47"
+  },
+  {
+    "figure": "run1_emnist_acquisition_curves.png",
+    "source": "workbook/source_acquisition_20261029T151111775438Z/emnist_acquisition_curves.png",
+    "sha256": "998de32529fecce9c8533b1aefef74c81cc86ab06ab6748150049b924a944464"
+  },
+  {
+    "figure": "run1_fashion_acquisition_curves.png",
+    "source": "workbook/source_acquisition_20261029T151111775438Z/fashion_acquisition_curves.png",
+    "sha256": "31f7e6e268ac15b1f8e71b45c0a7dd4dffbd28d6e4bd7373d455ad698604b22d"
+  },
+  {
+    "figure": "run1_mnist_acquisition_curves.png",
+    "source": "workbook/source_acquisition_20261029T151111775438Z/mnist_acquisition_curves.png",
+    "sha256": "7fc568f6ca7a55cc618b043e2380dc4aac5a4ab7cab26c6b4f05295eafd15f69"
+  },
+  {
+    "figure": "run1_source_laws.png",
+    "source": "workbook/source_acquisition_20261029T151111775438Z/source_laws.png",
+    "sha256": "1aba09b4fbb98192303de74dd4c3cd9e22b7091efb250d257767520bb75b9f20"
+  },
+  {
+    "figure": "run2_confidence_width.png",
+    "source": "workbook/acquisition_counterexample_20261029T192454214626Z/confidence_width.png",
+    "sha256": "0d62442c15b1659d385aab951f49a08189930a76d9f3c472c9876e794083f19d"
+  },
+  {
+    "figure": "run2_epistemic_bounds.png",
+    "source": "workbook/acquisition_counterexample_20261029T192454214626Z/epistemic_bounds.png",
+    "sha256": "595a2afb8e5e978bca5d5925e63fd36ec8e88e2ec54cbbca56cfdf327ce31813"
+  },
+  {
+    "figure": "run2_policy_regret.png",
+    "source": "workbook/acquisition_counterexample_20261029T192454214626Z/policy_regret.png",
+    "sha256": "345bfcd692eda2e647161a77ca0234f61c5388bbb46e7baaf94613ff2f288998"
+  },
+  {
+    "figure": "run2_risk.png",
+    "source": "workbook/acquisition_counterexample_20261029T192454214626Z/risk.png",
+    "sha256": "3eda4584bf93139c41175aaacd0eb95834a67698b059651691ddd88640f63591"
+  },
+  {
+    "figure": "run3_acquisition_bounds.png",
+    "source": "workbook/camelyon17_acquisition_20261030T092023425816Z/acquisition_bounds.png",
+    "sha256": "6bee0ef4c65da7349fcf1c95bf2b6c949c3173a332a06171e657ceaac679e524"
+  },
+  {
+    "figure": "run4_acquisition_curves.png",
+    "source": "workbook/camelyon17_counterexample_20261030T092024988890Z/acquisition_curves.png",
+    "sha256": "cae998200d9595ac51b9e626a92b177ebbbe838ea976108161e4366ea8fe272d"
+  },
+  {
+    "figure": "run5_acquisition_bounds.png",
+    "source": "workbook/fmow_acquisition_20261030T094932286096Z/acquisition_bounds.png",
+    "sha256": "e7ec36b9b4118f370dfe7f5c00a8bd73e28739e4663341457389a208bd58c4a2"
+  },
+  {
+    "figure": "run6_acquisition_curves.png",
+    "source": "workbook/fmow_counterexample_20261030T094929883846Z/acquisition_curves.png",
+    "sha256": "fc1a0939c9c2c4926b54a2fc9fea9da5c3e4ce19a9fc52b15a65492b185f9b98"
+  }
+]

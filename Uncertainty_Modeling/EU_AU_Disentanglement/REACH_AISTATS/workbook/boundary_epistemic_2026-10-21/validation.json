@@ -1,0 +1,7 @@
+{
+  "rows": 7500,
+  "historical_predictions_match_away_from_boundary": true,
+  "label_width_invariant_per_cell": true,
+  "finite_nonempty_intervals": true,
+  "empty_intervals": 1600
+}

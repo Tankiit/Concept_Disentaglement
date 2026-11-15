@@ -1,0 +1,1693 @@
+\reservetable
+\section{Four-dataset sources and geometry}
+
+\reservetable
+\subsection{Original class groups (recorded numeric labels)}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{0.14\textwidth}p{0.09\textwidth}p{0.64\textwidth}}
+\toprule
+
+Dataset & Source & Original labels\\\midrule\endhead
+
+mnist & 0 & 4, 6\\
+
+mnist & 1 & 2, 7\\
+
+mnist & 2 & 3, 5, 9, 0, 8, 1\\
+
+emnist & 0 & 7, 9, 11, 5, 17, 25\\
+
+emnist & 1 & 19, 6, 1, 4, 15, 18, 10\\
+
+emnist & 2 & 23, 14, 3, 16, 2, 12, 20, 8, 21, 22, 0, 13, 24\\
+
+fashion & 0 & 8, 7\\
+
+fashion & 1 & 4, 0\\
+
+fashion & 2 & 6, 9, 3, 2, 1, 5\\
+
+blood & 0 & 1\\
+
+blood & 1 & 6, 0\\
+
+blood & 2 & 5, 4, 7, 3, 2\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Probe cells and affine geometry}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Dataset & Regime & Probe & Cells & Smallest singular value\\\midrule\endhead
+
+mnist & image\_derived & 0 & 4 & 0.103897809\\
+
+mnist & confounded & 0 & 4 & $4.80741\times10^{-17}$\\
+
+emnist & image\_derived & 2 & 13 & 0.281193582\\
+
+emnist & confounded & 2 & 13 & $2.50185\times10^{-17}$\\
+
+fashion & image\_derived & 1 & 4 & 0.042499744\\
+
+fashion & confounded & 1 & 4 & $8.09207\times10^{-17}$\\
+
+blood & image\_derived & 0 & 3 & 0.146082205\\
+
+blood & confounded & 0 & 3 & $5.55112\times10^{-17}$\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+Each law below is listed in ascending cell order. Semicolons separate probabilities. Every row is normalized; displayed values are rounded. The candidate row in the confounded regime is the average of the two known rows.
+
+\reservetable
+\subsection{mnist source-cell laws}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{0.2\textwidth}p{0.08\textwidth}p{0.6\textwidth}}
+\toprule
+
+Regime & Source & Probabilities\\\midrule\endhead
+
+image\_derived & 0 & 0.49500; 0.49010; 0.00990; 0.00500\\
+
+image\_derived & 1 & 0.01480; 0.01970; 0.49990; 0.46560\\
+
+image\_derived & 2 & 0.21733; 0.18467; 0.36107; 0.23693\\
+
+confounded & 0 & 0.49500; 0.49010; 0.00990; 0.00500\\
+
+confounded & 1 & 0.01480; 0.01970; 0.49990; 0.46560\\
+
+confounded & 2 & 0.25490; 0.25490; 0.25490; 0.23530\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{emnist source-cell laws}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{0.2\textwidth}p{0.08\textwidth}p{0.6\textwidth}}
+\toprule
+
+Regime & Source & Probabilities\\\midrule\endhead
+
+image\_derived & 0 & 0.15671; 0.15344; 0.16814; 0.15181; 0.14527; 0.16161; 0.01297; 0.00154; 0.00644; 0.00317; 0.00971; 0.00971; 0.01951\\
+
+image\_derived & 1 & 0.00714; 0.00994; 0.00714; 0.00434; 0.00714; 0.00994; 0.14154; 0.12334; 0.14014; 0.13734; 0.13874; 0.14294; 0.13034\\
+
+image\_derived & 2 & 0.17040; 0.04451; 0.12592; 0.00832; 0.12517; 0.02038; 0.04526; 0.13572; 0.08672; 0.11612; 0.02114; 0.00305; 0.09728\\
+
+confounded & 0 & 0.15671; 0.15344; 0.16814; 0.15181; 0.14527; 0.16161; 0.01297; 0.00154; 0.00644; 0.00317; 0.00971; 0.00971; 0.01951\\
+
+confounded & 1 & 0.00714; 0.00994; 0.00714; 0.00434; 0.00714; 0.00994; 0.14154; 0.12334; 0.14014; 0.13734; 0.13874; 0.14294; 0.13034\\
+
+confounded & 2 & 0.08192; 0.08169; 0.08764; 0.07807; 0.07621; 0.08577; 0.07726; 0.06244; 0.07329; 0.07026; 0.07422; 0.07632; 0.07492\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{fashion source-cell laws}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{0.2\textwidth}p{0.08\textwidth}p{0.6\textwidth}}
+\toprule
+
+Regime & Source & Probabilities\\\midrule\endhead
+
+image\_derived & 0 & 0.46560; 0.49990; 0.01480; 0.01970\\
+
+image\_derived & 1 & 0.02460; 0.00990; 0.49500; 0.47050\\
+
+image\_derived & 2 & 0.16017; 0.18630; 0.31533; 0.33820\\
+
+confounded & 0 & 0.46560; 0.49990; 0.01480; 0.01970\\
+
+confounded & 1 & 0.02460; 0.00990; 0.49500; 0.47050\\
+
+confounded & 2 & 0.24510; 0.25490; 0.25490; 0.24510\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{blood source-cell laws}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{0.2\textwidth}p{0.08\textwidth}p{0.6\textwidth}}
+\toprule
+
+Regime & Source & Probabilities\\\midrule\endhead
+
+image\_derived & 0 & 0.81027; 0.13407; 0.05567\\
+
+image\_derived & 1 & 0.04097; 0.47707; 0.48197\\
+
+image\_derived & 2 & 0.17523; 0.50451; 0.32027\\
+
+confounded & 0 & 0.81027; 0.13407; 0.05567\\
+
+confounded & 1 & 0.04097; 0.47707; 0.48197\\
+
+confounded & 2 & 0.42562; 0.30557; 0.26882\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\section{Exact input-only membership intervals}
+
+\reservetable
+\subsection{Exact rows and exact deployment cell probabilities}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrrrr}
+\toprule
+
+Dataset & Regime & Target & Truth & Lower & Upper & Width\\\midrule\endhead
+
+mnist & image\_derived & K & 0.983661 & 0.983661 & 0.983661 & 0.000000\\
+
+mnist & image\_derived & N & 0.223556 & 0.223556 & 0.223556 & 0.000000\\
+
+mnist & confounded & K & 0.983661 & 0.980457 & 1.000000 & 0.019543\\
+
+mnist & confounded & N & 0.252443 & 0.000000 & 0.673181 & 0.673181\\
+
+emnist & image\_derived & K & 0.976957 & 0.976957 & 0.976957 & 0.000000\\
+
+emnist & image\_derived & N & 0.327857 & 0.327857 & 0.327857 & $1.27676\times10^{-15}$\\
+
+emnist & confounded & K & 0.976957 & 0.972475 & 1.000000 & 0.027525\\
+
+emnist & confounded & N & 0.253441 & 0.000000 & 0.675842 & 0.675842\\
+
+fashion & image\_derived & K & 0.989118 & 0.989118 & 0.989118 & 0.000000\\
+
+fashion & image\_derived & N & 0.197268 & 0.197268 & 0.197268 & 0.000000\\
+
+fashion & confounded & K & 0.989118 & 0.986969 & 1.000000 & 0.013031\\
+
+fashion & confounded & N & 0.251629 & 0.000000 & 0.671010 & 0.671010\\
+
+blood & image\_derived & K & 0.972679 & 0.972679 & 0.972679 & 0.000000\\
+
+blood & image\_derived & N & 0.122986 & 0.122986 & 0.122986 & 0.000000\\
+
+blood & confounded & K & 0.972679 & 0.967393 & 1.000000 & 0.032607\\
+
+blood & confounded & N & 0.254076 & 0.000000 & 0.677536 & 0.677536\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\section{All saved-budget mean widths for the four-dataset experiment}
+
+K denotes known membership, Y the anchored label probability, and N candidate membership. All values average six repeats. Reference and target-label budgets are per source. The CSV also retains repeat ranges, mean endpoints, inclusion, and residuals.
+
+\reservetable
+\subsection{mnist: image\_derived}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Arm & Budget & K width & Y width & N width\\\midrule\endhead
+
+inputs & 0 & 0.563425 & 0.571510 & 0.769486\\
+
+inputs & 100 & 0.539482 & 0.571510 & 0.752317\\
+
+inputs & 1000 & 0.426493 & 0.571510 & 0.655467\\
+
+inputs & 10000 & 0.326900 & 0.571510 & 0.552174\\
+
+inputs & 100000 & 0.299656 & 0.571510 & 0.512492\\
+
+references & 0 & 0.563425 & 0.571510 & 0.769486\\
+
+references & 100 & 0.427373 & 0.539348 & 0.755346\\
+
+references & 1000 & 0.206891 & 0.473864 & 0.717178\\
+
+references & 10000 & 0.089934 & 0.433573 & 0.694840\\
+
+references & 100000 & 0.051759 & 0.407596 & 0.683796\\
+
+source\_ids & 0 & 0.563425 & 0.571510 & 0.769486\\
+
+source\_ids & 100 & 0.423466 & 0.571510 & 0.433820\\
+
+source\_ids & 1000 & 0.249334 & 0.571510 & 0.205978\\
+
+source\_ids & 10000 & 0.206158 & 0.571510 & 0.138558\\
+
+source\_ids & 100000 & 0.193462 & 0.571510 & 0.118036\\
+
+target\_labels & 0 & 0.563425 & 0.571510 & 0.769486\\
+
+target\_labels & 100 & 0.563425 & 0.499443 & 0.769486\\
+
+target\_labels & 1000 & 0.563425 & 0.315757 & 0.769486\\
+
+target\_labels & 10000 & 0.563425 & 0.223559 & 0.769486\\
+
+target\_labels & 100000 & 0.563425 & 0.191105 & 0.769486\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{mnist: confounded}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Arm & Budget & K width & Y width & N width\\\midrule\endhead
+
+inputs & 0 & 0.766008 & 0.582527 & 0.981092\\
+
+inputs & 100 & 0.755562 & 0.582527 & 0.965826\\
+
+inputs & 1000 & 0.406274 & 0.582527 & 0.919972\\
+
+inputs & 10000 & 0.320483 & 0.582527 & 0.783081\\
+
+inputs & 100000 & 0.289783 & 0.582527 & 0.707097\\
+
+references & 0 & 0.766008 & 0.582527 & 0.981092\\
+
+references & 100 & 0.700142 & 0.550947 & 0.979293\\
+
+references & 1000 & 0.584314 & 0.481390 & 0.975857\\
+
+references & 10000 & 0.533042 & 0.439137 & 0.972771\\
+
+references & 100000 & 0.519971 & 0.415705 & 0.971859\\
+
+source\_ids & 0 & 0.766008 & 0.582527 & 0.981092\\
+
+source\_ids & 100 & 0.391360 & 0.582527 & 0.437945\\
+
+source\_ids & 1000 & 0.262053 & 0.582527 & 0.216777\\
+
+source\_ids & 10000 & 0.222867 & 0.582527 & 0.148477\\
+
+source\_ids & 100000 & 0.208846 & 0.582527 & 0.127976\\
+
+target\_labels & 0 & 0.766008 & 0.582527 & 0.981092\\
+
+target\_labels & 100 & 0.766008 & 0.498630 & 0.981092\\
+
+target\_labels & 1000 & 0.766008 & 0.320294 & 0.981092\\
+
+target\_labels & 10000 & 0.766008 & 0.231585 & 0.981092\\
+
+target\_labels & 100000 & 0.766008 & 0.202244 & 0.981092\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{emnist: image\_derived}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Arm & Budget & K width & Y width & N width\\\midrule\endhead
+
+inputs & 0 & 1.000000 & 0.938417 & 1.000000\\
+
+inputs & 100 & 1.000000 & 0.938417 & 1.000000\\
+
+inputs & 1000 & 1.000000 & 0.938417 & 1.000000\\
+
+inputs & 10000 & 1.000000 & 0.938417 & 0.894198\\
+
+inputs & 100000 & 1.000000 & 0.938417 & 0.667286\\
+
+references & 0 & 1.000000 & 0.938417 & 1.000000\\
+
+references & 100 & 1.000000 & 0.839565 & 1.000000\\
+
+references & 1000 & 1.000000 & 0.631760 & 1.000000\\
+
+references & 10000 & 0.984713 & 0.504191 & 0.987365\\
+
+references & 100000 & 0.903792 & 0.455922 & 0.985541\\
+
+source\_ids & 0 & 1.000000 & 0.938417 & 1.000000\\
+
+source\_ids & 100 & 0.936641 & 0.938417 & 0.854878\\
+
+source\_ids & 1000 & 0.881995 & 0.938417 & 0.682419\\
+
+source\_ids & 10000 & 0.862104 & 0.938417 & 0.615607\\
+
+source\_ids & 100000 & 0.854151 & 0.938417 & 0.592680\\
+
+target\_labels & 0 & 1.000000 & 0.938417 & 1.000000\\
+
+target\_labels & 100 & 1.000000 & 0.895957 & 1.000000\\
+
+target\_labels & 1000 & 1.000000 & 0.727097 & 1.000000\\
+
+target\_labels & 10000 & 1.000000 & 0.643379 & 1.000000\\
+
+target\_labels & 100000 & 1.000000 & 0.621153 & 1.000000\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{emnist: confounded}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Arm & Budget & K width & Y width & N width\\\midrule\endhead
+
+inputs & 0 & 1.000000 & 0.896437 & 1.000000\\
+
+inputs & 100 & 1.000000 & 0.896437 & 1.000000\\
+
+inputs & 1000 & 1.000000 & 0.896437 & 1.000000\\
+
+inputs & 10000 & 1.000000 & 0.896437 & 0.986098\\
+
+inputs & 100000 & 1.000000 & 0.896437 & 0.792486\\
+
+references & 0 & 1.000000 & 0.896437 & 1.000000\\
+
+references & 100 & 1.000000 & 0.793848 & 1.000000\\
+
+references & 1000 & 1.000000 & 0.633067 & 1.000000\\
+
+references & 10000 & 1.000000 & 0.513386 & 1.000000\\
+
+references & 100000 & 1.000000 & 0.467192 & 1.000000\\
+
+source\_ids & 0 & 1.000000 & 0.896437 & 1.000000\\
+
+source\_ids & 100 & 0.897837 & 0.896437 & 0.787968\\
+
+source\_ids & 1000 & 0.813304 & 0.896437 & 0.594993\\
+
+source\_ids & 10000 & 0.783062 & 0.896437 & 0.523694\\
+
+source\_ids & 100000 & 0.773622 & 0.896437 & 0.501656\\
+
+target\_labels & 0 & 1.000000 & 0.896437 & 1.000000\\
+
+target\_labels & 100 & 1.000000 & 0.831949 & 1.000000\\
+
+target\_labels & 1000 & 1.000000 & 0.687809 & 1.000000\\
+
+target\_labels & 10000 & 1.000000 & 0.611653 & 1.000000\\
+
+target\_labels & 100000 & 1.000000 & 0.585736 & 1.000000\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{fashion: image\_derived}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Arm & Budget & K width & Y width & N width\\\midrule\endhead
+
+inputs & 0 & 0.547744 & 0.575257 & 0.799207\\
+
+inputs & 100 & 0.511862 & 0.575257 & 0.765739\\
+
+inputs & 1000 & 0.425609 & 0.575257 & 0.639055\\
+
+inputs & 10000 & 0.339400 & 0.575257 & 0.509923\\
+
+inputs & 100000 & 0.312745 & 0.575257 & 0.462022\\
+
+references & 0 & 0.547744 & 0.575257 & 0.799207\\
+
+references & 100 & 0.447264 & 0.550694 & 0.788889\\
+
+references & 1000 & 0.202932 & 0.488682 & 0.762201\\
+
+references & 10000 & 0.084043 & 0.452699 & 0.743139\\
+
+references & 100000 & 0.044744 & 0.435167 & 0.734204\\
+
+source\_ids & 0 & 0.547744 & 0.575257 & 0.799207\\
+
+source\_ids & 100 & 0.388311 & 0.575257 & 0.365920\\
+
+source\_ids & 1000 & 0.230219 & 0.575257 & 0.178508\\
+
+source\_ids & 10000 & 0.193578 & 0.575257 & 0.116459\\
+
+source\_ids & 100000 & 0.182880 & 0.575257 & 0.098266\\
+
+target\_labels & 0 & 0.547744 & 0.575257 & 0.799207\\
+
+target\_labels & 100 & 0.547744 & 0.471420 & 0.799207\\
+
+target\_labels & 1000 & 0.547744 & 0.304018 & 0.799207\\
+
+target\_labels & 10000 & 0.547744 & 0.214332 & 0.799207\\
+
+target\_labels & 100000 & 0.547744 & 0.182755 & 0.799207\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{fashion: confounded}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Arm & Budget & K width & Y width & N width\\\midrule\endhead
+
+inputs & 0 & 0.790673 & 0.567557 & 0.974973\\
+
+inputs & 100 & 0.695750 & 0.567557 & 0.963173\\
+
+inputs & 1000 & 0.363968 & 0.567557 & 0.900288\\
+
+inputs & 10000 & 0.302102 & 0.567557 & 0.800658\\
+
+inputs & 100000 & 0.269528 & 0.567557 & 0.714469\\
+
+references & 0 & 0.790673 & 0.567557 & 0.974973\\
+
+references & 100 & 0.760701 & 0.537142 & 0.973953\\
+
+references & 1000 & 0.713714 & 0.480070 & 0.970724\\
+
+references & 10000 & 0.685730 & 0.441428 & 0.968815\\
+
+references & 100000 & 0.676428 & 0.423187 & 0.967391\\
+
+source\_ids & 0 & 0.790673 & 0.567557 & 0.974973\\
+
+source\_ids & 100 & 0.355332 & 0.567557 & 0.445548\\
+
+source\_ids & 1000 & 0.231663 & 0.567557 & 0.222086\\
+
+source\_ids & 10000 & 0.192284 & 0.567557 & 0.149312\\
+
+source\_ids & 100000 & 0.182195 & 0.567557 & 0.127292\\
+
+target\_labels & 0 & 0.790673 & 0.567557 & 0.974973\\
+
+target\_labels & 100 & 0.790673 & 0.489774 & 0.974973\\
+
+target\_labels & 1000 & 0.790673 & 0.307953 & 0.974973\\
+
+target\_labels & 10000 & 0.790673 & 0.214464 & 0.974973\\
+
+target\_labels & 100000 & 0.790673 & 0.181339 & 0.974973\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{blood: image\_derived}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Arm & Budget & K width & Y width & N width\\\midrule\endhead
+
+inputs & 0 & 0.413358 & 0.536299 & 0.400722\\
+
+inputs & 100 & 0.401233 & 0.536299 & 0.389135\\
+
+inputs & 1000 & 0.359217 & 0.536299 & 0.348523\\
+
+inputs & 10000 & 0.301628 & 0.536299 & 0.293899\\
+
+inputs & 100000 & 0.280395 & 0.536299 & 0.270954\\
+
+references & 0 & 0.413358 & 0.536299 & 0.400722\\
+
+references & 100 & 0.325880 & 0.515913 & 0.397391\\
+
+references & 1000 & 0.198645 & 0.480171 & 0.389552\\
+
+references & 10000 & 0.110593 & 0.439136 & 0.380568\\
+
+references & 100000 & 0.084786 & 0.422218 & 0.376512\\
+
+source\_ids & 0 & 0.413358 & 0.536299 & 0.400722\\
+
+source\_ids & 100 & 0.242124 & 0.536299 & 0.208941\\
+
+source\_ids & 1000 & 0.171518 & 0.536299 & 0.093867\\
+
+source\_ids & 10000 & 0.142138 & 0.536299 & 0.056535\\
+
+source\_ids & 100000 & 0.133259 & 0.536299 & 0.045981\\
+
+target\_labels & 0 & 0.413358 & 0.536299 & 0.400722\\
+
+target\_labels & 100 & 0.413358 & 0.442556 & 0.400722\\
+
+target\_labels & 1000 & 0.413358 & 0.263172 & 0.400722\\
+
+target\_labels & 10000 & 0.413358 & 0.171169 & 0.400722\\
+
+target\_labels & 100000 & 0.413358 & 0.140906 & 0.400722\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{blood: confounded}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Arm & Budget & K width & Y width & N width\\\midrule\endhead
+
+inputs & 0 & 0.747812 & 0.524504 & 0.969821\\
+
+inputs & 100 & 0.629635 & 0.524504 & 0.954341\\
+
+inputs & 1000 & 0.240983 & 0.524504 & 0.889616\\
+
+inputs & 10000 & 0.210004 & 0.524504 & 0.777387\\
+
+inputs & 100000 & 0.197045 & 0.524504 & 0.731939\\
+
+references & 0 & 0.747812 & 0.524504 & 0.969821\\
+
+references & 100 & 0.732199 & 0.506671 & 0.969204\\
+
+references & 1000 & 0.705390 & 0.475400 & 0.966746\\
+
+references & 10000 & 0.689045 & 0.439595 & 0.965261\\
+
+references & 100000 & 0.683307 & 0.423773 & 0.964799\\
+
+source\_ids & 0 & 0.747812 & 0.524504 & 0.969821\\
+
+source\_ids & 100 & 0.250946 & 0.524504 & 0.386088\\
+
+source\_ids & 1000 & 0.163345 & 0.524504 & 0.172182\\
+
+source\_ids & 10000 & 0.135796 & 0.524504 & 0.104509\\
+
+source\_ids & 100000 & 0.126997 & 0.524504 & 0.082011\\
+
+target\_labels & 0 & 0.747812 & 0.524504 & 0.969821\\
+
+target\_labels & 100 & 0.747812 & 0.434138 & 0.969821\\
+
+target\_labels & 1000 & 0.747812 & 0.260786 & 0.969821\\
+
+target\_labels & 10000 & 0.747812 & 0.166048 & 0.969821\\
+
+target\_labels & 100000 & 0.747812 & 0.135522 & 0.969821\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Figure 6: repeat-zero candidate endpoints}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrrr}
+\toprule
+
+Dataset & Arm & Truth & Lower & Upper & Width\\\midrule\endhead
+
+mnist & baseline & 0.252443 & 0.000000 & 0.990422 & 0.990422\\
+
+mnist & inputs & 0.252443 & 0.000000 & 0.702523 & 0.702523\\
+
+mnist & references & 0.252443 & 0.000000 & 0.978633 & 0.978633\\
+
+mnist & target\_labels & 0.252443 & 0.000000 & 0.990422 & 0.990422\\
+
+mnist & source\_ids & 0.252443 & 0.220320 & 0.341993 & 0.121673\\
+
+emnist & baseline & 0.253441 & 0.000000 & 1.000000 & 1.000000\\
+
+emnist & inputs & 0.253441 & 0.000000 & 0.777266 & 0.777266\\
+
+emnist & references & 0.253441 & 0.000000 & 1.000000 & 1.000000\\
+
+emnist & target\_labels & 0.253441 & 0.000000 & 1.000000 & 1.000000\\
+
+emnist & source\_ids & 0.253441 & 0.136664 & 1.000000 & 0.863336\\
+
+fashion & baseline & 0.251629 & 0.000000 & 1.000000 & 1.000000\\
+
+fashion & inputs & 0.251629 & 0.000000 & 0.716190 & 0.716190\\
+
+fashion & references & 0.251629 & 0.000000 & 1.000000 & 1.000000\\
+
+fashion & target\_labels & 0.251629 & 0.000000 & 1.000000 & 1.000000\\
+
+fashion & source\_ids & 0.251629 & 0.209032 & 0.325504 & 0.116472\\
+
+blood & baseline & 0.254076 & 0.000000 & 0.874657 & 0.874657\\
+
+blood & inputs & 0.254076 & 0.000000 & 0.725416 & 0.725416\\
+
+blood & references & 0.254076 & 0.000000 & 0.854662 & 0.854662\\
+
+blood & target\_labels & 0.254076 & 0.000000 & 0.874657 & 0.874657\\
+
+blood & source\_ids & 0.254076 & 0.206726 & 0.284289 & 0.077563\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\section{Exact counterexample: every saved budget}
+
+The informative response is identical for World M identities and World L source-0 labels because the saved informative draws are paired. The table shows World M identities. All uninformative arms preserve variance 0.09, MI 0.192744757, MI endpoints 0.147044215 and 0.192744757, confidence span 0.6, rejection zero, and inclusion one.
+
+\reservetable
+\subsection{Exact and simulated informative-channel variance}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+Budget & Exact variance & Simulated variance & Monte Carlo SE\\\midrule\endhead
+
+0 & 0.090000000 & 0.090000000 & 0.000000000\\
+
+1 & 0.057600000 & 0.057600000 & $4.93028\times10^{-20}$\\
+
+2 & 0.042352941 & 0.042191782 & 0.000326246\\
+
+5 & 0.017129241 & 0.017067115 & 0.000238281\\
+
+10 & 0.004553463 & 0.004587240 & 0.000151620\\
+
+20 & 0.000375757 & 0.000380250 & 0.000044772\\
+
+50 & $3.13209\times10^{-7}$ & $9.15093\times10^{-6}$ & $9.00107\times10^{-6}$\\
+
+100 & $3.23842\times10^{-12}$ & $2.04637\times10^{-18}$ & $2.04636\times10^{-18}$\\
+
+200 & $4.72545\times10^{-22}$ & $2.64018\times10^{-53}$ & $2.46805\times10^{-53}$\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Exact expected MI and endpoint values (nats)}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+Budget & MI & Lower MI & Upper MI\\\midrule\endhead
+
+0 & 0.192744757 & 0.147044215 & 0.192744757\\
+
+1 & 0.126467034 & 0.057667705 & 0.189066776\\
+
+2 & 0.092408985 & 0.058283275 & 0.133714965\\
+
+5 & 0.037855226 & 0.016632003 & 0.063779385\\
+
+10 & 0.010037936 & 0.005670764 & 0.017118383\\
+
+20 & 0.000830476 & 0.000456541 & 0.001471800\\
+
+50 & $6.93595\times10^{-7}$ & $3.73512\times10^{-7}$ & $1.26509\times10^{-6}$\\
+
+100 & $7.17690\times10^{-12}$ & $3.83415\times10^{-12}$ & $1.32362\times10^{-11}$\\
+
+200 & $1.04767\times10^{-21}$ & $5.57317\times10^{-22}$ & $1.94368\times10^{-21}$\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Confidence-set illustration}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+Budget & Conditional mean width & Rejection fraction & Inclusion fraction\\\midrule\endhead
+
+0 & 0.600000 & 0.000000 & 1.000000\\
+
+1 & 0.600000 & 0.000000 & 1.000000\\
+
+2 & 0.600000 & 0.000000 & 1.000000\\
+
+5 & 0.400800 & 0.000000 & 0.999600\\
+
+10 & 0.073560 & 0.000000 & 0.998900\\
+
+20 & 0.001260 & 0.000000 & 0.999500\\
+
+50 & 0.000000 & 0.001800 & 0.998200\\
+
+100 & 0.000000 & 0.000400 & 0.999600\\
+
+200 & 0.000000 & 0.000400 & 0.999600\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\section{CAMELYON17 image pilot}
+
+\reservetable
+\subsection{Full audited partition (FMoW includes later years)}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+Source name & Role & Records & Groups\\\midrule\endhead
+
+0 & evaluation & 13637 & 1\\
+
+0 & fit & 26940 & 5\\
+
+0 & reference & 18859 & 1\\
+
+2 & evaluation & 4556 & 1\\
+
+2 & fit & 67756 & 7\\
+
+2 & reference & 12742 & 1\\
+
+3 & evaluation & 21284 & 2\\
+
+3 & fit & 98515 & 6\\
+
+3 & reference & 10039 & 2\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Classification accuracy}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+Method & Internal source & Images & Accuracy\\\midrule\endhead
+
+ce & 0 & 2000 & 0.949000\\
+
+ce & 1 & 2000 & 0.923000\\
+
+ce & 2 & 2000 & 0.600500\\
+
+dappr & 0 & 2000 & 0.939500\\
+
+dappr & 1 & 2000 & 0.936500\\
+
+dappr & 2 & 2000 & 0.621500\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Detection: OOD-positive metrics}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+Score & AUROC & OOD AP & FPR95\\\midrule\endhead
+
+mc\_mi & 0.689740 & 0.548468 & 0.792000\\
+
+mc\_width & 0.685306 & 0.543880 & 0.792000\\
+
+dappr\_eu & 0.597348 & 0.358643 & 0.725750\\
+
+negative\_max\_softmax & 0.623507 & 0.435243 & 1.000000\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Additional metric audit}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrr}
+\toprule
+
+Score & Raw Probly AUROC & ID-oriented AP\\\midrule\endhead
+
+mc\_mi & 0.689740 & 0.802703\\
+
+mc\_width & 0.685387 & 0.800670\\
+
+dappr\_eu & 0.597348 & 0.785095\\
+
+negative\_max\_softmax & 0.658022 & 0.751426\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{All saved-budget mean widths}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Action & Budget & K width & Y width & N width\\\midrule\endhead
+
+inputs & 0 & 1.000000 & 0.858547 & 0.986048\\
+
+inputs & 32 & 1.000000 & 0.858547 & 0.986048\\
+
+inputs & 128 & 1.000000 & 0.858547 & 0.986048\\
+
+inputs & 512 & 1.000000 & 0.858547 & 0.985114\\
+
+inputs & 2048 & 1.000000 & 0.858547 & 0.969357\\
+
+reference\_inputs & 0 & 1.000000 & 0.858547 & 0.986048\\
+
+reference\_inputs & 32 & 1.000000 & 0.836692 & 0.982065\\
+
+reference\_inputs & 128 & 1.000000 & 0.829254 & 0.975007\\
+
+reference\_inputs & 512 & 1.000000 & 0.805025 & 0.959764\\
+
+reference\_inputs & 2048 & 1.000000 & 0.773306 & 0.918922\\
+
+source\_id & 0 & 1.000000 & 0.858547 & 0.986048\\
+
+source\_id & 32 & 0.982460 & 0.858547 & 0.945875\\
+
+source\_id & 128 & 0.919979 & 0.858547 & 0.851424\\
+
+source\_id & 512 & 0.862254 & 0.858547 & 0.770780\\
+
+source\_id & 2048 & 0.822966 & 0.858547 & 0.720980\\
+
+target\_labels & 0 & 1.000000 & 0.858547 & 0.986048\\
+
+target\_labels & 32 & 1.000000 & 0.827780 & 0.986048\\
+
+target\_labels & 128 & 1.000000 & 0.769702 & 0.986048\\
+
+target\_labels & 512 & 1.000000 & 0.692486 & 0.986048\\
+
+target\_labels & 2048 & 1.000000 & 0.623074 & 0.986048\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Maximum-budget denominator-policy fractions}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+Action & Known & Label & Candidate\\\midrule\endhead
+
+inputs & 0.750000 & 0.150000 & 0.000000\\
+
+reference\_inputs & 0.250000 & 0.000000 & 0.000000\\
+
+source\_id & 0.150000 & 0.150000 & 0.000000\\
+
+target\_labels & 0.750000 & 0.150000 & 0.300000\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Cell-law transfer audit}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{0.08\textwidth}p{0.34\textwidth}p{0.34\textwidth}p{0.09\textwidth}}
+\toprule
+
+Source & Reference law & Evaluation law & TV\\\midrule\endhead
+
+0 & 0.1570, 0.3235, 0.2735, 0.2460 & 0.1260, 0.0430, 0.4225, 0.4085 & 0.311500\\
+
+1 & 0.2705, 0.5835, 0.1165, 0.0295 & 0.1465, 0.7830, 0.0580, 0.0125 & 0.199500\\
+
+2 & 0.3080, 0.1150, 0.0045, 0.5725 & 0.6695, 0.0425, 0.0055, 0.2825 & 0.362500\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\section{FMoW image pilot}
+
+\reservetable
+\subsection{Full audited partition (FMoW includes later years)}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+Source name & Role & Records & Groups\\\midrule\endhead
+
+Americas & evaluation & 8474 & 2701\\
+
+Americas & fit & 24919 & 8106\\
+
+Americas & reference & 8372 & 2701\\
+
+Asia & evaluation & 6451 & 2248\\
+
+Asia & fit & 19203 & 6748\\
+
+Asia & reference & 6547 & 2248\\
+
+Europe & evaluation & 11395 & 4244\\
+
+Europe & fit & 35459 & 12732\\
+
+Europe & reference & 11970 & 4244\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Classification accuracy}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+Method & Internal source & Images & Accuracy\\\midrule\endhead
+
+ce & 0 & 2000 & 0.242500\\
+
+ce & 1 & 2000 & 0.240500\\
+
+ce & 2 & 2000 & 0.120000\\
+
+dappr & 0 & 2000 & 0.269000\\
+
+dappr & 1 & 2000 & 0.260000\\
+
+dappr & 2 & 2000 & 0.131000\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Detection: OOD-positive metrics}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+Score & AUROC & OOD AP & FPR95\\\midrule\endhead
+
+mc\_mi & 0.573703 & 0.402949 & 0.899750\\
+
+mc\_width & 0.545837 & 0.364235 & 0.912000\\
+
+dappr\_eu & 0.560500 & 0.378526 & 0.919500\\
+
+negative\_max\_softmax & 0.525669 & 0.343479 & 0.892500\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Additional metric audit}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrr}
+\toprule
+
+Score & Raw Probly AUROC & ID-oriented AP\\\midrule\endhead
+
+mc\_mi & 0.573704 & 0.726283\\
+
+mc\_width & 0.545837 & 0.710722\\
+
+dappr\_eu & 0.560500 & 0.711908\\
+
+negative\_max\_softmax & 0.525669 & 0.705688\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{All saved-budget mean widths}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Action & Budget & K width & Y width & N width\\\midrule\endhead
+
+inputs & 0 & 0.999092 & 0.777869 & 0.986577\\
+
+inputs & 32 & 0.999092 & 0.777869 & 0.986573\\
+
+inputs & 128 & 0.999092 & 0.777869 & 0.986573\\
+
+inputs & 512 & 0.999041 & 0.777869 & 0.986432\\
+
+inputs & 2048 & 0.998975 & 0.777869 & 0.985926\\
+
+reference\_inputs & 0 & 0.999092 & 0.777869 & 0.986577\\
+
+reference\_inputs & 32 & 0.999070 & 0.759571 & 0.982825\\
+
+reference\_inputs & 128 & 0.998514 & 0.755725 & 0.969612\\
+
+reference\_inputs & 512 & 0.997000 & 0.742915 & 0.931886\\
+
+reference\_inputs & 2048 & 0.994621 & 0.728479 & 0.870758\\
+
+source\_id & 0 & 0.999092 & 0.777869 & 0.986577\\
+
+source\_id & 32 & 0.989584 & 0.777869 & 0.970647\\
+
+source\_id & 128 & 0.955780 & 0.777869 & 0.934274\\
+
+source\_id & 512 & 0.913225 & 0.777869 & 0.889199\\
+
+source\_id & 2048 & 0.883706 & 0.777869 & 0.860340\\
+
+target\_labels & 0 & 0.999092 & 0.777869 & 0.986577\\
+
+target\_labels & 32 & 0.999092 & 0.709633 & 0.986577\\
+
+target\_labels & 128 & 0.999092 & 0.591015 & 0.986577\\
+
+target\_labels & 512 & 0.999092 & 0.445136 & 0.986577\\
+
+target\_labels & 2048 & 0.999092 & 0.324436 & 0.986577\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Maximum-budget denominator-policy fractions}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+Action & Known & Label & Candidate\\\midrule\endhead
+
+inputs & 0.400000 & 0.050000 & 0.000000\\
+
+reference\_inputs & 0.000000 & 0.000000 & 0.000000\\
+
+source\_id & 0.050000 & 0.050000 & 0.000000\\
+
+target\_labels & 0.400000 & 0.050000 & 0.050000\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Cell-law transfer audit}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{0.08\textwidth}p{0.34\textwidth}p{0.34\textwidth}p{0.09\textwidth}}
+\toprule
+
+Source & Reference law & Evaluation law & TV\\\midrule\endhead
+
+0 & 0.1980, 0.2940, 0.2190, 0.2890 & 0.1875, 0.3055, 0.2160, 0.2910 & 0.013500\\
+
+1 & 0.2120, 0.3045, 0.2955, 0.1880 & 0.2245, 0.2985, 0.2895, 0.1875 & 0.012500\\
+
+2 & 0.2255, 0.2725, 0.2310, 0.2710 & 0.2345, 0.2610, 0.2280, 0.2765 & 0.014500\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\section{CAMELYON17 record counterexample}
+
+\reservetable
+\subsection{Eligible fit and held-out populations}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+Population & Internal source & Records & Positive rate\\\midrule\endhead
+
+train & 0 & 26940 & 0.282219748\\
+
+train & 1 & 98515 & 0.655148962\\
+
+heldout & 0 & 13637 & 0.927550048\\
+
+heldout & 1 & 21284 & 0.001456493\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Selected state summaries}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrrr}
+\toprule
+
+State & Identity count & Labels/source & Mean & Variance & MI\\\midrule\endhead
+
+390 & 32 & 512 & 0.578622110 & 0.001172470 & 0.002407062\\
+
+566 & 512 & 128 & 0.578479497 & 0.001171679 & 0.002407471\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Posterior shapes ordered as W, Theta0, Theta1}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{0.1\textwidth}p{0.76\textwidth}}
+\toprule
+
+State & Shapes\\\midrule\endhead
+
+390 & [[26.0, 8.0], [133.0, 381.0], [348.0, 166.0]]\\
+
+566 & [[403.0, 111.0], [36.0, 94.0], [86.0, 44.0]]\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Model action values and quadrature check}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+State & Identity value & Label value & Absolute MI change\\\midrule\endhead
+
+390 & 0.0000256992 & $2.61067\times10^{-7}$ & $1.33227\times10^{-15}$\\
+
+566 & $9.44367\times10^{-8}$ & $4.28237\times10^{-6}$ & $1.66533\times10^{-15}$\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Exact held-out one-step errors}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+State & Action & Initial squared error & Expected squared error\\\midrule\endhead
+
+390 & source\_id & 0.046447497769 & 0.045685367071\\
+
+390 & reference\_label & 0.046447497769 & 0.046297712850\\
+
+566 & source\_id & 0.046386047037 & 0.046330042921\\
+
+566 & reference\_label & 0.046386047037 & 0.045774676657\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Initial credible enclosures}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+State & Lower & Upper & Width\\\midrule\endhead
+
+390 & 0.450397852 & 0.686987828 & 0.236589976\\
+
+566 & 0.462620967 & 0.689706103 & 0.227085136\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{MI cross-check (nats)}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrr}
+\toprule
+
+State & Quadrature & Probly samples\\\midrule\endhead
+
+390 & 0.002407061568 & 0.002397022728\\
+
+566 & 0.002407470826 & 0.002408587624\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{identity\_preferred: all trajectory budgets}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Action & Budget & Mean variance & MSE & MSE Monte Carlo SE\\\midrule\endhead
+
+reference\_label & 0 & 0.001172470 & 0.046447498 & 0.000000000\\
+
+reference\_label & 1 & 0.001166949 & 0.046300059 & $6.34820\times10^{-6}$\\
+
+reference\_label & 2 & 0.001161376 & 0.046150362 & $8.84451\times10^{-6}$\\
+
+reference\_label & 4 & 0.001150334 & 0.045850342 & 0.000012419\\
+
+reference\_label & 8 & 0.001128506 & 0.045255770 & 0.000017319\\
+
+reference\_label & 16 & 0.001086432 & 0.044052864 & 0.000023620\\
+
+reference\_label & 32 & 0.001006971 & 0.041896506 & 0.000031331\\
+
+reference\_label & 64 & 0.000864712 & 0.037844062 & 0.000041155\\
+
+reference\_label & 128 & 0.000640381 & 0.030923418 & 0.000048477\\
+
+source\_id & 0 & 0.001172470 & 0.046447498 & 0.000000000\\
+
+source\_id & 1 & 0.001156441 & 0.045634661 & 0.000055627\\
+
+source\_id & 2 & 0.001139906 & 0.044932523 & 0.000075128\\
+
+source\_id & 4 & 0.001109292 & 0.043502060 & 0.000098152\\
+
+source\_id & 8 & 0.001048716 & 0.041368075 & 0.000123604\\
+
+source\_id & 16 & 0.000946252 & 0.038087368 & 0.000139828\\
+
+source\_id & 32 & 0.000797182 & 0.033944864 & 0.000143614\\
+
+source\_id & 64 & 0.000623783 & 0.030326680 & 0.000130303\\
+
+source\_id & 128 & 0.000470191 & 0.027338975 & 0.000105744\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{label\_preferred: all trajectory budgets}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Action & Budget & Mean variance & MSE & MSE Monte Carlo SE\\\midrule\endhead
+
+reference\_label & 0 & 0.001171679 & 0.046386047 & 0.000000000\\
+
+reference\_label & 1 & 0.001170291 & 0.045783929 & 0.000024216\\
+
+reference\_label & 2 & 0.001168844 & 0.045178862 & 0.000033380\\
+
+reference\_label & 4 & 0.001165745 & 0.043986238 & 0.000045844\\
+
+reference\_label & 8 & 0.001158835 & 0.041696526 & 0.000061235\\
+
+reference\_label & 16 & 0.001142437 & 0.037359891 & 0.000076940\\
+
+reference\_label & 32 & 0.001103809 & 0.030435103 & 0.000087190\\
+
+reference\_label & 64 & 0.001013948 & 0.020083854 & 0.000084428\\
+
+reference\_label & 128 & 0.000839662 & 0.008499711 & 0.000056776\\
+
+source\_id & 0 & 0.001171679 & 0.046386047 & 0.000000000\\
+
+source\_id & 1 & 0.001170922 & 0.046326832 & $3.52212\times10^{-6}$\\
+
+source\_id & 2 & 0.001170212 & 0.046271888 & $4.91934\times10^{-6}$\\
+
+source\_id & 4 & 0.001168689 & 0.046152516 & $6.85209\times10^{-6}$\\
+
+source\_id & 8 & 0.001165918 & 0.045937998 & $9.68978\times10^{-6}$\\
+
+source\_id & 16 & 0.001160409 & 0.045509985 & 0.000013317\\
+
+source\_id & 32 & 0.001149772 & 0.044681002 & 0.000018345\\
+
+source\_id & 64 & 0.001131410 & 0.043259696 & 0.000024448\\
+
+source\_id & 128 & 0.001100504 & 0.040857732 & 0.000030070\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\section{FMoW record counterexample}
+
+\reservetable
+\subsection{Eligible fit and held-out populations}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+Population & Internal source & Records & Positive rate\\\midrule\endhead
+
+train & 0 & 20312 & 0.146120520\\
+
+train & 1 & 32063 & 0.066088638\\
+
+heldout & 0 & 6640 & 0.130722892\\
+
+heldout & 1 & 10236 & 0.053634232\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Selected state summaries}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrrr}
+\toprule
+
+State & Identity count & Labels/source & Mean & Variance & MI\\\midrule\endhead
+
+287 & 8 & 512 & 0.097276265 & 0.000335805 & 0.001911019\\
+
+561 & 512 & 128 & 0.088506435 & 0.000310215 & 0.001912249\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Posterior shapes ordered as W, Theta0, Theta1}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{0.1\textwidth}p{0.76\textwidth}}
+\toprule
+
+State & Shapes\\\midrule\endhead
+
+287 & [[6.0, 4.0], [83.0, 431.0], [28.0, 486.0]]\\
+
+561 & [[330.0, 184.0], [16.0, 114.0], [9.0, 121.0]]\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Model action values and quadrature check}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+State & Identity value & Label value & Absolute MI change\\\midrule\endhead
+
+287 & 0.0000227104 & $7.57981\times10^{-8}$ & $1.11022\times10^{-16}$\\
+
+561 & $2.51247\times10^{-9}$ & $1.17685\times10^{-6}$ & $2.77556\times10^{-16}$\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Exact held-out one-step errors}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+State & Action & Initial squared error & Expected squared error\\\midrule\endhead
+
+287 & source\_id & 0.000177179259 & 0.000198071749\\
+
+287 & reference\_label & 0.000177179259 & 0.000176917265\\
+
+561 & source\_id & 0.000020621049 & 0.000020657365\\
+
+561 & reference\_label & 0.000020621049 & 0.000021405815\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{Initial credible enclosures}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrr}
+\toprule
+
+State & Lower & Upper & Width\\\midrule\endhead
+
+287 & 0.042460817 & 0.173041926 & 0.130581109\\
+
+561 & 0.038274954 & 0.160133696 & 0.121858742\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{MI cross-check (nats)}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrr}
+\toprule
+
+State & Quadrature & Probly samples\\\midrule\endhead
+
+287 & 0.001911019217 & 0.001900505516\\
+
+561 & 0.001912249414 & 0.001899761804\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{identity\_preferred: all trajectory budgets}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Action & Budget & Mean variance & MSE & MSE Monte Carlo SE\\\midrule\endhead
+
+reference\_label & 0 & 0.000335805 & 0.000177179 & 0.000000000\\
+
+reference\_label & 1 & 0.000335637 & 0.000177028 & $1.63395\times10^{-7}$\\
+
+reference\_label & 2 & 0.000335447 & 0.000176693 & $2.28240\times10^{-7}$\\
+
+reference\_label & 4 & 0.000335042 & 0.000176159 & $3.11491\times10^{-7}$\\
+
+reference\_label & 8 & 0.000334154 & 0.000175450 & $4.43435\times10^{-7}$\\
+
+reference\_label & 16 & 0.000332630 & 0.000173880 & $6.06097\times10^{-7}$\\
+
+reference\_label & 32 & 0.000329236 & 0.000169948 & $8.41120\times10^{-7}$\\
+
+reference\_label & 64 & 0.000323626 & 0.000163316 & $1.14896\times10^{-6}$\\
+
+reference\_label & 128 & 0.000311995 & 0.000150428 & $1.49253\times10^{-6}$\\
+
+source\_id & 0 & 0.000335805 & 0.000177179 & 0.000000000\\
+
+source\_id & 1 & 0.000312982 & 0.000198639 & $3.03907\times10^{-6}$\\
+
+source\_id & 2 & 0.000293882 & 0.000209518 & $3.94508\times10^{-6}$\\
+
+source\_id & 4 & 0.000264568 & 0.000228152 & $4.96906\times10^{-6}$\\
+
+source\_id & 8 & 0.000225142 & 0.000238428 & $5.52532\times10^{-6}$\\
+
+source\_id & 16 & 0.000181979 & 0.000234087 & $5.37664\times10^{-6}$\\
+
+source\_id & 32 & 0.000143823 & 0.000216649 & $4.50680\times10^{-6}$\\
+
+source\_id & 64 & 0.000115881 & 0.000196149 & $3.43268\times10^{-6}$\\
+
+source\_id & 128 & 0.000098335 & 0.000180275 & $2.52328\times10^{-6}$\\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\reservetable
+\subsection{label\_preferred: all trajectory budgets}
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{lrrrr}
+\toprule
+
+Action & Budget & Mean variance & MSE & MSE Monte Carlo SE\\\midrule\endhead
+
+reference\_label & 0 & 0.000310215 & 0.000020621 & 0.000000000\\
+
+reference\_label & 1 & 0.000308941 & 0.000021572 & $2.86177\times10^{-7}$\\
+
+reference\_label & 2 & 0.000307586 & 0.000022211 & $4.03884\times10^{-7}$\\
+
+reference\_label & 4 & 0.000304992 & 0.000023474 & $5.31512\times10^{-7}$\\
+
+reference\_label & 8 & 0.000300132 & 0.000026698 & $7.71882\times10^{-7}$\\
+
+reference\_label & 16 & 0.000290652 & 0.000031709 & $1.06103\times10^{-6}$\\
+
+reference\_label & 32 & 0.000273405 & 0.000040016 & $1.47058\times10^{-6}$\\
+
+reference\_label & 64 & 0.000244206 & 0.000052810 & $1.94473\times10^{-6}$\\
+
+reference\_label & 128 & 0.000201308 & 0.000066263 & $2.32878\times10^{-6}$\\
+
+source\_id & 0 & 0.000310215 & 0.000020621 & 0.000000000\\
+
+source\_id & 1 & 0.000310209 & 0.000020659 & $1.04188\times10^{-8}$\\
+
+source\_id & 2 & 0.000310205 & 0.000020685 & $1.45966\times10^{-8}$\\
+
+source\_id & 4 & 0.000310194 & 0.000020767 & $2.07915\times10^{-8}$\\
+
+source\_id & 8 & 0.000310174 & 0.000020912 & $2.95447\times10^{-8}$\\
+
+source\_id & 16 & 0.000310135 & 0.000021197 & $4.18301\times10^{-8}$\\
+
+source\_id & 32 & 0.000310059 & 0.000021767 & $5.75403\times10^{-8}$\\
+
+source\_id & 64 & 0.000309928 & 0.000022783 & $7.79836\times10^{-8}$\\
+
+source\_id & 128 & 0.000309718 & 0.000024509 & $1.02505\times10^{-7}$\\
+
+\bottomrule
+\end{longtable}
+\endgroup

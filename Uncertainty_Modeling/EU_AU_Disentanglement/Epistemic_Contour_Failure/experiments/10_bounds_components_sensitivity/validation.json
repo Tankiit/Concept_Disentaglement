@@ -1,0 +1,122 @@
+{
+  "seed": 20261030,
+  "configs": [
+    [
+      "narrow3",
+      3,
+      2.0,
+      0.35,
+      2.0
+    ],
+    [
+      "wide3",
+      3,
+      4.0,
+      0.2,
+      3.0
+    ],
+    [
+      "narrow5",
+      5,
+      2.0,
+      0.35,
+      2.0
+    ],
+    [
+      "wide5",
+      5,
+      4.0,
+      0.2,
+      3.0
+    ]
+  ],
+  "datasets": 20,
+  "members": 5,
+  "source_counts_sha256": "df2601531dba4a1f7a3e24ded884194abb8e16b2559efa0030c975fe807f066b",
+  "analytic_contour_error": 0.0024488226618476962,
+  "refinements": [
+    {
+      "config": "narrow3",
+      "dataset": "clean_1000_0",
+      "change": 0.0025699585992261785
+    },
+    {
+      "config": "narrow3",
+      "dataset": "clean_100000_0",
+      "change": 0.002503273358849317
+    },
+    {
+      "config": "narrow3",
+      "dataset": "shared_mixture_1000_0",
+      "change": 0.002487120515610477
+    },
+    {
+      "config": "narrow3",
+      "dataset": "shared_mixture_100000_0",
+      "change": 0.0025183519911604795
+    },
+    {
+      "config": "wide3",
+      "dataset": "clean_1000_0",
+      "change": 0.002527444597676471
+    },
+    {
+      "config": "wide3",
+      "dataset": "clean_100000_0",
+      "change": 0.002482684363128874
+    },
+    {
+      "config": "wide3",
+      "dataset": "shared_mixture_1000_0",
+      "change": 0.0024890952587261293
+    },
+    {
+      "config": "wide3",
+      "dataset": "shared_mixture_100000_0",
+      "change": 0.002520018191498009
+    },
+    {
+      "config": "narrow5",
+      "dataset": "clean_1000_0",
+      "change": 0.002489157071132539
+    },
+    {
+      "config": "narrow5",
+      "dataset": "clean_100000_0",
+      "change": 0.002684717468452534
+    },
+    {
+      "config": "narrow5",
+      "dataset": "shared_mixture_1000_0",
+      "change": 0.002496842309302957
+    },
+    {
+      "config": "narrow5",
+      "dataset": "shared_mixture_100000_0",
+      "change": 0.0025087603385050747
+    },
+    {
+      "config": "wide5",
+      "dataset": "clean_1000_0",
+      "change": 0.002578394351781428
+    },
+    {
+      "config": "wide5",
+      "dataset": "clean_100000_0",
+      "change": 0.0024991948854920292
+    },
+    {
+      "config": "wide5",
+      "dataset": "shared_mixture_1000_0",
+      "change": 0.002509297042148679
+    },
+    {
+      "config": "wide5",
+      "dataset": "shared_mixture_100000_0",
+      "change": 0.002538207004284337
+    }
+  ],
+  "max_probability_formula_difference": 8.326672684688674e-17,
+  "max_gradient": 8.337447835310146e-06,
+  "max_continuation_l1": 0.004225473343983571
+}

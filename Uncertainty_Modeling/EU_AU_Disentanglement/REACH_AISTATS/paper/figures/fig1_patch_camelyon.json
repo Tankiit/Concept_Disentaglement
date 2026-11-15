@@ -1,0 +1,21 @@
+{
+  "description": "real CAMELYON17 deployment patch used in Fig 1 (acquisition teaser)",
+  "source_repo": "wltjr1007/Camelyon17-WILDS",
+  "revision": "d784d5344ba6c967f83f9f3d9b2f1e2a4d6eb78f",
+  "shard": "data/test-00002-of-00004.parquet",
+  "shard_bytes": 538248412,
+  "shard_sha256": "a7ed68c71be07e4492785b6e2c7e74090ecfdf076b1fef57821354d313ed2290",
+  "row": 1007,
+  "row_metadata": {
+    "label": 1,
+    "center": 2,
+    "image_id": 48178,
+    "patient": 42,
+    "node": 3,
+    "x_coord": 7936,
+    "y_coord": 17888,
+    "slide": 22
+  },
+  "selection_provenance": "row appears in workbook/camelyon17_acquisition_20261030T092023425816Z/selected_images.csv (role=fit, source=2 candidate)",
+  "png_sha256": "4e1b462ffb4312749290f4d89834c8795756be1baed82465db128a47ac437da3"
+}

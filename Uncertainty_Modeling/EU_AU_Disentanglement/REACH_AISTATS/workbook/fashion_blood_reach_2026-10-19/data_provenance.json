@@ -1,0 +1,17 @@
+{
+  "fashion": {
+    "url": "https://huggingface.co/datasets/zalando-datasets/fashion_mnist/resolve/531be5e2ccc9dba0c201ad3ae567a4f3d16ecdd2/fashion_mnist/test-00000-of-00001.parquet",
+    "sha256": "fb36d8b5b74a491bce99357dcee62a32d347a356ea2a35d1c9057e7a7435ca5a",
+    "rows": 10000,
+    "preprocessing": "native grayscale /255 in model"
+  },
+  "blood": {
+    "url": "https://zenodo.org/records/10519652/files/bloodmnist.npz?download=1",
+    "md5": "7053d0359d879ad8a5505303e11de1dc",
+    "sha256": "062023e186f537e26b3c21ea3b2614ddfc475e8a14825dfd20663bbb7e37bddc",
+    "rows": 3421,
+    "preprocessing": "Pillow RGB to L, no inversion or contrast normalization; /255 in model",
+    "metadata": "https://github.com/MedMNIST/MedMNIST/blob/main/medmnist/info.py",
+    "license": "CC BY 4.0"
+  }
+}

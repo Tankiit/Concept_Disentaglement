@@ -1,0 +1,55 @@
+{
+  "epsilon": 0.2,
+  "sigma": 1.0,
+  "alpha": 0.95,
+  "means": [
+    [
+      -0.2,
+      0
+    ],
+    [
+      0.2,
+      0
+    ]
+  ],
+  "continuous_tv": 0.15851941887820598,
+  "minimum_feasible_epsilon": 0.13682931532705794,
+  "contour_radius": 2.447746830680816,
+  "contour_hausdorff_distance": 0.4,
+  "minimax_expected_hausdorff_error_lower_bound": 0.2,
+  "maximum_feasible_center_separation_at_epsilon": 0.6372787279287503,
+  "resolution_checks": [
+    {
+      "step": 1.0,
+      "cells": 196,
+      "cell_tv": 0.15851941887820603,
+      "max_reconstruction_error": 4.336808689942018e-19,
+      "max_normalization_error": 4.440892098500626e-16,
+      "minimum_contamination_mass": 6.49476137546861e-19
+    },
+    {
+      "step": 0.5,
+      "cells": 676,
+      "cell_tv": 0.15851941887820603,
+      "max_reconstruction_error": 1.734723475976807e-18,
+      "max_normalization_error": 4.440892098500626e-16,
+      "minimum_contamination_mass": 6.49476137546861e-19
+    },
+    {
+      "step": 0.25,
+      "cells": 2500,
+      "cell_tv": 0.15851941887820603,
+      "max_reconstruction_error": 2.168404344971009e-19,
+      "max_normalization_error": 2.220446049250313e-16,
+      "minimum_contamination_mass": 6.49476137546861e-19
+    },
+    {
+      "step": 0.125,
+      "cells": 9604,
+      "cell_tv": 0.15851941887820603,
+      "max_reconstruction_error": 1.0842021724855044e-19,
+      "max_normalization_error": 3.3306690738754696e-16,
+      "minimum_contamination_mass": 6.49476137546861e-19
+    }
+  ]
+}

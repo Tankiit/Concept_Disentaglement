@@ -1,0 +1,20 @@
+{
+  "cell": 0,
+  "novelty": "EMNIST Letters",
+  "delta": 0.05,
+  "seed": 0,
+  "n": [
+    1000,
+    4000,
+    16000,
+    64000
+  ],
+  "m": 200,
+  "r": 50,
+  "extra_log_seed": 20261019,
+  "reference_radius": 0.32550941899114166,
+  "novel_radius": 0.12767529840723701,
+  "entry_halfwidth": 0.15401276009290968,
+  "input_sha256": "b6d36e13db6ce040baed9193e1a327cd9d5f182daacb022f2bef2b4bbb342f08",
+  "scope": "single cell, single simulation; oracle finite-pool diagnostic, not deployable"
+}

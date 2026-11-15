@@ -1,0 +1,16 @@
+{
+  "dataset": "fmow",
+  "data_root": "/home/mtleao/projects/Concept_Disentaglement/fMoW",
+  "source_names": [
+    "Americas",
+    "Europe",
+    "Asia"
+  ],
+  "split": "custom group-disjoint acquisition split, NOT the official WILDS benchmark split",
+  "mirror_if_used": [
+    "danielz01/fMoW",
+    "8a27a7988a20341352b85bf0e65e88a6c1337f1c"
+  ],
+  "records": 132790,
+  "groups": 45972
+}

@@ -1,0 +1,232 @@
+[
+  {
+    "file": "README.md",
+    "bytes": 432,
+    "sha256": "d3d50b6a0579c6c1a5311dbe7667e7b827827359fb7a99bd51d81144552138ab"
+  },
+  {
+    "file": "RESULTS.md",
+    "bytes": 2666,
+    "sha256": "ef1fc8e6ef5960e8919be602d512ad2b52d4e8cf21722e600853761c38f5a019"
+  },
+  {
+    "file": "SOURCES.md",
+    "bytes": 2755,
+    "sha256": "266489eae8e685ae899435bb769f7f95f8702d88b815e6fc3cde52a1cada13d0"
+  },
+  {
+    "file": "accuracy.csv",
+    "bytes": 394,
+    "sha256": "bf13875c246637ca6805c6cd75c333bfb7742e35295c0c96838a62c899f3c3a8"
+  },
+  {
+    "file": "assignments.csv",
+    "bytes": 1050627,
+    "sha256": "b66b61d1b846546f149ba82f61faf5e76fb3ec9e3b661cc03ae984a7427d0292"
+  },
+  {
+    "file": "blood_ce.pt",
+    "bytes": 425435,
+    "sha256": "227a2ef94fc5d5cc93a49c6bc08f03cbcc8661361bd757d1b2194fe6dcfd616f"
+  },
+  {
+    "file": "blood_dappr.pt",
+    "bytes": 425477,
+    "sha256": "9862df6bacc17b5f29e2c4676dba9d74957fc858ea24521a9f95894ce0eea38e"
+  },
+  {
+    "file": "blood_representations.npz",
+    "bytes": 218239,
+    "sha256": "0661aad2eaf96bf110a432286917e70e279328299f5451b14896a04dc13d1383"
+  },
+  {
+    "file": "bound_summary.csv",
+    "bytes": 1152,
+    "sha256": "d2caf7ddce3982f7e2e9ba917e0e6738e663a2deb6da9debe3e6426d9c6dd4fe"
+  },
+  {
+    "file": "build_probability_comparison_notebook.py",
+    "bytes": 35950,
+    "sha256": "af2d3be32d8d92a0a8e5f4d1919a6b6e3480e2a94dc54c4052185a3df005f77d"
+  },
+  {
+    "file": "class_roles.csv",
+    "bytes": 705,
+    "sha256": "9f5821c0a344a32e0d439d8c509dda87dfd1541933a93e8f3800d071634bfe4e"
+  },
+  {
+    "file": "config.json",
+    "bytes": 1396,
+    "sha256": "1d7012d371fa5fc174c440d624d976cd849b2566f7378bbb036256cfa66a9827"
+  },
+  {
+    "file": "dataset_examples.png",
+    "bytes": 71836,
+    "sha256": "bf29d0f2c6c3963d88900b6431bcd7080635a5321112c17b63b2fa0c1cd00e7f"
+  },
+  {
+    "file": "emnist_ce.pt",
+    "bytes": 428009,
+    "sha256": "96bde18b21d5ff8f14db599d4438cc2771298281cde24c62bd44eb6bf68da358"
+  },
+  {
+    "file": "emnist_dappr.pt",
+    "bytes": 428051,
+    "sha256": "de9c61d02cb0bcf72b1613489e4adbe08ce7397d4a11afa1d2bd4acf2aef96d2"
+  },
+  {
+    "file": "emnist_representations.npz",
+    "bytes": 3106903,
+    "sha256": "5d078c0db81d283e4c45fc90ce18432932d55619398bfb54030220f4f7c958bb"
+  },
+  {
+    "file": "executed.ipynb",
+    "bytes": 537058,
+    "sha256": "b294daa14174edc4f4bcd0de583c733846c635ee18ca908a7302aa1309aa5067"
+  },
+  {
+    "file": "fashion_ce.pt",
+    "bytes": 425719,
+    "sha256": "139b597d1e9bb67c0f5237c8aa93af02df8f0b91263b8297ed56dbba38360c08"
+  },
+  {
+    "file": "fashion_dappr.pt",
+    "bytes": 425761,
+    "sha256": "94aead49edca65013b0d37be55621db4ddefc209320191e95a5ffd95fdc73815"
+  },
+  {
+    "file": "fashion_representations.npz",
+    "bytes": 366535,
+    "sha256": "fe9f71f4927ffbbe1db0ae7f4f45071d34f117f01e9f66d8468d270c046f7ae2"
+  },
+  {
+    "file": "image_examples.csv",
+    "bytes": 1009,
+    "sha256": "513f88e2ff719a442d669e2fcf5d1b702ddbdc6169c0a0ebca891aaefd1e68bb"
+  },
+  {
+    "file": "image_probability_intervals.pdf",
+    "bytes": 54981,
+    "sha256": "e3159a68731e64d9ffd622062e0c455f7f606f5da5d31acf5fa2142137ced63a"
+  },
+  {
+    "file": "image_probability_intervals.png",
+    "bytes": 205820,
+    "sha256": "2a34e06758110fc0192e62d785fa8f2d055f88609804140b5ae4a5df7969c6d2"
+  },
+  {
+    "file": "input_manifest.json",
+    "bytes": 1604,
+    "sha256": "a36fa10c52a070f97d9a7a75e9656d698c0a7850625f185cce9dd8511fcd222a"
+  },
+  {
+    "file": "mc_draw_sensitivity.csv",
+    "bytes": 1134,
+    "sha256": "c00064ef1c453279750a3e9778ddead6540eda246c00882fee96ad84b4a21290"
+  },
+  {
+    "file": "mc_draw_sensitivity.pdf",
+    "bytes": 19237,
+    "sha256": "a8270e9a907c3efdf4d6d6b98e9a44a17b838ffc19b9aaf7c7dd60d4dcb8c0df"
+  },
+  {
+    "file": "mc_draw_sensitivity.png",
+    "bytes": 157818,
+    "sha256": "5306cc5555122143c5a899e7fb8ba83e59bf6d6031eb343b4a3e7c7aeaa09117"
+  },
+  {
+    "file": "mnist_ce.pt",
+    "bytes": 425691,
+    "sha256": "4396ce8a9949b82eb3d1f7faf52e94d4e7e1fc0d7cfdf6fbfb70db07521b844f"
+  },
+  {
+    "file": "mnist_dappr.pt",
+    "bytes": 425733,
+    "sha256": "342f66b077719559bbadc9252da957a34ff414c2b41c51e9240f043043391dde"
+  },
+  {
+    "file": "mnist_representations.npz",
+    "bytes": 362912,
+    "sha256": "461d73981333aaffa7c3c577906674f24384bf1d43ac5e32272444758068bf39"
+  },
+  {
+    "file": "ood_comparison.pdf",
+    "bytes": 17010,
+    "sha256": "9d9d104a5f7cadf4488a2a4824a76760ef9664b18ae4621d60ebacdc6a3dd56d"
+  },
+  {
+    "file": "ood_comparison.png",
+    "bytes": 60982,
+    "sha256": "f5510b4bf81ce4ba20c3358704cc517f9d85374c9e85eb8f61e62a5813444678"
+  },
+  {
+    "file": "ood_metrics.csv",
+    "bytes": 3195,
+    "sha256": "04cb11b428358956bbfbcb972a5e566ee5fe6066810c21e47cfda185b60ebf71"
+  },
+  {
+    "file": "probability_bounds.csv",
+    "bytes": 8923851,
+    "sha256": "4074e744c523b7657518b9cd56f7178ac07224c0532f1fd21e3a21fa7ac1d9c0"
+  },
+  {
+    "file": "probability_bounds.py",
+    "bytes": 9048,
+    "sha256": "62dd3560d117685e0c12065917f6e0728041bb26298d02d81de13c179d9088ff"
+  },
+  {
+    "file": "probly_numpy_metrics_snapshot.py",
+    "bytes": 20914,
+    "sha256": "69591f2817b7e4135c3e4c5fcfa3b9382522c00498dcf792c95dc450ed753d25"
+  },
+  {
+    "file": "probly_ood_snapshot.py",
+    "bytes": 8509,
+    "sha256": "822d3b4dd72d32bc73c81b077ac801dbec74ea15b73bad6dfc0287dc3469427a"
+  },
+  {
+    "file": "probly_representer_snapshot.py",
+    "bytes": 2727,
+    "sha256": "b2cb530cf4c84f1fd1d21ee0733f355e5156693cf9b4bf6045031bab518b3386"
+  },
+  {
+    "file": "reference_laws.csv",
+    "bytes": 24715,
+    "sha256": "61ec0abe263484aa94896e2b6eba935d2b6b9e266ebbb6e608de28cef1a86991"
+  },
+  {
+    "file": "run_probability_comparison_notebook.py",
+    "bytes": 2378,
+    "sha256": "41f85b97e1e940ab6d3e26d9ddd5a6bd17b3d2753bad7687d320f7bc881c590a"
+  },
+  {
+    "file": "scores.csv",
+    "bytes": 420666,
+    "sha256": "8a1d07de00494d022e4579170b82ace1a5557fb57c9db832a231c277fac2d9ff"
+  },
+  {
+    "file": "source_acquisition.py",
+    "bytes": 4472,
+    "sha256": "47a18ae3c649f0bbcc48c1795b7f65c84102d85f0ad6384f0131b63d041e5596"
+  },
+  {
+    "file": "source_informativeness_audit.csv",
+    "bytes": 181,
+    "sha256": "6c863c18ffde800eaa45fe3532235657a91a1b2d4306731c71ef85f35d66139b"
+  },
+  {
+    "file": "source_notebook.ipynb",
+    "bytes": 46778,
+    "sha256": "078022ee17110bf136cf3d8d77f89883786ec43494f909ad08293c6b350210ee"
+  },
+  {
+    "file": "test_probability_bounds.py",
+    "bytes": 3358,
+    "sha256": "973812d49bf8336cf9724a830c6b456b9b36cbc4fd85fe2ecb230e62dca2797c"
+  },
+  {
+    "file": "training_history.csv",
+    "bytes": 8045,
+    "sha256": "f94c566f0b1176b37516b965ec29d5bde6501adcb1c0185e0b00d85c3ef8ea50"
+  }
+]

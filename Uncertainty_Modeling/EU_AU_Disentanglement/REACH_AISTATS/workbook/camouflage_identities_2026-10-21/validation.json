@@ -1,0 +1,10 @@
+{
+  "records": 6600,
+  "analytic_cases": 4,
+  "targets_verified": true,
+  "label_invariance": true,
+  "identity_intervals_nested_inside_zero_identity_baseline": true,
+  "nested_identity_counts": true,
+  "empty_records": 0,
+  "missed_targets": 0
+}

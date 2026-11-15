@@ -1,0 +1,41 @@
+{
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "budgets": [
+    512,
+    2048,
+    8192,
+    32768
+  ],
+  "exact_theta_budget_code": -1,
+  "modes": [
+    "baseline_references",
+    "16x_references",
+    "exact_sources"
+  ],
+  "camouflage": [
+    0.99,
+    1.0
+  ],
+  "identities": 8192,
+  "deployment_inputs": 16000,
+  "flip_probability": 0.2,
+  "alpha_per_family": 0.01,
+  "seed_prefix": 20261028,
+  "scope": "Synthetic source-specific binary target labels; no new model training. W_cls and W_unk endpoints reused from parent.",
+  "hashes": {
+    "camouflage_2026-10-21/config.json": "f1f760cf415aebdb866e91b2f62fd723df4bd3643f3ba52ae9594f2dca8678d3",
+    "camouflage_references_2026-10-21/reference_draws.json": "8a1187331510a7040582b5ebe5dab3d6bf7718b376631a606ae3392938968e5b",
+    "camouflage_references_2026-10-21/intervals.csv": "0b8fd51f64503042034b15a464daa3789e152036a00df72c1016b68285c684ab"
+  }
+}

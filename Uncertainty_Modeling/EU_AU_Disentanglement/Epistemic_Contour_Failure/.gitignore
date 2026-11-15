@@ -1,0 +1,18 @@
+# Publish this research project's reports, numbered experiments, and saved results.
+# Override broad documentation/data/directory exclusions in ancestor .gitignore files.
+!*/
+!*
+
+# Keep local runtime artifacts and credentials out of version control.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.env
+.env.*
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store

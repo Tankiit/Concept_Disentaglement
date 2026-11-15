@@ -1,0 +1,10 @@
+{
+  "records": 9900,
+  "baseline_matches_parent": true,
+  "targets_verified": true,
+  "unchanged_class_and_candidate_endpoints": true,
+  "exact_laws_and_rates_collapse_label_interval": true,
+  "nested_label_counts": true,
+  "empty_records": 0,
+  "missed_targets": 0
+}

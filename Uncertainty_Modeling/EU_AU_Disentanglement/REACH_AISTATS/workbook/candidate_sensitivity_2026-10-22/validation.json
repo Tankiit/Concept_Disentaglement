@@ -1,0 +1,12 @@
+{
+  "records": 13860,
+  "runs": 420,
+  "parent_nominal_endpoints_match": true,
+  "targets_verified": true,
+  "intervals_nested_under_expansion": true,
+  "label_invariance": true,
+  "rejection_consistency": true,
+  "records_at_budget_covering_actual_linf_error": 7920,
+  "misses_at_budget_covering_actual_linf_error": 0,
+  "empty_at_budget_covering_actual_linf_error": 0
+}

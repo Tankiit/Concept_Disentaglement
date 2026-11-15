@@ -1,0 +1,142 @@
+[
+  {
+    "file": "README.md",
+    "bytes": 432,
+    "sha256": "1fde43db519b1c320caecb986d48b98191ca6c1ee8fbf96ee6ace1dbf23bac94"
+  },
+  {
+    "file": "RESULTS.md",
+    "bytes": 1183,
+    "sha256": "e0ef21a0477d9ae38d53bd968c2d24ff11ce1ce55c65d8780dbd2ab831f6b406"
+  },
+  {
+    "file": "SOURCES.md",
+    "bytes": 1627,
+    "sha256": "705504a59e53598b799ceb7dfa8ac9202064f30182f874f5d0d0769f74d6a7b0"
+  },
+  {
+    "file": "acquisition_summary.csv",
+    "bytes": 4421,
+    "sha256": "76494e327009442b98d2066ba3939beb07b22c324bddacb27e0cf068e2d47fb9"
+  },
+  {
+    "file": "acquisition_trajectories.csv.gz",
+    "bytes": 1080277,
+    "sha256": "8da0e41d5abaedbb94e4880f97e956cbc3f2d85cf7cecb4e629adedc0a2a0825"
+  },
+  {
+    "file": "beta_acquisition.py",
+    "bytes": 2691,
+    "sha256": "d87c3b1335e409fdba8aeed149570bb1621f68fafc2bbc57162fcb3c1a49067b"
+  },
+  {
+    "file": "build_adult_acquisition_notebook.py",
+    "bytes": 28735,
+    "sha256": "2abe4f01d87e41c82b8b1392c6dd4a07aef0ba44418471c4d5190381b74e5bc5"
+  },
+  {
+    "file": "candidate_search.pdf",
+    "bytes": 31839,
+    "sha256": "eb9438c40fe4c6a31e6b424a8ff6161643b02b89b6c85cdb20eecfa251f45f4a"
+  },
+  {
+    "file": "candidate_search.png",
+    "bytes": 111986,
+    "sha256": "c560793bd95a625a5b9f89366dac31abfd7f05b495211a04b00330120fc6f255"
+  },
+  {
+    "file": "candidate_states.csv",
+    "bytes": 92414,
+    "sha256": "e2b553a5d9d3e5cc9adc4333aac27570cbb8ba3af7be8c9b695be75db0ea84a9"
+  },
+  {
+    "file": "executed.ipynb",
+    "bytes": 987194,
+    "sha256": "26245ec23c9e8ab7d83c3ae099c733bcc5f53f902b6861410f5d1035e6f3452f"
+  },
+  {
+    "file": "heldout_acquisition_curves.pdf",
+    "bytes": 30370,
+    "sha256": "9fc53037bec4f0184fe57594a0b8adab266889857aeb8d25d9e0e22116b8b83d"
+  },
+  {
+    "file": "heldout_acquisition_curves.png",
+    "bytes": 270410,
+    "sha256": "4e471a10a71424f87108456a72ec92f4b5c77a0b6d7037d022c59234ff7d367f"
+  },
+  {
+    "file": "heldout_acquisitions.npz",
+    "bytes": 3006143,
+    "sha256": "23ac7facac40253c293a5df1b1b6e78baeee55c02f107d03dcdcdb6165159f46"
+  },
+  {
+    "file": "heldout_exact_one_step.csv",
+    "bytes": 725,
+    "sha256": "f536103d5b3c2ada1bf28d2c86e4e43747506da9774521ed34d69999bd233ac5"
+  },
+  {
+    "file": "heldout_record_index.csv",
+    "bytes": 314958,
+    "sha256": "dd3c063b5f8c1d9a569eee418292fd83bb0a11b2e15f27f3d6a381ff0f7125fc"
+  },
+  {
+    "file": "initial_observation_ids.json",
+    "bytes": 1601509,
+    "sha256": "7f987648256e64a70d6467a97e706702450b360b13223609d131ae8858986b6b"
+  },
+  {
+    "file": "paired_error_contrasts.csv",
+    "bytes": 1609,
+    "sha256": "e357ac2bc0c59fcd9acebca683233970a5e35ddd5a6870764ca98be1316c0178"
+  },
+  {
+    "file": "population_rates.csv",
+    "bytes": 229,
+    "sha256": "ed332ac1b17aef4b928b854fff02632da5d7b8bede3a43e153ade765b36a675b"
+  },
+  {
+    "file": "probly_check.csv",
+    "bytes": 134,
+    "sha256": "5aacf02de078089399e3a66c7db9ce113ae1927b23d9cf673005f7f3d0173f66"
+  },
+  {
+    "file": "protocol.json",
+    "bytes": 957,
+    "sha256": "f553b51578296f1cfde70f09ffc7980cdd8f29c67f5be80d1671735dc3d2668e"
+  },
+  {
+    "file": "qualifying_pairs.csv",
+    "bytes": 4278,
+    "sha256": "52ac5ea566163587a6eecc521d70feed8cfdb3156565126fd5e8802363301c34"
+  },
+  {
+    "file": "record_filter_audit.json",
+    "bytes": 200,
+    "sha256": "d6cbc8ef96150e858c87f21fb380ff4d76ffaa7e88d11e2631828bf6638403c9"
+  },
+  {
+    "file": "selected_states.csv",
+    "bytes": 541,
+    "sha256": "4e9b2d2d97e3499b9f498fb18383800d3d71ef2bb256ee068ea35523b53e694d"
+  },
+  {
+    "file": "source_notebook.ipynb",
+    "bytes": 33044,
+    "sha256": "e9f7ec53ba15060574585c6c19a2e52c837aa2e0b5d7f49207b654db40502561"
+  },
+  {
+    "file": "test_beta_acquisition.py",
+    "bytes": 1369,
+    "sha256": "bff56dd8d4560684975ef53e195c7569c651a34ea511b763f3ec1bc37e85b8d1"
+  },
+  {
+    "file": "training_record_index.csv",
+    "bytes": 644305,
+    "sha256": "ed096132c15d6ad726b16df4ae146b842fc455059ae31d5a6398c4c8d00921a9"
+  },
+  {
+    "file": "versions.json",
+    "bytes": 106,
+    "sha256": "4bab497953a8e786aa580bee7a5e453e7b422104ce0a128dae78d75149fd3a2f"
+  }
+]

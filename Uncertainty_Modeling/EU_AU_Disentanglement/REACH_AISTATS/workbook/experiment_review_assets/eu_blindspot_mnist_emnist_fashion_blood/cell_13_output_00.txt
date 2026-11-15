@@ -1,0 +1,20 @@
+                 n  task_accuracy  mean_TU  mean_AU  mean_EU  mean_P_unknown  \
+dataset role                                                                   
+blood   UUC   1600         1.0000   0.0257   0.0190   0.0067          0.9961   
+fashion UUC   2000         0.9580   0.3229   0.2696   0.0533          0.8776   
+letters KUC   5200         0.8750   0.3800   0.3133   0.0668          0.8125   
+mnist   KKC   2000         0.9435   0.3467   0.2966   0.0501          0.0965   
+
+              warning_rate  low_TU_low_EU_rate  \
+dataset role                                     
+blood   UUC         0.0000              1.0000   
+fashion UUC         0.0160              0.8120   
+letters KUC         0.0538              0.8052   
+mnist   KKC         0.0195              0.8820   
+
+              low_TU_low_EU_known_prediction_rate  
+dataset role                                       
+blood   UUC                                0.0000  
+fashion UUC                                0.0135  
+letters KUC                                0.0854  
+mnist   KKC                                0.8635  

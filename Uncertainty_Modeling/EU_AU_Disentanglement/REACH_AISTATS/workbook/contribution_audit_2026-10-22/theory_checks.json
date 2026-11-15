@@ -1,0 +1,10 @@
+{
+  "exact_mismatch_compatible": true,
+  "actual_target": 0.0,
+  "wrong_point_target": 0.25,
+  "fitted_weights": [
+    0.6000000000000001,
+    0.4
+  ],
+  "identity_residual_formula_verified": true
+}

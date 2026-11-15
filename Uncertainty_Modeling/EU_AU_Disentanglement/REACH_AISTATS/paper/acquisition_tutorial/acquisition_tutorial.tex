@@ -1,0 +1,1028 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,graphicx,booktabs,longtable,array}
+\usepackage[margin=25mm]{geometry}
+\usepackage{xcolor,float}
+\usepackage{hyperref,url}
+\counterwithout{figure}{chapter}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!55!black,pdftitle={Understanding uncertainty and information acquisition: six experiments from first principles}}
+\graphicspath{{figures/}}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Bern}{\operatorname{Bernoulli}}
+\newcommand{\Beta}{\operatorname{Beta}}
+\newcommand{\MI}{\operatorname{MI}}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\fig}[3]{\begin{figure}[H]\centering\includegraphics[width=\textwidth,height=.78\textheight,keepaspectratio]{#1}\caption{#2}\label{#3}\end{figure}}
+\setlength{\emergencystretch}{3em}
+\newcommand{\reservetable}{\par\begingroup\dimen0=\pagegoal\advance\dimen0 by -\pagetotal\ifdim\dimen0<10\baselineskip\newpage\fi\endgroup}
+\setcounter{tocdepth}{2}
+\title{Understanding Uncertainty and Information Acquisition\\\large Six experiments explained from first principles\\Models, derivations, implementation, and every saved figure}
+\author{Technical tutorial reconstructed from the local notebooks and archived runs}
+\date{6 November 2026}
+\begin{document}
+\hypersetup{pageanchor=false}
+\maketitle
+\hypersetup{pageanchor=true}
+\chapter*{How to read this document}
+\addcontentsline{toc}{chapter}{How to read this document}
+The central question is simple: when a probability is uncertain, which additional observation helps us learn it? An image, a source identity, and a target label reveal different things. These experiments make those differences explicit, first in controlled models and then in recorded image datasets.
+
+This document reconstructs six particular saved runs. It explains the mathematics needed to read them, the construction of their observations, the numerical procedures, and the interpretation of every standalone result figure. The archived implementation and exported numerical tables determine the account of what ran. The notebooks supply the experimental narrative. Numerical tables in the appendix are generated directly from those artifacts. The original figures are copied without changing their data or styling.
+
+The document proceeds in learning order. Chapter 1 introduces probability, estimation, uncertainty, and graph reading. Chapters 2--3 develop compatible probability sets and explain the four-dataset experiment. Chapters 4--5 establish the exact counterexample and its figures. Chapters 6--7 explain the neural image pilots. Chapters 8--10 derive the continuous Bayesian model and interpret the two real-record counterexample searches. The final chapters connect the findings and document reproducibility.
+
+Each experimental conclusion has a particular population and information model. In the four-dataset simulation, the population is a specified distribution over frozen image-derived cells. In the image pilots, the population consists of selected reference and evaluation records. In the real-record counterexamples, the target is an aggregate prevalence among retained records. Keeping those populations explicit is essential to understanding the numbers.
+
+\begin{longtable}{p{.08\textwidth}p{.37\textwidth}p{.46\textwidth}}
+\toprule Run & Notebook & Main purpose\\\midrule
+1 & \path{source_acquisition_four_datasets.ipynb} & Learn three cell-level probabilities through four observation channels.\\
+2 & \path{acquisition_counterexample.ipynb} & Prove that identical predictive beliefs can accompany different useful observations.\\
+3 & \path{camelyon17_acquisition.ipynb} & Study hospital-source probability bounds and visual predictive summaries.\\
+4 & \path{camelyon17_counterexample.ipynb} & Search for matched uncertainty summaries and validate acquisition preferences using tumor records.\\
+5 & \path{fmow_acquisition.ipynb} & Study region-source probability bounds and visual predictive summaries.\\
+6 & \path{fmow_counterexample.ipynb} & Search and validate using region identities and a land-use event.\\\bottomrule
+\end{longtable}
+All paths in the provenance appendix are relative to the project's \path{REACH_AISTATS} directory. The document directory includes a figure manifest with SHA-256 hashes, a numerical-table generator, and compilation instructions.
+\tableofcontents
+\listoffigures
+
+\chapter{Probability, uncertainty, and acquisition from the beginning}
+\section{Records, variables, and events}
+A record is one stored example. It may contain an image, a hospital or region, a label, a patient or location identifier, and a date. An observation channel determines which of these fields the learner receives. The underlying record can contain more information than the channel reveals.
+
+A random variable is a name for a quantity whose value depends on a random draw. Capital letters denote variables; lowercase letters denote possible values. We use $S$ for source, $Y$ for a target label, and $C$ for a finite cell assigned to an image. The first notebook calls its cell variable $X$; here $C$ makes its role explicit. For three sources, $S\in\{0,1,2\}$ means that $S$ takes one of those three codes. The symbol $\in$ means ``belongs to.'' An event is a statement about the draw, such as $S=2$ or $Y=1$.
+
+$\Prob(S=2)$ is the probability that a random record comes from source 2. Probabilities range from zero to one. A probability of $0.30$ means a 30\% chance under the stated drawing procedure. A collection of probabilities for all mutually exclusive possibilities is a distribution. The probabilities sum to one because every draw has one of the listed outcomes.
+
+A Bernoulli distribution describes a variable taking values zero and one. Writing $Y\sim\Bern(p)$ means $\Prob(Y=1)=p$ and $\Prob(Y=0)=1-p$; the symbol $\sim$ reads ``is distributed as.'' A categorical distribution extends this to several possible outcomes. A source identity among three sources, or a cell among four cells, is categorical.
+
+\section{Conditioning, joint probability, and mixtures}
+Conditional probability restricts attention to a specified part of the population. For events $A$ and $B$ with $\Prob(B)>0$,
+\begin{equation}
+\Prob(A\mid B)=\frac{\Prob(A\text{ and }B)}{\Prob(B)}.
+\end{equation}
+The vertical bar means ``given.'' The numerator counts probability mass satisfying both statements; the denominator rescales by the mass satisfying the condition. For example, if 12\% of all records belong to source 2 and cell 0, and 40\% belong to cell 0, then $\Prob(S=2\mid C=0)=0.12/0.40=0.30$.
+
+Define
+\begin{equation}
+w_s=\Prob(S=s),\qquad A_{sc}=\Prob(C=c\mid S=s),\qquad z_{sc}=\Prob(S=s,C=c)=w_sA_{sc}.
+\label{eq:mass}
+\end{equation}
+The subscript $s$ identifies a source and $c$ identifies a cell. $w_s$ is a source proportion. $A$ is a table, or matrix, with one row per source and one column per cell. Each row sums to one. $z$ is the table of joint masses; all its entries together sum to one. Summing the joint masses over sources gives the cell distribution:
+\begin{equation}
+p_c=\Prob(C=c)=\sum_s z_{sc}=\sum_s w_sA_{sc}.
+\label{eq:mixture}
+\end{equation}
+The summation symbol $\sum_s$ means ``add one term for every source.'' This is a mixture: each source contributes its cell distribution in proportion to its frequency. It follows directly by partitioning the event $C=c$ according to source.
+
+The reverse conditional, $\Prob(S=s\mid C=c)=w_sA_{sc}/p_c$, is Bayes' rule in this finite setting. A source can frequently produce a particular cell yet be uncommon in deployment; both the cell likelihood and source proportion influence the reverse probability.
+
+\section{Population, sample, estimate, and target}
+A population specifies the distribution from which observations are drawn. A finite empirical population is the collection of saved records equipped with a sampling rule, usually uniform sampling within a declared group. Drawing with replacement returns each record to the pool after selection, so a later draw can select it again. Conditional on the fixed pool, fresh independent selections can be independent even when the original images share patients or locations. Generalization to new patients concerns an additional level of randomness.
+
+A sample is the observations received by the learner. A target, also called an estimand, is the precise quantity to be learned. An estimate is a value computed from the sample. The true target in a simulation is calculable because the generating probabilities are specified. The empirical target in a record experiment is calculable by counting the full retained population.
+
+For a categorical sample of size $n$, let $N_c$ count observations in category $c$. Its empirical frequency is $\widehat p_c=N_c/n$. A hat indicates an estimate. The counts sum to $n$. Under the categorical model, counts retain all the likelihood information in the sample; they are sufficient statistics for that model. The order of independent draws supplies no additional parameter information.
+
+An independent and identically distributed sample, abbreviated i.i.d., consists of draws with the same distribution whose outcomes do not influence one another. This assumption underlies the concentration bounds used below. Source-specific sampling means separate draws from each source's distribution. Representative deployment sampling means draws from the deployment mixture itself.
+
+\section{Expectation, variance, squared error, and units}
+Expectation is a probability-weighted average. For a discrete random variable $Z$ with possible values $z_j$ and probabilities $r_j$,
+\begin{equation}
+\E[Z]=\sum_j r_jz_j,\qquad
+\Var(Z)=\E[(Z-\E[Z])^2]=\E[Z^2]-\E[Z]^2.
+\end{equation}
+Variance measures squared spread around the mean. Standard deviation is the square root of variance and restores the original units. A probability interval width has probability units; a variance of a probability has squared-probability units. For a Bernoulli outcome, $\E[Y]=p$ and $\Var(Y)=p(1-p)$.
+
+Suppose an uncertain parameter $T$ is itself a probability. A posterior distribution expresses uncertainty about its value after observing data $D$. Write $\mu=\E[T\mid D]$. For any estimate $a$,
+\begin{align}
+\E[(T-a)^2\mid D]
+&=\E[((T-\mu)+(\mu-a))^2\mid D]\\
+&=\Var(T\mid D)+(\mu-a)^2.
+\label{eq:risk}
+\end{align}
+The cross term vanishes because $\E[T-\mu\mid D]=0$. Therefore $a=\mu$ minimizes expected squared error. The minimum is posterior variance. This explains why the counterexamples use variance reduction as an acquisition value.
+
+There are two expectations used later. Bayesian risk averages over the posterior uncertainty about the true parameter and future observations. Held-out mean squared error fixes a particular empirical truth $T_*$ and averages $(\widehat T-T_*)^2$ over acquisition draws. Each is a well-defined average with its own probability law.
+
+\section{Epistemic uncertainty, outcome randomness, and interval semantics}
+Epistemic uncertainty refers to incomplete knowledge of probabilities or mechanisms. An interval $[0.2,0.8]$ can represent a range of probabilities compatible with current evidence. Its width is $0.8-0.2=0.6$. A point interval $[0.4,0.4]$ represents knowledge of the probability $0.4$; individual binary outcomes still vary according to that probability. Outcome randomness conditional on a probability model is often called aleatoric uncertainty.
+
+Several interval constructions appear in these experiments, and their interpretation follows their construction:
+\begin{description}
+\item[Identification interval] The range of a target across models agreeing with exact population observations. A positive width describes ambiguity that persists with that exact information.
+\item[Confidence-set projection] The range of a target across models satisfying sample-derived confidence constraints. Its repeated-sampling guarantee comes from inclusion of the generating probabilities in those constraints.
+\item[Posterior credible enclosure] A range containing at least a declared amount of posterior probability under a Bayesian model.
+\item[Prior-sensitivity MI interval] The range of a mutual-information functional when the initial hypothesis weight varies over a specified family and is updated by the same evidence.
+\item[Finite-predictor envelope] The smallest and largest class probabilities among the sampled neural predictors. Its scope is the sampled predictors.
+\end{description}
+These definitions allow every interval in the figures to be interpreted directly. The three probability widths in a source acquisition figure each answer a separate target question.
+
+\section{Entropy and mutual information}
+For a probability vector $r=(r_1,\ldots,r_K)$, entropy is
+\begin{equation}
+H(r)=-\sum_{k=1}^K r_k\log r_k.
+\end{equation}
+$K$ is the number of outcomes. $\log$ denotes the natural logarithm, so entropy is measured in nats. The convention $0\log0=0$ uses the limiting value. Entropy averages the surprise $-\log r_k$ of outcomes. It is zero when one outcome has probability one. For binary outcomes,
+\begin{equation}
+h(p)=-p\log p-(1-p)\log(1-p).
+\end{equation}
+It reaches its maximum $\log2\approx0.693147$ at $p=1/2$.
+
+Suppose a latent model $H$ determines the probability of an outcome. ``Latent'' means its value is hidden. Predictive mutual information is
+\begin{equation}
+I(Y;H\mid D)=H\big(\E[P(Y\mid H,D)\mid D]\big)
+-\E[H(P(Y\mid H,D))\mid D].
+\label{eq:mi}
+\end{equation}
+First average the models' probability vectors and compute their entropy. Then subtract the average entropy of individual models. The difference measures disagreement in their predictions. The semicolon in $I(Y;H)$ separates the two variables whose dependence is measured. For a random binary probability $T$, the formula becomes $h(\E[T])-\E[h(T)]$. Concavity of entropy makes this quantity nonnegative.
+
+A function is concave when its value at a weighted average is at least the same weighted average of its values. Thus averaging differing predictions can increase entropy. This is the mathematical basis of the MI expression and later endpoint calculations.
+
+\section{Acquisition channels and response curves}
+An acquisition is the act of obtaining an additional observation. An action or arm names the channel. A budget specifies how many observations or fields are requested. A likelihood $P(O\mid\theta,a)$ gives the probability of observing $O$ if parameters are $\theta$ and action $a$ is taken. This likelihood explains how the observation updates knowledge.
+
+In a source model, an input cell informs $p_c$, a source identity informs $w_s$, a source-specific reference cell informs $A_{sc}$, and a source-specific target label informs a label rate. This relation between channels and parameters is the organizing principle of the experiments.
+
+A baseline is the initial information supplied before additional acquisition. A sweep increases one channel while keeping the other baseline observations fixed. Nested draws mean that budget $b_1$ observations form a prefix of the stream used at a larger budget $b_2$. Paired repeats reuse suitable draws across comparisons, reducing incidental differences caused by simulation randomness. A random seed initializes the pseudorandom generator, permitting the same draws to be reconstructed with matching software.
+
+Most horizontal axes use a symmetric-logarithmic scale. Near zero, the scale is linear so the baseline can be shown. Farther away, equal distances correspond approximately to equal multiplicative changes. Lines connect the evaluated budgets as visual guides. The source datasets use substantially different budget ranges from the image pilots and record counterexamples.
+
+For repeated measurements $v_1,\ldots,v_R$, the plotted mean is $\overline v=R^{-1}\sum_rv_r$. A minimum--maximum band spans $[\min_rv_r,\max_rv_r]$. A Monte Carlo standard error is $s/\sqrt R$, where $s$ is the sample standard deviation computed with denominator $R-1$. It describes uncertainty in a simulation average. A plotted $1.96$ multiplier is a normal-approximation convention for the Monte Carlo mean. Captions below identify which, if any, of these objects appears.
+
+\chapter{Learning probability bounds from finite observations}
+\section{Three source-mixture targets}
+The source experiments use two known sources, $s=0,1$, and a specified candidate source, $s=2$. ``Known'' means the source is included in the reference design. The candidate is the explicitly chosen additional group, hospital, or region. A fixed cell $c$ defines the conditioning event.
+
+Known membership is
+\begin{equation}
+T_K(c)=\Prob(S=0\mid C=c,S\in\{0,1\})
+=\frac{w_0A_{0c}}{w_0A_{0c}+w_1A_{1c}}.
+\end{equation}
+The denominator contains the two known sources. Among records in the cell that belong to either known source, the ratio gives the fraction belonging to source 0.
+
+Candidate membership is
+\begin{equation}
+T_N(c)=\Prob(S=2\mid C=c)=\frac{w_2A_{2c}}{\sum_{s=0}^2w_sA_{sc}}.
+\end{equation}
+Here the denominator contains all three sources. The event asks whether a record in the cell comes from the specified candidate.
+
+For the reference-anchored target, choose fixed source weights $a_0=a_1=1/2$ and source-specific positive-label probabilities $\theta_s$. The first experiment assumes $Y$ and $C$ are conditionally independent given $S$, meaning $P(Y=1\mid S=s,C=c)=\theta_s$ for every cell. Then
+\begin{equation}
+T_Y(c)=\frac{\sum_{s=0}^1a_sA_{sc}\theta_s}{\sum_{s=0}^1a_sA_{sc}}.
+\label{eq:anchored}
+\end{equation}
+Construct an imagined reference population with equal source weights, condition on the cell, and average its source label rates. The anchor keeps the reference population definition constant while deployment proportions vary. In the visual pilots, $\theta_s$ is replaced by a cell-specific $\theta_{sc}$ estimated within each source and cell.
+
+\section{From counts to simultaneous frequency boxes}
+For a category $c$, define the indicator $I_i(c)$ to be one when draw $i$ lands in $c$, and zero otherwise. The mean $n^{-1}\sum_iI_i(c)$ is $\widehat p_c$. Hoeffding's bounded-variable inequality gives
+\begin{equation}
+\Prob(|\widehat p_c-p_c|>r)\leq 2\exp(-2nr^2).
+\end{equation}
+The absolute value $|\cdot|$ measures distance in either direction; $\exp(x)=e^x$ is the exponential. The inequality says that large frequency deviations become less likely as sample size grows.
+
+For $D$ categories, the probability that any coordinate fails is at most the sum of its failure probabilities. This union bound gives $2D\exp(-2nr^2)$. Set this quantity equal to a chosen failure allowance $\delta$ and solve for $r$:
+\begin{align}
+2D\exp(-2nr^2)&=\delta,\\
+-2nr^2&=\log(\delta/(2D)),\\
+r(n,D,\delta)&=\sqrt{\frac{\log(2D/\delta)}{2n}}.
+\label{eq:radius}
+\end{align}
+Thus $\ell_c=\max(0,\widehat p_c-r)$ and $u_c=\min(1,\widehat p_c+r)$ bound every coordinate simultaneously with probability at least $1-\delta$. The operations $\max$ and $\min$ choose the larger and smaller arguments, clipping endpoints to probability limits. With $n=0$, every coordinate is assigned $[0,1]$.
+
+For example, in the four-dataset experiment a four-cell reference row with $n=200$ gets $\delta=0.05/8=0.00625$. Its radius is approximately $\sqrt{\log1280/400}=0.1337$. An observed frequency $0.30$ receives approximately $[0.1663,0.4337]$. The box can be conservative because each coordinate is protected separately and the sum-to-one restriction is imposed afterward.
+
+At one fixed setting in that experiment, the total failure allowance is $\alpha=0.05$. Deployment inputs and identities receive $\alpha/4$ each. The two reference rows receive $\alpha/8$ each, and the two noisy-label distributions receive $\alpha/8$ each. Adding these six allowances gives $\alpha$. On their joint inclusion event, every target computed from the true parameters lies within the projected intervals. The 95\% statement therefore applies simultaneously to the three targets at that fixed setting. The visual pilots use a different, run-wide allocation explained in Chapter 6.
+
+\subsection{Why the exponential concentration bound holds}
+The concentration step can itself be explained through a short exponential argument. Markov's inequality says that for a nonnegative random variable $V$ and positive number $a$, $\Prob(V\geq a)\leq\E[V]/a$. Indeed, the expectation accumulated on the event $V\geq a$ is at least $a\Prob(V\geq a)$, and the remaining contribution is nonnegative.
+
+For a bounded variable $B\in[0,1]$, define $g(\lambda)=\log\E[e^{\lambda B}]$, where $\lambda$ is a real tuning parameter. Differentiating shows that $g'(\lambda)$ is the mean of $B$ under probabilities reweighted by $e^{\lambda B}$, and $g''(\lambda)$ is its variance under those reweighted probabilities. Any variable in $[0,1]$ has variance at most $1/4$: its variance is the minimum expected squared distance to a constant, so it is at most $\E[(B-1/2)^2]\leq1/4$. Integrating the second-derivative bound from zero gives
+\begin{equation}
+\log\E[e^{\lambda(B-\E[B])}]\leq\lambda^2/8.
+\end{equation}
+This is the bounded-variable exponential-moment bound behind Hoeffding's inequality.
+
+For independent indicators $B_1,\ldots,B_n$ with common mean $p$, independence factors the exponential expectation into a product. Markov's inequality then gives, for $\lambda>0$,
+\begin{equation}
+\Prob\left(\sum_i(B_i-p)\geq nr\right)
+\leq e^{-\lambda nr}\prod_i\E[e^{\lambda(B_i-p)}]
+\leq e^{-\lambda nr+n\lambda^2/8}.
+\end{equation}
+Choose $\lambda=4r$ to minimize the exponent, giving $e^{-2nr^2}$. Apply the same argument to the negative deviation and add the two tail bounds, yielding $2e^{-2nr^2}$. This derivation explains the exponential dependence, the factor two, and the sample-size term used in every frequency box.
+
+\section{Handling a known label-flip mechanism}
+In the four-dataset simulation, a clean label is independently flipped with specified probability $\eta=0.10$. An observed positive label arises either from a clean positive that survives or a clean negative that flips:
+\begin{equation}
+\widetilde\theta_s=(1-\eta)\theta_s+\eta(1-\theta_s)
+=\eta+(1-2\eta)\theta_s.
+\end{equation}
+A tilde indicates an observed noisy quantity. Because $\eta<1/2$, the slope $1-2\eta$ is positive. Inverting an interval $[L_s,U_s]$ for the noisy rate gives
+\begin{equation}
+\theta_s\in\left[\max\left(0,\frac{L_s-\eta}{1-2\eta}\right),
+\min\left(1,\frac{U_s-\eta}{1-2\eta}\right)\right].
+\end{equation}
+For clean rates $0.2$ and $0.8$, observed rates are $0.26$ and $0.74$. Division by $0.8$ expands an interior observed interval's width by $1.25$. If inversion produces lower endpoint above upper endpoint, the observation constraints and noise model have an empty intersection; the code records an empty set.
+
+\section{The joint-mass compatible set}
+A compatible set retains every model satisfying the specified constraints. Work with joint masses $z_{sc}$ from Equation~\eqref{eq:mass}. Nonnegativity means $z_{sc}\geq0$. Normalization is $\sum_{s,c}z_{sc}=1$. Source-conditional boxes become
+\begin{equation}
+\ell_{sc}\sum_jz_{sj}\leq z_{sc}\leq u_{sc}\sum_jz_{sj}.
+\label{eq:rowbox}
+\end{equation}
+The sum over $j$ is the row mass $w_s$. Multiplication by row mass turns the conditional ratio bounds into linear inequalities. Every term is a constant times an unknown joint mass; products of unknowns disappear. If a row has zero mass, its joint entries are all zero and Equation~\eqref{eq:rowbox} remains meaningful.
+
+Input boxes constrain column sums, $\ell^p_c\leq\sum_sz_{sc}\leq u^p_c$. Identity boxes constrain row sums, $\ell^w_s\leq\sum_cz_{sc}\leq u^w_s$. Superscripts $p,w$ distinguish the kinds of bounds. A specified candidate law is imposed by setting its lower and upper row bounds equal to that law. An estimated candidate law uses a row box.
+
+A vector is a list of numbers. Flattening the matrix $z$ into a vector stacks its entries into one list. A matrix multiplying that vector forms several weighted sums at once. The constraints can be written
+\begin{equation}
+\mathcal P=\{z:z\geq0,\ Gz\leq h,\ Ez=f\}.
+\end{equation}
+$G,h$ collect inequality coefficients and limits; $E,f$ collect equality coefficients and values. Here $Ez=f$ includes normalization. A set bounded by finitely many linear constraints is a polytope. It is convex: every weighted average of two feasible points is feasible. The uncertainty calculation retains the full joint set, including relations among cell entries and row masses.
+
+\section{Sharp endpoints through linear-fractional programming}
+A membership target can be written $(c^Tz)/(d^Tz)$. The superscript $T$ denotes transpose; $c^Tz$ is a dot product, the sum of corresponding entries multiplied together. Coefficient vectors $c$ and $d$ pick the numerator and denominator masses. These coefficient symbols are local to this derivation; the cell index was also called $c$ above.
+
+For candidate membership, the numerator selects $z_{2c}$ and the denominator selects all $z_{sc}$ in the probe column. For known membership, the numerator selects $z_{0c}$ and the denominator selects $z_{0c}+z_{1c}$. Minimizing and maximizing a ratio over $\mathcal P$ gives its endpoints.
+
+First minimize $d^Tz$ over the original polytope. If the set is infeasible, the solver returns status \code{empty}. If the smallest denominator is at most $10^{-9}$, the implementation returns $[0,1]$ with status \code{undefined_denominator_policy}. This policy declares complete uncertainty whenever conditioning mass may be zero. The threshold accounts for finite numerical precision.
+
+If all denominators are positive, define $t=1/(d^Tz)$ and $y=tz$. Substituting into every constraint gives
+\begin{equation}
+Gy\leq ht,\qquad Ey=ft,\qquad d^Ty=1,\qquad y\geq0,\quad t\geq0.
+\label{eq:cc}
+\end{equation}
+The objective becomes $c^Ty$. These are linear programs: a linear objective optimized under linear constraints. The normalization $\sum z=1$ becomes $\sum y=t$. It ensures that a transformed feasible point has $t>0$, since $t=0$ would force $y=0$ and contradict $d^Ty=1$. Thus $z=y/t$ recovers an original feasible point, and the transformation preserves objective values in both directions. This establishes why the computed endpoints are sharp within the positive-denominator compatible set.
+
+The code uses SciPy's \code{linprog} with HiGHS, minimizes $c^Ty$ for the lower endpoint, and minimizes $-c^Ty$ for the upper endpoint. The minus sign turns maximization into minimization. It records the largest inequality violation, equality residual, or nonnegativity violation. A residual is the numerical mismatch between a computed solution and its constraints. Small residuals support numerical feasibility; their units refer to these optimization constraints.
+
+For anchored labels, the row masses are fixed to $a=(1/2,1/2)$. For fixed row probabilities, the target is increasing in each $\theta_s$ because its coefficients are nonnegative. The minimum therefore uses all lower label-rate bounds, and the maximum uses all upper bounds. Two corresponding ratio optimizations allow row probabilities to vary as well. The visual model applies the same argument to $\theta_{sc}$.
+
+\section{Identification and the geometry of indistinguishable mixtures}
+With exact rows $A$ and exact cell law $p$, allowed weights satisfy $w^TA=p$ and $w_s\geq0$, $\sum_sw_s=1$. The simplex is the set of all such nonnegative weights summing to one. Input-only identification asks whether these observations determine a unique target.
+
+Let the candidate row be $q=A_2$. Since $w_2=1-w_0-w_1$, Equation~\eqref{eq:mixture} becomes
+\begin{equation}
+p-q=w_0(A_0-q)+w_1(A_1-q).
+\end{equation}
+Arrange the two difference vectors as columns of a matrix $B$. If its columns are linearly independent, the two weights are uniquely determined by exact compatible $p$. Linear independence means that no nonzero combination of columns equals zero. The smallest singular value of $B$ is $\min_{\|v\|_2=1}\|Bv\|_2$, where $\|v\|_2=\sqrt{\sum_jv_j^2}$ is Euclidean length. It measures the smallest change in cell law created by a unit change in these two weight coordinates. A zero value indicates a direction erased by the mapping.
+
+For the constructed candidate $q=(A_0+A_1)/2$, the columns are opposites. Let $u_0=w_0+w_2/2$ and $u_1=w_1+w_2/2$. Then $p=u_0A_0+u_1A_1$. With the generating weights $(0.45,0.25,0.30)$, $u=(0.60,0.40)$. The entire family
+\begin{equation}
+w_2=t,\qquad w_0=0.60-t/2,\qquad w_1=0.40-t/2,\qquad 0\leq t\leq0.80
+\label{eq:family}
+\end{equation}
+produces exactly the same cell law. The upper limit $0.80$ comes from requiring $w_1\geq0$. Candidate membership ranges from zero to $0.80q_c/p_c$; its generating value is $0.30q_c/p_c$. Known membership also varies along this family, with the extent determined by the source probabilities at the probe.
+
+A smaller validation example uses $A_0=(1,0)$, $A_1=(0,1)$, $q=(1/2,1/2)$, and $p=(1/2,1/2)$. Every $w=((1-t)/2,(1-t)/2,t)$ for $0\leq t\leq1$ is compatible. At cell 0, candidate membership is $t$, producing $[0,1]$. Revealing exact weights $(0.35,0.35,0.30)$ produces the point interval $[0.30,0.30]$. The notebook uses these known answers to check the solver.
+
+\chapter{The four-dataset finite-cell experiment}
+\section{Constructing the empirical worlds}
+The datasets provide four kinds of images: handwritten digits in MNIST, handwritten letters in EMNIST Letters, clothing images in Fashion-MNIST, and blood-cell images in BloodMNIST. The experiment consumes cached predictions from a prior pilot. A classifier assigns a probability to each of its trained classes. Averaging 20 dropout predictions and taking the largest-probability class produces the frozen cell of each cached image. The operation $\arg\max$ returns the index of the largest entry. The source experiment verifies that these indices agree with the saved prediction column.
+
+The upstream configuration used seed 0, 400 training and 80 validation examples per retained class, up to 100 test examples per class, 15 training epochs, batch size 128, learning rate 0.002, weight decay 0.0001, and dropout probability 0.5. Its counts of trained classes were 4, 13, 4, and 3 for MNIST, EMNIST, Fashion, and Blood respectively. These are also the numbers of possible classifier cells. The cached preprocessing transposed EMNIST as in the pilot, used grayscale BloodMNIST, and repartitioned the official Fashion test pool. The source acquisition experiment freezes those outputs and constructs a conditional finite world from them. Its inference needs the cached cells and class assignments.
+
+Ordered trained classes are split into two approximately equal source groups. The first group receives the first $\lfloor K/2\rfloor$ classes, where floor means round down to the nearest integer; the second receives the remainder. Held-out classes form the candidate group. For source $s$, let $\mathcal L_s$ denote its set of original labels. If $N_{\ell c}$ is the number of images of class $\ell$ in cell $c$, and $N_\ell$ is the total for that class, the empirical source law is
+\begin{equation}
+A^{\rm emp}_{sc}=\frac{1}{|\mathcal L_s|}\sum_{\ell\in\mathcal L_s}\frac{N_{\ell c}}{N_\ell}.
+\end{equation}
+Vertical bars around a set denote its size. This first computes each class's histogram, then averages class histograms equally. Each class has the declared same weight within its source, even when its cached image count differs.
+
+A uniform replacement mechanism is then applied:
+\begin{equation}
+A_{sc}=0.98A^{\rm emp}_{sc}+0.02/D.
+\end{equation}
+With probability 0.98, retain the empirical draw; with probability 0.02, draw a cell uniformly from the $D$ cells. Every cell receives positive probability. The source roles and exact rows are tabulated in the numerical appendix.
+
+There are two regimes per dataset. The image-derived regime uses all three empirical rows. The confounded regime retains the two known rows and sets $A_2=(A_0+A_1)/2$. In both, deployment weights are $(0.45,0.25,0.30)$, clean known-source target rates are $(0.2,0.8)$, and anchor weights are $(0.5,0.5)$. The probe is the cell maximizing $0.5A_{0c}+0.5A_{1c}$. It is chosen from the fixed empirical world before acquisition draws. This emphasizes a cell with substantial known-reference mass and keeps the comparison common across regimes.
+
+\subsection{How the upstream cached classifier was produced}
+The companion pilot notebook documents a small convolutional network taking $28\times28$ grayscale images. Pixel values are converted to floating point and divided by 255, placing them on a zero-to-one scale. Its first $3\times3$ convolution has 16 output channels and padding one; its second has 32 channels. A channel is one learned feature map. Padding adds a border for filtering so these convolutions preserve image height and width. Each convolution is followed by ReLU and $2\times2$ maximum pooling. Pooling replaces a small neighborhood by its maximum, reducing spatial dimensions from 28 to 14 and then 7. Flattening lists the resulting $32\times7\times7=1568$ numbers. A linear layer maps them to 64 activations, followed by ReLU, dropout with probability 0.5, and the $K$-class linear output.
+
+The pilot trains the whole classifier with cross-entropy and AdamW. Chapter 6 explains logits, softmax, gradients, and these optimization operations. Its learning rate warms up for two epochs: at zero-based epoch $e=0,1$, $\gamma_e=0.002(e+1)/2$. Thereafter it follows
+\begin{equation}
+\gamma_e=10^{-5}+\frac{0.002-10^{-5}}2\left[1+\cos\left(\pi\frac{e-2}{12}\right)\right],\qquad e=2,\ldots,14.
+\end{equation}
+Here $\cos$ is the cosine function and $\pi$ is the circle constant. As its argument moves from zero to $\pi$, cosine decreases from one to minus one, smoothly lowering the learning rate from 0.002 to $10^{-5}$. The selected checkpoint has the largest deterministic ID validation accuracy; a later epoch replaces an earlier one on a tie. A checkpoint is a saved set of trained parameters.
+
+The source experiment then uses the cached mean of 20 dropout probability vectors and its argmax to assign cells. Its audit asserts equality to the cached prediction column. This makes the retained cell assignments the direct reproducibility boundary for the source simulation. The upstream notebook describes the training path; saved class roles, predictions, configuration, and hashes identify the empirical input actually consumed.
+
+\section{The saved protocol and its rationale}
+Each baseline contains 500 deployment cells, 200 reference cells per known source, 100 noisy labels per known source, and zero deployment identities. Additional budgets are $0,100,1000,10000,100000$. Six paired repeats use seed 20261029, with separate seed-sequence components for world and repeat. The candidate law stays specified throughout inference. Each arm modifies only its own count table:
+\begin{center}
+\begin{tabular}{lll}\toprule
+Arm & Additional observations at budget $b$ & Parameter information\\\midrule
+Inputs & $b$ deployment cells & $p$\\
+References & $b$ cells per known source & $A_0,A_1$\\
+Target labels & $b$ noisy labels per known source & $\theta_0,\theta_1$\\
+Source identities & $b$ deployment identities & $w$\\\bottomrule
+\end{tabular}
+\end{center}
+Reference and label arms thus add $2b$ observations, while inputs and identities add $b$. The curves show information responses under this accounting. A multinomial draw generates count increments: it gives category counts for a batch of independent categorical observations. Adding the increments to earlier counts makes the streams nested without storing every simulated item.
+
+The confidence boxes are recomputed around moving frequencies at each budget. Smaller radii favor contraction, while moving centers can alter the set in either direction. Consequently realized widths can fluctuate. In contrast, a mathematical intersection with additional exact constraints can only shrink a compatible set.
+
+An input-only oracle uses exact $A$ and $p$ and leaves weights unknown. An oracle is an idealized information benchmark whose extra knowledge is used to calculate a comparison. In the image-derived regimes, both membership widths are zero up to solver precision. Under confounding, candidate widths remain positive. An exact-weight oracle then collapses membership intervals. For the anchored target, exact inputs with unconstrained target rates give $[0,1]$, while exact rows and target rates identify it. The finite baseline already includes target labels, explaining why its anchored width starts below the no-label benchmark.
+
+The confounded relation constructs the generating world. Finite inference is supplied the candidate row and uncertain known-row boxes. The uncertainty set therefore allows known rows that vary independently within those boxes subject to the joint constraints. This describes precisely the information available to the learner.
+
+\section{Figure 1: source-law heatmaps}
+\fig{run1_source_laws.png}{Source probability laws. Columns of panels distinguish datasets; panel rows distinguish the image-derived and confounded regimes. Within a panel, each row is one source and each column is a frozen prediction cell. The shared color mapping runs from probability zero to one.}{fig:laws}
+The purpose of Figure~\ref{fig:laws} is to expose the observable population before showing an uncertainty calculation. Read across one source row: the color intensities show where that source places its cell mass, and the numerical row sums to one. Read down one cell column: similar values mean that observing that cell provides similar likelihood under multiple sources. Brightness reflects probability, with dark colors near zero and yellow colors near one. The figure code fixes the same zero-to-one color scale in all panels, although it displays no separate colorbar. Blood has three cell centers, indexed 0, 1, and 2; the fractional ticks at panel boundaries are plotting coordinates around those three columns.
+
+The bottom candidate row is the arithmetic average of the two known rows by construction. Equations~\eqref{eq:family} explain the resulting ambiguity. In the image-derived regimes, the smallest singular values are approximately 0.1039 for MNIST, 0.2812 for EMNIST, 0.0425 for Fashion, and 0.1461 for Blood. The confounded values are numerically zero. These diagnostics describe the exact row geometry. Finite performance also depends on baseline sizes, probe mass, and which row and weight uncertainties remain.
+
+\section{How to read the four acquisition figures}
+Each dataset figure has six panels. The top row uses the image-derived candidate, the bottom row uses the confounded candidate. Columns show known membership, anchored target, and candidate membership in that order. Blue denotes input acquisition, green references, purple noisy target labels, and orange source identities. Each point is the mean width over six repeats; colored shading spans the minimum and maximum widths among them. A wider band indicates greater observed repeat-to-repeat variability. The band is a descriptive range of six results.
+
+The vertical axis measures a probability-interval width from zero to one. Lower values mean the compatible set constrains that probability more tightly. A value of one permits the full probability range and can also arise from the zero-denominator policy. The horizontal axis measures added samples, with per-source accounting for references and labels. At budget zero, all arms share a baseline within the same repeat.
+
+The dashed line has a target-specific meaning. For memberships it is the exact-row, exact-input identification width. Identities can fall below this benchmark by adding information about weights. For the anchored target it is the width one from exact inputs with free label rates. The dashed line is a population-information comparison; realized finite confidence sets have their own sampling behavior.
+
+The purpose of the six-panel view is to compare channels while holding the probability target and generating regime explicit. Vertical comparisons isolate the confounding construction. Horizontal comparisons reveal how the useful channel changes with the target. A flat purple membership curve follows from membership depending on source and cell masses. Flat blue and orange anchored curves follow from its fixed reference anchor.
+
+\section{Figure 2: MNIST}
+\fig{run1_mnist_acquisition_curves.png}{MNIST acquisition responses at the fixed probe. Shading is the range of six repeat widths. Dashed lines are the target-specific exact-information benchmarks described in the text.}{fig:mnist}
+In the top-left panel, reference acquisition most strongly constrains known membership at the final budget, reaching mean width 0.0518. More accurate source rows help separate the two known groups inside this cell. In the top-middle panel, noisy target labels most strongly constrain the anchored event, reaching 0.1911. Reference cells also help because the cell-specific reweighting of sources in Equation~\eqref{eq:anchored} depends on their cell laws. Even extensive label acquisition leaves reference-row uncertainty at its baseline level.
+
+In the bottom-right panel, the exact candidate width is 0.6732. After 100000 added inputs, mean width is 0.7071. This is close to the substantial ambiguity allowed by exact input observations in the constructed model. Source identities reduce the same finite target to 0.1280 by learning weights directly. Its remaining width includes the baseline uncertainty in the known rows. The top-right panel illustrates that a zero population floor can coexist with broad finite intervals when only one information channel is expanded.
+
+The bottom-left panel has a small positive known-membership floor, approximately 0.0195. Candidate membership is much more sensitive to the confounded weight direction than the conditional split between known sources at this probe. This is a useful example of why identification must be defined for a particular target.
+
+\section{Figure 3: EMNIST Letters}
+\fig{run1_emnist_acquisition_curves.png}{EMNIST Letters acquisition responses, with the same layout and color meanings as Figure~\ref{fig:mnist}.}{fig:emnist}
+EMNIST has 13 prediction cells, giving more coordinates whose probabilities must be constrained from the same baseline reference sample size. Under input acquisition, mean known-membership width stays at 1.0000 in both regimes. Reference and denominator uncertainty remain relevant even when deployment frequencies become accurately estimated.
+
+In the image-derived anchored panel, reference acquisition reaches mean width 0.4559, while target-label acquisition reaches 0.6212. Here the unknown source-cell composition is a substantial obstacle to determining the anchored label probability. Increasing label-rate precision leaves that composition uncertain. This contrast makes the anchored panel especially useful: the same label target can benefit substantially from better information about how reference sources occupy the probe.
+
+Under confounding, candidate width after inputs is 0.7925, compared with exact width 0.6758. Source identities yield 0.5017. The much wider remaining identity interval than in the other datasets is a recorded finite-set outcome. The saved denominator-status counts explain part of the full-width behavior. The row-geometry singular value alone gives an incomplete description of this finite-information situation.
+
+\section{Figure 4: Fashion-MNIST}
+\fig{run1_fashion_acquisition_curves.png}{Fashion-MNIST acquisition responses for image-derived and confounded candidate laws.}{fig:fashion}
+Reference acquisition in the image-derived known-membership panel reaches width 0.0447. Target labels in the anchored panel reach 0.1828. This repeats the useful-channel pattern seen in MNIST: row information strongly helps the conditional source split, and label information strongly helps the anchored binary event.
+
+Under confounding, the candidate identification width is 0.6710. Finite input acquisition reaches 0.7145, whereas identities reach 0.1273. The top-right and bottom-right panels are particularly informative when read together. In the image-derived world, the exact cell law and exact source rows would identify candidate membership. In the bottom world, even those exact quantities leave the weight family in Equation~\eqref{eq:family}. Acquiring identities addresses the parameter responsible for that ambiguity.
+
+The image-derived singular value is the smallest of the four, approximately 0.0425. Nevertheless, the observed reference-acquisition known-membership width is small at the maximum budget. This illustrates how a specific target, sample allocation, and probe interact with global row geometry.
+
+\section{Figure 5: BloodMNIST}
+\fig{run1_blood_acquisition_curves.png}{BloodMNIST acquisition responses, interpreted within the specified finite-cell simulation.}{fig:blood}
+In the image-derived regime, identities reduce candidate width to 0.0460, references reduce known-membership width to 0.0848, and target labels reduce anchored width to 0.1409. These values show a clear dependence of the most useful channel on the event being bounded.
+
+In the confounded candidate panel, input acquisition reaches 0.7319, with an exact floor of 0.6775. Identities reach 0.0820. The bottom-left exact known-membership width is approximately 0.0326. As with the other datasets, the same confounded mixture creates very different amounts of ambiguity for the two conditional events. The label values and source laws here are declared simulation ingredients built from cached image cells; their interpretation remains within that finite population.
+
+\section{Figure 6: actual candidate endpoints}
+\fig{run1_candidate_endpoints.png}{Candidate membership intervals for predetermined repeat 0 in the confounded regime. Horizontal segments show lower and upper endpoints; dotted vertical lines show the generating target.}{fig:endpoints}
+This view restores the location information discarded by width summaries. Each dataset panel has a baseline row and one row per maximum-budget arm. The horizontal axis is the candidate probability itself. A segment from 0.20 to 0.35 has width 0.15 and restricts the candidate probability to that range. The dotted line gives the true finite-world target computed from the known generating weights and cell laws.
+
+Read whether the line lies inside each segment, then compare lengths and positions. Identities provide the tightest candidate intervals for MNIST, Fashion, and Blood in this illustrative repeat. EMNIST is different: its identity interval is $[0.136664,1]$, width 0.863336, while its input interval is $[0,0.777266]$, width 0.777266. Identities establish a positive lower bound but leave a larger total width in this particular repeat. The six-repeat mean still favors identities for EMNIST, showing why a predetermined individual repeat and an average convey complementary information. Target-label acquisition preserves the baseline membership segment because its likelihood concerns separate parameters. Endpoint position is essential: two segments can have equal length and favor entirely different probabilities. The plot uses repeat 0 chosen in advance, while the previous figures average six repeat widths.
+
+\section{Inclusion, numerical checks, and supported interpretation}
+The saved output contains $4\times2\times6\times4\times5\times3=2880$ target intervals: datasets, regimes, repeats, arms, budgets, and targets. Every interval includes its generating target; no set is empty. There are 348 zero-denominator-policy intervals. The largest recorded constraint residual is approximately $1.24\times10^{-14}$. The inclusion fraction describes these dependent settings, several of which reuse the same observations. The theoretical 95\% statement follows from the fixed-setting concentration argument and the stated generating model.
+
+The notebook verifies channel invariances directly: target-label changes preserve both membership endpoints, and changes to deployment inputs or identities preserve anchored endpoints. These are useful implementation checks because the channel dependencies are explicit in the equations. Reference information can affect all three targets. The figures therefore establish an acquisition-dependent picture of uncertainty in a controlled image-derived population.
+
+\chapter{An exact counterexample: equal predictive beliefs, different useful observations}
+\section{Two worlds and one shared target}
+The second notebook isolates the acquisition question with two possible probability values, $p_L=0.2$ and $p_H=0.8$. A hidden hypothesis $H$ selects one of them, initially with equal probability. Let $q=\Prob(H=H)$ denote the high-probability hypothesis weight. The duplicate letter in this conventional notation means the variable $H$ takes its ``high'' state; equivalently one may call the states low and high.
+
+There is one observable input cell, always $X=0$, and two sources. The common target is deployment prevalence $T=\Prob(Y=1)$. World M places the unknown probability in the source mixture; World L places it in the source label rates:
+\begin{center}
+\begin{tabular}{p{.34\textwidth}p{.27\textwidth}p{.27\textwidth}}\toprule
+Quantity & World M & World L\\\midrule
+$P(S=1)$ & $p$ & $1/2$\\
+$P(Y=1\mid S=0)$ & $0$ & $p$\\
+$P(Y=1\mid S=1)$ & $1$ & $p$\\
+$T$ & $(1-p)0+p1=p$ & $\frac12p+\frac12p=p$\\\bottomrule
+\end{tabular}
+\end{center}
+Thus both worlds have the same distribution over possible predictive distributions:
+\begin{equation}
+Q_q=(1-q)\delta_{\Bern(0.2)}+q\delta_{\Bern(0.8)}.
+\end{equation}
+A point mass $\delta_B$ assigns all its probability to object $B$. Here the objects are Bernoulli distributions. The expression says the learner places weight $1-q$ on a predictor with positive probability 0.2 and weight $q$ on one with probability 0.8. This second-order representation records uncertainty over predictions. The worlds encode different explanations for those predictions.
+
+\section{Deriving every initial uncertainty quantity}
+The posterior mean of $T$ is $(1-q)0.2+q0.8=0.2+0.6q$. Because $T=0.2+0.6I(H=H)$, its variance is $0.6^2q(1-q)$. At $q=1/2$, these are $0.5$ and $0.09$.
+
+Using Equation~\eqref{eq:mi}, predictive MI is
+\begin{equation}
+U(q)=h(0.2+0.6q)-(1-q)h(0.2)-qh(0.8).
+\label{eq:toy-mi}
+\end{equation}
+Entropy is symmetric, so $h(0.2)=h(0.8)\approx0.5004024$. At $q=1/2$, $U=\log2-h(0.2)=0.192744757$ nats. The exact representation is also passed to Probly as categorical predictors; its nominal MI agrees within $10^{-12}$.
+
+The declared prior-sensitivity family allows $q\in[0.25,0.75]$. The minimum and maximum of Equation~\eqref{eq:toy-mi} over this family define MI endpoints. Its second derivative is
+\begin{equation}
+U''(q)=-\frac{0.6^2}{(0.2+0.6q)(1-0.2-0.6q)}<0.
+\end{equation}
+A prime denotes differentiation, which measures how a function changes with its input. A negative second derivative means downward curvature, hence concavity. Symmetry gives a maximum at $q=1/2$ and equal minima at 0.25 and 0.75. The resulting interval is $[0.147044215,0.192744757]$ nats in both worlds. The hypothesis support for $T$ is $\{0.2,0.8\}$; the span between its extreme points is 0.6.
+
+\section{Observation likelihoods make the worlds different}
+Every acquisition has unit cost. Input acquisition always reveals zero in both worlds. Identity acquisition draws a deployment source. In World M that identity is Bernoulli($p$), because the unknown parameter is the mixture weight. In World L it is Bernoulli($1/2$), the specified fixed mixture.
+
+The reference-label acquisition deliberately queries source 0. Its source is known through the selection mechanism. In World M this label is always zero; in World L it is Bernoulli($p$). Thus the informative channel is identity in M and source-0 label in L. An informative observation has different distributions under the two hypotheses, so observing it changes their relative plausibility.
+
+For $k$ positive outcomes in $n$ informative draws, Bayes' rule gives
+\begin{equation}
+q_{n,k}=\frac{q\,0.8^k0.2^{n-k}}
+{q\,0.8^k0.2^{n-k}+(1-q)\,0.2^k0.8^{n-k}}.
+\label{eq:bayes-toy}
+\end{equation}
+The numerator is prior high-hypothesis mass times its likelihood. The denominator adds the corresponding masses of both hypotheses and normalizes. The binomial count factor cancels because both hypotheses share it.
+
+For numerical stability, compute log odds:
+\begin{equation}
+\operatorname{logit}(q_{n,k})=\operatorname{logit}(q)+(2k-n)\log4,
+\qquad \operatorname{logit}(q)=\log\frac q{1-q}.
+\end{equation}
+The inverse function is $\operatorname{expit}(x)=1/(1+e^{-x})$. Logarithms replace products of small likelihoods with sums. In an uninformative channel the two likelihoods coincide, so their ratio is one and the posterior weight equals its prior value.
+
+Both endpoints of the prior-weight family are updated through Equation~\eqref{eq:bayes-toy}. The map is increasing in prior $q$. Over the resulting interval $[q_-,q_+]$, the lower MI is the smaller of $U(q_-)$ and $U(q_+)$; the upper MI is $U$ evaluated at the point in that interval closest to $1/2$.
+
+\section{One-step acquisition value and its proof}
+An informative positive outcome changes $q$ from $1/2$ to 0.8; a negative changes it to 0.2. Each outcome has marginal probability 0.5. Either way, remaining target variance is
+\begin{equation}
+0.6^2(0.8)(0.2)=0.0576.
+\end{equation}
+The expected reduction from initial variance 0.09 is $0.0324$. An uninformative observation preserves variance 0.09 and has reduction zero. Hence World M strictly prefers identity and World L strictly prefers the reference label.
+
+The underlying general identity is the law of total variance:
+\begin{equation}
+\Var(T\mid D)=\E[\Var(T\mid D,O,a)\mid D,a]
++\Var(\E[T\mid D,O,a]\mid D,a).
+\label{eq:totalvar}
+\end{equation}
+Conditional on the current data and chosen action, split target variation into variation remaining after the observation and variation among the updated means. Subtracting the first term yields a nonnegative expected variance reduction, equal to the second term. A particular realized observation can move the posterior to a region with larger uncertainty; the nonnegativity statement concerns the model-averaged value.
+
+A policy maps available information to an action. If its only input is $Q_q$, it receives exactly the same object in these two worlds, so a deterministic policy makes the same choice in both. Since the uniquely preferable actions differ, there is a world in which it incurs a value loss. This proves that the channel likelihood is essential information for universal action selection.
+
+For a randomized policy choosing identities with probability $r$ and labels with probability $1-r$, regret is the optimal value minus the value obtained. It equals $0.0324(1-r)$ in M and $0.0324r$ in L. Its worst-world regret is
+\begin{equation}
+R_{\max}(r)=0.0324\max\{r,1-r\}\geq0.0162.
+\end{equation}
+Equality occurs at $r=1/2$. Allocating probability to uninformative inputs can only reduce the expected value available in both worlds. Any scalar or interval calculated solely from the shared $Q_q$ also agrees across the worlds, so the same argument applies to policies restricted to such summaries.
+
+\section{Exact enumeration at larger budgets}
+A binomial distribution gives the number of successes in $n$ independent Bernoulli trials. Its probability mass is
+\begin{equation}
+\Prob(K=k\mid p)=\binom nkp^k(1-p)^{n-k},\qquad
+\binom nk=\frac{n!}{k!(n-k)!}.
+\end{equation}
+The factorial $n!=1\times2\times\cdots\times n$, with $0!=1$, counts orderings. The binomial coefficient counts arrangements of $k$ successes. Averaging over the nominal prior gives mass
+\begin{equation}
+m_n(k)=\tfrac12\binom nk0.2^k0.8^{n-k}
++\tfrac12\binom nk0.8^k0.2^{n-k}
+\end{equation}
+for informative-channel counts. For any statistic $g$ of the posterior, its exact expected value is $\sum_{k=0}^nm_n(k)g(q_{n,k})$. The implementation also uses each uninformative channel's own observation rate when enumerating outcomes. The nominal expected MI bounds average the updated endpoints under this same fixed nominal count law.
+
+The simulation draws one true hypothesis per repeat, then a nested sequence of informative outcomes. It uses 10000 repeats at budgets $0,1,2,5,10,20,50,100,200$ with seed 20261029. The informative streams are paired across worlds. Each saved result includes the posterior weight, target mean, variance, MI, updated MI endpoints, and the confidence-set illustration below.
+
+\section{A separate target confidence-set calculation}
+For informative draws, keep a candidate $p\in\{0.2,0.8\}$ when
+\begin{equation}
+|k/n-p|\leq\sqrt{\log(2/0.05)/(2n)}.
+\end{equation}
+This is the scalar Hoeffding bound inverted into an accepted hypothesis set. At zero observations, or for uninformative channels, both candidates are retained. If both survive, the span is 0.6. If one survives, the span is zero. If neither survives, the set is empty, marked as rejection with missing endpoints. The mean width is computed over nonempty sets, and inclusion and rejection fractions are exported separately.
+
+Both hypotheses assign positive probability to every finite binary sequence in an informative channel. Their exact Bayesian posterior weights therefore remain positive at every finite sample size. Concentration of those weights, MI contraction, and acceptance-set contraction can be read through their respective definitions. This distinction explains why the confidence-width figure has a different vertical scale and interpretation from the MI figure.
+
+\chapter{Every figure from the exact counterexample}
+\section{Figure 7: expected posterior risk}
+\fig{run2_risk.png}{Exact expected posterior variance (lines) and Monte Carlo means (points) for World M on the left and World L on the right.}{fig:toyrisk}
+The purpose is to display the action reversal quantitatively. All curves start at variance 0.09. In the left panel, source identities reduce expected variance; inputs and source-0 labels preserve it. In the right panel, source-0 labels reduce expected variance; inputs and identities preserve it. One informative observation brings the curve to 0.0576. Larger informative budgets progressively concentrate belief on the true probability.
+
+The horizontal axis counts acquired observations, so actions have matched unit costs. The vertical axis is squared-probability uncertainty about $T$. Continuous lines show exact count enumeration, and dots show means from 10000 repeats. The exported check requires every simulated mean to lie within six Monte Carlo standard errors plus $10^{-10}$ of the exact expectation. Overlapping flat lines can visually hide one another; their overlap follows identical remaining risk.
+
+\section{Figure 8: expected MI and prior-sensitive endpoints}
+\fig{run2_epistemic_bounds.png}{Expected predictive mutual information and expected lower/upper MI endpoints under the declared prior-weight family.}{fig:toymi}
+Initially both worlds share MI 0.192744757 and endpoint range $[0.147044215,0.192744757]$. Blue is identity acquisition, orange source-0 labels, and gray inputs. The colored region spans the exact expectations of the lower and upper MI endpoints. Each endpoint is first computed after possible observations, then averaged over the nominal prior-predictive count distribution.
+
+The region therefore visualizes sensitivity to the specified family of prior weights after updating. The central line is expected nominal MI. In M the blue line and region approach zero; in L the orange ones do so. Uninformative channels maintain the initial line and region. The purpose is to show how adding endpoint information to the static predictive summary still leaves the same initial representation in both worlds; the differing responses appear when the appropriate observation likelihood is applied.
+
+\section{Figure 9: confidence-set width}
+\fig{run2_confidence_width.png}{Mean span of the accepted target-probability set, conditional on a nonempty set. Both retained hypotheses produce width 0.6; a single retained hypothesis produces width zero.}{fig:toyconfidence}
+The left panel contracts under identities, and the right under source-0 labels. The vertical axis is a range of target probabilities. As informative samples discriminate between probabilities 0.2 and 0.8, a single accepted value becomes common. Uninformative acquisitions retain both values and width 0.6.
+
+The plot summarizes accepted sets. The companion table gives rejection and inclusion rates so the conditioning in the average remains visible. A zero mean width accompanied by substantial rejection would require a different interpretation from successful inclusion with single-point accepted sets. The nominal inclusion guarantee is at each fixed sample size. The same nested streams across budgets create dependence among the plotted settings.
+
+\section{Figure 10: the unavoidable regret curve}
+\fig{run2_policy_regret.png}{Worst-world one-step regret for a policy receiving only the shared predictive representation, as a function of its probability of choosing identity acquisition.}{fig:regret}
+The horizontal coordinate $r$ specifies the randomized policy. At $r=0$, it always queries labels and loses 0.0324 in M. At $r=1$, it always queries identities and loses 0.0324 in L. At $r=1/2$, both worlds incur regret 0.0162. The V-shaped curve is the maximum of the two linear regret functions; its dotted horizontal line marks the minimum worst-world value.
+
+The purpose is to express the logical limitation as a quantitative decision loss. The curve is algebraically determined and has no sampling bars. A channel-aware rule uses the world-specific likelihoods and picks the informative action. The example therefore identifies precisely which structural information the prediction-only view has discarded.
+
+\chapter{The image pilots: data, neural representations, and source bounds}
+\section{Domains, labels, and independent grouping units}
+CAMELYON17 supplies histopathology image patches with tumor labels and recorded hospitals. Internal source 0 is hospital 0, internal source 1 is hospital 3, and internal source 2 is hospital 2. The first two are known sources and the third is the candidate. Both known and candidate hospitals can contain the same target classes. The positive binary event is tumor label one.
+
+FMoW supplies satellite images with land-use labels and region metadata. Internal sources 0, 1, and 2 are Americas, Europe, and Asia. The first two are known, and Asia is the candidate. The neural classification task retains the full class codes. The binary acquisition label is the selected event ``class 42.'' The code chooses the most frequent class among known-source fit records, with ties resolved by increasing label code. The image pilot makes this choice among its selected fit images; the record counterexample makes it among its full eligible fit pool. Both saved runs select 42.
+
+A domain is the environment or source of an example. ID, short for in-distribution, means membership in either declared known source in these pilots. OOD, out-of-distribution, means membership in the declared candidate source. This definition fixes the event used in detection metrics.
+
+The grouping unit is a patient in CAMELYON17 and a rounded latitude/longitude pair in FMoW. Latitude and longitude are each rounded to two decimal places, and their string pair defines a location group. The grid has approximate kilometer scale, varying geographically. A seeded SHA-256 hash of each group identity determines a reproducible ordering within each source. With $g$ groups, the first $\max(1,\lfloor g/5\rfloor)$ go to reference, the next equally many to evaluation, and the rest to fit. All records from one group share a role. The assignment uses identities alone. Fit records train the image heads and define the cell map; reference records supply source and label distributions; evaluation records measure predictions and supply deployment draws.
+
+FMoW records with year 2016 or later remain in the audit and are excluded from these experiments. The resulting experiment concerns region variation among pre-2016 observations. Original split fields remain in the index, while this custom group assignment defines the actual analysis population.
+
+\section{Finite image selection and its consequences}
+The image pilots sample at most 2000 images per source and role, without balancing target labels. Both runs obtain 18000 images, including 4000 known-source fit images, 6000 reference images, and 6000 evaluation images. Candidate fit images are cached with the other images; the training mask uses the two known sources. Equal caps give each source one third of the selected evaluation pool. This is the mixture from which deployment images and identities are sampled.
+
+CAMELYON17's audited pool contains 274328 records from 26 patients. Its evaluation selection contains images from four patients: one at hospital 0, two at hospital 3, and one at hospital 2. FMoW's audited pool contains 132790 records in 45972 groups; its selected evaluation set represents 1259 Americas, 1493 Europe, and 1177 Asia groups. The split-count appendix distinguishes full audit records from selected images. Group separation prevents a group from contributing to multiple roles. Similarity of the resulting source distributions is examined separately through the cell-law audit.
+
+\section{Frozen feature extraction explained}
+An image can be represented as an array of pixel intensities. A neural encoder maps that array into a feature vector, a list of learned numerical measurements. Here a ResNet18 encoder pretrained on ImageNet produces 512 features per image. Pretraining means its parameters were learned earlier on another dataset. Frozen means those parameters remain fixed in these experiments. The final classification layer is replaced by an identity operation so that its input feature vector is returned.
+
+A convolutional layer uses small learned filters at many image locations. Nonlinear activation functions let successive layers represent relationships beyond linear combinations. Residual blocks add a learned transformation $F(x)$ to the block input, giving $x+F(x)$ when dimensions agree; a projection aligns dimensions where required. ResNet18 is a particular architecture assembled from such blocks. The experiment uses its saved weights and the preprocessing transform paired with torchvision's \code{IMAGENET1K_V1} weights. That transform resizes/crops and normalizes RGB images according to the pretrained encoder's convention. The encoder runs in evaluation mode, and feature extraction suppresses gradient computation. The archived encoder record saves the weight-file hash and device.
+
+The heads standardize each feature using known-source fit images. For feature coordinate $j$, let $\overline f_j$ and $s_j$ be its fit mean and sample standard deviation. Then
+\begin{equation}
+x_{ij}=\frac{f_{ij}-\overline f_j}{\max(s_j,0.01)}.
+\end{equation}
+Index $i$ denotes an image. Subtraction centers the feature; division scales its variability. The floor 0.01 prevents division by very small standard deviations. The saved scaler is applied to every role with the fit statistics.
+
+\section{The matched classifier heads}
+Each head has a linear transformation from 512 to 128 coordinates, a rectified linear unit, and a linear transformation from 128 to $K$ class scores. A linear layer computes $Wx+b$, where $W$ is a learned coefficient matrix and $b$ is a learned offset vector. The rectified linear unit, ReLU, maps a number $u$ to $\max(0,u)$. It preserves positive activations and sets negative ones to zero. The final scores $g_1,\ldots,g_K$ are logits, unrestricted real numbers describing relative class preference.
+
+The Probly dropout wrapper uses probability 0.25. Dropout randomly omits selected activations during sampled forward passes; retained activations are scaled by the implementation to maintain their expected scale. Different masks produce different predictions with shared learned weights. Both heads start from a copied common initialized model and use matched training and minibatch seeds. There are 30 epochs, meaning 30 passes over the known-source fit set, with minibatches of approximately 128 images.
+
+Cross-entropy training first maps logits to probabilities using softmax:
+\begin{equation}
+p_k=\frac{\exp(g_k)}{\sum_{j=1}^K\exp(g_j)},\qquad
+L_{\rm CE}=-\log p_y.
+\end{equation}
+$y$ is the recorded true class. Softmax produces nonnegative probabilities summing to one. Minimizing negative log probability rewards assigning more probability to the observed label. The batch loss is the average across images. Classification predicts the class with largest logit, equivalently largest softmax probability.
+
+Both optimizations use AdamW with learning rate 0.001 and weight decay 0.0001. A gradient is the vector of derivatives of loss with respect to parameters; it indicates local directions of increase. Backpropagation computes these derivatives by applying the chain rule through the network. Adam accumulates moving averages of gradients $g_t$ and squared gradients:
+\begin{equation}
+m_t=\beta_1m_{t-1}+(1-\beta_1)g_t,\qquad
+v_t=\beta_2v_{t-1}+(1-\beta_2)g_t^2.
+\end{equation}
+Here $t$ counts optimization steps, the square is coordinatewise, and $\beta_1,\beta_2$ control memory. Bias-corrected averages divide by $1-\beta_1^t$ and $1-\beta_2^t$. AdamW takes a step proportional to corrected $m_t/(\sqrt{v_t}+\varepsilon)$ and separately shrinks parameters through weight decay. $\varepsilon$ stabilizes division. The archived calls use the library defaults for these ancillary optimizer constants. Fixed training duration avoids selecting an epoch using held-out labels.
+
+\section{The implemented DAPPr objective, term by term}
+The second head uses the archived DAPPr-style loss. Define
+\begin{equation}
+\alpha_k=\operatorname{softplus}(g_k)+1,\qquad
+\operatorname{softplus}(u)=\log(1+e^u),\qquad M=\sum_k\alpha_k.
+\end{equation}
+Softplus is a smooth positive function, so $\alpha_k>1$. These positive values parameterize a Dirichlet-style representation over class-probability vectors. A Dirichlet distribution is a continuous distribution on the probability simplex with density proportional to $\prod_kp_k^{\alpha_k-1}$; its mean is $\alpha_k/M$ and its total concentration is $M$. This introduces the meaning of the parameters; the implemented training objective below determines how this particular head learns them.
+
+Let $y_k$ be a one-hot label: it is one at the true class and zero elsewhere. Form
+\begin{equation}
+\widetilde\alpha_k=\alpha_k-y_k+10^{-8},\qquad
+r_k=\frac{\widetilde\alpha_k}{\sum_j\widetilde\alpha_j}.
+\end{equation}
+The small positive constant stabilizes the adjusted quantities. In the loss, $r$ is detached: its numerical values are calculated from the current model, but derivatives are stopped through that calculation. The per-image fitting term is
+\begin{equation}
+L_{\rm fit}=M\log M+\sum_k\alpha_k\log(r_k/\alpha_k).
+\end{equation}
+The complete batch objective is
+\begin{equation}
+L_{\rm DAPPr}=\operatorname{mean}(L_{\rm fit})
++\lambda_e\operatorname{mean}\left[\sum_k\{\alpha_k(1-y_k)\}^2\right],
+\qquad \lambda_e=2\times10^{-4}\min(1,e/10).
+\end{equation}
+$e$ is the epoch number starting at one. The first part couples total concentration and class allocations through logarithms. The second penalizes squared concentrations on classes other than the observed label. Its coefficient increases linearly over the first ten epochs and then remains fixed. This is the exact algebra in the archived \code{dappr_loss}; changes in encoder, head, and training schedule define this pilot adaptation.
+
+The fitting term also admits a useful algebraic interpretation. Let $\pi_k=\alpha_k/M$. Define the Kullback--Leibler divergence between positive probability vectors by $D_{\rm KL}(\pi\Vert r)=\sum_k\pi_k\log(\pi_k/r_k)$. It measures the expected log probability ratio under $\pi$, is nonnegative, and vanishes when the vectors agree. Substitution gives $L_{\rm fit}=-M D_{\rm KL}(\pi\Vert r)$. The sign, the label-adjusted detached $r$, and the added penalty are all parts of this implemented objective. Gradients flow through $M$ and $\pi$, with $r$ held fixed for the backward pass. This algebra explains precisely the quantities combined by the fitting term.
+
+The saved scalar uncertainty score is $K/M$. Larger concentration decreases the score. Because softplus is increasing, the class with largest $\alpha_k$ is also the class with largest logit. The accuracy calculation uses that logit argmax. The score and the label prediction summarize different features of the output.
+
+\section{MC dropout, envelopes, and the Probly interface}
+For each evaluation image, the CE head supplies 30 sampled probability vectors through Probly. Denote them $p^{(t)}$, $t=1,\ldots,30$. The mean predictor is $\overline p=30^{-1}\sum_tp^{(t)}$. The MI score is
+\begin{equation}
+U_{\rm MC}=H(\overline p)-\frac1{30}\sum_tH(p^{(t)}).
+\end{equation}
+The class envelope is $\ell_k=\min_tp_k^{(t)}$ and $u_k=\max_tp_k^{(t)}$. Its scalar width score is $\max_k(u_k-\ell_k)$, the widest class-coordinate range.
+
+The convex hull of the sampled predictors consists of all their weighted averages with nonnegative weights summing to one. A class probability is linear in those weights, so its hull extrema occur among the sampled vectors, justifying the envelope. For a union of classes, one first adds their probabilities within each sampled vector and then takes extrema. Distinct coordinate minima can occur in different predictors. The vector of coordinate minima therefore need not sum to one.
+
+The probability-bounds adapter stores lower endpoints, upper endpoints, a nominal predictor, and semantic labels. Its custom quantifier reports maximum coordinate width. The source wrapper uses the same storage interface for source-membership probabilities at cells, computed by the joint-mass solver. Candidate endpoints are stored separately. The shared software interface makes both objects accessible while the event definitions determine their scientific meaning. The baseline source representation is saved for repeat 0 and can be mapped back to evaluation record IDs.
+
+A fourth detection score is negative maximum softmax, $-\max_kp_k$, computed from the deterministic CE prediction. A value closer to zero indicates a less concentrated maximum class probability and hence greater OOD suspicion under the chosen orientation.
+
+\section{Accuracy and detection metrics from first principles}
+Accuracy is the fraction of evaluation images whose predicted class equals the recorded class. With $N$ images it is $N^{-1}\sum_iI(\widehat y_i=y_i)$. Each source/method row here uses 2000 images.
+
+For detection, define a binary truth $Z=1$ for candidate-source images and $Z=0$ for known-source images. A threshold $\tau$ declares OOD when score $u\geq\tau$. True-positive rate, also recall, is the fraction of candidate images exceeding the threshold. False-positive rate is the fraction of known-source images exceeding it. Precision is the fraction of predicted OOD images that actually belong to the candidate source.
+
+The receiver operating characteristic (ROC) plots true-positive rate against false-positive rate as the threshold changes. Its area, AUROC, has the interpretation
+\begin{equation}
+\Prob(u_{\rm OOD}>u_{\rm ID})+\tfrac12\Prob(u_{\rm OOD}=u_{\rm ID}),
+\end{equation}
+for independently selected OOD and ID images. The half-weight handles ties. A value 0.5 represents equal ranking on average. The archived adapter retains both raw Probly AUROC and scikit-learn's tie-correct result. The displayed comparison uses the latter.
+
+The saved AUPR is scikit-learn average precision: $\sum_j(R_j-R_{j-1})P_j$, a sum of precisions $P_j$ weighted by recall increments $R_j-R_{j-1}$. Its baseline depends on positive prevalence; here OOD occupies one third of the evaluation images. ID-oriented AUPR reverses labels and score direction. FPR95 takes the first ROC point with true-positive rate at least 0.95 and reports its false-positive rate. These are empirical ranking summaries for the fixed evaluation images.
+
+\section{Four KMeans cells and empirical source laws}
+The acquisition cell map is fitted to raw frozen encoder features of known-source fit images. KMeans seeks four centers $\mu_0,\ldots,\mu_3$ minimizing
+\begin{equation}
+\sum_i\min_{c\in\{0,1,2,3\}}\|f_i-\mu_c\|_2^2.
+\end{equation}
+Each image is assigned to its nearest center. The algorithm alternates assignments and center averages until its numerical stopping rule is met, with ten initializations and random seed 20261030. A center is a 512-dimensional vector; a cell is the set of features closer to that center than the others under the deterministic tie convention. The saved centers fix the map used in reference and evaluation roles. Neural predictions and KMeans assignments are two distinct uses of the shared frozen encoder.
+
+All three source rows are estimated from reference cells, including the candidate. Target rates are $\theta_{sc}=P(Y=\text{event}\mid S=s,C=c)$ for the two known sources. Each source/cell combination is a stratum, a subgroup from which the reference service can sample. The anchored target is
+\begin{equation}
+T_Y(c)=\frac{\tfrac12A_{0c}\theta_{0c}+\tfrac12A_{1c}\theta_{1c}}
+{\tfrac12A_{0c}+\tfrac12A_{1c}}.
+\end{equation}
+This allows label probabilities to vary with the cell within a source. An empty reference stratum yields $[0,1]$ for its label rate. Observed labels are the recorded binary event; the artificial 10\% flip mechanism belongs to the first simulation.
+
+\section{Acquisition budgets and run-wide concentration allocation}
+Baseline observations are 128 reference cells per source, 128 deployment cells, 32 deployment source identities, and 16 labels per available known-source/cell stratum. Budgets are $0,32,128,512,2048$ with five repeats. A label acquisition reveals the label in the selected stratum; an identity acquisition reveals source while the associated cell remains unused by that channel. Samples are drawn with replacement from the selected records.
+
+At displayed budget $b$, inputs and identities add $b$ fields, references add $3\lfloor b/3\rfloor$ fields, and labels add $8\lfloor b/8\rfloor$ fields. The denominators 3 and 8 are the number of source rows and known-source/cell strata. At 2048, reference acquisition adds 2046 fields, 682 per source; labels add 256 per stratum, 2048 total. The reference service supplies stratum selection as part of the design.
+
+There are $3+2\times4+2=13$ boxes per repeat/action/budget: three reference distributions, eight label distributions, and the input and identity distributions. The implementation assigns each box
+\begin{equation}
+\delta=\frac{0.05}{5\times5\times4\times13}
+=\frac{0.05}{1300}\approx3.84615\times10^{-5}.
+\end{equation}
+The union bound covers these 1300 constructed boxes, even though several reuse observations. Coordinate counts inside each box enter Equation~\eqref{eq:radius}. For example, a four-category row with 128 observations has radius about 0.2187 at this allocation. With 810 reference observations after the maximum reference budget, the radius is about 0.0870. These deliberately conservative radii help explain the broad bounds.
+
+The concentration statement concerns the fixed empirical populations from which each channel samples. To interpret a reference row as the deployment source-conditional row requires transfer of the source-cell law between reference and evaluation roles. The audit checks that assumption descriptively. For two cell laws $a,b$, total variation distance is
+\begin{equation}
+\operatorname{TV}(a,b)=\tfrac12\sum_c|a_c-b_c|.
+\end{equation}
+It equals the largest probability difference assigned by the two laws to any collection of cells. A TV of 0.31 means that some collection of cells differs by 31 percentage points between the empirical laws.
+
+\chapter{The CAMELYON17 and FMoW image results}
+\section{Figure 11: CAMELYON17 acquisition bounds}
+\fig{run3_acquisition_bounds.png}{CAMELYON17 probability-width responses. Each point averages four cells and five repeats equally. The panels show candidate membership, known membership, and anchored reference-label probability.}{fig:camacq}
+The purpose is to determine which recorded fields constrain each target in the hospital setting. Blue indicates deployment inputs, orange reference inputs, green source identities, and red stratified target labels. This palette differs from the first experiment, so the legends should be read within each figure. The horizontal axis is the added field budget on a symmetric-log scale. There are no uncertainty bands. Each point averages 20 interval widths, with equal weight per cell and repeat. Rare and common cells receive equal weight.
+
+Candidate membership begins at mean width 0.986048. At budget 2048, input acquisition yields 0.969357, reference cells 0.918922, identities 0.720980, and labels 0.986048. Identities have the largest contraction among these sweeps. They constrain the source proportions directly. The remaining interval width is still substantial and reflects uncertain source-cell laws and the finite compatible set.
+
+Known membership begins at 1.000000. Identities reduce it to 0.822966, while the other three final means are 1.000000. Source labels here refer to tumor events, so their acquisition preserves source-membership bounds. The full-width averages combine both broad feasible ratios and explicit zero-denominator outcomes. At maximum budget, 75\% of known-membership intervals in the input and target-label arms use the denominator policy; the corresponding proportions are 25\% for references and 15\% for identities.
+
+The reference-label panel starts at 0.858547. Labels reduce it to 0.623074 and reference cells to 0.773306. Inputs and identities preserve 0.858547 through the fixed anchor. This panel illustrates the two required pieces of the label calculation: source/cell event rates and the relative source masses within each cell of the anchored reference population.
+
+\section{CAMELYON17 transfer and solver diagnostics}
+Of 1200 interval queries, 366 (30.5\%) use the zero-denominator policy and 834 have status \code{ok}; all are nonempty. The maximum recorded solver residual is approximately $3.99\times10^{-14}$. The 1200 queries come from five repeats, four arms, five budgets, four cells, and three targets. The saved interval table contains endpoints and statuses; empirical inclusion was not exported for this run.
+
+The reference-to-evaluation TV distances are 0.3115 for hospital 0, 0.1995 for hospital 3, and 0.3625 for hospital 2. Hospital 0 assigns reference cell 1 probability 0.3235 and evaluation probability 0.0430, a difference of 0.2805. Candidate hospital 2 assigns cell 0 probability 0.3080 in reference and 0.6695 in evaluation. These are large changes in the actual representation used for the bounds. Their practical implication is that the row-transfer assumption requires substantial caution when transporting these sets across the selected patients. Wide feasible sets can persist despite such changes.
+
+The table of classification accuracies gives CE/DAPPr values of 94.90\%/93.95\% for hospital 0, 92.30\%/93.65\% for hospital 3, and 60.05\%/62.15\% for hospital 2. Both heads perform much worse on the candidate hospital. For detection, MC MI has AUROC 0.689740, MC width 0.685306, DAPPr score 0.597348, and negative maximum softmax 0.623507. Their OOD average precisions are 0.548468, 0.543880, 0.358643, and 0.435243. FPR95 values are 0.792000, 0.792000, 0.725750, and 1.000000 respectively. A substantial fraction of known-source images must be flagged to reach the specified high detection rate.
+
+The raw Probly AUROC for negative maximum softmax is 0.658022, while the tie-correct value is 0.623507. Grouping tied scores before tracing the ROC is consequential here. The saved metrics retain both values for audit. All these comparisons describe one frozen-encoder configuration and the selected patient records.
+
+\section{Figure 12: FMoW acquisition bounds}
+\fig{run5_acquisition_bounds.png}{FMoW probability-width responses. The layout, action palette, budget accounting, and equal averaging over four cells and five repeats match Figure~\ref{fig:camacq}.}{fig:fmowacq}
+Candidate membership means begin at 0.986577. At budget 2048, inputs yield 0.985926, references 0.870758, identities 0.860340, and labels 0.986577. The source and reference channels both help distinguish Asia's contribution within the cells, while extensive additional mixture inputs make little difference under the remaining baseline constraints.
+
+Known membership begins at 0.999092. Identities reduce it to 0.883706; references reach 0.994621 and inputs 0.998975. The green curve therefore gives the strongest observed membership contraction. Its residual width indicates that the four-cell model and the finite observations still permit a broad Americas-versus-Europe conditional probability.
+
+The reference-label width falls from 0.777869 to 0.324436 with stratified labels. Reference cells reach 0.728479. Inputs and identities preserve the initial width. This is the clearest contraction in the figure: a label directly informs whether class 42 occurs within the chosen known-source/cell stratum. The purpose of showing it beside membership panels is to make the target-specific usefulness of that information visible.
+
+\section{FMoW containment, transfer, and visual prediction results}
+All 1200 intervals are nonempty. There are 140 zero-denominator-policy outcomes (11.67\%) and 1060 \code{ok} outcomes; the largest residual is approximately $2.26\times10^{-14}$. The later exported empirical-target diagnostics report containment for all 1200 queries. Membership targets are counted within selected evaluation cells, and the anchored label targets are calculated from selected reference cells with equal source weights. This containment statement concerns those fixed targets; the repetitions share records and broad intervals facilitate inclusion.
+
+Reference-to-evaluation TV is 0.0135 for Americas, 0.0125 for Europe, and 0.0145 for Asia. These selected four-cell distributions are comparatively close. The diagnostic's scope is that coarse representation and those records. Differences in image properties hidden within the same cell remain outside its resolution.
+
+CE/DAPPr multiclass accuracy is 24.25\%/26.90\% in Americas, 24.05\%/26.00\% in Europe, and 12.00\%/13.10\% in Asia. MC MI has AUROC 0.573703, MC width 0.545837, DAPPr score 0.560500, and negative maximum softmax 0.525669. The corresponding OOD average precisions are 0.402949, 0.364235, 0.378526, and 0.343479. FPR95 values range from 0.892500 to 0.919500. These figures describe weak source ranking and substantial false positives at high detection sensitivity in the selected configuration.
+
+The neural scores concern class-predictor behavior. The source-set intervals additionally use reference, input, and identity observation constraints and concern source or anchored-label events. Their individual definitions explain which comparisons each output supports. The companion record searches below address a different, explicit acquisition-choice test.
+
+\chapter{The real-record counterexample model, derived step by step}
+\section{The shared prevalence target}
+The two record counterexamples use recorded source identities and binary labels. Only the two known sources enter their model. They use the full eligible fit and evaluation pools, preserving the group partition and FMoW date filter. Let $W$ be the source-1 proportion, $\Theta_0$ the source-0 positive rate, and $\Theta_1$ the source-1 positive rate. Their shared target is
+\begin{equation}
+T=(1-W)\Theta_0+W\Theta_1.
+\label{eq:beta-target}
+\end{equation}
+The product $(1-W)\Theta_0$ is the overall mass of source-0 positives. The product $W\Theta_1$ is the source-1 positive mass. Adding them gives the whole population prevalence. There is no cell condition in this target. An information state records beliefs about these three unknown probabilities.
+
+\section{Beta distributions and conjugate updating}
+A continuous parameter has a density whose integral over a range gives its probability. The Beta density on $0<x<1$ is
+\begin{equation}
+f(x\mid a,b)=\frac{x^{a-1}(1-x)^{b-1}}{B(a,b)},\qquad
+B(a,b)=\int_0^1x^{a-1}(1-x)^{b-1}\,dx,
+\quad a,b>0.
+\end{equation}
+The integral is the continuous analogue of summation. $B(a,b)$ is the normalizing constant that makes total probability one. $a,b$ are shape parameters. $\Beta(1,1)$ is uniform because both powers are zero and the density is constant.
+
+For $k$ positive outcomes in $n$ independent Bernoulli observations, the parameter-dependent likelihood is $x^k(1-x)^{n-k}$. Multiplying by the Beta prior gives a density proportional to
+\begin{equation}
+x^{a+k-1}(1-x)^{b+n-k-1}.
+\end{equation}
+This is another Beta density, with shapes $(a+k,b+n-k)$. Such preservation of the distribution family under updating is called conjugacy. A positive observation increments $a$; a negative increments $b$. Starting from $(1,1)$, the posterior shapes encode observed successes and failures plus the two prior units.
+
+Independent priors $W,\Theta_0,\Theta_1\sim\Beta(1,1)$ are used. Identity observations update only $W$. A label from a known selected source updates only that source's $\Theta_s$. Because the likelihood factors by parameter under these channels, the posterior remains a product of three independent Beta distributions. Independence here is a statement about the declared posterior model.
+
+For $X\sim\Beta(a,b)$, direct integration gives
+\begin{equation}
+\E[X]=\frac{B(a+1,b)}{B(a,b)}=\frac a{a+b},\qquad
+\E[X^2]=\frac{a(a+1)}{(a+b)(a+b+1)}.
+\end{equation}
+Subtracting the squared mean yields
+\begin{equation}
+m=\frac a{a+b},\qquad v=\frac{ab}{(a+b)^2(a+b+1)}
+=\frac{m(1-m)}{a+b+1}.
+\label{eq:betamoments}
+\end{equation}
+For fixed mean, a larger total shape $a+b$ gives smaller variance. This is the mechanism through which additional observations increase concentration.
+
+\section{Deriving the target mean and variance}
+Write component means and variances as $m_w,v_w,m_0,v_0,m_1,v_1$. Posterior independence gives
+\begin{equation}
+\mu_T=\E[T]=(1-m_w)m_0+m_wm_1.
+\label{eq:tmean}
+\end{equation}
+Condition first on $W$. The remaining label parameters are independent, so
+\begin{equation}
+\Var(T\mid W)=(1-W)^2v_0+W^2v_1,
+\qquad \E[T\mid W]=(1-W)m_0+Wm_1.
+\end{equation}
+Apply total variance. Since $\E[W^2]=m_w^2+v_w$ and $\E[(1-W)^2]=(1-m_w)^2+v_w$, obtain
+\begin{equation}
+\boxed{\Var(T)=((1-m_w)^2+v_w)v_0+(m_w^2+v_w)v_1
++v_w(m_1-m_0)^2.}
+\label{eq:tvar}
+\end{equation}
+The first two terms average uncertainty in the source label rates under uncertain source weights. The last term is uncertainty induced by mixing sources whose mean label rates differ. A large difference $|m_1-m_0|$ makes prevalence sensitive to uncertainty about $W$. If the source rates are similar, changing the mixture has a smaller effect on the target.
+
+\section{Deriving one-step action values}
+For a Beta component with total shape $A=a+b$ and mean $m$, a new outcome $Z\in\{0,1\}$ yields mean
+\begin{equation}
+m_Z=\frac{a+Z}{A+1}=m+\frac{Z-m}{A+1}.
+\end{equation}
+Under its posterior predictive law, $Z\sim\Bern(m)$. Thus
+\begin{equation}
+\Var(m_Z)=\frac{m(1-m)}{(A+1)^2}=\frac v{A+1}.
+\end{equation}
+By Equation~\eqref{eq:totalvar}, this is the expected reduction in the component's posterior variance. For target prevalence, an updated weight mean changes $\mu_T$ with multiplier $m_1-m_0$. Squaring that multiplier gives the identity value
+\begin{equation}
+\boxed{V_{\rm ID}=\frac{(m_1-m_0)^2v_w}{a_w+b_w+1}.}
+\label{eq:vid}
+\end{equation}
+Here $a_w,b_w$ are $W$'s Beta shapes. The value is large when the weight is uncertain and source rates differ.
+
+For a label from source 0, the corresponding multiplier in Equation~\eqref{eq:tmean} is $1-m_w$; for source 1 it is $m_w$. The label acquisition service chooses each source with probability one half. Averaging the two possible action values gives
+\begin{equation}
+\boxed{V_{\rm label}=\tfrac12\left[
+\frac{(1-m_w)^2v_0}{a_0+b_0+1}
++\frac{m_w^2v_1}{a_1+b_1+1}\right].}
+\label{eq:vlabel}
+\end{equation}
+Each denominator is the relevant total shape plus one. These formulas are exact under the current independent Beta posterior and its predictive observation law. The archived helper also computes values by enumerating the possible next outcomes, providing a second route to the same quantity.
+
+Both channels cost one revealed field. The source selection of a stratified label is supplied by the service. During held-out validation, the action called \code{reference_label} draws its label from the evaluation pool of the selected source. That name identifies the channel design throughout the code.
+
+\section{Predictive MI by Gauss--Jacobi quadrature}
+The target's mean and variance have closed forms, but its expected binary entropy involves all three continuous parameters:
+\begin{equation}
+U=h(\mu_T)-\int_0^1\int_0^1\int_0^1
+h((1-w)t_0+wt_1)f_w(w)f_0(t_0)f_1(t_1)\,dw\,dt_0\,dt_1.
+\end{equation}
+The three $f$ functions are the component Beta densities. This triple integral averages entropy under their product posterior.
+
+Quadrature approximates an integral by a weighted sum at carefully selected nodes. With $x=2t-1$, the Beta weight becomes proportional to $(1-x)^{b-1}(1+x)^{a-1}$ on $[-1,1]$. Gauss--Jacobi quadrature is constructed for precisely that weight. The implementation calls \code{roots_jacobi(order,b-1,a-1)}, maps nodes back by $(x+1)/2$, and normalizes weights to sum to one. At order 24, the product rule uses $24^3=13824$ combinations:
+\begin{equation}
+\E[h(T)]\approx\sum_{i,j,k}\omega_i^w\omega_j^0\omega_k^1
+h((1-w_i)t_{0j}+w_it_{1k}).
+\end{equation}
+$\omega$ denotes a quadrature weight; $w_i,t_{0j},t_{1k}$ are nodes. Product weights arise from posterior independence. The selected states are recomputed at order 48, using $48^3=110592$ combinations. An absolute MI change above $10^{-7}$ would fail the convergence check. Tiny changes support numerical stability of these selected integrals.
+
+A separate check draws 100000 independent parameter triples from the Beta posteriors, computes their $T$ values, constructs binary probability vectors $(1-T,T)$, and evaluates Probly MI. These sampled estimates provide an implementation cross-check with finite Monte Carlo variability. The search itself uses quadrature MI.
+
+\section{Building and selecting 600 information states}
+The initial identity budgets are $0,2,8,32,128,512$. Initial label budgets per source are $2,8,32,128,512$. Twenty repeats at each combination give $6\times5\times20=600$ states. Initial observations are sampled with replacement from eligible fit records. An identity count $k$ out of $n_I$ gives $W\sim\Beta(1+k,1+n_I-k)$. Positive label counts $k_s$ out of $n_L$ give $\Theta_s\sim\Beta(1+k_s,1+n_L-k_s)$. The record IDs are saved.
+
+For every state, the code records $\mu_T$, $\Var(T)$, MI, both action values, and the six Beta shapes. It searches pairs with opposite strong preferences: one has $V_{\rm ID}\geq2V_{\rm label}$; the other has $V_{\rm label}\geq2V_{\rm ID}$. The twofold margin demands a meaningful modeled preference.
+
+For positive values $u,v$, relative difference is
+\begin{equation}
+\operatorname{reldiff}(u,v)=\frac{|u-v|}{(u+v)/2}.
+\end{equation}
+The denominator is the average scale of the two values. A numerical floor $10^{-15}$ protects division. Qualifying pairs have MI relative difference at most 0.01, target-mean absolute difference at most 0.02, and variance relative difference at most 0.10. They are sorted by MI relative difference, then by state IDs. The first pair is selected using fit-derived information. The chosen role names, \code{identity_preferred} and \code{label_preferred}, refer to these modeled action values and remain fixed through evaluation.
+
+\section{Exact held-out one-step error}
+Let the retained evaluation pools have source-1 fraction $w_*$ and within-source positive rates $r_{0*},r_{1*}$. The empirical target is
+\begin{equation}
+T_*=(1-w_*)r_{0*}+w_*r_{1*}.
+\end{equation}
+These are fixed quantities obtained from all eligible evaluation records. Given a frozen state, let $\mu_{I,z}$ be its target mean after observing identity outcome $z$, and $\mu_{s,y}$ its target mean after a label $y$ from source $s$. Exact expected errors are
+\begin{align}
+E_I&=(1-w_*)(\mu_{I,0}-T_*)^2+w_*(\mu_{I,1}-T_*)^2,\\
+E_L&=\tfrac12\sum_{s=0}^1\left[(1-r_{s*})(\mu_{s,0}-T_*)^2
++r_{s*}(\mu_{s,1}-T_*)^2\right].
+\label{eq:heldout}
+\end{align}
+There are two possible identity outcomes and four source/label combinations. Enumeration evaluates all of them with empirical probabilities. Therefore these expectations have no Monte Carlo approximation error conditional on the fixed record pools.
+
+The identity-preferred state's required advantage is $E_L-E_I$; the label-preferred state's required advantage is $E_I-E_L$. The protocol confirms the pair when both are positive. This directly tests whether both modeled preferences agree with held-out error ordering.
+
+To understand a possible discrepancy, let $\Delta=\widehat T_{\rm after}-\mu_T$ be the change in estimate induced by an observation. Then
+\begin{equation}
+\E[(\mu_T+\Delta-T_*)^2]-(\mu_T-T_*)^2
+=2(\mu_T-T_*)\E[\Delta]+\E[\Delta^2].
+\label{eq:changeerror}
+\end{equation}
+The first term depends on whether the expected update moves toward the fixed truth; the second accounts for variability and magnitude of updates. This empirical expectation uses actual held-out rates. Model-averaged variance reduction uses the posterior predictive law. The formulas make their different behavior intelligible.
+
+\section{Credible enclosures and trajectory uncertainty}
+Each selected state also receives a 95\% posterior enclosure for $T$. For each of the three Beta variables, take quantiles at $0.05/6$ and $1-0.05/6$. A quantile at level $u$ is the point below which posterior probability $u$ lies. Each variable's two tails have total probability $0.05/3$. A union bound gives at least 0.95 probability that all three fall in their respective intervals.
+
+Equation~\eqref{eq:beta-target} is linear in each variable when the others are held fixed, a property called multilinearity. On a rectangular box its minimum and maximum occur at vertices: optimize one coordinate at a time, choosing one of its two endpoints. Evaluating the $2^3=8$ combinations therefore encloses all targets generated by the component box. The resulting interval has at least 95\% posterior content under the specified model. It may be wider than a direct equal-tailed 95\% interval for $T$ because it encloses the whole component box.
+
+Finally, 2000 paired resampling trajectories use budgets $0,1,2,4,8,16,32,64,128$. Each trajectory repeatedly uses one channel. The same identity streams and source-stratified label streams are applied to the two selected states. Saved arrays contain record IDs, label sources, and outcomes. Each plot point averages posterior variance or squared error over repeats. Error bars on MSE are $\pm1.96s/\sqrt{2000}$; the variance panels have no bars. There are $2\times2\times9\times2000=72000$ trajectory rows per dataset.
+
+\chapter{CAMELYON17: a confirmed selected acquisition reversal}
+\section{Populations and selected states}
+The record calculation includes hospital 0 as source 0 and hospital 3 as source 1. Their fit pools have 26940 records from five patients and 98515 from six patients. Evaluation has 13637 records from one patient at hospital 0 and 21284 from two patients at hospital 3. The total known-source evaluation population has 34921 records from three patients.
+
+Fit positive rates are approximately 0.282220 and 0.655149. Evaluation rates are approximately 0.927550 and 0.001456. The hospital ordering by tumor rate reverses strongly between the retained populations. Their count-weighted evaluation prevalence is approximately $T_*=0.363105$.
+
+The search finds 39 qualifying pairs. The selected states are 390, identity preferred, and 566, label preferred. Their component shapes are
+\begin{align*}
+390:\quad&W\sim\Beta(26,8),\quad\Theta_0\sim\Beta(133,381),\quad\Theta_1\sim\Beta(348,166),\\
+566:\quad&W\sim\Beta(403,111),\quad\Theta_0\sim\Beta(36,94),\quad\Theta_1\sim\Beta(86,44).
+\end{align*}
+For state 390, 32 initial identities yield 25 source-1 and seven source-0 observations, plus the uniform prior. Its 512 labels per source yield 132 and 347 positives. State 566 has 512 initial identities and 128 labels per source. Thus the first state has relatively precise label rates and less identity information; the second has relatively precise mixture information and fewer labels.
+
+Their target means are 0.578622110 and 0.578479497. Variances are 0.001172469768 and 0.001171679121. MI is 0.002407061568 and 0.002407470826 nats, giving relative difference 0.0170009\%. The means differ by about 0.000142613. These tightly matched summaries accompany different parameter-level uncertainty allocations.
+
+Identity and label model values in state 390 are $2.5699229\times10^{-5}$ and $2.61067433\times10^{-7}$, about a 98.44-fold identity preference. In state 566 they are $9.44366631\times10^{-8}$ and $4.28236552\times10^{-6}$, about a 45.35-fold label preference. Equations~\eqref{eq:vid}--\eqref{eq:vlabel} explain the reversal from the shape totals and rate difference.
+
+\section{The exact confirmation calculation}
+State 390 has initial squared error 0.046447498. Its expected error after identity is 0.045685367 and after label is 0.046297713. The required identity advantage is positive, approximately 0.000612346. State 566 has initial error 0.046386047, expected identity error 0.046330043, and expected label error 0.045774677. Its label advantage is also positive, approximately 0.000555366. The saved outcome is \code{confirmed: true}.
+
+The fairly large initial errors follow from the initial means near 0.579 and the empirical truth near 0.363. Squaring their difference gives approximately 0.0464. The much smaller posterior variances near 0.00117 describe concentration under the fit-informed model. These quantities explain why both the model uncertainty and the empirical error are shown in the figure.
+
+\section{Figure 13: posterior concentration and held-out error}
+\fig{run4_acquisition_curves.png}{CAMELYON17 selected-state acquisition trajectories. Columns show states 390 and 566. Top panels average posterior variance; bottom panels average squared error against the shared held-out prevalence, with Monte Carlo error bars.}{fig:camcounter}
+The purpose of the top row is to show how each state's declared posterior responds to repeated observations. The purpose of the bottom row is to check estimation quality against the same fixed evaluation target. Blue denotes reference-label acquisition and orange identities in this figure. At budget zero, both actions share the same initial state within a column.
+
+For state 390, identities lead to lower posterior variance and lower MSE than labels at every saved positive budget. At budget 128, identity mean variance is approximately 0.000470191 and MSE 0.027338975. Labels give variance 0.000640381 and MSE 0.030923418. The error remains substantial because the fit-informed source rates differ greatly from evaluation rates and this arm updates weights only.
+
+For state 566, labels produce the lower variance and MSE. At budget 128, label variance is approximately 0.000839662 and MSE 0.008499711; identities give variance 0.001100504 and MSE 0.040857732. The label channel updates the source rates that are particularly important under this retained-population shift. This observed ordering supports the selected pair's validated reversal through the saved budget range.
+
+The MSE standard errors at budget 128 are approximately 0.000105744 for identities and 0.000048477 for labels in state 390; in state 566 they are 0.000030070 and 0.000056776 respectively. The plotted bars multiply these by 1.96. They quantify precision of the resampling means conditional on the three-patient evaluation pool. Across-panel vertical scales are chosen separately, so numerical tick values should guide comparisons.
+
+\section{Credible enclosures and numerical checks}
+State 390 has initial target enclosure $[0.450397852,0.686987828]$. State 566 has enclosure $[0.462620967,0.689706103]$. Their widths are 0.236589976 and 0.227085136. The held-out prevalence near 0.363105 lies below both lower bounds. This demonstrates a material limit in transporting the fit-informed posterior to the changed evaluation population, alongside the successful acquisition-ordering check.
+
+The order-24 to order-48 MI difference is at most approximately $1.67\times10^{-15}$. Probly's 100000-sample MI estimates are 0.002397022728 and 0.002408587624, compared with quadrature values 0.002407061568 and 0.002407470826. The simulation check and quadrature convergence serve different numerical purposes.
+
+The conclusion is a selected near-match in static summaries, together with opposite held-out useful channels under the prespecified criterion. Its scope includes the specified prior, the retained records, the search procedure, and the unit-field costs. Only three known-source evaluation patients support the empirical observation law, so patient-population generalization remains an additional question.
+
+\chapter{FMoW: a selected pair whose held-out confirmation fails}
+\section{Populations and the selected pair}
+The record search uses Americas and Europe, with pre-2016 records. The eligible fit pools contain 20312 and 32063 records; evaluation contains 6640 and 10236. Their fit group counts are 7182 and 11684; evaluation group counts are 2353 and 3904. These counts apply the counterexample's temporal and source filters to the full record index.
+
+The binary event is class 42. Fit event rates are approximately 0.146121 in Americas and 0.066089 in Europe. Evaluation rates are approximately 0.130723 and 0.053634. The count-weighted held-out prevalence is $T_*=0.083965395$.
+
+Thirty-two pairs pass the matching criteria. The selected states are 287, identity preferred, and 561, label preferred:
+\begin{align*}
+287:\quad&W\sim\Beta(6,4),\quad\Theta_0\sim\Beta(83,431),\quad\Theta_1\sim\Beta(28,486),\\
+561:\quad&W\sim\Beta(330,184),\quad\Theta_0\sim\Beta(16,114),\quad\Theta_1\sim\Beta(9,121).
+\end{align*}
+State 287 starts with eight identities and 512 labels per source. State 561 starts with 512 identities and 128 labels per source. Their means are 0.097276265 and 0.088506435, variances 0.000335805145 and 0.000310214773, and MI values 0.001911019217 and 0.001912249414 nats. MI relative difference is 0.0643531\%, mean difference 0.008769829, and variance relative difference 7.92247\%. Each passes the frozen matching threshold.
+
+The identity and label Bayes values are $2.2710412\times10^{-5}$ and $7.57981317\times10^{-8}$ in state 287. In state 561 they are $2.51246744\times10^{-9}$ and $1.17684603\times10^{-6}$. The modeled action preferences are therefore strong despite the closely matched scalar summaries.
+
+\section{Both exact held-out preferences oppose the selected roles}
+State 287 starts at squared error 0.000177179259. One identity gives expected error 0.000198071749; one label gives 0.000176917265. Its prespecified identity advantage is $-0.000021154485$. State 561 starts at 0.000020621049. Identity gives 0.000020657365; label gives 0.000021405815. Its label advantage is $-0.000000748450$. Both required advantages are negative, so the saved result is \code{confirmed: false}.
+
+The signs have a direct interpretation. State 287's modeled preferred identity action increases expected error from its initial estimate, while the label slightly decreases it. State 561 has a relatively accurate initial mean; both acquisitions increase its one-step expected squared error, with identities producing the smaller increase. Equation~\eqref{eq:changeerror} explains how the update's direction and variability determine this result under the empirical observation law.
+
+The selected roles remain tied to the model values that defined the test. The exact calculation evaluates the frozen prediction that those roles would be advantageous on held-out records. Its failure is part of the scientific result and is carried through the interpretation of the trajectories.
+
+\section{Figure 14: concentration and error move differently}
+\fig{run6_acquisition_curves.png}{FMoW selected-state acquisition trajectories. The top row shows posterior variance and the bottom row held-out prevalence MSE. Columns retain the model-selected roles of states 287 and 561.}{fig:fmowcounter}
+Read the top-left panel first. Identity acquisition decreases state 287's posterior variance much more than labels. In the top-right panel, labels decrease state 561's variance more. These are the concentration patterns anticipated by the model-derived values.
+
+The bottom-left panel has lower MSE under labels at every saved positive budget. Identity MSE initially rises, reaches a higher region around the intermediate budgets, then declines, remaining above label MSE at the final saved budget. At 128 fields, identities give variance about 0.000098335 and MSE 0.000180275; labels give variance 0.000311995 and MSE 0.000150428. The posterior can become substantially more concentrated while its estimate remains farther from the fixed held-out truth.
+
+The bottom-right panel shows label MSE increasing more strongly than identity MSE. At 128, labels give variance 0.000201308 and MSE 0.000066263; identities give variance 0.000309718 and MSE 0.000024509. The axis carries a $10^{-5}$ scale indicator: a tick at six corresponds to $6\times10^{-5}$. The initial state was already relatively close to the held-out prevalence, so additional sample variation and the empirical update direction matter to expected error.
+
+The MSE Monte Carlo standard errors at 128 are approximately 0.000002523 for identities and 0.000001493 for labels in state 287, and 0.000000103 and 0.000002329 in state 561. The figure's bars multiply them by 1.96. The exact one-step calculation supplies the confirmation decision, while the longer curves reveal how the discrepancy develops under repeated single-channel acquisition.
+
+This figure is especially useful because it shows both internal posterior concentration and empirical performance for the same updates. The empirical source rates differ between fit and evaluation, and the selected states also have their own initial sampling error. The experiment records the combined effect of these ingredients; attributing the discrepancy to one ingredient would require additional controlled comparisons.
+
+\section{Enclosures, MI checks, and scope}
+State 287 has initial credible enclosure $[0.042460817,0.173041926]$. State 561 has enclosure $[0.038274954,0.160133696]$. Their widths are 0.130581109 and 0.121858742. Both contain the fixed empirical prevalence. Their posterior-content construction and this two-state containment observation answer questions about target ranges; the acquisition validation asks about changes in expected error.
+
+Doubling quadrature order changes selected MI by at most approximately $2.78\times10^{-16}$. Sampled Probly estimates are 0.001900505516 and 0.001899761804, versus quadrature 0.001911019217 and 0.001912249414. Numerical stability of the model calculation coexists with failure of its held-out action-ordering prediction. The completed search therefore supplies a useful negative confirmation result within the same protocol used for CAMELYON17.
+
+\chapter{Connecting the experiments and interpreting their evidence}
+\section{A single workflow expressed in different models}
+Every calculation begins by defining a target probability and the observations available to learn it. In the finite-cell experiments, uncertainty is the target's range across compatible models. In the counterexamples, uncertainty is a posterior distribution over parameters and its induced target variation. The observation channel specifies how knowledge changes in either formulation.
+
+The first experiment shows a structural reason that inputs can leave ambiguity: multiple source mixtures produce the same cell law. Source identities observe the mixture weights directly. It also shows finite-information bottlenecks, such as uncertain reference rows and conditional probabilities with possibly zero conditioning mass. The exact toy experiment then establishes that equal predictive beliefs can arise from different unknown mechanisms. The unknown mechanism determines which observation is informative.
+
+The image pilots implement concrete visual representations and source constraints on hospital and region records. Their broad intervals and transfer diagnostics expose the practical assumptions required by the finite-source model. The record counterexamples test selected near-matches under a continuous Beta model. CAMELYON17 passes the fixed held-out ordering test, while FMoW fails it. Together, these runs distinguish a mathematical existence argument, a finite empirical search, and validation against a fixed held-out population.
+
+\section{What to inspect when reading a new acquisition plot}
+A productive reading begins with the target in the vertical-axis label. Determine whether it is a probability width, posterior variance, MI, or empirical MSE. Then identify the conditioning population and baseline information. Read the acquisition definition closely: a source-stratified label, a random deployment identity, and a raw image each correspond to a different likelihood.
+
+Next check budget accounting. The four-dataset references and labels use per-source budgets; the image pilots use allocated field totals; the toy and record searches use unit-cost next observations. Read the averaging rule and any band: six-repeat ranges, nominal prior-sensitive endpoint expectations, and Monte Carlo MSE bars have different definitions. Finally inspect feasibility, denominator statuses, containment where available, and evidence of distribution transfer.
+
+A narrowing interval means a target's admissible range is becoming smaller under its constraints. A falling posterior variance means the modeled target distribution concentrates. A falling held-out MSE means the estimate approaches the fixed empirical target on average over acquisition draws. Each interpretation follows directly from the plotted quantity.
+
+\section{A worked source-membership calculation}
+Suppose the generating source weights are $(0.45,0.25,0.30)$ and at a particular cell the source probabilities are $(0.40,0.20,0.30)$. The joint masses in that cell are $(0.18,0.05,0.09)$ and their sum is $0.32$. Then known membership is $0.18/(0.18+0.05)\approx0.78261$, while candidate membership is $0.09/0.32=0.28125$. Under anchor $(1/2,1/2)$ and rates $(0.2,0.8)$, the anchored positive probability is
+\begin{equation}
+\frac{0.5(0.40)(0.2)+0.5(0.20)(0.8)}{0.5(0.40)+0.5(0.20)}
+=\frac{0.12}{0.30}=0.40.
+\end{equation}
+This illustrative calculation uses rounded example cell probabilities to show the operations. The appendix supplies the actual saved source laws. The three answers differ because they condition on and weight different events.
+
+\section{A worked Beta update from a selected state}
+Take CAMELYON17 state 390. Its weight mean is $26/34\approx0.764706$, source-0 rate mean $133/514\approx0.258755$, and source-1 rate mean $348/514\approx0.677043$. Equation~\eqref{eq:tmean} gives the saved target mean approximately 0.578622. One source-1 identity changes the weight shapes to $(27,8)$ and its mean to $27/35$. A source-0 identity changes shapes to $(26,9)$ and mean to $26/35$. Both outcomes preserve the two label-rate shapes.
+
+A positive label queried from source 0 instead changes $(133,381)$ to $(134,381)$, replacing that source mean by $134/515$ and leaving weight shapes fixed. A negative source-0 label changes the mean to $133/515$. Source-1 labels update $(348,166)$ in the same way. Under model evaluation, the outcome probabilities use the state's means. Under held-out evaluation, the weights in Equation~\eqref{eq:heldout} use the empirical evaluation rates. This one example reconstructs the entire logic of both acquisition-value calculations.
+
+\chapter{Reproducibility, audit trail, and numerical conventions}
+\section{What was used to write this document}
+The sources are the six local editable notebooks, their archived executed and source notebooks, the run-specific Python snapshots, CSV tables, JSON configurations, result reports, and the 14 standalone figure files. The mathematical derivations above are matched to those implementations. The numerical appendix is generated from the saved tables. Original artifacts and existing draft documents are preserved.
+
+The explanatory document does not require a new experiment run to reproduce its figures or reported values. The document's build process copies original figures, generates selected tables, and compiles LaTeX. Scientific rerunning would require the saved data pools, cached predictions or encoder weights, and the experiment environments identified by the original manifests.
+
+\section{Artifact types and why they exist}
+A notebook stores narrative, executable cells, and optionally outputs. The executed notebook preserves what the run displayed. A source snapshot preserves the notebook code around execution. Python snapshots preserve helper implementations so later edits in the live repository can be distinguished from the code archived with results.
+
+CSV files store tables with named columns. Counts reproduce finite-cell likelihood information; interval tables record lower/upper endpoints, widths, statuses, and numerical residuals; summaries aggregate those rows for plotting. Compressed CSV files retain large per-repeat tables. NPZ files are compressed NumPy arrays holding prediction samples, draws, or record IDs. Model checkpoint files preserve trained parameters and feature-scaling states. JSON files record configurations and structured audit metadata.
+
+A SHA-256 hash is a deterministic fingerprint of file bytes. Matching hashes establishes that the compared bytes agree. A manifest lists paths, sizes, and hashes for an artifact collection. The figure manifest accompanying this document maps each copied figure to its original run file and hash. The source manifest records the inspected notebooks, archived code, and numerical tables used for reconstruction.
+
+The original run manifests predate some expanded README and post-run diagnostic additions. For CAMELYON17 the saved post-run audit reports agreement with 21 files of a pinned mirror. FMoW records local hashes whose upstream equivalence was not verified. The data provenance claims here follow those saved audit scopes.
+
+\section{Rounding and numerical precision}
+Text rounds values for readability. Generated tables retain more digits where useful, with full precision remaining in their CSV sources. Numbers in scientific notation use $a\times10^b$ to represent $a$ multiplied by ten to integer power $b$. For example, $10^{-5}=0.00001$ and a residual of $10^{-14}$ is extremely small on a unit-probability scale.
+
+Floating-point arithmetic represents numbers with finite precision. Solver tolerance, entropy clipping, and stable log-odds updates manage this limitation. The MI helper returns a maximum with zero to remove tiny negative numerical artifacts. The entropy helper uses a stable convention for $x\log x$ at zero. LP endpoints are clipped to $[0,1]$ after numerical optimization, and inverted endpoints beyond tolerance trigger an error. Empty feasible sets retain missing numerical endpoints and a separate failure status.
+
+\section{Reading the numerical appendix}
+The following tables supplement the figures with source roles, exact row probabilities, maximum-budget comparisons, all saved-budget image responses, and the record searches' selected states and errors. Columns abbreviated K, Y, and N refer respectively to known membership, anchored/reference label, and candidate membership. Widths and bounds use probability units, variance and MSE use squared-probability units, and MI uses nats. These conventions remain constant even where the code names differ between experiments.
+
+The table-generation script includes assertions for the stated interval counts, source experiment inclusion, the two confirmation outcomes, the number of selected states, and figure integrity. It checks the document's extraction against saved artifacts; historical training and scientific execution are documented by the original run records.
+
+\appendix
+\chapter{Numerical companion tables generated from saved artifacts}
+\input{numerical_tables.tex}
+
+\chapter{Notation and reading glossary}
+\begin{longtable}{p{.22\textwidth}p{.69\textwidth}}
+\toprule Symbol or term & Meaning in this document\\\midrule\endhead
+$\Prob(A)$ & Probability assigned to event $A$ by the specified model or empirical sampling rule.\\
+$\Prob(A\mid B)$ & Probability of $A$ within the population satisfying condition $B$.\\
+$S,s$ & Source variable and a particular source index.\\
+$C,c$ & Finite image cell and a particular cell index; the first notebook uses $X$.\\
+$Y$ & Target label; a binary event indicator where prevalence is modeled.\\
+$w_s,A_{sc},p_c,z_{sc}$ & Source weight, conditional cell probability, marginal cell probability, and joint source/cell mass.\\
+$a_s$ & Fixed anchor weights in the reference-label target.\\
+$\theta_s,\theta_{sc}$ & Positive-label rate within a source, or within a source/cell stratum.\\
+$T_K,T_N,T_Y$ & Known-source membership, candidate-source membership, and anchored-label probabilities.\\
+$\ell,u$ & Lower and upper bounds; context specifies the parameter or event.\\
+$\alpha,\delta$ & Total or individual failure-probability allowances in concentration bounds. DAPPr also uses $\alpha_k$ for positive concentrations.\\
+$\eta$ & Specified symmetric label-flip probability, 0.10 in the first simulation.\\
+$\widehat p$ & Sample estimate of a probability.\\
+$\sum,\prod,\int$ & Sum, product, and continuous accumulation through integration.\\
+$\E,\Var$ & Probability-weighted mean and squared spread around that mean.\\
+$H(r),h(p)$ & Categorical entropy and binary entropy, measured in nats.\\
+$Q_q$ & Distribution over the two Bernoulli predictors in the exact construction.\\
+$q$ & High-hypothesis weight in the toy construction; locally also the candidate row in the mixture derivation.\\
+$W,\Theta_0,\Theta_1$ & Beta-distributed mixture weight and two source label rates in the record model.\\
+$a_j,b_j$ & Beta shape parameters for component $j$.\\
+$m_j,v_j$ & Component posterior mean and variance.\\
+$T_*$ & Fixed held-out empirical prevalence.\\
+$V_{\rm ID},V_{\rm label}$ & Model-expected one-step reductions in posterior variance of $T$.\\
+$E_I,E_L$ & Empirical expected squared errors after one identity or stratified label.\\
+$\mu_T$ & Posterior mean of the target probability.\\
+$\arg\max$ & Index of the largest value.\\
+$\lfloor b\rfloor$ & Greatest integer less than or equal to $b$.\\
+Convex combination & A weighted average with nonnegative weights summing to one.\\
+Feasible & Satisfying all constraints of the specified mathematical set.\\
+Sharp & Achieving the exact target extrema within the declared set, subject to numerical solution and positive-denominator conditions.\\
+Calibration/coverage & Agreement between probability statements and repeated-sampling inclusion under a specified population and protocol.\\
+Posterior & Parameter distribution after multiplying a prior by an observation likelihood and normalizing.\\
+Predictive law & Distribution of a future observation obtained by averaging its likelihood over current parameter uncertainty.\\
+Monte Carlo & Approximation of an expectation through repeated random draws.\\
+Quadrature & Approximation of an integral using designed nodes and weights.\\
+Stratum & A subgroup, such as source and cell, from which sampling is specifically requested.\\
+Transfer & Applying a source-conditional law learned in one role or population to another.\\\bottomrule
+\end{longtable}
+
+\chapter{Source locations and conceptual foundations}
+\input{provenance.tex}
+\section{Roles of the cited foundations}
+The original notebooks cite the following foundations. This document derives the mathematics actually used above and uses the local implementations to specify the experiment. The links below identify the works recorded in the notebooks and their conceptual roles.
+\begin{description}
+\item[Uncertainty concepts] H\"ullermeier and Waegeman, \emph{Aleatoric and epistemic uncertainty in machine learning: an introduction to concepts and methods} (2021), \url{https://doi.org/10.1007/s10994-021-05946-3}. Vocabulary for incomplete knowledge and outcome randomness.
+\item[Mixture moments] Lipton, Wang, and Smola, \emph{Detecting and Correcting for Label Shift with Black Box Predictors} (2018), \url{https://proceedings.mlr.press/v80/lipton18a.html}. Source-conditional stability and mixture moment reasoning motivate the finite-source setup.
+\item[Frequency concentration] Hoeffding, \emph{Probability Inequalities for Sums of Bounded Random Variables} (1963), \url{https://doi.org/10.1080/01621459.1963.10500830}. The bounded-indicator inequality supplies Equation~\eqref{eq:radius} after the explicit union bound.
+\item[Fractional optimization] Charnes and Cooper, \emph{Programming with Linear Fractional Functionals} (1962), \url{https://doi.org/10.1002/nav.3800090303}. The transformation in Equation~\eqref{eq:cc} converts positive-denominator ratio extrema to linear programs.
+\item[Dropout prediction] Gal and Ghahramani, \emph{Dropout as a Bayesian Approximation} (2016), \url{https://proceedings.mlr.press/v48/gal16.html}. Motivation for sampled dropout predictions and predictive disagreement summaries.
+\item[Residual visual features] He et al., \emph{Deep Residual Learning for Image Recognition} (2016), \url{https://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html}. Architecture behind the frozen ResNet18 representation.
+\item[DAPPr] Ni et al., \emph{Possibilistic Predictive Uncertainty for Deep Learning}, identified in the notebook sources by \url{https://arxiv.org/abs/2605.00600}, with implementation reference \url{https://github.com/MaxwellYaoNi/DAPPr/blob/main/DAPPr.py}. The image pilots archive their explicit adapted loss and $K/\sum\alpha$ score. The first two experiments use the source/acquisition models derived here.
+\item[Probly] \url{https://github.com/pwhofman/probly}. The recorded software interface supplies categorical representations, neural sampling, and MI cross-checks. The archived adapters define the custom probability-width representation and tie-correct metric reporting.
+\item[WILDS] Koh et al., \emph{WILDS: A Benchmark of in-the-Wild Distribution Shifts} (2021), \url{https://arxiv.org/abs/2012.07421}. Dataset domain metadata and benchmark provenance underpin the hospital and region source meanings; the notebooks define their own group partition.
+\item[CAMELYON17] Bandi et al., dataset/challenge reference, \url{https://doi.org/10.1109/TMI.2018.2867350}. Hospital and tumor annotations define the recorded source and target fields.
+\item[FMoW] Christie et al., \emph{Functional Map of the World} (2018), \url{https://openaccess.thecvf.com/content_cvpr_2018/html/Christie_Functional_Map_of_CVPR_2018_paper.html}. Land-use labels and geographic metadata define the satellite record setting.
+\item[Four cached image datasets] MNIST: \url{https://yann.lecun.com/exdb/mnist/}; EMNIST: \url{https://arxiv.org/abs/1702.05373}; Fashion-MNIST: \url{https://arxiv.org/abs/1708.07747}; MedMNIST v2/BloodMNIST: \url{https://doi.org/10.1038/s41597-022-01721-8}. Their cached images and labels supply the first experiment's finite class-balanced cell laws.
+\end{description}
+\end{document}

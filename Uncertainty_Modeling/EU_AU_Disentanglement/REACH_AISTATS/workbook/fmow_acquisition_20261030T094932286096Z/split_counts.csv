@@ -1,0 +1,10 @@
+source_name,role,records,groups
+Americas,evaluation,8474,2701
+Americas,fit,24919,8106
+Americas,reference,8372,2701
+Asia,evaluation,6451,2248
+Asia,fit,19203,6748
+Asia,reference,6547,2248
+Europe,evaluation,11395,4244
+Europe,fit,35459,12732
+Europe,reference,11970,4244

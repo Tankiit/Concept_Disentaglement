@@ -1,0 +1,12 @@
+{
+  "records": 7920,
+  "runs": 240,
+  "truths_verified": true,
+  "label_invariance": true,
+  "rejection_consistency": true,
+  "analytic_contradiction_rejected": true,
+  "matched_rejections": 0,
+  "matched_nonempty_misses": 0,
+  "mismatched_rejections": 117,
+  "mismatched_nonempty_misses": 416
+}

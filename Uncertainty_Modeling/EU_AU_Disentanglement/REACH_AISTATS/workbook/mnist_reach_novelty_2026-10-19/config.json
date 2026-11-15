@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-19",
+  "scope": "exploratory pilot, not historical reproduction",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "n": [
+    250,
+    1000,
+    4000
+  ],
+  "m": [
+    50,
+    200,
+    1000
+  ],
+  "novel_ref_per_class": [
+    10,
+    50,
+    200
+  ],
+  "baseline": {
+    "n": 1000,
+    "m": 200,
+    "r": 50
+  },
+  "delta": [
+    0,
+    0.05,
+    0.2
+  ],
+  "epochs": 5,
+  "cnn_train": 30000,
+  "partition_dev": 10000,
+  "mnist_reference": 20000,
+  "cell_head": "original PCA-16/LDA, 99th percentile distance outlier cell",
+  "input": "28x28 grayscale /255; EMNIST orientation corrected by transpose",
+  "n_boot": 20,
+  "bootstrap_members": 5,
+  "eta": 0.0,
+  "device": "cuda"
+}

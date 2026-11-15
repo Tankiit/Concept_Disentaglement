@@ -1,0 +1,13 @@
+{
+  "written": "2026-11-10, before any SE / margin / interval computation",
+  "question": "At a 2-SE margin, does the 26-point CAMELYON17 robust-vs-fragile wrong-rate difference survive, shrink, or vanish?",
+  "prediction": "SURVIVES (at most mild shrink). Rationale: the held-out rates are estimated from ~35k rows (SE(r0) ~ 0.0023, SE(w) ~ 0.0026) and the T*-dependent parts of E_id - E_lab largely cancel, so per-state SE(dE) should sit well below the typical gap (~1e-3); if so, fragile wrongs are NOT sub-noise and the dull near-tie explanation is mostly rejected. Risk to this prediction: if SE ~ 5e-4 the 2-SE margin bites and the difference shrinks.",
+  "Q1_camelyon_tvball_diff_at_k2_points_in_[12,26]": true,
+  "Q2_rowboot_CI_at_k2_excludes_0_camelyon": true,
+  "Q3_fragile_wrongrate_at_k2_ge_0.45_camelyon": true,
+  "Q4_dull_rejected_fragile_rate_at_k1_ge_0.50_camelyon": true,
+  "Q5_cellcluster_CI_at_k0_excludes_0_camelyon": true,
+  "Q6_cond_gap_median_ratio_fragile_over_robust_in_[0.7,1.5]_camelyon": true,
+  "Q7_fmow_stress_diff_at_k2_lt_10_points": true,
+  "paper_rule": "if Q1 and Q2 hold: report CAMELYON17 alone as the result (primary family), FMoW as uninformative; if Q2 fails: report as suggestive with the near-tie caveat leading; if Q1 fails: the band marks where the choice does not matter -- publish as that negative."
+}

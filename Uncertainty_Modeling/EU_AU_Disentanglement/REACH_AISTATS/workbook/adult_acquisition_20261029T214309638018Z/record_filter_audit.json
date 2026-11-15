@@ -1,0 +1,14 @@
+[
+  {
+    "file": "adult.data",
+    "total": 32561,
+    "retained": 27047,
+    "excluded": 5514
+  },
+  {
+    "file": "adult.test",
+    "total": 16281,
+    "retained": 13408,
+    "excluded": 2873
+  }
+]

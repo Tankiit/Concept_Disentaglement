@@ -1,0 +1,10 @@
+{
+  "region_evaluations": 4800,
+  "valid_matching_or_unrestricted": 2400,
+  "matched_coverage_records": 1200,
+  "clean_positive_flags": 0,
+  "incompatible_letter_models": 182,
+  "frozen_artifacts_verified": true,
+  "thresholds_unchanged": true,
+  "paired_draws_verified": true
+}

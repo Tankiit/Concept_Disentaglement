@@ -1,0 +1,52 @@
+[
+  {
+    "scenario": "clean",
+    "bootstrap_radius_399": 0.013989960180932022,
+    "bootstrap_radius_1999": 0.013608757441660083,
+    "refinement": [
+      {
+        "depth": 5,
+        "diameter_upper": 0.5235370644536861,
+        "box_radius": 0.048869317872651155,
+        "boxes": 85
+      },
+      {
+        "depth": 6,
+        "diameter_upper": 0.3374100810600656,
+        "box_radius": 0.024434658936325578,
+        "boxes": 178
+      },
+      {
+        "depth": 7,
+        "diameter_upper": 0.26644367627533483,
+        "box_radius": 0.012217329468162789,
+        "boxes": 498
+      }
+    ]
+  },
+  {
+    "scenario": "shared",
+    "bootstrap_radius_399": 0.01377965114256911,
+    "bootstrap_radius_1999": 0.014365434178330893,
+    "refinement": [
+      {
+        "depth": 5,
+        "diameter_upper": 1.500629181662838,
+        "box_radius": 0.048869317872651155,
+        "boxes": 1375
+      },
+      {
+        "depth": 6,
+        "diameter_upper": 1.2857700694328642,
+        "box_radius": 0.024434658936325578,
+        "boxes": 6811
+      },
+      {
+        "depth": 7,
+        "diameter_upper": 1.1988017893238663,
+        "box_radius": 0.012217329468162924,
+        "boxes": 41426
+      }
+    ]
+  }
+]

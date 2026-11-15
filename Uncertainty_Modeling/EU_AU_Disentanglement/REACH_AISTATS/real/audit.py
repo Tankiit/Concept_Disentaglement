@@ -253,7 +253,7 @@ def run_cell(ctx, n, m, seed, q_mode='oracle', n_boot=200, members=20, eta=0.):
         a = np.vstack([a_known, q])
     else:
         a = a_known
-    ball = MMDBall.from_log(a, log, ALPHA/3, max(radii), _CTX.get('set_kind', SET_KIND))
+    ball = MMDBall.from_log(a, log, ALPHA/3, max(radii), ctx.get('set_kind', SET_KIND))
     counts = np.bincount(log, minlength=d)
     emp = counts/n
     # Per-entry intervals for the label channel (union over k x d entries), centred on the

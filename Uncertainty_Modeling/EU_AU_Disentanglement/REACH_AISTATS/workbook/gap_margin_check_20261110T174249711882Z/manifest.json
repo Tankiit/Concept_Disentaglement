@@ -1,0 +1,114 @@
+{
+  "script_sha256": "0b06f632084d57d1a7bec7f80d56c5aeb5427c547e185d3d77077419d2ecdb44",
+  "branch": "e309a46f47a00c615fc73f953ddf6794c220e0c4",
+  "inputs": {
+    "candidate_sweep.csv": "68fdc8d8f5acc857a3fe298631abe83ba609b046a54b019ef3877a1f837af919",
+    "camelyon17/candidate_states.csv": "5b772e72a34823dcd2cb9b50c530974a3672b4036f4d6e9a27cab070ae775c4d",
+    "camelyon17/population_rates.csv": "b72bdb9fde2d11a87c7d1a2b1cc320a256e504885e50fa9138b0175db8bc92a0",
+    "camelyon17/heldout_exact_one_step.csv": "c68fd38b94877b353fdfd3ff9d1b0ea2ded2db79cf932554613d9412ef3d9f79",
+    "fmow/candidate_states.csv": "9d8ee71764aa81e09be8fd17592c448ef863bb2967b9b098130ea27d950bcdbb",
+    "fmow/population_rates.csv": "f161559d9ae404c362afbbbc56c4eb9cbd121ae94e290298f9075cea92b8b741",
+    "fmow/heldout_exact_one_step.csv": "20e01c73daa4454bc13f6ba330ecc9896de5ab8a9f783eab69b1473f953f7855"
+  },
+  "results": {
+    "camelyon17": {
+      "k=0.0": {
+        "wrong_robust": 0.3019230769230769,
+        "wrong_fragile": 0.5625,
+        "diff_points": 26.05769230769231,
+        "ci": [
+          25.67307692307692,
+          26.45432692307686
+        ]
+      },
+      "k=0.5": {
+        "wrong_robust": 0.2980769230769231,
+        "wrong_fragile": 0.5625,
+        "diff_points": 26.442307692307693,
+        "ci": [
+          26.05769230769231,
+          26.634615384615383
+        ]
+      },
+      "k=1.0": {
+        "wrong_robust": 0.2980769230769231,
+        "wrong_fragile": 0.5625,
+        "diff_points": 26.442307692307693,
+        "ci": [
+          25.38461538461539,
+          26.634615384615383
+        ]
+      },
+      "k=1.5": {
+        "wrong_robust": 0.2980769230769231,
+        "wrong_fragile": 0.5625,
+        "diff_points": 26.442307692307693,
+        "ci": [
+          25.38461538461539,
+          26.826923076923077
+        ]
+      },
+      "k=2.0": {
+        "wrong_robust": 0.29423076923076924,
+        "wrong_fragile": 0.5625,
+        "diff_points": 26.826923076923077,
+        "ci": [
+          24.134615384615383,
+          26.826923076923077
+        ]
+      },
+      "k=3.0": {
+        "wrong_robust": 0.2903846153846154,
+        "wrong_fragile": 0.55,
+        "diff_points": 25.961538461538463,
+        "ci": [
+          23.076923076923077,
+          27.21153846153846
+        ]
+      },
+      "cond_gap_median_fragile": 0.0015281371332936944,
+      "cond_gap_median_robust": 0.0033250445265489287,
+      "se_median": 4.165912975770064e-05,
+      "cellcluster_ci_k0": [
+        8.312716489899975,
+        42.280242968074006
+      ]
+    },
+    "fmow": {
+      "fmow_stress_k2_diff": 7.204090064036356,
+      "cond_gap_median_fragile": 0.0005319786666510059,
+      "cond_gap_median_robust": 2.6374823749580594e-05,
+      "se_median": 1.0014349434081955e-05,
+      "cellcluster_ci_k0": [
+        -37.58389261744966,
+        14.646464646464644
+      ]
+    }
+  },
+  "got": {
+    "Q1_camelyon_tvball_diff_at_k2_points_in_[12,26]": false,
+    "Q2_rowboot_CI_at_k2_excludes_0_camelyon": true,
+    "Q3_fragile_wrongrate_at_k2_ge_0.45_camelyon": true,
+    "Q4_dull_rejected_fragile_rate_at_k1_ge_0.50_camelyon": true,
+    "Q5_cellcluster_CI_at_k0_excludes_0_camelyon": true,
+    "Q6_cond_gap_median_ratio_fragile_over_robust_in_[0.7,1.5]_camelyon": false,
+    "Q7_fmow_stress_diff_at_k2_lt_10_points": true
+  },
+  "passed": {
+    "Q1_camelyon_tvball_diff_at_k2_points_in_[12,26]": false,
+    "Q2_rowboot_CI_at_k2_excludes_0_camelyon": true,
+    "Q3_fragile_wrongrate_at_k2_ge_0.45_camelyon": true,
+    "Q4_dull_rejected_fragile_rate_at_k1_ge_0.50_camelyon": true,
+    "Q5_cellcluster_CI_at_k0_excludes_0_camelyon": true,
+    "Q6_cond_gap_median_ratio_fragile_over_robust_in_[0.7,1.5]_camelyon": false,
+    "Q7_fmow_stress_diff_at_k2_lt_10_points": true
+  },
+  "overall": "PRED FAILED",
+  "bootstrap": {
+    "B": 2000,
+    "unit": "held-out rows (multinomial over 4 cells) + budget-cell cluster for state dependence",
+    "caveat": "state-set dependence beyond the shared population is addressed only by the cluster bootstrap"
+  },
+  "paper_rule": "if Q1 and Q2 hold: report CAMELYON17 alone as the result (primary family), FMoW as uninformative; if Q2 fails: report as suggestive with the near-tie caveat leading; if Q1 fails: the band marks where the choice does not matter -- publish as that negative.",
+  "python": "3.12.4"
+}

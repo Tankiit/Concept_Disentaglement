@@ -1,0 +1,6 @@
+{
+  "dated": "2026-11-10, after the first run, before re-scoring",
+  "P6_as_written": "k_star > max(n_identity, n_labels_per_source) for all four states",
+  "P6_amended": "k_star > n of the adversarial component (n_identity for identity_preferred states, n_labels_per_source for label_preferred)",
+  "why": "The break-even flip is driven by prior weight on the WINNING channel's governing component; comparing it to the larger, irrelevant component's sample size was an operationalisation error, discovered when P6 failed while the rationale's per-component arithmetic (k* ~ (sqrt(ratio)-1)*(n+1)/2) clearly held for every state."
+}

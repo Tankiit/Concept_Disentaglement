@@ -1,0 +1,4 @@
+family,state,channel,target,expected_variance,variance_reduction,expected_width,width_reduction,mi_reduction
+aligned_reference_control,unresolved,deployment_label,reference_target,0.009599999999999996,0.0003999999999999993,0.19999999999999996,0.0,0.0008002134699838237
+aligned_reference_control,oracle_U0,deployment_label,reference_target,0.009599999999999996,0.0003999999999999993,0.19999999999999996,0.0,0.0008002134699838237
+aligned_reference_control,oracle_U1,deployment_label,reference_target,0.009599999999999996,0.0003999999999999993,0.19999999999999996,0.0,0.0008002134699838237

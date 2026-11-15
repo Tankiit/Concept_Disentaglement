@@ -1,0 +1,39 @@
+{
+  "dataset": "CIFAR10 official test split, repartitioned by OSSIM",
+  "backbone": "timm resnet18 pretrained default",
+  "feature_cache": "cache/features/timm_resnet18_c10test.npz",
+  "classes": [
+    0,
+    1,
+    8
+  ],
+  "split_seed": 0,
+  "training_seed": 0,
+  "mc_seed": 123,
+  "epochs": 40,
+  "passes": 30,
+  "features": 512,
+  "extraction_device": "cuda",
+  "head_device": "cpu",
+  "torch_version": "2.14.1+cu130",
+  "metrics": {
+    "val": {
+      "known_rows": 600,
+      "unknown_rows": 2000,
+      "known_accuracy": 0.95,
+      "known_mean_eu": 0.012596130041959743,
+      "unknown_mean_eu": 0.0434896681685932,
+      "eu_auroc": 0.8673241666666667,
+      "entropy_auroc": 0.8932383333333334
+    },
+    "test": {
+      "known_rows": 300,
+      "unknown_rows": 5000,
+      "known_accuracy": 0.9633333333333334,
+      "known_mean_eu": 0.011399260604472753,
+      "unknown_mean_eu": 0.04269099035475228,
+      "eu_auroc": 0.8332226666666666,
+      "entropy_auroc": 0.8380186666666666
+    }
+  }
+}

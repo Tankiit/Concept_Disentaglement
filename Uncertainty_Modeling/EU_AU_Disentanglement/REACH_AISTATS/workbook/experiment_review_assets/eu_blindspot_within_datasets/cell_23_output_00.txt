@@ -1,0 +1,19 @@
+   dataset       model  known_accuracy  eu_auroc  tu_auroc  p_unknown_auroc  \
+0    mnist    5 epochs          0.8738    0.2571    0.8404           0.7352   
+1    mnist  100 epochs          0.8862    0.8197    0.8621           0.8462   
+2   emnist    5 epochs          0.0800    0.4462    0.6250           0.6076   
+3   emnist  100 epochs          0.7481    0.6156    0.6381           0.7863   
+4  fashion    5 epochs          0.8788    0.4049    0.5317           0.6076   
+5  fashion  100 epochs          0.8925    0.6975    0.7313           0.6815   
+6    blood    5 epochs          0.5217    0.7529    0.2136           0.2609   
+7    blood  100 epochs          0.8133    0.3749    0.2647           0.2624   
+
+   neg_margin_auroc  
+0            0.7933  
+1            0.7909  
+2            0.3148  
+3            0.5917  
+4            0.6792  
+5            0.7090  
+6            0.2425  
+7            0.2642  

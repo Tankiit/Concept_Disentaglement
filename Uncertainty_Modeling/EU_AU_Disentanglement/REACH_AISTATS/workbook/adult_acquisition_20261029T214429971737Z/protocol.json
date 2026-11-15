@@ -1,0 +1,42 @@
+{
+  "seed": 20261029,
+  "n_identities": [
+    0,
+    2,
+    8,
+    32,
+    128,
+    512
+  ],
+  "n_labels_per_source": [
+    2,
+    8,
+    32,
+    128,
+    512
+  ],
+  "state_repeats": 20,
+  "validation_repeats": 4000,
+  "budgets": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "mi_relative_tolerance": 0.01,
+  "mean_absolute_tolerance": 0.02,
+  "variance_relative_tolerance": 0.1,
+  "action_margin": 2.0,
+  "prior": "independent Beta(1,1) for W,Theta0,Theta1",
+  "quadrature_order": 24,
+  "source": "private versus public employment (Federal/Local/State-gov)",
+  "target": "unweighted income >50K prevalence in retained population",
+  "matching_rule": "min relative MI discrepancy subject to fixed tolerances and opposite >=2x action preferences; tie by state IDs",
+  "archive_url": "https://archive.ics.uci.edu/static/public/2/adult.zip",
+  "archive_sha256": "7537312dd56c2b98035880805ce99e68183a30ee468aa5329d6df0fbb3cc21bb"
+}

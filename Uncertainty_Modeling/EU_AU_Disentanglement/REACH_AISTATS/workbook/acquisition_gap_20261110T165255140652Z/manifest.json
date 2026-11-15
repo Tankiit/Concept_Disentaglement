@@ -1,0 +1,121 @@
+{
+  "script_sha256": "491bcd485f68f1b57481e8b4aeb0b2ddd94cef4e90e566facde31d7c8ac2d6ce",
+  "branch": "e309a46f47a00c615fc73f953ddf6794c220e0c4",
+  "inputs": {
+    "camelyon17": {
+      "candidate_states.csv": "5b772e72a34823dcd2cb9b50c530974a3672b4036f4d6e9a27cab070ae775c4d",
+      "population_rates.csv": "b72bdb9fde2d11a87c7d1a2b1cc320a256e504885e50fa9138b0175db8bc92a0",
+      "heldout_exact_one_step.csv": "c68fd38b94877b353fdfd3ff9d1b0ea2ded2db79cf932554613d9412ef3d9f79"
+    },
+    "fmow": {
+      "candidate_states.csv": "9d8ee71764aa81e09be8fd17592c448ef863bb2967b9b098130ea27d950bcdbb",
+      "population_rates.csv": "f161559d9ae404c362afbbbc56c4eb9cbd121ae94e290298f9075cea92b8b741",
+      "heldout_exact_one_step.csv": "20e01c73daa4454bc13f6ba330ecc9896de5ab8a9f783eab69b1473f953f7855"
+    }
+  },
+  "per_dataset": {
+    "camelyon17": {
+      "cells_unanimous": 0.36666666666666664,
+      "belief_pos_frac": 0.27666666666666667,
+      "budget_pos_frac": 0.16,
+      "model_pos_frac": 0.33666666666666667,
+      "median_rel_gap_belief": 0.03314317365667088,
+      "frac_rel_ge_thr_belief": 0.06,
+      "exact_ties": 0
+    },
+    "fmow": {
+      "cells_unanimous": 0.2,
+      "belief_pos_frac": 0.23,
+      "budget_pos_frac": 0.25833333333333336,
+      "model_pos_frac": 0.3333333333333333,
+      "median_rel_gap_belief": 0.03227017030249861,
+      "frac_rel_ge_thr_belief": 0.06,
+      "exact_ties": 0
+    }
+  },
+  "pooled": {
+    "belief_only": {
+      "pick": "belief_only",
+      "n": 1200,
+      "pos_frac": 0.25333333333333335,
+      "median_gap": 0.0,
+      "median_rel_gap": 0.032717423674221056,
+      "p90_rel_gap": 0.6286106053533133,
+      "max_rel_gap": 61.40027290404256,
+      "frac_rel_ge_threshold": 0.06
+    },
+    "budget_only": {
+      "pick": "budget_only",
+      "n": 1200,
+      "pos_frac": 0.20916666666666667,
+      "median_gap": 0.0,
+      "median_rel_gap": 0.07566344301173326,
+      "p90_rel_gap": 0.9563125330378244,
+      "max_rel_gap": 61.40027290404256,
+      "frac_rel_ge_threshold": 0.09583333333333334
+    },
+    "model_pick": {
+      "pick": "model_pick",
+      "n": 1200,
+      "pos_frac": 0.335,
+      "median_gap": 0.0,
+      "median_rel_gap": 0.2734661024362047,
+      "p90_rel_gap": 1.8782548086595743,
+      "max_rel_gap": 1040.7488036355799,
+      "frac_rel_ge_threshold": 0.22666666666666666
+    }
+  },
+  "verdict": {
+    "P1_belief_only_pos_frac": 0.25333333333333335,
+    "P2_model_pick_pos_frac": 0.335,
+    "P3_budget_only_pos_frac": 0.20916666666666667,
+    "P4_median_rel_gap_belief_ge_0.03": true,
+    "P5_frac_rel_gap_ge_0.10_belief_ge_0.15": false,
+    "P6_cells_unanimous_ge_0.90_per_dataset": false,
+    "P7_model_pos_frac_diff_between_datasets_lt_0.20": true
+  },
+  "passed": {
+    "P1": true,
+    "P2": false,
+    "P3": false,
+    "P4": true,
+    "P5": false,
+    "P6": false,
+    "P7": true
+  },
+  "overall": "PRED FAILED",
+  "analysis_fixes": [
+    "2026-11-10: first invocation used population weights n_s/N for the label channel; the built-in validation against heldout_exact_one_step.csv failed before any gap was computed. The frozen protocol (wilds_counterexample.py lines 97-102) stratifies labels with weight 1/2 per source; corrected to that definition. PRED was already on disk and is unchanged.",
+    "2026-11-10: the budget_only cell-majority was inverted in the first completed run (picked source_id when label was the training majority), giving a worse-than-chance 0.794 positive-gap fraction that flagged the bug. Rule as frozen in PRED is unchanged; implementation corrected. belief_only and model_pick were unaffected (identical numbers across the two runs)."
+  ],
+  "exploratory_model_pick_by_action_margin": {
+    "camelyon17": {
+      "n_decisive": 554,
+      "n_indecisive": 46,
+      "model_pos_frac_decisive": 0.33393501805054154,
+      "model_pos_frac_indecisive": 0.3695652173913043,
+      "belief_pos_frac_decisive": 0.27256317689530685,
+      "budget_pos_frac_decisive": 0.1444043321299639
+    },
+    "fmow": {
+      "n_decisive": 534,
+      "n_indecisive": 66,
+      "model_pos_frac_decisive": 0.3352059925093633,
+      "model_pos_frac_indecisive": 0.3181818181818182,
+      "belief_pos_frac_decisive": 0.21348314606741572,
+      "budget_pos_frac_decisive": 0.24719101123595505
+    },
+    "POOLED": {
+      "n_decisive": 1088,
+      "n_indecisive": 112,
+      "model_pos_frac_decisive": 0.33455882352941174,
+      "model_pos_frac_indecisive": 0.3392857142857143,
+      "belief_pos_frac_decisive": 0.24356617647058823,
+      "budget_pos_frac_decisive": 0.1948529411764706
+    }
+  },
+  "tie_rule": "source_id",
+  "rel_threshold": 0.1,
+  "evaluator": "exact enumeration over frozen held-out counts; validated against all 8 heldout_exact_one_step rows to 1e-9",
+  "python": "3.12.4"
+}

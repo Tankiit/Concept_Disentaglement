@@ -1,0 +1,19 @@
+/tmp/tmpr1c_4gin/synthetic.npz: X (1000, 10), classes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], mean feature norm 3.018
+seed=0
+  kkc=[np.int64(0), np.int64(1), np.int64(8)]
+  kuc=[]
+  uuc=[np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(9)]
+  train: 210 rows, classes [0, 1, 8]
+  val: 260 rows, classes [0, 1, 4, 6, 8]
+  test: 530 rows, classes [0, 1, 2, 3, 5, 7, 8, 9]
+
+Original label -> classifier output: {0: 0, 1: 1, 8: 2}
+All labels through lookup: [0, 1, -1, -1, -1, -1, -1, -1, 2, -1]
+Example original labels: [8, 8, 0, 8, 0, 0, 8, 8, 0, 8, 8, 0]
+Example remapped labels: [2, 2, 0, 2, 0, 0, 2, 2, 0, 2, 2, 0]
+Logit shape: (32, 3)
+Training loss, epoch 1: 0.8845
+Training loss, epoch 20: 0.1922
+Known-class validation rows: 60
+Known-class validation accuracy: 1.0
+Toy result only; this does not measure image classification or uncertainty quality.

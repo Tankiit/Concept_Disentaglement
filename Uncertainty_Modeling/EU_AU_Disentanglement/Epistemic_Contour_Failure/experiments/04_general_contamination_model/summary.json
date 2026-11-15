@@ -1,0 +1,1706 @@
+{
+  "refined_anchor_posterior": {
+    "posterior": {
+      "mean": [
+        -0.0036562115200573057,
+        -0.0015501534692035305,
+        0.9707293217433823
+      ],
+      "mean_mcse": [
+        8.40225332932021e-05,
+        5.160948235123974e-05,
+        2.533431413067168e-05
+      ],
+      "hpd_mass": 0.9527527387931882,
+      "hpd_count": 80,
+      "hpd_diameter": 0.5223873415340407,
+      "true_contours_in_hpd": [
+        true,
+        true
+      ],
+      "true_contour_probabilities": [
+        0.011967093402367363,
+        0.0117268309329762
+      ],
+      "left_probability": 0.40281727187834343,
+      "center_probability": 0.22135433635149854,
+      "right_probability": 0.3758283917701378
+    },
+    "diagnostics": {
+      "accepted": 2048,
+      "proposals": 2048,
+      "eligible": 2048,
+      "acceptance": 1.0
+    }
+  },
+  "seed": 20261025,
+  "posterior_draws": 2048,
+  "parameter_candidates": 1815,
+  "refined_candidates": 12789,
+  "populations": [
+    {
+      "epsilon": 0.15,
+      "identified": {
+        "count": 6,
+        "minimum": [
+          -0.19999999999999996,
+          0.0,
+          0.9500000000000001
+        ],
+        "maximum": [
+          0.20000000000000007,
+          0.0,
+          1.0
+        ],
+        "hausdorff_diameter": 0.4
+      },
+      "refined_identified": {
+        "count": 21,
+        "minimum": [
+          -0.19999999999999996,
+          -0.04999999999999999,
+          0.9500000000000001
+        ],
+        "maximum": [
+          0.20000000000000007,
+          0.050000000000000044,
+          1.0
+        ],
+        "hausdorff_diameter": 0.4
+      },
+      "known_q0": [
+        [
+          -0.19999999999999996,
+          0.0,
+          1.0
+        ]
+      ],
+      "mle": [
+        0.0,
+        0.0,
+        1.05
+      ],
+      "mle_errors": [
+        0.3223873415340409,
+        0.3223873415340409
+      ],
+      "minimum_tv": 0.026991759138347036,
+      "minimum_tv_parameters": [
+        [
+          0.0,
+          0.0,
+          1.05
+        ]
+      ],
+      "minimum_tv_errors": [
+        [
+          0.3223873415340409,
+          0.3223873415340409
+        ]
+      ],
+      "conditional_at_exact_m": {
+        "equal": {
+          "mean": [
+            3.122502256758253e-17,
+            0.0,
+            0.9916666666666666
+          ],
+          "mean_mcse": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hpd_mass": 0.9999999999999999,
+          "hpd_count": 6,
+          "hpd_diameter": 0.4,
+          "true_contours_in_hpd": [
+            true,
+            true
+          ],
+          "true_contour_probabilities": [
+            0.16666666666666666,
+            0.16666666666666666
+          ],
+          "left_probability": 0.3333333333333333,
+          "center_probability": 0.3333333333333333,
+          "right_probability": 0.3333333333333333
+        },
+        "left": {
+          "mean": [
+            -0.11473768656402807,
+            0.0,
+            0.9949134259165131
+          ],
+          "mean_mcse": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hpd_mass": 0.979460768080442,
+          "hpd_count": 5,
+          "hpd_diameter": 0.32238734153404064,
+          "true_contours_in_hpd": [
+            true,
+            false
+          ],
+          "true_contour_probabilities": [
+            0.50387932729199,
+            0.020539231919558042
+          ],
+          "left_probability": 0.7302869034641825,
+          "center_probability": 0.2034629633394843,
+          "right_probability": 0.06625013319633337
+        },
+        "right": {
+          "mean": [
+            0.11473768656402818,
+            0.0,
+            0.9949134259165131
+          ],
+          "mean_mcse": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hpd_mass": 0.9794607680804421,
+          "hpd_count": 5,
+          "hpd_diameter": 0.32238734153404075,
+          "true_contours_in_hpd": [
+            false,
+            true
+          ],
+          "true_contour_probabilities": [
+            0.020539231919558046,
+            0.5038793272919901
+          ],
+          "left_probability": 0.06625013319633338,
+          "center_probability": 0.20346296333948416,
+          "right_probability": 0.7302869034641826
+        }
+      }
+    },
+    {
+      "epsilon": 0.2,
+      "identified": {
+        "count": 13,
+        "minimum": [
+          -0.19999999999999996,
+          -0.09999999999999998,
+          0.9
+        ],
+        "maximum": [
+          0.20000000000000007,
+          0.10000000000000009,
+          1.0
+        ],
+        "hausdorff_diameter": 0.5223873415340407
+      },
+      "refined_identified": {
+        "count": 82,
+        "minimum": [
+          -0.25,
+          -0.09999999999999998,
+          0.9
+        ],
+        "maximum": [
+          0.25,
+          0.10000000000000009,
+          1.025
+        ],
+        "hausdorff_diameter": 0.5223873415340407
+      },
+      "known_q0": [
+        [
+          -0.19999999999999996,
+          0.0,
+          1.0
+        ]
+      ],
+      "mle": [
+        0.0,
+        0.0,
+        1.05
+      ],
+      "mle_errors": [
+        0.3223873415340409,
+        0.3223873415340409
+      ],
+      "minimum_tv": 0.025383428060561423,
+      "minimum_tv_parameters": [
+        [
+          0.0,
+          0.0,
+          1.05
+        ]
+      ],
+      "minimum_tv_errors": [
+        [
+          0.3223873415340409,
+          0.3223873415340409
+        ]
+      ],
+      "conditional_at_exact_m": {
+        "equal": {
+          "mean": [
+            3.642919299551295e-17,
+            8.673617379884035e-18,
+            0.9653846153846155
+          ],
+          "mean_mcse": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hpd_mass": 0.9999999999999998,
+          "hpd_count": 13,
+          "hpd_diameter": 0.5223873415340407,
+          "true_contours_in_hpd": [
+            true,
+            true
+          ],
+          "true_contour_probabilities": [
+            0.07692307692307693,
+            0.07692307692307693
+          ],
+          "left_probability": 0.3076923076923077,
+          "center_probability": 0.38461538461538464,
+          "right_probability": 0.3076923076923077
+        },
+        "left": {
+          "mean": [
+            -0.10918396337944514,
+            5.204170427930421e-18,
+            0.9689495433552648
+          ],
+          "mean_mcse": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hpd_mass": 0.9587057786054856,
+          "hpd_count": 10,
+          "hpd_diameter": 0.44477468306808154,
+          "true_contours_in_hpd": [
+            true,
+            false
+          ],
+          "true_contour_probabilities": [
+            0.23974486355016097,
+            0.009772529030797235
+          ],
+          "left_probability": 0.6949383494831589,
+          "center_probability": 0.2420182657894065,
+          "right_probability": 0.06304338472743462
+        },
+        "right": {
+          "mean": [
+            0.10918396337944525,
+            5.204170427930421e-18,
+            0.968949543355265
+          ],
+          "mean_mcse": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hpd_mass": 0.9587057786054856,
+          "hpd_count": 10,
+          "hpd_diameter": 0.44477468306808166,
+          "true_contours_in_hpd": [
+            false,
+            true
+          ],
+          "true_contour_probabilities": [
+            0.009772529030797237,
+            0.23974486355016103
+          ],
+          "left_probability": 0.06304338472743462,
+          "center_probability": 0.24201826578940633,
+          "right_probability": 0.6949383494831591
+        }
+      }
+    },
+    {
+      "epsilon": 0.3,
+      "identified": {
+        "count": 60,
+        "minimum": [
+          -0.3,
+          -0.19999999999999996,
+          0.8
+        ],
+        "maximum": [
+          0.30000000000000004,
+          0.20000000000000007,
+          1.05
+        ],
+        "hausdorff_diameter": 0.7447746830680816
+      },
+      "refined_identified": {
+        "count": 447,
+        "minimum": [
+          -0.3,
+          -0.19999999999999996,
+          0.8
+        ],
+        "maximum": [
+          0.30000000000000004,
+          0.20000000000000007,
+          1.05
+        ],
+        "hausdorff_diameter": 0.8059683538351021
+      },
+      "known_q0": [
+        [
+          -0.19999999999999996,
+          0.0,
+          1.0
+        ]
+      ],
+      "mle": [
+        0.0,
+        0.0,
+        1.05
+      ],
+      "mle_errors": [
+        0.3223873415340409,
+        0.3223873415340409
+      ],
+      "minimum_tv": 0.024161321461904067,
+      "minimum_tv_parameters": [
+        [
+          0.0,
+          0.0,
+          1.05
+        ]
+      ],
+      "minimum_tv_errors": [
+        [
+          0.3223873415340409,
+          0.3223873415340409
+        ]
+      ],
+      "conditional_at_exact_m": {
+        "equal": {
+          "mean": [
+            3.122502256758253e-17,
+            3.122502256758253e-17,
+            0.9341666666666667
+          ],
+          "mean_mcse": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hpd_mass": 0.95,
+          "hpd_count": 57,
+          "hpd_diameter": 0.7447746830680816,
+          "true_contours_in_hpd": [
+            true,
+            true
+          ],
+          "true_contour_probabilities": [
+            0.016666666666666666,
+            0.016666666666666666
+          ],
+          "left_probability": 0.35000000000000003,
+          "center_probability": 0.30000000000000004,
+          "right_probability": 0.35
+        },
+        "left": {
+          "mean": [
+            -0.17197671285857719,
+            3.122502256758253e-17,
+            0.9357235850130208
+          ],
+          "mean_mcse": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hpd_mass": 0.9535464534876973,
+          "hpd_count": 40,
+          "hpd_diameter": 0.6895493661361631,
+          "true_contours_in_hpd": [
+            true,
+            false
+          ],
+          "true_contour_probabilities": [
+            0.03953292920180085,
+            0.0016114493239861162
+          ],
+          "left_probability": 0.8062920135274638,
+          "center_probability": 0.14366809353551088,
+          "right_probability": 0.05003989293702532
+        },
+        "right": {
+          "mean": [
+            0.17197671285857724,
+            3.209238430557093e-17,
+            0.9357235850130212
+          ],
+          "mean_mcse": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hpd_mass": 0.9535464534876973,
+          "hpd_count": 40,
+          "hpd_diameter": 0.6895493661361632,
+          "true_contours_in_hpd": [
+            false,
+            true
+          ],
+          "true_contour_probabilities": [
+            0.0016114493239861166,
+            0.03953292920180086
+          ],
+          "left_probability": 0.05003989293702534,
+          "center_probability": 0.1436680935355108,
+          "right_probability": 0.8062920135274639
+        }
+      }
+    }
+  ],
+  "posteriors": [
+    {
+      "mean": [
+        -0.008382161458333285,
+        0.0,
+        0.9756286621093777
+      ],
+      "mean_mcse": [
+        0.0005930476510910585,
+        0.0,
+        0.0003146983090830409
+      ],
+      "hpd_mass": 1.0000000000000029,
+      "hpd_count": 4,
+      "hpd_diameter": 0.22238734153404077,
+      "true_contours_in_hpd": [
+        false,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.0,
+        0.0
+      ],
+      "left_probability": 0.16206868489583295,
+      "center_probability": 0.75968424479167,
+      "right_probability": 0.07824707031250001,
+      "epsilon": 0.15,
+      "n": 100000,
+      "prior": "equal",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2560,
+        "eligible": 2509,
+        "acceptance": 0.980078125
+      }
+    },
+    {
+      "mean": [
+        -0.020980174568990706,
+        0.0,
+        0.97712819316943
+      ],
+      "mean_mcse": [
+        0.0007029282493463166,
+        0.0,
+        0.00033669952302584717
+      ],
+      "hpd_mass": 0.9590616321655552,
+      "hpd_count": 3,
+      "hpd_diameter": 0.22238734153404066,
+      "true_contours_in_hpd": [
+        false,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.0,
+        0.0
+      ],
+      "left_probability": 0.2507401135243552,
+      "center_probability": 0.7083215186412,
+      "right_probability": 0.04093836783444804,
+      "epsilon": 0.15,
+      "n": 100000,
+      "prior": "left",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2560,
+        "eligible": 2509,
+        "acceptance": 0.980078125
+      }
+    },
+    {
+      "mean": [
+        0.0036512384250499148,
+        0.0,
+        0.9748356108576351
+      ],
+      "mean_mcse": [
+        0.0006390589294721307,
+        0.0,
+        0.00032542259241373657
+      ],
+      "hpd_mass": 1.0000000000000075,
+      "hpd_count": 4,
+      "hpd_diameter": 0.22238734153404077,
+      "true_contours_in_hpd": [
+        false,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.0,
+        0.0
+      ],
+      "left_probability": 0.09100750002947738,
+      "center_probability": 0.7814726156905538,
+      "right_probability": 0.1275198842799764,
+      "epsilon": 0.15,
+      "n": 100000,
+      "prior": "right",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2560,
+        "eligible": 2509,
+        "acceptance": 0.980078125
+      }
+    },
+    {
+      "mean": [
+        -0.0004882812499999757,
+        0.0,
+        0.9877221679687469
+      ],
+      "mean_mcse": [
+        0.00027922271837872795,
+        0.0,
+        1.7422449342407623e-05
+      ],
+      "hpd_mass": 0.9806803385416636,
+      "hpd_count": 4,
+      "hpd_diameter": 0.22238734153404077,
+      "true_contours_in_hpd": [
+        false,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.011124674479166645,
+        0.008194986979166654
+      ],
+      "left_probability": 0.25541992187499923,
+      "center_probability": 0.4911132812499984,
+      "right_probability": 0.2534667968749992,
+      "epsilon": 0.15,
+      "n": 1000000,
+      "prior": "equal",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        -0.04202358399921866,
+        0.0,
+        0.9895905269538613
+      ],
+      "mean_mcse": [
+        0.0004350987767283487,
+        0.0,
+        3.0998453500017355e-05
+      ],
+      "hpd_mass": 0.969667256320054,
+      "hpd_count": 4,
+      "hpd_diameter": 0.22238734153404077,
+      "true_contours_in_hpd": [
+        false,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.028638112894564548,
+        0.0016946307853768874
+      ],
+      "left_probability": 0.4884567180188156,
+      "center_probability": 0.41637892184536324,
+      "right_probability": 0.0951643601358165,
+      "epsilon": 0.15,
+      "n": 1000000,
+      "prior": "left",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        0.04086646030557112,
+        0.0,
+        0.9895415533295439
+      ],
+      "mean_mcse": [
+        0.00037411942728859905,
+        0.0,
+        2.4997089627738833e-05
+      ],
+      "hpd_mass": 0.9765966407362286,
+      "hpd_count": 4,
+      "hpd_diameter": 0.22238734153404077,
+      "true_contours_in_hpd": [
+        false,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.002301071257670464,
+        0.021102288006096384
+      ],
+      "left_probability": 0.0958993734373237,
+      "center_probability": 0.41833786681806334,
+      "right_probability": 0.4857627597446084,
+      "epsilon": 0.15,
+      "n": 1000000,
+      "prior": "right",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        -0.04379632859002987,
+        0.0061437406994047745,
+        0.9519034540085589
+      ],
+      "mean_mcse": [
+        0.0010388746868962204,
+        0.0005861505161488854,
+        0.00016245728251876554
+      ],
+      "hpd_mass": 0.9638340541294668,
+      "hpd_count": 9,
+      "hpd_diameter": 0.32238734153404075,
+      "true_contours_in_hpd": [
+        false,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.0,
+        8.138020833333333e-05
+      ],
+      "left_probability": 0.47496337890625123,
+      "center_probability": 0.45565069289434645,
+      "right_probability": 0.06938592819940474,
+      "epsilon": 0.2,
+      "n": 10000,
+      "prior": "equal",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 3072,
+        "eligible": 2330,
+        "acceptance": 0.7584635416666666
+      }
+    },
+    {
+      "mean": [
+        -0.06119838616295232,
+        0.005177338128754574,
+        0.9520870548991811
+      ],
+      "mean_mcse": [
+        0.001041354281836531,
+        0.0005839839256241892,
+        0.0001708426497294203
+      ],
+      "hpd_mass": 0.958881463759101,
+      "hpd_count": 8,
+      "hpd_diameter": 0.32238734153404075,
+      "true_contours_in_hpd": [
+        false,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.0,
+        1.3880317968556728e-05
+      ],
+      "left_probability": 0.595437821752519,
+      "center_probability": 0.36903742702531783,
+      "right_probability": 0.035524751222164155,
+      "epsilon": 0.2,
+      "n": 10000,
+      "prior": "left",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 3072,
+        "eligible": 2330,
+        "acceptance": 0.7584635416666666
+      }
+    },
+    {
+      "mean": [
+        -0.026261551323693753,
+        0.00648931344663198,
+        0.9517029220720603
+      ],
+      "mean_mcse": [
+        0.0011516524374601388,
+        0.000600163924445495,
+        0.0001644140725382192
+      ],
+      "hpd_mass": 0.9614145836993954,
+      "hpd_count": 9,
+      "hpd_diameter": 0.32238734153404064,
+      "true_contours_in_hpd": [
+        false,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.0,
+        0.00023999378361046192
+      ],
+      "left_probability": 0.3604548275991781,
+      "center_probability": 0.5245150796608707,
+      "right_probability": 0.11503009273995428,
+      "epsilon": 0.2,
+      "n": 10000,
+      "prior": "right",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 3072,
+        "eligible": 2330,
+        "acceptance": 0.7584635416666666
+      }
+    },
+    {
+      "mean": [
+        -0.01128438754171174,
+        -0.005124369039163895,
+        0.9688510321194639
+      ],
+      "mean_mcse": [
+        0.0003971487358419683,
+        0.0001678420474308554,
+        9.574144399338584e-05
+      ],
+      "hpd_mass": 0.9574532645089278,
+      "hpd_count": 9,
+      "hpd_diameter": 0.42238734153404073,
+      "true_contours_in_hpd": [
+        true,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.050417064760326764,
+        0.0017342615609217175
+      ],
+      "left_probability": 0.3095917848969604,
+      "center_probability": 0.4548948962279036,
+      "right_probability": 0.23551331887513516,
+      "epsilon": 0.2,
+      "n": 100000,
+      "prior": "equal",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        -0.06733874410047376,
+        -0.0036162234843677716,
+        0.9733758057918492
+      ],
+      "mean_mcse": [
+        0.0006749235809939946,
+        0.0001338393535483769,
+        0.00014707957120918094
+      ],
+      "hpd_mass": 0.9638604422824877,
+      "hpd_count": 9,
+      "hpd_diameter": 0.42238734153404073,
+      "true_contours_in_hpd": [
+        true,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.1504687321569828,
+        0.0002968492192495697
+      ],
+      "left_probability": 0.5843714321782758,
+      "center_probability": 0.3390779871536924,
+      "right_probability": 0.0765505806680283,
+      "epsilon": 0.2,
+      "n": 100000,
+      "prior": "left",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        0.0415675134099122,
+        -0.004628387181461165,
+        0.9667212993005232
+      ],
+      "mean_mcse": [
+        0.0005536653608321523,
+        0.00015082465771704742,
+        0.00012468557979113703
+      ],
+      "hpd_mass": 0.9684715394036116,
+      "hpd_count": 9,
+      "hpd_diameter": 0.42238734153404073,
+      "true_contours_in_hpd": [
+        false,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.00972038231806394,
+        0.005390315402559811
+      ],
+      "left_probability": 0.1126165992454286,
+      "center_probability": 0.40612584029226895,
+      "right_probability": 0.4812575604623032,
+      "epsilon": 0.2,
+      "n": 100000,
+      "prior": "right",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        -0.009774895514641542,
+        -7.825020032043231e-06,
+        0.9663555979339747
+      ],
+      "mean_mcse": [
+        0.0002516275671461856,
+        5.536201014176307e-06,
+        2.7391231568286457e-05
+      ],
+      "hpd_mass": 0.9790276374016685,
+      "hpd_count": 12,
+      "hpd_diameter": 0.5223873415340407,
+      "true_contours_in_hpd": [
+        true,
+        true
+      ],
+      "true_contour_probabilities": [
+        0.08060038106424888,
+        0.07899571131993058
+      ],
+      "left_probability": 0.31586208387966397,
+      "center_probability": 0.41718943491404803,
+      "right_probability": 0.2669484812062959,
+      "epsilon": 0.2,
+      "n": 1000000,
+      "prior": "equal",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        -0.10569545533387537,
+        -9.624457381359093e-06,
+        0.9698147500914944
+      ],
+      "mean_mcse": [
+        0.0002766882530946553,
+        6.803924608157958e-06,
+        6.475479401933907e-05
+      ],
+      "hpd_mass": 0.9637393802932074,
+      "hpd_count": 10,
+      "hpd_diameter": 0.44477468306808154,
+      "true_contours_in_hpd": [
+        true,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.24683189395195332,
+        0.009978462897810113
+      ],
+      "left_probability": 0.6805133830416954,
+      "center_probability": 0.2599378584762586,
+      "right_probability": 0.059548758482065284,
+      "epsilon": 0.2,
+      "n": 1000000,
+      "prior": "left",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        0.08646896415275356,
+        -3.3164299585433307e-06,
+        0.9728488684394638
+      ],
+      "mean_mcse": [
+        0.00037785518361525746,
+        2.382645494165166e-06,
+        7.972050465303039e-05
+      ],
+      "hpd_mass": 0.9503651014568955,
+      "hpd_count": 10,
+      "hpd_diameter": 0.44477468306808166,
+      "true_contours_in_hpd": [
+        false,
+        true
+      ],
+      "true_contour_probabilities": [
+        0.011928309439001937,
+        0.2813505268294092
+      ],
+      "left_probability": 0.07707723693503683,
+      "center_probability": 0.3050368340515077,
+      "right_probability": 0.617885929013474,
+      "epsilon": 0.2,
+      "n": 1000000,
+      "prior": "right",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        -0.04031541611574195,
+        -0.0020979041895241675,
+        0.8710174796086136
+      ],
+      "mean_mcse": [
+        0.0017687430556403347,
+        0.0015451928560481511,
+        0.0006852878428527038
+      ],
+      "hpd_mass": 0.9504021151200159,
+      "hpd_count": 44,
+      "hpd_diameter": 0.7277171521485215,
+      "true_contours_in_hpd": [
+        false,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.0,
+        0.0
+      ],
+      "left_probability": 0.46182504246157324,
+      "center_probability": 0.3747463815917674,
+      "right_probability": 0.1634285759466598,
+      "epsilon": 0.3,
+      "n": 1000,
+      "prior": "equal",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 6656,
+        "eligible": 2199,
+        "acceptance": 0.3303786057692308
+      }
+    },
+    {
+      "mean": [
+        -0.057877149216856605,
+        -0.004874199130118077,
+        0.8731081199527759
+      ],
+      "mean_mcse": [
+        0.001819095745194928,
+        0.0015802377467452435,
+        0.0007013437058838327
+      ],
+      "hpd_mass": 0.9523167671188747,
+      "hpd_count": 44,
+      "hpd_diameter": 0.7277171521485215,
+      "true_contours_in_hpd": [
+        false,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.0,
+        0.0
+      ],
+      "left_probability": 0.5441407598220754,
+      "center_probability": 0.3362657948424989,
+      "right_probability": 0.11959344533542557,
+      "epsilon": 0.3,
+      "n": 1000,
+      "prior": "left",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 6656,
+        "eligible": 2199,
+        "acceptance": 0.3303786057692308
+      }
+    },
+    {
+      "mean": [
+        -0.0224620325393357,
+        0.0008985701061079146,
+        0.8688634957268522
+      ],
+      "mean_mcse": [
+        0.0018283033144329162,
+        0.001541401517199256,
+        0.0006877337828135251
+      ],
+      "hpd_mass": 0.9500137713106068,
+      "hpd_count": 44,
+      "hpd_diameter": 0.6833897906189605,
+      "true_contours_in_hpd": [
+        false,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.0,
+        0.0
+      ],
+      "left_probability": 0.3816537999722585,
+      "center_probability": 0.39941192656586133,
+      "right_probability": 0.21893427346188,
+      "epsilon": 0.3,
+      "n": 1000,
+      "prior": "right",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 6656,
+        "eligible": 2199,
+        "acceptance": 0.3303786057692308
+      }
+    },
+    {
+      "mean": [
+        -0.005614896181039305,
+        0.01198035147428483,
+        0.9227382633283594
+      ],
+      "mean_mcse": [
+        0.0007240506059682242,
+        0.00048081800397883125,
+        0.00024503617256234095
+      ],
+      "hpd_mass": 0.9515084449241672,
+      "hpd_count": 49,
+      "hpd_diameter": 0.7447746830680816,
+      "true_contours_in_hpd": [
+        true,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.0051645937169087905,
+        0.0028853551371605625
+      ],
+      "left_probability": 0.35970093739620806,
+      "center_probability": 0.2931793341901687,
+      "right_probability": 0.34711972841363053,
+      "epsilon": 0.3,
+      "n": 10000,
+      "prior": "equal",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        -0.13017756242049686,
+        0.009604822281219392,
+        0.9283637937195718
+      ],
+      "mean_mcse": [
+        0.0008118002421965259,
+        0.000516020693759206,
+        0.00025556638332584
+      ],
+      "hpd_mass": 0.9500132325568893,
+      "hpd_count": 42,
+      "hpd_diameter": 0.6053298106144807,
+      "true_contours_in_hpd": [
+        true,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.012969227376977126,
+        0.0003910250992823711
+      ],
+      "left_probability": 0.7496137855436082,
+      "center_probability": 0.17334234849573654,
+      "right_probability": 0.07704386596065523,
+      "epsilon": 0.3,
+      "n": 10000,
+      "prior": "left",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        0.10740574363879982,
+        0.010438503151544157,
+        0.9197649158998278
+      ],
+      "mean_mcse": [
+        0.0009146909992230287,
+        0.0005445882774201222,
+        0.00030011041791892004
+      ],
+      "hpd_mass": 0.9541148714399518,
+      "hpd_count": 44,
+      "hpd_diameter": 0.6447746830680816,
+      "true_contours_in_hpd": [
+        false,
+        true
+      ],
+      "true_contour_probabilities": [
+        0.0007425093964208653,
+        0.007285575661498035
+      ],
+      "left_probability": 0.08700245122236479,
+      "center_probability": 0.2006122656703044,
+      "right_probability": 0.7123852831073306,
+      "epsilon": 0.3,
+      "n": 10000,
+      "prior": "right",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        0.0032260469148229134,
+        0.001563905062007466,
+        0.9294306420985369
+      ],
+      "mean_mcse": [
+        0.00016073443026085607,
+        0.00013297497266236686,
+        7.839805503965014e-05
+      ],
+      "hpd_mass": 0.9583180088846576,
+      "hpd_count": 54,
+      "hpd_diameter": 0.7447746830680816,
+      "true_contours_in_hpd": [
+        true,
+        true
+      ],
+      "true_contour_probabilities": [
+        0.01175518145927434,
+        0.014614702776459636
+      ],
+      "left_probability": 0.34082829619420196,
+      "center_probability": 0.3034379045551804,
+      "right_probability": 0.35573379925062093,
+      "epsilon": 0.3,
+      "n": 100000,
+      "prior": "equal",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        -0.1482148185175751,
+        0.0014197874189826182,
+        0.9293948393675746
+      ],
+      "mean_mcse": [
+        0.00023217664756479758,
+        0.00013857027787273155,
+        8.331070582627701e-05
+      ],
+      "hpd_mass": 0.9512994727814542,
+      "hpd_count": 43,
+      "hpd_diameter": 0.6895493661361631,
+      "true_contours_in_hpd": [
+        true,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.03105887700847743,
+        0.0016128482305140064
+      ],
+      "left_probability": 0.7746005320827613,
+      "center_probability": 0.1646175469999141,
+      "right_probability": 0.06078192091732505,
+      "epsilon": 0.3,
+      "n": 100000,
+      "prior": "left",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        0.15463002052527888,
+        -0.0014843971756632133,
+        0.9304019848396021
+      ],
+      "mean_mcse": [
+        0.00022125368289751195,
+        0.00016305360238841592,
+        7.625547535738207e-05
+      ],
+      "hpd_mass": 0.9516329463307944,
+      "hpd_count": 44,
+      "hpd_diameter": 0.6895493661361632,
+      "true_contours_in_hpd": [
+        false,
+        true
+      ],
+      "true_contour_probabilities": [
+        0.0012385565056053309,
+        0.036753805558585095
+      ],
+      "left_probability": 0.05602484318295742,
+      "center_probability": 0.15641399661371708,
+      "right_probability": 0.7875611602033261,
+      "epsilon": 0.3,
+      "n": 100000,
+      "prior": "right",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        0.005227212195791395,
+        -0.001294676000551595,
+        0.9348773635948979
+      ],
+      "mean_mcse": [
+        0.00010597168288884559,
+        8.245776181423772e-05,
+        4.621305260185575e-05
+      ],
+      "hpd_mass": 0.9514052199673607,
+      "hpd_count": 54,
+      "hpd_diameter": 0.7447746830680816,
+      "true_contours_in_hpd": [
+        true,
+        true
+      ],
+      "true_contour_probabilities": [
+        0.017946464517837765,
+        0.017946464517837765
+      ],
+      "left_probability": 0.35093336095870065,
+      "center_probability": 0.2828781336207915,
+      "right_probability": 0.3661885054205169,
+      "epsilon": 0.3,
+      "n": 1000000,
+      "prior": "equal",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        -0.15913698385783792,
+        -0.00037886410484725373,
+        0.9345563262102661
+      ],
+      "mean_mcse": [
+        0.00021568668170593626,
+        0.00015636875482933238,
+        4.0870794153628194e-05
+      ],
+      "hpd_mass": 0.9529121432504123,
+      "hpd_count": 41,
+      "hpd_diameter": 0.6895493661361632,
+      "true_contours_in_hpd": [
+        true,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.04584043647470848,
+        0.0018685572220393971
+      ],
+      "left_probability": 0.7976206850112504,
+      "center_probability": 0.145948137291852,
+      "right_probability": 0.05643117769689812,
+      "epsilon": 0.3,
+      "n": 1000000,
+      "prior": "left",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        0.17339612789210757,
+        -0.0024005139939230185,
+        0.9358206054703613
+      ],
+      "mean_mcse": [
+        0.0001252131510393806,
+        0.00010742221377416111,
+        3.4872344747489054e-05
+      ],
+      "hpd_mass": 0.9519750829289819,
+      "hpd_count": 40,
+      "hpd_diameter": 0.6895493661361632,
+      "true_contours_in_hpd": [
+        false,
+        true
+      ],
+      "true_contour_probabilities": [
+        0.0016921614842687158,
+        0.041513002711207656
+      ],
+      "left_probability": 0.05097519982696183,
+      "center_probability": 0.13216987813795497,
+      "right_probability": 0.8168549220350825,
+      "epsilon": 0.3,
+      "n": 1000000,
+      "prior": "right",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        3.906250000004427e-05,
+        0.0,
+        0.9916617838541777
+      ],
+      "mean_mcse": [
+        4.784549164124616e-05,
+        0.0,
+        1.9909638291392065e-06
+      ],
+      "hpd_mass": 1.000000000000011,
+      "hpd_count": 6,
+      "hpd_diameter": 0.4,
+      "true_contours_in_hpd": [
+        true,
+        true
+      ],
+      "true_contour_probabilities": [
+        0.1663736979166685,
+        0.16656901041666852
+      ],
+      "left_probability": 0.333138020833337,
+      "center_probability": 0.333528645833337,
+      "right_probability": 0.33333333333333703,
+      "epsilon": 0.15,
+      "n": 100000000,
+      "prior": "equal",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        -0.11457499967836102,
+        0.0,
+        0.9949032316708422
+      ],
+      "mean_mcse": [
+        8.463316662794941e-05,
+        0.0,
+        5.041777920980412e-06
+      ],
+      "hpd_mass": 0.9794400828818057,
+      "hpd_count": 5,
+      "hpd_diameter": 0.32238734153404064,
+      "true_contours_in_hpd": [
+        true,
+        false
+      ],
+      "true_contour_probabilities": [
+        0.5029055066512182,
+        0.02055991711818212
+      ],
+      "left_probability": 0.7297668370423684,
+      "center_probability": 0.2038707331658254,
+      "right_probability": 0.066362429791794,
+      "epsilon": 0.15,
+      "n": 100000000,
+      "prior": "left",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    },
+    {
+      "mean": [
+        0.11466601113371798,
+        0.0,
+        0.9949081725459006
+      ],
+      "mean_mcse": [
+        6.013745601598266e-05,
+        0.0,
+        3.567885379165325e-06
+      ],
+      "hpd_mass": 0.9794805122466254,
+      "hpd_count": 5,
+      "hpd_diameter": 0.32238734153404075,
+      "true_contours_in_hpd": [
+        false,
+        true
+      ],
+      "true_contour_probabilities": [
+        0.02051948775336255,
+        0.5034078949771161
+      ],
+      "left_probability": 0.06627759886153747,
+      "center_probability": 0.20367309816348722,
+      "right_probability": 0.7300493029749631,
+      "epsilon": 0.15,
+      "n": 100000000,
+      "prior": "right",
+      "diagnostics": {
+        "accepted": 2048,
+        "proposals": 2048,
+        "eligible": 2048,
+        "acceptance": 1.0
+      }
+    }
+  ],
+  "failed_sampling": [
+    {
+      "epsilon": 0.15,
+      "n": 1000,
+      "accepted": 0,
+      "proposals": 32768,
+      "eligible": 0,
+      "acceptance": 0.0
+    },
+    {
+      "epsilon": 0.15,
+      "n": 10000,
+      "accepted": 747,
+      "proposals": 32768,
+      "eligible": 747,
+      "acceptance": 0.022796630859375
+    },
+    {
+      "epsilon": 0.2,
+      "n": 1000,
+      "accepted": 8,
+      "proposals": 32768,
+      "eligible": 8,
+      "acceptance": 0.000244140625
+    }
+  ],
+  "declared_epsilon_sensitivity": [
+    {
+      "assumed_epsilon": 0.05,
+      "count": 0,
+      "minimum": null,
+      "maximum": null,
+      "hausdorff_diameter": 0.0,
+      "refined": {
+        "count": 0,
+        "minimum": null,
+        "maximum": null,
+        "hausdorff_diameter": 0.0
+      }
+    },
+    {
+      "assumed_epsilon": 0.1,
+      "count": 1,
+      "minimum": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "maximum": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hausdorff_diameter": 0.0,
+      "refined": {
+        "count": 4,
+        "minimum": [
+          -0.04999999999999999,
+          0.0,
+          0.9750000000000001
+        ],
+        "maximum": [
+          0.050000000000000044,
+          0.0,
+          1.0
+        ],
+        "hausdorff_diameter": 0.11119367076702025
+      }
+    },
+    {
+      "assumed_epsilon": 0.15,
+      "count": 6,
+      "minimum": [
+        -0.19999999999999996,
+        0.0,
+        0.9500000000000001
+      ],
+      "maximum": [
+        0.20000000000000007,
+        0.0,
+        1.0
+      ],
+      "hausdorff_diameter": 0.4,
+      "refined": {
+        "count": 21,
+        "minimum": [
+          -0.19999999999999996,
+          -0.04999999999999999,
+          0.9500000000000001
+        ],
+        "maximum": [
+          0.20000000000000007,
+          0.050000000000000044,
+          1.0
+        ],
+        "hausdorff_diameter": 0.4
+      }
+    },
+    {
+      "assumed_epsilon": 0.2,
+      "count": 13,
+      "minimum": [
+        -0.19999999999999996,
+        -0.09999999999999998,
+        0.9
+      ],
+      "maximum": [
+        0.20000000000000007,
+        0.10000000000000009,
+        1.0
+      ],
+      "hausdorff_diameter": 0.5223873415340407,
+      "refined": {
+        "count": 82,
+        "minimum": [
+          -0.25,
+          -0.09999999999999998,
+          0.9
+        ],
+        "maximum": [
+          0.25,
+          0.10000000000000009,
+          1.025
+        ],
+        "hausdorff_diameter": 0.5223873415340407
+      }
+    },
+    {
+      "assumed_epsilon": 0.3,
+      "count": 59,
+      "minimum": [
+        -0.3,
+        -0.19999999999999996,
+        0.8500000000000001
+      ],
+      "maximum": [
+        0.30000000000000004,
+        0.20000000000000007,
+        1.05
+      ],
+      "hausdorff_diameter": 0.7447746830680816,
+      "refined": {
+        "count": 433,
+        "minimum": [
+          -0.35,
+          -0.19999999999999996,
+          0.8250000000000001
+        ],
+        "maximum": [
+          0.3500000000000001,
+          0.20000000000000007,
+          1.0750000000000002
+        ],
+        "hausdorff_diameter": 0.7970427339274446
+      }
+    }
+  ],
+  "finer_partition_identified": {
+    "count": 6,
+    "minimum": [
+      -0.19999999999999996,
+      0.0,
+      0.9500000000000001
+    ],
+    "maximum": [
+      0.20000000000000007,
+      0.0,
+      1.0
+    ],
+    "hausdorff_diameter": 0.4
+  },
+  "independent_anchor_check": {
+    "mean_difference": [
+      0.00038498299118415805,
+      0.00034339629554472947,
+      0.00020000243083662106
+    ],
+    "combined_mcse": [
+      0.0005539135094526768,
+      0.0002416486746629713,
+      0.00013605978640811005
+    ],
+    "diagnostics": {
+      "accepted": 2048,
+      "proposals": 2048,
+      "eligible": 2048,
+      "acceptance": 1.0
+    }
+  }
+}

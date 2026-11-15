@@ -1,0 +1,7 @@
+{
+  "real/audit.py": "59df6b70ad092c571a156dc79dd9a54b1dbbaa69c3125a7767ce0e8a81bc8728",
+  "models/ball.py": "37296ff0ad19347db651d76ae188c1d93cf2ad71f3631739c9226485dc957837",
+  "real/head.py": "77c7a257e457af75b7140daf4bb4ca090df32cb810d7721392344327cd803ae4",
+  "workbook/mnist_reach_novelty_2026-10-19/run_reach.py": "4742e940a6d44a190328f20eb71e68bd3e42031938422a5057a749d53a89ee88",
+  "workbook/mnist_reach_novelty_2026-10-19/prepare_data.py": "1661760bce8b179fb2ffe2a24b3f7ea05bf213d1f3ec54d50c148cb9b5677dd5"
+}

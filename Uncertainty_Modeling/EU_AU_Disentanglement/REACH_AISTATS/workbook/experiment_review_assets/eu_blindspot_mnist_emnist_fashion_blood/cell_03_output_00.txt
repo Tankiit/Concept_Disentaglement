@@ -1,0 +1,7 @@
+   dataset  split    rows  classes
+0    mnist  train   60000       10
+1    mnist   test   10000       10
+2  letters  train  124800       26
+3  letters   test   20800       26
+4  fashion   test   10000       10
+5    blood   test    3421        8

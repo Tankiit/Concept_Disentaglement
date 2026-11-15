@@ -1,0 +1,6 @@
+{
+  "analytic_checks": 6,
+  "two_cell_fractional_extrema": true,
+  "zero_candidate_weight": true,
+  "contradiction_rejected": true
+}

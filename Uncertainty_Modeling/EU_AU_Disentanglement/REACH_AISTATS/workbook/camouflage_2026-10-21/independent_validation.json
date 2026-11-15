@@ -1,0 +1,13 @@
+{
+  "records": 6600,
+  "targets_verified": true,
+  "endpoints_verified": true,
+  "exact_floors_match_analytic_confounded_fiber": true,
+  "identified_floors_zero": true,
+  "known_references_fixed": true,
+  "nested_logs": true,
+  "confounded_candidate_weight_range": [
+    0,
+    0.34545454545454546
+  ]
+}

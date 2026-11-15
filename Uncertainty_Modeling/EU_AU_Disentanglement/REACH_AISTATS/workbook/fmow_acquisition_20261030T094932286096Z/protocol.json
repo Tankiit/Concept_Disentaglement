@@ -1,0 +1,15 @@
+{
+  "dataset": "fmow",
+  "kind": "acquisition",
+  "seed": 20261030,
+  "data_root": "/home/mtleao/projects/Concept_Disentaglement/fMoW",
+  "image_cap_per_role_source": 2000,
+  "epochs": 30,
+  "mc_passes": 30,
+  "cells": 4,
+  "acquisition_repeats": 5,
+  "group_split": "60/20/20 fit/reference/evaluation",
+  "fmow_years": "before 2016; later years excluded",
+  "mi_match_relative_tolerance": 0.01,
+  "action_margin": 2
+}

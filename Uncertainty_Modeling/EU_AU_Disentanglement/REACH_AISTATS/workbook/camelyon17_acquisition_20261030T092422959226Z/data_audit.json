@@ -1,0 +1,16 @@
+{
+  "dataset": "camelyon17",
+  "data_root": "/home/mtleao/projects/Concept_Disentaglement/Uncertainty_Modeling/EU_AU_Disentanglement/REACH_AISTATS/data/wilds/camelyon17-mirror",
+  "source_names": [
+    "0",
+    "3",
+    "2"
+  ],
+  "split": "custom group-disjoint acquisition split, NOT the official WILDS benchmark split",
+  "mirror_if_used": [
+    "wltjr1007/Camelyon17-WILDS",
+    "d784d5344ba6c967f83f9f3d9b2f1e2a4d6eb78f"
+  ],
+  "records": 274328,
+  "groups": 26
+}

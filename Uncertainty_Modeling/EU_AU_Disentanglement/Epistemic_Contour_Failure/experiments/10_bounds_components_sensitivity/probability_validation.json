@@ -1,0 +1,6 @@
+{
+  "members": 400,
+  "max_probability_difference": 8.326672684688674e-17,
+  "underflow_zero_component_cells": 3,
+  "min_probability_in_occupied_cell": 0.0001443651804577123
+}

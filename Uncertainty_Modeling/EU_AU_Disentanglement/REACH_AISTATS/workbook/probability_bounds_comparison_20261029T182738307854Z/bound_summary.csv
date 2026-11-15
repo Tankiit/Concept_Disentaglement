@@ -1,0 +1,17 @@
+dataset,method,is_ood,mean_width,mean_lower,mean_upper,undefined_policy_rows
+blood,dropout_envelope,False,0.2603860456355162,0.2112876404158851,0.4716736859936888,0
+blood,dropout_envelope,True,0.24420872035611782,0.22100434483012862,0.4652130653246745,0
+blood,source_mixture,False,1.0,0.0,1.0,900
+blood,source_mixture,True,1.0,0.0,1.0,1500
+emnist,dropout_envelope,False,0.09807548326673547,0.04087739173862223,0.13895287498536116,0
+emnist,dropout_envelope,True,0.20397570122326816,0.015358961962573895,0.2193346631797923,0
+emnist,source_mixture,False,1.0,0.0,1.0,16900
+emnist,source_mixture,True,1.0,0.0,1.0,16900
+fashion,dropout_envelope,False,0.07517845973781938,0.2150136436152515,0.29019210341309365,0
+fashion,dropout_envelope,True,0.2021280438222699,0.1563619759084592,0.3584900197645506,0
+fashion,source_mixture,False,1.0,0.0,1.0,1220
+fashion,source_mixture,True,1.0,0.0,1.0,2096
+mnist,dropout_envelope,False,0.04197066957192905,0.23027581012088177,0.2722464796134887,0
+mnist,dropout_envelope,True,0.3459298699868088,0.10135647495105687,0.44728634476429674,0
+mnist,source_mixture,False,1.0,0.0,1.0,1600
+mnist,source_mixture,True,1.0,0.0,1.0,2400

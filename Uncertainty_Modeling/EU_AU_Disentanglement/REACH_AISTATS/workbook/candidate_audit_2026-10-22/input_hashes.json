@@ -1,0 +1,7 @@
+{
+  "cache/mnist_reach/mnist_test.npz": "9f751e8933e12cf22d67c1c946cfbd23257bec0b2d159fdfc7bbc8cb4cda9b38",
+  "cache/mnist_reach/fashion_test.npz": "d9b112470b3ace2522ca22ca93b194eb52fe1c8da3ce61dd0a72cc7501797fdc",
+  "cache/mnist_reach/blood_test.npz": "bed32e421d936fde02c8aecdad7acf3e90f0a2d9d0ab7fba96097429a2a5cfcc",
+  "workbook/mnist_reach_novelty_2026-10-19/digit_net.pt": "f293a91c7ec4352e686c5fbd5e798c1881800248c7429c6f917b8519224164a3",
+  "workbook/mnist_reach_novelty_2026-10-19/partition.npz": "70d89df8663e0d89e99fa9bf39001cf4f7ef7344af7e97fee703eabf1d13056c"
+}

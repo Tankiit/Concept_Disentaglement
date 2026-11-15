@@ -1,0 +1,11 @@
+dataset,split,role,rows
+kmnist,test,evaluation,5000
+kmnist,test,log_pool,5000
+letters,test,evaluation,10400
+letters,test,log_pool,10400
+letters,train,novel_reference,5200
+mnist,test,evaluation,5001
+mnist,test,log_pool,4999
+mnist,train,cnn_train,30000
+mnist,train,partition_dev,10000
+mnist,train,reference,20000

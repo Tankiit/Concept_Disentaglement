@@ -1,0 +1,51 @@
+{
+  "seed": 20261029,
+  "repeats": 6,
+  "budgets": [
+    0,
+    100,
+    1000,
+    10000,
+    100000
+  ],
+  "baseline": {
+    "inputs": 500,
+    "references": 200,
+    "target_labels": 100,
+    "source_ids": 0
+  },
+  "alpha_per_setting": 0.05,
+  "label_noise_rate": 0.1,
+  "smoothing": 0.02,
+  "true_deployment_weights": [
+    0.45,
+    0.25,
+    0.3
+  ],
+  "target_rates": [
+    0.2,
+    0.8
+  ],
+  "anchor": [
+    0.5,
+    0.5
+  ],
+  "datasets": [
+    "mnist",
+    "emnist",
+    "fashion",
+    "blood"
+  ],
+  "source_pilot": "workbook/dappr_epistemic_sets_seed0_20261029T085507170686Z",
+  "population": "uniform-per-class empirical cell laws with 2% uniform replacement",
+  "candidate": "specified empirical OOD group or exact known-row average",
+  "inference": "joint-mass coordinate-box polytope; Charnes-Cooper LP",
+  "source_identity_channel": "representative source counts only; paired cells unused",
+  "python": "3.13.16 | packaged by Anaconda, Inc. | (main, Oct  1 2026, 20:24:22) [GCC 14.3.0]",
+  "versions": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "matplotlib": "3.11.2"
+  }
+}

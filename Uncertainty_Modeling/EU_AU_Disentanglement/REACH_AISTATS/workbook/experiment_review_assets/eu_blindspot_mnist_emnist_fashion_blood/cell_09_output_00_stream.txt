@@ -1,0 +1,12 @@
+epoch   1: loss 2.1928
+epoch  10: loss 0.5122
+epoch  20: loss 0.3952
+epoch  30: loss 0.3529
+epoch  40: loss 0.3277
+epoch  50: loss 0.3088
+epoch  60: loss 0.2995
+epoch  70: loss 0.2897
+epoch  80: loss 0.2870
+epoch  90: loss 0.2751
+epoch 100: loss 0.2670
+Training accuracy: 0.9170394539833069

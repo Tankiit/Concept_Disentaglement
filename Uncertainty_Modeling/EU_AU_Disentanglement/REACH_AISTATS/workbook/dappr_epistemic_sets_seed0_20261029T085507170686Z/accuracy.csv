@@ -1,0 +1,5 @@
+dataset,test_ID_accuracy,n_ID,n_OOD,OOD_prevalence,selected_epoch
+mnist,0.975,400,600,0.6,15
+emnist,0.9346153846153846,1300,1300,0.5,14
+fashion,0.9475,400,600,0.6,6
+blood,0.91,300,500,0.625,15

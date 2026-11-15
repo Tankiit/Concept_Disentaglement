@@ -1,0 +1,8 @@
+{
+  "tests_passed": 18,
+  "rows": 141696,
+  "files": 32,
+  "bytes": 14612709837,
+  "input_hashes": "local hashes; not verified against upstream",
+  "note": "Mixed ISO timestamp parsing fixed; protocol thresholds unchanged."
+}

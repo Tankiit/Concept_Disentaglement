@@ -1,0 +1,7 @@
+dataset,role,rows
+blood,evaluation,1712
+blood,log_pool,1709
+fashion,evaluation,5000
+fashion,log_pool,5000
+mnist,evaluation,5001
+mnist,log_pool,4999

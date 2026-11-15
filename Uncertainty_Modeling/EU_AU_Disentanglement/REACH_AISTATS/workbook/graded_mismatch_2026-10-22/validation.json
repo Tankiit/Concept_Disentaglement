@@ -1,0 +1,12 @@
+{
+  "records": 18480,
+  "runs": 560,
+  "parent_endpoints_reproduced": true,
+  "truths_verified": true,
+  "fixed_evidence_verified": true,
+  "label_invariance": true,
+  "rejection_consistency": true,
+  "population_residual_identity": true,
+  "matched_rejections": 0,
+  "matched_nonempty_misses": 0
+}
