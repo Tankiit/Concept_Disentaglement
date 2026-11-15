@@ -1,6 +1,12 @@
 # Which Data Reduce Which Uncertainty?
 ## Acquisition-Specific Identification for Source-Shifted Predictions
 
+> **STALE — 15 Nov 2026.** This markdown was last synced 12 Nov and no longer matches the
+> paper: it predates the 14 Nov pre-freeze fixes (regret moved to Appendix A, Fig 1 at
+> natural size) and the 15 Nov intro/terminology pass. The source of truth is
+> `acquisition_draft.tex` (compiled with `tectonic`). Do not review, edit, or plan
+> revisions against this file.
+
 **Working first draft.** This manuscript synthesizes six exploratory studies archived with the project. It is not a submission-ready paper: literature review, dataset citations, independent reruns, and the final experimental protocol still need author review. Reported values below are from the named timestamped runs, not later reruns unless stated.
 
 ## Abstract
