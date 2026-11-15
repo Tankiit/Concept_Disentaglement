@@ -1,0 +1,12 @@
+{
+  "written": "2026-11-10, before any gap-by-verdict computation",
+  "claim_under_test": "the acquisition gap is concentrated in states the sensitivity band marks fragile (sets flag when the pick is not to be trusted)",
+  "rationale": "Fragile states are mostly near-ties of the point values, and the already-seen decisiveness split showed only weak concentration (33.4% decisive vs 37.0% indecisive wrong). The band adds prior-overlap on top of the point margin, so I predict the direction holds but weakly: the band is a weak trust marker, not a reliable one.",
+  "P1_fragile_wrongrate_gt_robust_tv_ball_pooled": true,
+  "P2_concentration_weak_lt_15_points_tv_ball_pooled": true,
+  "P3_auc_verdict_predicts_gap_positive_in_[0.50,0.65]_tv_ball_pooled": true,
+  "P4_mean_gap_fragile_gt_robust_either_family": true,
+  "P5_direction_holds_under_stress_family": true,
+  "P6_fragile_wrongrate_le_0.50_any_family_pooled": true,
+  "falsified_if": "fragile wrong-rate <= robust (no concentration), or concentration >= 15 points with AUC >= 0.75 (then the band is a strong marker and the claim is bigger than predicted)"
+}

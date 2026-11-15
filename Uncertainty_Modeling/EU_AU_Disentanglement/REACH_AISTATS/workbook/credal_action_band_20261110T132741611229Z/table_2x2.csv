@@ -1,0 +1,5 @@
+cell,states
+robust&confirmed,camelyon17:390;camelyon17:566
+robust&failed,fmow:287;fmow:561
+fragile&confirmed,
+fragile&failed,

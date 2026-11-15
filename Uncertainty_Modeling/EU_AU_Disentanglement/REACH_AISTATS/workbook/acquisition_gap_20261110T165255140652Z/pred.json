@@ -1,0 +1,31 @@
+{
+  "written": "2026-11-10, before any gap computation",
+  "rationale": "Best channel should be mostly a function of the budget composition (n_identity, n_labels), which the scalar summary (mean/variance/MI of T) does not encode -- the witness shows exact non-identifiability. So a fitted summary-only rule should retain a substantial gap, budget knowledge should be near-sufficient, and the shape-based point values (which encode budgets through the posterior) should be mostly right, with FMoW's selected-state failure possibly visible as a higher model-pick error there.",
+  "P1_belief_only_pos_frac": {
+    "point": 0.35,
+    "range": [
+      0.25,
+      0.5
+    ]
+  },
+  "P2_model_pick_pos_frac": {
+    "point": 0.15,
+    "range": [
+      0.05,
+      0.3
+    ]
+  },
+  "P3_budget_only_pos_frac": {
+    "point": 0.02,
+    "range": [
+      0.0,
+      0.05
+    ]
+  },
+  "P4_median_rel_gap_belief_ge_0.03": true,
+  "P5_frac_rel_gap_ge_0.10_belief_ge_0.15": true,
+  "P6_cells_unanimous_ge_0.90_per_dataset": true,
+  "P7_model_pos_frac_diff_between_datasets_lt_0.20": true,
+  "practitioner_threshold": "relative gap >= 10% of the state's initial squared error",
+  "falsified_if": "belief-only gap is indistinguishable from budget-only (summary as good as knowing what you acquired), or model-pick error exceeds belief-only"
+}

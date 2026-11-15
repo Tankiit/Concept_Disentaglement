@@ -1,0 +1,5 @@
+dataset,state_id,role,k_star,n_identity,n_labels_per_source,adversarial_component,n_adversarial,k_star_over_n_adversarial,k_star_exceeds_data,k_star_exceeds_adversarial_n
+camelyon17,390,identity_preferred,122.57321992941743,32,512,W,32,3.830413122794295,False,True
+camelyon17,566,label_preferred,346.6894200158445,512,128,Theta0/Theta1,128,2.7085110938737853,False,True
+fmow,287,identity_preferred,36.838055358495446,8,512,W,8,4.604756919811931,False,True
+fmow,561,label_preferred,304.4370214406966,512,128,Theta0/Theta1,128,2.378414230005442,False,True

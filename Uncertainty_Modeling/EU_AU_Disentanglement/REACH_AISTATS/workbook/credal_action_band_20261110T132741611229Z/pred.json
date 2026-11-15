@@ -1,0 +1,50 @@
+{
+  "written": "2026-11-10, before any credal band was computed",
+  "question": "Is the belief-based channel preference an artifact of one prior, or does it hold across every prior compatible with the evidence?",
+  "families": {
+    "tv_ball (PRIMARY)": "per-component prior Beta(2m, 2(1-m)) with m in a [0.5-TV, 0.5+TV] ball (9-point grid, endpoints and 0.5 included, clipped to [0.05, 0.95]), independent across (W, Theta0, Theta1); TV = max reference-to-evaluation total-variation distance over sources from the ch.7 audit",
+    "stress_fixed_strength": "per-component prior Beta(c, c), c in {0.25, 0.5, 1, 2, 4} (a 16x strength range; fixed, not data-derived)",
+    "extra_evidence_discount": "counts tempered per component by lambda in [1-TV, 1] (5-point grid), base prior Beta(1,1); beyond the proposal, answers the 'robust only by sample size' objection"
+  },
+  "verdict_rule": "robust iff the [min,max] bands of the two channel one-step values are disjoint under the PRIMARY family; winner = point-argmax channel; confirmed iff the frozen protocol's per-state advantage (ESE of other action minus ESE of preferred action) is > 0. Prior families use only the ch.7 TV distances and fixed constants; never tuned on held-out error.",
+  "states": {
+    "camelyon17": {
+      "390": {
+        "pred": "robust",
+        "winner": "source_id",
+        "recorded_heldout": "confirmed"
+      },
+      "566": {
+        "pred": "robust",
+        "winner": "reference_label",
+        "recorded_heldout": "confirmed"
+      }
+    },
+    "fmow": {
+      "287": {
+        "pred": "robust",
+        "winner": "source_id",
+        "recorded_heldout": "failed"
+      },
+      "561": {
+        "pred": "robust",
+        "winner": "reference_label",
+        "recorded_heldout": "failed"
+      }
+    }
+  },
+  "quantitative": {
+    "P1_all_robust_primary": true,
+    "P2_all_robust_stress_16x": true,
+    "P3_primary_separation_ge_10x": true,
+    "P4_margin_robust_at_protocol_action_margin_2": true,
+    "P5_extra_discount_family_robust": true,
+    "P6_break_even_prior_pseudo_counts_exceed_data": true
+  },
+  "rationale": "Point value ratios are 45x-470x in all four states; every family perturbs O(1) prior pseudo-counts against n=8..512 observations, so values move by O(1) factors and disjointness should survive. FMoW's primary band is nearly a point (TV 0.0145 is tiny), so its robustness is only meaningfully stressed by the 16x family. If P1-P4 hold, the FMoW held-out failure is NOT prior sensitivity: the preference is robust across priors yet empirically wrong, so the Beta source-mixture channel model itself is misspecified on FMoW -- the stronger finding. CAMELYON17 would then be a robust-and-confirmed success at ~25x larger measured TV, dissociating measured law shift from where the belief-based preference fails.",
+  "falsified_if": "any selected state is fragile under the primary family, or any quantitative P1-P6 item fails",
+  "exploratory_no_verdict": [
+    "candidate-state fragility rates (does the band ever say fragile: test teeth)",
+    "break-even prior strength k* (how much prior weight would flip a preference)"
+  ]
+}

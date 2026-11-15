@@ -1,0 +1,64 @@
+{
+  "script_sha256": "4443fa102119b74718d97daa82ac012064f1a7507a316ee4c1d81fc8afa46bb1",
+  "branch": "e309a46f47a00c615fc73f953ddf6794c220e0c4",
+  "inputs": {
+    "gaps.csv": "0cbb35ffbe7c88280df817e326cd75246e4a8ad021bbc6996f7a375ecd2e8328",
+    "candidate_sweep.csv": "68fdc8d8f5acc857a3fe298631abe83ba609b046a54b019ef3877a1f837af919"
+  },
+  "results": {
+    "tv_ball": {
+      "wrong_rates": {
+        "robust": 0.3203971119133574,
+        "fragile": 0.5108695652173914,
+        "n_robust": 1108,
+        "n_fragile": 92,
+        "diff_points": 19.047245330403396
+      },
+      "gaps": {
+        "mean_gap_robust": 0.0005924681221951481,
+        "mean_gap_fragile": 0.001095929979289611,
+        "median_rel_robust": 0.28801636467936315,
+        "median_rel_fragile": 0.1496472589990937
+      },
+      "auc_fragile_predicts_wrong": 0.5302622227209816,
+      "mannwhitney_p_robust_smaller": 8.332517197800365e-07
+    },
+    "stress_fixed_strength": {
+      "wrong_rates": {
+        "robust": 0.30131004366812225,
+        "fragile": 0.44366197183098594,
+        "n_robust": 916,
+        "n_fragile": 284,
+        "diff_points": 14.235192816286368
+      },
+      "gaps": {
+        "mean_gap_robust": 0.0005928500348169514,
+        "mean_gap_fragile": 0.0007543295971638763,
+        "median_rel_robust": 0.2878604203451002,
+        "median_rel_fragile": 0.23986046616445494
+      },
+      "auc_fragile_predicts_wrong": 0.5577189241761119,
+      "mannwhitney_p_robust_smaller": 6.759688478596431e-06
+    }
+  },
+  "got": {
+    "P1_fragile_wrongrate_gt_robust_tv_ball_pooled": true,
+    "P2_concentration_weak_lt_15_points_tv_ball_pooled": false,
+    "P3_auc_verdict_predicts_gap_positive_in_[0.50,0.65]_tv_ball_pooled": true,
+    "P4_mean_gap_fragile_gt_robust_either_family": true,
+    "P5_direction_holds_under_stress_family": true,
+    "P6_fragile_wrongrate_le_0.50_any_family_pooled": false
+  },
+  "passed": {
+    "P1_fragile_wrongrate_gt_robust_tv_ball_pooled": true,
+    "P2_concentration_weak_lt_15_points_tv_ball_pooled": false,
+    "P3_auc_verdict_predicts_gap_positive_in_[0.50,0.65]_tv_ball_pooled": true,
+    "P4_mean_gap_fragile_gt_robust_either_family": true,
+    "P5_direction_holds_under_stress_family": true,
+    "P6_fragile_wrongrate_le_0.50_any_family_pooled": false
+  },
+  "overall": "PRED FAILED",
+  "already_seen_context": "decisive (action_margin >= 2) vs not, from the acquisition-gap run's exploratory block: 33.4% vs 37.0% wrong -- weak concentration; this context informs PRED but no gap-by-verdict number was seen before it.",
+  "circularity": "verdicts: prior families frozen before any gap; gaps: held-out errors only; pick: point action values",
+  "python": "3.12.4"
+}

@@ -1,0 +1,109 @@
+{
+  "script_sha256": "e4e3570a3672235d5010c054bf55bc7dab5a0d7d1871e668bdd220425ff38c81",
+  "branch": "e309a46f47a00c615fc73f953ddf6794c220e0c4",
+  "inputs": {
+    "candidate_sweep.csv": "68fdc8d8f5acc857a3fe298631abe83ba609b046a54b019ef3877a1f837af919",
+    "camelyon17/candidate_states.csv": "5b772e72a34823dcd2cb9b50c530974a3672b4036f4d6e9a27cab070ae775c4d",
+    "camelyon17/population_rates.csv": "b72bdb9fde2d11a87c7d1a2b1cc320a256e504885e50fa9138b0175db8bc92a0",
+    "camelyon17/heldout_exact_one_step.csv": "c68fd38b94877b353fdfd3ff9d1b0ea2ded2db79cf932554613d9412ef3d9f79"
+  },
+  "budget_features": [
+    "n_identity",
+    "n_labels_per_source",
+    "log1p_n_identity",
+    "log1p_n_labels"
+  ],
+  "results": {
+    "tv_ball": {
+      "cost": {
+        "wrong_robust": 0.3019230769230769,
+        "wrong_fragile": 0.5625,
+        "mean_gap_given_wrong_robust": 0.00390771010032695,
+        "mean_gap_given_wrong_fragile": 0.0022169244613632,
+        "expected_cost_robust": 0.0011798278572140984,
+        "expected_cost_fragile": 0.0012470200095168003,
+        "ratio_fragile_over_robust": 1.056950810147305
+      },
+      "cells": {
+        "n_cells": 30,
+        "n_mixed": 7,
+        "n_all_fragile": 1,
+        "fragile_in_low_budget": 1.0,
+        "within_mixed_diff_points": 0.8333333333333304,
+        "mixed_cell_list": [
+          "id=0/lab=8: 10/20 fragile, wrong 0.85",
+          "id=2/lab=2: 18/20 fragile, wrong 0.40",
+          "id=2/lab=8: 16/20 fragile, wrong 0.65",
+          "id=2/lab=32: 3/20 fragile, wrong 0.70",
+          "id=8/lab=8: 5/20 fragile, wrong 0.35",
+          "id=8/lab=32: 7/20 fragile, wrong 0.70",
+          "id=32/lab=32: 1/20 fragile, wrong 0.05"
+        ]
+      },
+      "regression": {
+        "auc_budget_only": 0.8650741330414449,
+        "auc_budget_plus_verdict": 0.8633389720881636,
+        "auc_verdict_only": 0.5485285337578985,
+        "auc_lift": -0.0017351609532813006,
+        "logloss_budget_only": 0.4215943269859456,
+        "logloss_budget_plus_verdict": 0.4185090525955721,
+        "logloss_lift": -0.003085274390373538
+      }
+    },
+    "stress_fixed_strength": {
+      "cost": {
+        "wrong_robust": 0.2876984126984127,
+        "wrong_fragile": 0.59375,
+        "mean_gap_given_wrong_robust": 0.00369987733990864,
+        "mean_gap_given_wrong_fragile": 0.0031015767057179368,
+        "expected_cost_robust": 0.0010644488378705414,
+        "expected_cost_fragile": 0.001841561169020025,
+        "ratio_fragile_over_robust": 1.7300607633750795
+      },
+      "cells": {
+        "n_cells": 30,
+        "n_mixed": 9,
+        "n_all_fragile": 0,
+        "fragile_in_low_budget": 1.0,
+        "within_mixed_diff_points": -0.14880952380952328,
+        "mixed_cell_list": [
+          "id=0/lab=2: 16/20 fragile, wrong 0.65",
+          "id=0/lab=8: 18/20 fragile, wrong 0.85",
+          "id=0/lab=32: 1/20 fragile, wrong 1.00",
+          "id=2/lab=2: 18/20 fragile, wrong 0.40",
+          "id=2/lab=8: 19/20 fragile, wrong 0.65",
+          "id=2/lab=32: 4/20 fragile, wrong 0.70",
+          "id=8/lab=8: 8/20 fragile, wrong 0.35",
+          "id=8/lab=32: 10/20 fragile, wrong 0.70",
+          "id=32/lab=32: 2/20 fragile, wrong 0.05"
+        ]
+      },
+      "regression": {
+        "auc_budget_only": 0.8650741330414449,
+        "auc_budget_plus_verdict": 0.8627792427483953,
+        "auc_verdict_only": 0.5766829195482361,
+        "auc_lift": -0.002294890293049523,
+        "logloss_budget_only": 0.4215943269859456,
+        "logloss_budget_plus_verdict": 0.421859031646811,
+        "logloss_lift": 0.0002647046608653669
+      }
+    }
+  },
+  "got": {
+    "Q1_expected_cost_ratio_fragile_over_robust_in_[0.8,1.3]_tvball": true,
+    "Q2_mixed_cells_of_30_in_[2,6]_tvball": false,
+    "Q3_within_mixed_cells_diff_points_in_[3,25]_tvball": false,
+    "Q4_verdict_auc_lift_over_budget_in_[0.00,0.08]_tvball": false,
+    "Q5_ge80pct_fragile_in_cells_with_n_identity_le_32": true
+  },
+  "passed": {
+    "Q1_expected_cost_ratio_fragile_over_robust_in_[0.8,1.3]_tvball": true,
+    "Q2_mixed_cells_of_30_in_[2,6]_tvball": false,
+    "Q3_within_mixed_cells_diff_points_in_[3,25]_tvball": false,
+    "Q4_verdict_auc_lift_over_budget_in_[0.00,0.08]_tvball": false,
+    "Q5_ge80pct_fragile_in_cells_with_n_identity_le_32": true
+  },
+  "overall": "PRED FAILED",
+  "paper_rule": "if Q1 flat and Q3 holds: the licensed sentence is about error FREQUENCY (the band marks where the pick is more often wrong, beyond budget size), not expected cost; if Q3 fails, the band is budget size restated and the claim does not survive the redundancy check.",
+  "python": "3.12.4"
+}
