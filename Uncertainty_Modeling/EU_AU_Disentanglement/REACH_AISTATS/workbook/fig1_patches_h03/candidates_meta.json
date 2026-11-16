@@ -1,0 +1,191 @@
+{
+  "source_repo": "wltjr1007/Camelyon17-WILDS",
+  "revision": "d784d5344ba6c967f83f9f3d9b2f1e2a4d6eb78f",
+  "shard": "train-00000-of-00014.parquet",
+  "shard_sha256": "9e6f5425a371de015b9bd1bfcd6901554a8b4b4ab7df268f768e2629a55f2829",
+  "tumor": 1,
+  "seed": 0,
+  "n_candidates": 8,
+  "rows": {
+    "0": [
+      {
+        "label": 1,
+        "center": 0,
+        "image_id": 11672,
+        "patient": 12,
+        "node": 0,
+        "x_coord": 4672,
+        "y_coord": 26080,
+        "slide": 3,
+        "image_row": 16687
+      },
+      {
+        "label": 1,
+        "center": 0,
+        "image_id": 12116,
+        "patient": 12,
+        "node": 0,
+        "x_coord": 3936,
+        "y_coord": 24640,
+        "slide": 3,
+        "image_row": 21090
+      },
+      {
+        "label": 1,
+        "center": 0,
+        "image_id": 10665,
+        "patient": 12,
+        "node": 0,
+        "x_coord": 3072,
+        "y_coord": 24896,
+        "slide": 3,
+        "image_row": 6637
+      },
+      {
+        "label": 1,
+        "center": 0,
+        "image_id": 10247,
+        "patient": 12,
+        "node": 0,
+        "x_coord": 2400,
+        "y_coord": 25408,
+        "slide": 3,
+        "image_row": 2480
+      },
+      {
+        "label": 1,
+        "center": 0,
+        "image_id": 10179,
+        "patient": 12,
+        "node": 0,
+        "x_coord": 3232,
+        "y_coord": 26368,
+        "slide": 3,
+        "image_row": 1813
+      },
+      {
+        "label": 1,
+        "center": 0,
+        "image_id": 12079,
+        "patient": 12,
+        "node": 0,
+        "x_coord": 4960,
+        "y_coord": 23712,
+        "slide": 3,
+        "image_row": 20727
+      },
+      {
+        "label": 1,
+        "center": 0,
+        "image_id": 10244,
+        "patient": 12,
+        "node": 0,
+        "x_coord": 2720,
+        "y_coord": 25728,
+        "slide": 3,
+        "image_row": 2450
+      },
+      {
+        "label": 1,
+        "center": 0,
+        "image_id": 10390,
+        "patient": 12,
+        "node": 0,
+        "x_coord": 2688,
+        "y_coord": 25408,
+        "slide": 3,
+        "image_row": 3898
+      }
+    ],
+    "3": [
+      {
+        "label": 1,
+        "center": 3,
+        "image_id": 117102,
+        "patient": 73,
+        "node": 1,
+        "x_coord": 7488,
+        "y_coord": 40352,
+        "slide": 38,
+        "image_row": 17066
+      },
+      {
+        "label": 1,
+        "center": 3,
+        "image_id": 101801,
+        "patient": 73,
+        "node": 1,
+        "x_coord": 8032,
+        "y_coord": 42816,
+        "slide": 38,
+        "image_row": 1825
+      },
+      {
+        "label": 1,
+        "center": 3,
+        "image_id": 106432,
+        "patient": 73,
+        "node": 1,
+        "x_coord": 15328,
+        "y_coord": 18496,
+        "slide": 38,
+        "image_row": 6414
+      },
+      {
+        "label": 1,
+        "center": 3,
+        "image_id": 116693,
+        "patient": 73,
+        "node": 1,
+        "x_coord": 8576,
+        "y_coord": 42432,
+        "slide": 38,
+        "image_row": 16658
+      },
+      {
+        "label": 1,
+        "center": 3,
+        "image_id": 105088,
+        "patient": 73,
+        "node": 1,
+        "x_coord": 8384,
+        "y_coord": 42112,
+        "slide": 38,
+        "image_row": 5089
+      },
+      {
+        "label": 1,
+        "center": 3,
+        "image_id": 121347,
+        "patient": 73,
+        "node": 1,
+        "x_coord": 17888,
+        "y_coord": 18880,
+        "slide": 38,
+        "image_row": 21275
+      },
+      {
+        "label": 1,
+        "center": 3,
+        "image_id": 109234,
+        "patient": 73,
+        "node": 1,
+        "x_coord": 19232,
+        "y_coord": 17184,
+        "slide": 38,
+        "image_row": 9178
+      },
+      {
+        "label": 1,
+        "center": 3,
+        "image_id": 100056,
+        "patient": 73,
+        "node": 1,
+        "x_coord": 1920,
+        "y_coord": 42880,
+        "slide": 38,
+        "image_row": 60
+      }
+    ]
+  }
+}
