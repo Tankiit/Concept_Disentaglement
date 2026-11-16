@@ -138,3 +138,38 @@ registration deadline (10 Nov) — only reordering is possible after; adding the
 Tiny ImageNet contributor as an author is therefore likely impossible unless
 they were already registered. Verify in the OpenReview console; the
 acknowledgment block is ready for camera-ready.
+
+## 7. Instance-table pass (16 Nov, deadline day)
+
+Collaborator correction accepted: the three study groups build cell / source /
+event differently, and the draft had over-uniform text (worst offender: the
+15-Nov Tiny sentence "through a frozen classifier", written without record
+support). Fixes in the draft:
+
+- New generic paragraph "Images, labels, and sources" (§4 opening) — records
+  are (x, s, y), bounds use the image only through the fixed cell map, each
+  acquisition reveals one field — plus Table~\ref{tab:instances} with one row
+  per study group (sources/candidate, event, cell map + fitted-on,
+  observations), all entries read from the runs' own files.
+- Controlled cell map, ANSWERED from records (tutorial ch. "The four-dataset
+  finite-cell experiment" + dappr pilot config.json): the cell is the argmax
+  of the mean of 20 dropout predictive probability vectors of a small cached
+  CNN (16/32-ch, 28x28 grayscale, trained 400/class, known classes only,
+  4/13/4/3 cells); the run's audit asserts agreement with the cached
+  prediction column. Now stated in §4.1 and the table.
+- Pilots: encoder.json records ResNet18 / ImageNet1K V1 / frozen / weights
+  sha; tutorial records 4 k-means centroids on raw frozen features of
+  known-source fit images (seed 20261030, 10 inits). Now stated in §4.3 and
+  the table.
+- Tiny ImageNet encoder: NOT named in any delivered record (audit.json has
+  centroids/fit-split/known-sources but no encoder record; the tutorial
+  documents only the pilots and the controlled study; no generator code in
+  this repo). The table says "the feature encoder is not named in the
+  delivered audit" and the caption notes no bound depends on it beyond the
+  fixed map. ACTION FOR COLLABORATOR (camera-ready/supplementary): name the
+  encoder and classifier behind the Tiny ImageNet cells.
+- Leakage check passes for all three groups (cell map fitted on known-source
+  data before candidate/evaluation records are assigned); stated in the
+  table caption.
+- Compile: 17 pp, overfull table fixed (tabcolsep 4pt + trimmed p-widths);
+  Table 1 on p6.

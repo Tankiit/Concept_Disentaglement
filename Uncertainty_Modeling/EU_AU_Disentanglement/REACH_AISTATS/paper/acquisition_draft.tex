@@ -111,11 +111,33 @@ Bayesian updating with the full channel likelihood does not suffer this limitati
 \section{Experimental Studies}
 \label{sec:studies}
 
+\paragraph{Images, labels, and sources.}
+Each record is a triple $r=(x,s,y)$: an image $x$, its source $s$, and a binary event label $y$. A fixed representation map assigns each image a cell $c(x)$; the cell is all our bounds use of the image. An acquisition reveals one field of a new record: an unlabeled image reveals $c(x)$, a source ID reveals $s$, a reference image reveals $c(x)$ from a chosen known source, and a label reveals $y$ from a chosen known source and cell. Table~\ref{tab:instances} lists how each dataset defines $x$, $s$, $y$, and $c(\cdot)$, and whether records are resampled or simulated.
+
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{1.00in}p{1.25in}p{1.30in}p{1.55in}p{0.80in}@{}}
+\toprule
+Study & Sources / candidate & Event $y$ & Cell map $c(x)$, fitted on & Observations \\
+\midrule
+MNIST, EMNIST Letters, Fashion-MNIST, BloodMNIST & Two known groups of trained classes; candidate = held-out classes & Source-level clean rate $(0.2, 0.8)$; labels flipped at $0.10$ & Argmax of the mean of 20 dropout predictive probability vectors of a small cached CNN (4/13/4/3 cells), trained on known classes only & Simulated draws \\
+\addlinespace
+Tiny ImageNet & Fixed per-image corruptions (two known, one candidate) & Frozen-classifier top-1 error; Jeffreys-smoothed per source--cell & 4 centroid cells on the fit split, known sources only; the feature encoder is not named in the delivered audit & Simulated draws \\
+\addlinespace
+CAMELYON17 / FMoW pilots & Hospitals / regions; one candidate each & Tumor / prespecified class-42 indicator; rate per source--cell & 4 k-means centroids on frozen ImageNet ResNet18 features, known-source fit images only & Resampled recorded images \\
+\bottomrule
+\end{tabular}
+\caption{How each study instantiates the record $(x,s,y)$ and the cell map $c(\cdot)$. The bounds use the image only through the fixed cell map, and in every study the map is fitted on known-source data before candidate or evaluation records are assigned. Entries are read from each run's own recorded files (config, audit, and encoder records).}
+\label{tab:instances}
+\end{table}
+
 \subsection{Five image-derived source models}
 
-The first study uses cached classifier predictions to map MNIST \citep{lecun}, EMNIST Letters \citep{cohen2017}, Fashion-MNIST \citep{xiao2017}, and BloodMNIST \citep{yang2023} into finite cells. Class groups define two known sources and one specified candidate source. Source histograms weight classes equally within each group and include a declared 2\% uniform-cell replacement mechanism. These are image-derived source laws, but the subsequent acquisition observations are simulated categorical draws; no new images are collected and no network is retrained.
+The first study maps MNIST \citep{lecun}, EMNIST Letters \citep{cohen2017}, Fashion-MNIST \citep{xiao2017}, and BloodMNIST \citep{yang2023} into finite cells: each image's cell is the argmax of the mean of 20 dropout predictive probability vectors from a small cached classifier trained on the known classes only, and the study's audit asserts agreement with the cached prediction column (Table~\ref{tab:instances}). Class groups define two known sources and one specified candidate source. Source histograms weight classes equally within each group and include a declared 2\% uniform-cell replacement mechanism. These are image-derived source laws, but the subsequent acquisition observations are simulated categorical draws; no new images are collected and no network is retrained.
 
-A fifth model maps Tiny ImageNet, a 200-class subset of ImageNet \citep{deng2009}, to four cells through a frozen classifier. Its sources are fixed per-image corruptions of every image (two known corruption types and one candidate) rather than class groups --- clean, blurred, and noisy variants of the same images are distinct sources, not distinct domains --- and its binary event is classifier top-1 error against the ground-truth class. The same 2\% uniform-cell replacement is declared; event rates are Jeffreys-smoothed source--cell rates rather than noise-flipped labels. Acquisition observations are simulated draws from these image-derived laws, as for the other four models.
+A fifth model maps Tiny ImageNet, a 200-class subset of ImageNet \citep{deng2009}, to four cells (Table~\ref{tab:instances}). Its sources are fixed per-image corruptions of every image (two known corruption types and one candidate) rather than class groups --- clean, blurred, and noisy variants of the same images are distinct sources, not distinct domains --- and its binary event is classifier top-1 error against the ground-truth class. The same 2\% uniform-cell replacement is declared; event rates are Jeffreys-smoothed source--cell rates rather than noise-flipped labels. Acquisition observations are simulated draws from these image-derived laws, as for the other four models.
 
 The baseline contains 500 deployment inputs, 200 reference cells per known source, 100 noisy binary target labels per known source, and no deployment source identities. Each acquisition arm adds only its own channel at budgets 0, 100, 1,000, 10,000, and 100,000, with six paired repeats. Reference and label budgets are per known source, so their total cost is twice the displayed budget. Ten-percent label-flip noise is specified for target labels.
 
@@ -166,7 +188,7 @@ For both studies, model-posterior expected variance reduction and held-out MSE a
 \subsection{Image-based CAMELYON17 and FMoW pilots}
 \label{sec:pilots}
 
-The image studies use frozen ImageNet ResNet18 features \citep{he2016}, matched CE and DAPPr heads, and 30 Monte Carlo dropout passes. Both use custom group-disjoint 60/20/20 splits rather than official WILDS benchmark splits \citep{koh2021}. CAMELYON17 uses hospitals 0 and 3 as known sources and hospital 2 as candidate \citep{bandi2018}. FMoW uses Americas and Europe as known sources and Asia as candidate, with pre-2016 observations \citep{christie2018}. The image pilots cap each source and role at 2,000 images; their reported curves concern empirical resampling conditional on the retained records.
+The image studies use frozen ImageNet ResNet18 features \citep{he2016}, matched CE and DAPPr heads, and 30 Monte Carlo dropout passes; their four cells are k-means centroids fitted on the frozen features of known-source fit images only (Table~\ref{tab:instances}). Both use custom group-disjoint 60/20/20 splits rather than official WILDS benchmark splits \citep{koh2021}. CAMELYON17 uses hospitals 0 and 3 as known sources and hospital 2 as candidate \citep{bandi2018}. FMoW uses Americas and Europe as known sources and Asia as candidate, with pre-2016 observations \citep{christie2018}. The image pilots cap each source and role at 2,000 images; their reported curves concern empirical resampling conditional on the retained records.
 
 The studies report two types of output. OOD AUROC compares predictive scores against a domain label. Acquisition curves report compatible-set interval widths for different probability targets. Neither output is a direct held-out demonstration that an acquisition improves classification risk. The DAPPr head and schedule are adapted for this pilot; this is not a reproduction of the original method \citep{dappr2026}. The intervals depend on finite-cell models, source-law assumptions, and an explicit $[0,1]$ policy when conditioning mass may be zero.
 
