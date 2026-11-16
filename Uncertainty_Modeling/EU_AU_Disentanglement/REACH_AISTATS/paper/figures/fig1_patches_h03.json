@@ -1,0 +1,33 @@
+{
+  "description": "CAMELYON17 tumor patches per known hospital for the medical Fig 1",
+  "source_repo": "wltjr1007/Camelyon17-WILDS",
+  "revision": "d784d5344ba6c967f83f9f3d9b2f1e2a4d6eb78f",
+  "shard": "train-00000-of-00014.parquet",
+  "shard_sha256": "9e6f5425a371de015b9bd1bfcd6901554a8b4b4ab7df268f768e2629a55f2829",
+  "tumor": 1,
+  "seed": 0,
+  "chosen": {
+    "hospital_0": {
+      "candidate_index": 7,
+      "png": "paper/figures/fig1_patch_h0.png",
+      "png_sha256": "7583e47605fbdd196ea895b682220d2cf93066474b556c1da0528400c769da4b",
+      "patient": 12,
+      "node": 0,
+      "x_coord": 2688,
+      "y_coord": 25408,
+      "slide": 3,
+      "image_id": 10390
+    },
+    "hospital_3": {
+      "candidate_index": 4,
+      "png": "paper/figures/fig1_patch_h3.png",
+      "png_sha256": "b06675cc9bb38cb1ecef28a28a20bbbba9c803864e2bcec371637aca33036b75",
+      "patient": 73,
+      "node": 1,
+      "x_coord": 8384,
+      "y_coord": 42112,
+      "slide": 38,
+      "image_id": 105088
+    }
+  }
+}
