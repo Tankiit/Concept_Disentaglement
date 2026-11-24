@@ -1,0 +1,152 @@
+[
+  {
+    "file": "README.md",
+    "bytes": 528,
+    "sha256": "efd0523201116c2b3837d94d1cf265ab5057025bd6a670c4ea745f71a268213c"
+  },
+  {
+    "file": "RESULTS.md",
+    "bytes": 1489,
+    "sha256": "4d8f88e3c9441d1e767f0b843530e0fe2a53affa09f47056bb3b819386c2ed9c"
+  },
+  {
+    "file": "SOURCES.md",
+    "bytes": 2816,
+    "sha256": "af9d64dbc40d02775915439ecd02a0bab8506b376a3f318a46f0b1b84d916605"
+  },
+  {
+    "file": "acquisition_counts.csv",
+    "bytes": 90145,
+    "sha256": "c79ea912e5c878b7a151943c6cad7de73c91c834c33eb34ee770111e6384ffed"
+  },
+  {
+    "file": "acquisition_intervals.csv",
+    "bytes": 472070,
+    "sha256": "532dca229dd429e431bb523cc1275d9f5f928fca00dbcc2263d23ffc7340fe60"
+  },
+  {
+    "file": "acquisition_summary.csv",
+    "bytes": 74682,
+    "sha256": "ac0fa24596338d4010a07e94ce19036cb5a0f80a0fee1e1cb200529cd579915f"
+  },
+  {
+    "file": "blood_acquisition_curves.pdf",
+    "bytes": 29139,
+    "sha256": "9a923258128a2639b6b1211aa2226985c74cc50cb8f60dc4667eafe1e222106d"
+  },
+  {
+    "file": "blood_acquisition_curves.png",
+    "bytes": 346274,
+    "sha256": "9948870d089300d391e79949ebd075106d5accfdf97374fa424d7ff7997293c9"
+  },
+  {
+    "file": "candidate_endpoints.pdf",
+    "bytes": 13902,
+    "sha256": "d497cc6707fab3e7b21b5de8f70178fb52c112389a12a6d9041e8c2778e38a34"
+  },
+  {
+    "file": "candidate_endpoints.png",
+    "bytes": 47388,
+    "sha256": "2082519d314567ecc568112344bf0f3a5198cb7802557ceac29e5d2873220c47"
+  },
+  {
+    "file": "config.json",
+    "bytes": 1121,
+    "sha256": "2bdca5f25ebf0956cc88eb31b21e63cb302ef1a9e69d28f4a542d6854735bbd1"
+  },
+  {
+    "file": "emnist_acquisition_curves.pdf",
+    "bytes": 28154,
+    "sha256": "15b6f31c02bd190efb5b1a5d8d514316f43f3eae56b1035b5c9df4bb32189383"
+  },
+  {
+    "file": "emnist_acquisition_curves.png",
+    "bytes": 289311,
+    "sha256": "998de32529fecce9c8533b1aefef74c81cc86ab06ab6748150049b924a944464"
+  },
+  {
+    "file": "executed.ipynb",
+    "bytes": 1331181,
+    "sha256": "8df7d2b3895df3880124281709d9ec32ffd9647ceae21ad20af09d9173c2715b"
+  },
+  {
+    "file": "fashion_acquisition_curves.pdf",
+    "bytes": 29151,
+    "sha256": "0c32d476e3f991a7dc15818619a4bfbd9e06a453590cc0da3552786f79b75a9d"
+  },
+  {
+    "file": "fashion_acquisition_curves.png",
+    "bytes": 378409,
+    "sha256": "31f7e6e268ac15b1f8e71b45c0a7dd4dffbd28d6e4bd7373d455ad698604b22d"
+  },
+  {
+    "file": "geometry.csv",
+    "bytes": 427,
+    "sha256": "7ecd5dd578395b8ccf94d4ac18302affe19c919dd13ef97490a3b6ee36a71ade"
+  },
+  {
+    "file": "image_assignments.csv",
+    "bytes": 122010,
+    "sha256": "d9e64d47c493bd0badf5281fb157ccb375f4202c2fb39f07c4211361f0005b97"
+  },
+  {
+    "file": "inclusion_and_solver_checks.csv",
+    "bytes": 1724,
+    "sha256": "a37d7d17341b0d799af6505b4abcbc40cb0b9fd7ea61fb2f490025daf915cef9"
+  },
+  {
+    "file": "input_manifest.json",
+    "bytes": 2106,
+    "sha256": "4611d8bbf26999e600f6e0cf8bbf8eed43a3cded5dd7606de21665fe87610719"
+  },
+  {
+    "file": "mnist_acquisition_curves.pdf",
+    "bytes": 29145,
+    "sha256": "c8225698583510117ad0d69d46cf1339768313616c979b163deaf410b2c55723"
+  },
+  {
+    "file": "mnist_acquisition_curves.png",
+    "bytes": 374594,
+    "sha256": "7fc568f6ca7a55cc618b043e2380dc4aac5a4ab7cab26c6b4f05295eafd15f69"
+  },
+  {
+    "file": "oracle_intervals.csv",
+    "bytes": 6925,
+    "sha256": "2edb486125375da13128dbf0c6fba38753214022b8ca4748c405e2eefa993748"
+  },
+  {
+    "file": "plotted_endpoints.csv",
+    "bytes": 3675,
+    "sha256": "3ee13716d685621b47ba37c005e24ff27160b776aae7f7e6bfedbd843253f73e"
+  },
+  {
+    "file": "source_acquisition.py",
+    "bytes": 4472,
+    "sha256": "47a18ae3c649f0bbcc48c1795b7f65c84102d85f0ad6384f0131b63d041e5596"
+  },
+  {
+    "file": "source_laws.csv",
+    "bytes": 6202,
+    "sha256": "8523a9547737186653fc87f79925e1c2b6ebda42f873b080f91aa0918d4b2720"
+  },
+  {
+    "file": "source_laws.pdf",
+    "bytes": 22419,
+    "sha256": "8d6ccf01a6e8387fe9e1c70377ab09cd9e3bbae64dfb1ce021ad43e0a00188a5"
+  },
+  {
+    "file": "source_laws.png",
+    "bytes": 145620,
+    "sha256": "1aba09b4fbb98192303de74dd4c3cd9e22b7091efb250d257767520bb75b9f20"
+  },
+  {
+    "file": "source_notebook.ipynb",
+    "bytes": 43787,
+    "sha256": "602a0860fae2354a96e6952d536cf0c6cc6a8eb2f850e0945ce0219147a465d7"
+  },
+  {
+    "file": "source_roles.csv",
+    "bytes": 1691,
+    "sha256": "51e396bcaaa9f12628004ac5f7eaf85ae390939558c03ebd255d2cef06d25c7a"
+  }
+]

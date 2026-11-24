@@ -1,0 +1,80 @@
+{
+  "controlled": {
+    "run_id": "source_acquisition_20261029T151111775438Z",
+    "compared_tables": {
+      "source_roles.csv": 54,
+      "oracle_intervals.csv": 48,
+      "source_laws.csv": 144,
+      "plotted_endpoints.csv": 20,
+      "acquisition_counts.csv": 1440,
+      "acquisition_intervals.csv": 2880,
+      "inclusion_and_solver_checks.csv": 24,
+      "acquisition_summary.csv": 480,
+      "geometry.csv": 8,
+      "image_assignments.csv": 5400
+    }
+  },
+  "constant": {
+    "run_id": "acquisition_counterexample_20261029T192454214626Z",
+    "compared_tables": {
+      "exact_acquisition_values.csv": 54,
+      "one_observation_counterexample.csv": 6,
+      "acquisition_summary.csv": 54,
+      "identical_initial_uncertainty.csv": 2,
+      "score_only_policy_regret.csv": 101,
+      "replicate_results.csv.gz": 540000
+    }
+  },
+  "three_target": {
+    "run_id": "three_target_characterization_20261030T144711349004Z",
+    "compared_tables": {
+      "oracle_acquisition_responses.csv": 144,
+      "hypotheses.csv": 16,
+      "finite_acquisition_responses.csv": 144,
+      "membership_lp_checks.csv": 6,
+      "aligned_reference_control.csv": 3,
+      "identifiable_source_controls.csv": 8,
+      "probly_check.csv": 1,
+      "predictive_summaries.csv": 12,
+      "target_intervals.csv": 36
+    }
+  },
+  "fmow_search": {
+    "run_id": "fmow_counterexample_20261030T094929883846Z",
+    "compared_tables": {
+      "target_credible_enclosures.csv": 2,
+      "selected_states.csv": 2,
+      "heldout_exact_one_step.csv": 4,
+      "split_counts.csv": 9,
+      "probly_check.csv": 2,
+      "population_rates.csv": 4,
+      "candidate_states.csv": 600,
+      "qualifying_pairs.csv": 32,
+      "acquisition_summary.csv": 36,
+      "trajectories.csv.gz": 72000
+    }
+  },
+  "camelyon17_search": {
+    "run_id": "camelyon17_counterexample_20261030T092024988890Z",
+    "compared_tables": {
+      "target_credible_enclosures.csv": 2,
+      "selected_states.csv": 2,
+      "heldout_exact_one_step.csv": 4,
+      "split_counts.csv": 9,
+      "probly_check.csv": 2,
+      "population_rates.csv": 4,
+      "candidate_states.csv": 600,
+      "qualifying_pairs.csv": 39,
+      "acquisition_summary.csv": 36,
+      "trajectories.csv.gz": 72000
+    }
+  },
+  "informative": {
+    "run_id": "informative_cell_verification_20261117",
+    "compared_tables": {
+      "joint_laws.csv": 16,
+      "one_step.csv": 6,
+      "multi_budget.csv": 9
+    }
+  }
+}

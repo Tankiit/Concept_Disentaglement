@@ -1,0 +1,26 @@
+{
+  "mnist_train.parquet": {
+    "url": "https://huggingface.co/datasets/ylecun/mnist/resolve/77f3279092a1c1579b2250db8eafed0ad422088c/mnist/train-00000-of-00001.parquet",
+    "sha256": "f2c01285a9f89399335b00ee4e8d499dc4e46db5e39c74903ce5618d895eb3bf"
+  },
+  "mnist_test.parquet": {
+    "url": "https://huggingface.co/datasets/ylecun/mnist/resolve/77f3279092a1c1579b2250db8eafed0ad422088c/mnist/test-00000-of-00001.parquet",
+    "sha256": "d49fcf556ce25b002b302e318ce4a11098bbfe5d4499c3f35d7c72297c52374b"
+  },
+  "letters_train.parquet": {
+    "url": "https://huggingface.co/datasets/tanganke/emnist_letters/resolve/4236c26fe034bc5b23851adc00067fa87b8ac16b/emnist-letters/train-00000-of-00001.parquet",
+    "sha256": "756ccd59b40c47fd5a7fc622ed1c34d32576d64edc37aaf9accc89de2bf0bb35"
+  },
+  "letters_test.parquet": {
+    "url": "https://huggingface.co/datasets/tanganke/emnist_letters/resolve/4236c26fe034bc5b23851adc00067fa87b8ac16b/emnist-letters/test-00000-of-00001.parquet",
+    "sha256": "76421442e28d4ba81c10016df2713d18105df34169f405e0eb43470e88b5d98e"
+  },
+  "fashion_test.parquet": {
+    "url": "https://huggingface.co/datasets/zalando-datasets/fashion_mnist/resolve/531be5e2ccc9dba0c201ad3ae567a4f3d16ecdd2/fashion_mnist/test-00000-of-00001.parquet",
+    "sha256": "fb36d8b5b74a491bce99357dcee62a32d347a356ea2a35d1c9057e7a7435ca5a"
+  },
+  "bloodmnist_original.npz": {
+    "url": "https://zenodo.org/records/10519652/files/bloodmnist.npz?download=1",
+    "sha256": "062023e186f537e26b3c21ea3b2614ddfc475e8a14825dfd20663bbb7e37bddc"
+  }
+}

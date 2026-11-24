@@ -1,0 +1,126 @@
+{
+  "acquisition_counterexample_20261029T192454214626Z": {
+    "python": "3.13.16",
+    "packages": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "torch": "2.14.1",
+      "probly": "0.9.0"
+    },
+    "source": "config.json and executed.ipynb",
+    "checked_against_retained_environment": true
+  },
+  "camelyon17_acquisition_20261030T092422959226Z": {
+    "python": "3.13.16",
+    "packages": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "torch": "2.14.1",
+      "torchvision": "0.29.1",
+      "probly": "0.9.0",
+      "pyarrow": "26.0.0",
+      "scikit-learn": "1.9.1"
+    },
+    "source": "versions.json and executed.ipynb",
+    "checked_against_retained_environment": true
+  },
+  "camelyon17_counterexample_20261030T092024988890Z": {
+    "python": "3.13.16",
+    "packages": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "torch": "2.14.1",
+      "torchvision": "0.29.1",
+      "probly": "0.9.0",
+      "pyarrow": "26.0.0",
+      "scikit-learn": "1.9.1"
+    },
+    "source": "versions.json and executed.ipynb",
+    "checked_against_retained_environment": true
+  },
+  "dappr_epistemic_sets_seed0_20261029T085507170686Z": {
+    "python": "3.13.16",
+    "packages": {
+      "torch": "2.14.1+cu130",
+      "probly": "0.9.0"
+    },
+    "source": "config.json and executed.ipynb",
+    "checked_against_retained_environment": true
+  },
+  "fmow_acquisition_20261030T094932286096Z": {
+    "python": "3.13.16",
+    "packages": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "torch": "2.14.1",
+      "torchvision": "0.29.1",
+      "probly": "0.9.0",
+      "pyarrow": "26.0.0",
+      "scikit-learn": "1.9.1"
+    },
+    "source": "versions.json and executed.ipynb",
+    "checked_against_retained_environment": true
+  },
+  "fmow_counterexample_20261030T094929883846Z": {
+    "python": "3.13.16",
+    "packages": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "torch": "2.14.1",
+      "torchvision": "0.29.1",
+      "probly": "0.9.0",
+      "pyarrow": "26.0.0",
+      "scikit-learn": "1.9.1"
+    },
+    "source": "versions.json and executed.ipynb",
+    "checked_against_retained_environment": true
+  },
+  "source_acquisition_20261029T151111775438Z": {
+    "python": "3.13.16",
+    "packages": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "matplotlib": "3.11.2"
+    },
+    "source": "config.json and executed.ipynb",
+    "checked_against_retained_environment": true
+  },
+  "three_target_characterization_20261030T144711349004Z": {
+    "python": "3.13.16",
+    "packages": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "torch": "2.14.1",
+      "probly": "0.9.0"
+    },
+    "source": "versions.json and executed.ipynb",
+    "checked_against_retained_environment": true
+  },
+  "four_channel_full_seed20261111": {
+    "python": "3.13.16",
+    "packages": {
+      "torch": "2.14.1+cu130",
+      "torchvision": "0.29.1+cu130",
+      "scipy": "1.16.3",
+      "sklearn": "1.6.1"
+    },
+    "gpu": "Tesla T4",
+    "source": "saved Colab setup-cell output",
+    "checked_against_retained_environment": false
+  },
+  "informative_cell_verification_20261117": {
+    "python": "3.13.5",
+    "packages": {
+      "matplotlib": "3.10.0"
+    },
+    "source": "manifest.json",
+    "checked_against_retained_environment": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "mnist_train.npz": "3b13ce46679e2c1d4591f74789ea1d877a3da45cf65e252fe1b4609543f4e10e",
+  "mnist_test.npz": "9f751e8933e12cf22d67c1c946cfbd23257bec0b2d159fdfc7bbc8cb4cda9b38",
+  "letters_train.npz": "49831a531c9f6ce61f6d48ab8fa3e5256db8f1e1749bb7e2ea1be30bc8f175a2",
+  "letters_test.npz": "ac3d0812786849b7a1d5dee08658c26268454e69ec16ea1fd02fd683d2e0f48d",
+  "fashion_test.npz": "d9b112470b3ace2522ca22ca93b194eb52fe1c8da3ce61dd0a72cc7501797fdc",
+  "bloodmnist_original.npz": "062023e186f537e26b3c21ea3b2614ddfc475e8a14825dfd20663bbb7e37bddc"
+}

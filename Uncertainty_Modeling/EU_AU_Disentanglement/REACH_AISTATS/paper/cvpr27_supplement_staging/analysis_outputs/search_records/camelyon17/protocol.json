@@ -1,0 +1,38 @@
+{
+  "seed": 20261030,
+  "identity_budgets": [
+    0,
+    2,
+    8,
+    32,
+    128,
+    512
+  ],
+  "label_budgets": [
+    2,
+    8,
+    32,
+    128,
+    512
+  ],
+  "state_repeats": 20,
+  "mi_relative_tolerance": 0.01,
+  "mean_tolerance": 0.02,
+  "variance_relative_tolerance": 0.1,
+  "action_margin": 2,
+  "validation_repeats": 2000,
+  "budgets": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "target": "same binary population prevalence in both states",
+  "selection": "smallest relative MI difference; then state IDs; never use evaluation outcomes",
+  "interpretation": "finite empirical-population resampling; no population-level iid-patch inference"
+}

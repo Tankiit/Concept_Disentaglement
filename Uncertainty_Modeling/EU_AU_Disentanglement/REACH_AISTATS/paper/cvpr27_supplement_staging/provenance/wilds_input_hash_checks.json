@@ -1,0 +1,332 @@
+[
+  {
+    "dataset": "fmow",
+    "file": "WILDS/id_test-00000-of-00003-740ba55534a79be3.parquet",
+    "logged_sha256": "cb9c0243a3ec4f997a806805031efbe409a78a33c55cd1a4b4912ee069c39517",
+    "actual_sha256": "cb9c0243a3ec4f997a806805031efbe409a78a33c55cd1a4b4912ee069c39517"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/id_test-00001-of-00003-9f1a6c16a002a70b.parquet",
+    "logged_sha256": "58bc0ee7afff9161c4ae15ae2909a4139dfc41572630be36c05b249d7a97b844",
+    "actual_sha256": "58bc0ee7afff9161c4ae15ae2909a4139dfc41572630be36c05b249d7a97b844"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/id_test-00002-of-00003-97883b81f6c22856.parquet",
+    "logged_sha256": "c7a3b643c21563827580eda531a632e45f2973afed4ce3711617f77d5ab895d6",
+    "actual_sha256": "c7a3b643c21563827580eda531a632e45f2973afed4ce3711617f77d5ab895d6"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/id_val-00000-of-00003-1aab51d68cba8b98.parquet",
+    "logged_sha256": "2dfac6de618051dbaad3c4f68c791ab81049cdffc4f5f16923fc3cadafa5ec62",
+    "actual_sha256": "2dfac6de618051dbaad3c4f68c791ab81049cdffc4f5f16923fc3cadafa5ec62"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/id_val-00001-of-00003-59df4f6516114830.parquet",
+    "logged_sha256": "2959744faae4df6de60769170afab7120eebcb638605e3c15650fdd4c4f24242",
+    "actual_sha256": "2959744faae4df6de60769170afab7120eebcb638605e3c15650fdd4c4f24242"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/id_val-00002-of-00003-55d81c7cd675f3d8.parquet",
+    "logged_sha256": "9afc2b858626121d83c4d18262e5f86a9f40628a2f083225e55fc2adc325df6f",
+    "actual_sha256": "9afc2b858626121d83c4d18262e5f86a9f40628a2f083225e55fc2adc325df6f"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/test-00000-of-00005-f71533f5328fb0e7.parquet",
+    "logged_sha256": "e3c191c8d2754c6bce8ade60276750a85f9637ecaa0c9338b758fb739ab74b7e",
+    "actual_sha256": "e3c191c8d2754c6bce8ade60276750a85f9637ecaa0c9338b758fb739ab74b7e"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/test-00001-of-00005-2e4f0371b31e4655.parquet",
+    "logged_sha256": "bbeda0bc3be5ae88240175219f6c3a0da3ff67198fe137a816c56d67e789b531",
+    "actual_sha256": "bbeda0bc3be5ae88240175219f6c3a0da3ff67198fe137a816c56d67e789b531"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/test-00002-of-00005-8fc37ee8b40cc434.parquet",
+    "logged_sha256": "900b924999b880667ec9ef23646cc4b092340fbeec7438fee3472bae3a862685",
+    "actual_sha256": "900b924999b880667ec9ef23646cc4b092340fbeec7438fee3472bae3a862685"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/test-00003-of-00005-2a53b71b23612715.parquet",
+    "logged_sha256": "fa6f3d000be47d607a0a01acadbe356831b6aa86449d07babcf536561c04ed9e",
+    "actual_sha256": "fa6f3d000be47d607a0a01acadbe356831b6aa86449d07babcf536561c04ed9e"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/test-00004-of-00005-e2f1a51cb03db29b.parquet",
+    "logged_sha256": "104912f721e06f92dcf9c4ebbb1e22e3585ea11beb3319e29fc2fe4da42722fa",
+    "actual_sha256": "104912f721e06f92dcf9c4ebbb1e22e3585ea11beb3319e29fc2fe4da42722fa"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00000-of-00016-5983310cdce01c0f.parquet",
+    "logged_sha256": "2633d7667f2cc173e6c5982bbc0a1c3c7d58ba185afe800bc3f786764c608dc4",
+    "actual_sha256": "2633d7667f2cc173e6c5982bbc0a1c3c7d58ba185afe800bc3f786764c608dc4"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00001-of-00016-971df575b82a46cf.parquet",
+    "logged_sha256": "24aee6349b7d4346e509da06653b637c7a272129d21298d979b1afcdce8b7165",
+    "actual_sha256": "24aee6349b7d4346e509da06653b637c7a272129d21298d979b1afcdce8b7165"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00002-of-00016-e68faf57ebf0e9e9.parquet",
+    "logged_sha256": "cb589b1d476fbdfeca91df262d732aeae940cb258099608fdc7dceab93a3d3ea",
+    "actual_sha256": "cb589b1d476fbdfeca91df262d732aeae940cb258099608fdc7dceab93a3d3ea"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00003-of-00016-099aae6c0a35b3db.parquet",
+    "logged_sha256": "117b71ebafb1a0d843c1c6c95a8db740fd182ac9f0553ddc52814c7a5cd6d58c",
+    "actual_sha256": "117b71ebafb1a0d843c1c6c95a8db740fd182ac9f0553ddc52814c7a5cd6d58c"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00004-of-00016-fee4be54287356a5.parquet",
+    "logged_sha256": "d326e828348bf4d03cd1d8851a9e25f5780369415c277a40f21c23015879286c",
+    "actual_sha256": "d326e828348bf4d03cd1d8851a9e25f5780369415c277a40f21c23015879286c"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00005-of-00016-9cff6357504f95dc.parquet",
+    "logged_sha256": "1fb98dfd60908dea0a6d01750ac4dac943fe7b5a5915af7468bc5ce2cd44fcfb",
+    "actual_sha256": "1fb98dfd60908dea0a6d01750ac4dac943fe7b5a5915af7468bc5ce2cd44fcfb"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00006-of-00016-86f2251e14407dc5.parquet",
+    "logged_sha256": "cd7abcb97fe5ea0a0071c1685863ab2881efceb86d53938296519cf8089f4c0a",
+    "actual_sha256": "cd7abcb97fe5ea0a0071c1685863ab2881efceb86d53938296519cf8089f4c0a"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00007-of-00016-f958e8e400780423.parquet",
+    "logged_sha256": "9ed327ffdc883b0ef28463cdf6eefcee02d7928bde2cb5184d865d530938e847",
+    "actual_sha256": "9ed327ffdc883b0ef28463cdf6eefcee02d7928bde2cb5184d865d530938e847"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00008-of-00016-7e2bd4b2acc8f6d3.parquet",
+    "logged_sha256": "6a31ccca7d7a446aca2c998d893060a32911d57c39d95c5cb063a300e045bdbf",
+    "actual_sha256": "6a31ccca7d7a446aca2c998d893060a32911d57c39d95c5cb063a300e045bdbf"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00009-of-00016-28bc07be2aed5fe4.parquet",
+    "logged_sha256": "126572b36d4d5b5b28f776b8155a06bce192c38c57c43dee57b9c7963c1feb26",
+    "actual_sha256": "126572b36d4d5b5b28f776b8155a06bce192c38c57c43dee57b9c7963c1feb26"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00010-of-00016-9ab625d0f87998ad.parquet",
+    "logged_sha256": "070b96738879f241500fb6673e8a376e217db5bbb3987b37252d99e5e2a7f8da",
+    "actual_sha256": "070b96738879f241500fb6673e8a376e217db5bbb3987b37252d99e5e2a7f8da"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00011-of-00016-6c266a7a7358302d.parquet",
+    "logged_sha256": "66624a1a00c48f7bea53af31973c96c912893261ff586e551c4ed13091a8f40f",
+    "actual_sha256": "66624a1a00c48f7bea53af31973c96c912893261ff586e551c4ed13091a8f40f"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00012-of-00016-4ade054e9f0d63b2.parquet",
+    "logged_sha256": "898837db7b13e6a5861ce2dcfe52ab46caceb3e7ecd69736bb112e45c165ece7",
+    "actual_sha256": "898837db7b13e6a5861ce2dcfe52ab46caceb3e7ecd69736bb112e45c165ece7"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00013-of-00016-110984d362b03072.parquet",
+    "logged_sha256": "eef0ab2a6e7ff0e3881b668f856ac67d796b992dc32918122c1aa8cc91192084",
+    "actual_sha256": "eef0ab2a6e7ff0e3881b668f856ac67d796b992dc32918122c1aa8cc91192084"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00014-of-00016-b34e17e5975cf6a9.parquet",
+    "logged_sha256": "123ceb967d629fb8a97835e123b527399ed8e5c613612538ec29377e79836fec",
+    "actual_sha256": "123ceb967d629fb8a97835e123b527399ed8e5c613612538ec29377e79836fec"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/train-00015-of-00016-fa290c11df7cd368.parquet",
+    "logged_sha256": "d7eb2b069ce2ebb5ca5f40cfd8f7531f3c75a6921b4e6d5c4c69b787dbc1cbff",
+    "actual_sha256": "d7eb2b069ce2ebb5ca5f40cfd8f7531f3c75a6921b4e6d5c4c69b787dbc1cbff"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/val-00000-of-00005-a0155b1c951d8920.parquet",
+    "logged_sha256": "1aa5a344e8ceab57998ee0bff1c24cd310adf266aa8bd2f78663ef8ddae8f902",
+    "actual_sha256": "1aa5a344e8ceab57998ee0bff1c24cd310adf266aa8bd2f78663ef8ddae8f902"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/val-00001-of-00005-641ea3c09154077c.parquet",
+    "logged_sha256": "481e8b652199792f2377edcb3dc8591da799eb8d9d43999e19961d1f50d38a5c",
+    "actual_sha256": "481e8b652199792f2377edcb3dc8591da799eb8d9d43999e19961d1f50d38a5c"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/val-00002-of-00005-ad0fcb01b79d618b.parquet",
+    "logged_sha256": "6167a7df2b923383037c10207602366270bafa4718abfdcba7180ab5eaad023b",
+    "actual_sha256": "6167a7df2b923383037c10207602366270bafa4718abfdcba7180ab5eaad023b"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/val-00003-of-00005-5341323005851c8b.parquet",
+    "logged_sha256": "370e61d367b9006f4dc32ac89f57e6893dea0d57e5a72c3685a5bc635f74ac61",
+    "actual_sha256": "370e61d367b9006f4dc32ac89f57e6893dea0d57e5a72c3685a5bc635f74ac61"
+  },
+  {
+    "dataset": "fmow",
+    "file": "WILDS/val-00004-of-00005-c2208e03589db7a1.parquet",
+    "logged_sha256": "f6a9886724ec39db126c70387ec9a14e959ef4bf513d5ded185c055b2b10f450",
+    "actual_sha256": "f6a9886724ec39db126c70387ec9a14e959ef4bf513d5ded185c055b2b10f450"
+  },
+  {
+    "dataset": "fmow",
+    "file": "resnet18-f37072fd.pth",
+    "logged_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+    "actual_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "test-00000-of-00004.parquet",
+    "logged_sha256": "da59d8c9c7aa9afa19a64fc26ed787d0fac601155b6105774182d07e042c86f2",
+    "actual_sha256": "da59d8c9c7aa9afa19a64fc26ed787d0fac601155b6105774182d07e042c86f2"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "test-00001-of-00004.parquet",
+    "logged_sha256": "0b0cddb69bf79b9f7522000a5fd972049836ca0098d09398e5cbd8c7ead8655d",
+    "actual_sha256": "0b0cddb69bf79b9f7522000a5fd972049836ca0098d09398e5cbd8c7ead8655d"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "test-00002-of-00004.parquet",
+    "logged_sha256": "a7ed68c71be07e4492785b6e2c7e74090ecfdf076b1fef57821354d313ed2290",
+    "actual_sha256": "a7ed68c71be07e4492785b6e2c7e74090ecfdf076b1fef57821354d313ed2290"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "test-00003-of-00004.parquet",
+    "logged_sha256": "b79374a5954b694084a14dcefc52adf2eefebd2aae000e410d2feb6d91dbca90",
+    "actual_sha256": "b79374a5954b694084a14dcefc52adf2eefebd2aae000e410d2feb6d91dbca90"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00000-of-00014.parquet",
+    "logged_sha256": "9e6f5425a371de015b9bd1bfcd6901554a8b4b4ab7df268f768e2629a55f2829",
+    "actual_sha256": "9e6f5425a371de015b9bd1bfcd6901554a8b4b4ab7df268f768e2629a55f2829"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00001-of-00014.parquet",
+    "logged_sha256": "27fa7bca62407b9527422439fb8bfb8335f9b91441afb574ae2f83d70fd064d4",
+    "actual_sha256": "27fa7bca62407b9527422439fb8bfb8335f9b91441afb574ae2f83d70fd064d4"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00002-of-00014.parquet",
+    "logged_sha256": "66b67e35cf7dfd308c9376330f71395ff3d716c92f7efd54ffe899de696d3027",
+    "actual_sha256": "66b67e35cf7dfd308c9376330f71395ff3d716c92f7efd54ffe899de696d3027"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00003-of-00014.parquet",
+    "logged_sha256": "cae44bc468f3bd2ec400792d58205a665ffffa775c4d5410e9f8b0da540f2d3f",
+    "actual_sha256": "cae44bc468f3bd2ec400792d58205a665ffffa775c4d5410e9f8b0da540f2d3f"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00004-of-00014.parquet",
+    "logged_sha256": "e59787eabd10c27263b4e8248b2ac31e886dd305e9137f45af84f09a0729a78d",
+    "actual_sha256": "e59787eabd10c27263b4e8248b2ac31e886dd305e9137f45af84f09a0729a78d"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00005-of-00014.parquet",
+    "logged_sha256": "0825228f7c2a497a67c546717f634cfd69da42c940382d02589fa6f9f7f3e5d8",
+    "actual_sha256": "0825228f7c2a497a67c546717f634cfd69da42c940382d02589fa6f9f7f3e5d8"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00006-of-00014.parquet",
+    "logged_sha256": "7e9ea7b0b1f12021612da193bcce5daef68916cf2443dd7bfe77d74d6b05ab21",
+    "actual_sha256": "7e9ea7b0b1f12021612da193bcce5daef68916cf2443dd7bfe77d74d6b05ab21"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00007-of-00014.parquet",
+    "logged_sha256": "c972c7210b220bb67c56b55b37bb531fdf54c0c44dd45d00996b1d95cc58e28a",
+    "actual_sha256": "c972c7210b220bb67c56b55b37bb531fdf54c0c44dd45d00996b1d95cc58e28a"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00008-of-00014.parquet",
+    "logged_sha256": "c1ebb71139d9147acfce25a7105f8acfc2d2b7f2de583c5e582f7ea365348086",
+    "actual_sha256": "c1ebb71139d9147acfce25a7105f8acfc2d2b7f2de583c5e582f7ea365348086"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00009-of-00014.parquet",
+    "logged_sha256": "834dcf943633048e08085a978b2459c3b6f0a29f9d49c16b48859bc4998a5f75",
+    "actual_sha256": "834dcf943633048e08085a978b2459c3b6f0a29f9d49c16b48859bc4998a5f75"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00010-of-00014.parquet",
+    "logged_sha256": "5a80f76119e41aa44cfff3516982b1876b4cd00619bc96e53b9447135061d81a",
+    "actual_sha256": "5a80f76119e41aa44cfff3516982b1876b4cd00619bc96e53b9447135061d81a"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00011-of-00014.parquet",
+    "logged_sha256": "567fb21ff58cfe1e40d25ce5e2bb53050669691880ecce1b289473c487fb44cf",
+    "actual_sha256": "567fb21ff58cfe1e40d25ce5e2bb53050669691880ecce1b289473c487fb44cf"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00012-of-00014.parquet",
+    "logged_sha256": "0ab972dde4dd74c1404bce41208e8e0765e132e4d00811fba5d0bf6f59fdf49d",
+    "actual_sha256": "0ab972dde4dd74c1404bce41208e8e0765e132e4d00811fba5d0bf6f59fdf49d"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "train-00013-of-00014.parquet",
+    "logged_sha256": "065e4588ec3a27e67f4ce9d91a3c17334d3fec9dd27e8acbfb73cd788192fec7",
+    "actual_sha256": "065e4588ec3a27e67f4ce9d91a3c17334d3fec9dd27e8acbfb73cd788192fec7"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "validation-00000-of-00003.parquet",
+    "logged_sha256": "ef3c59132fa47f51cafe34500dc18a3e36e26b144782b1a74bad9086b340918e",
+    "actual_sha256": "ef3c59132fa47f51cafe34500dc18a3e36e26b144782b1a74bad9086b340918e"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "validation-00001-of-00003.parquet",
+    "logged_sha256": "1e769d1da1563dbec4a50f7c7e7bc24d7f3ff5f069a8b49c5770818dc0556267",
+    "actual_sha256": "1e769d1da1563dbec4a50f7c7e7bc24d7f3ff5f069a8b49c5770818dc0556267"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "validation-00002-of-00003.parquet",
+    "logged_sha256": "79316524718c72a44df5930f1caecf880c98077352f3ed69cae3d5505f0eff4f",
+    "actual_sha256": "79316524718c72a44df5930f1caecf880c98077352f3ed69cae3d5505f0eff4f"
+  },
+  {
+    "dataset": "camelyon17",
+    "file": "resnet18-f37072fd.pth",
+    "logged_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+    "actual_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+  }
+]

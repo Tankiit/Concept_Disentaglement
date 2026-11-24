@@ -1,0 +1,136 @@
+[
+  {
+    "file": "controlled_config.json",
+    "source": "workbook/source_acquisition_20261029T151111775438Z/config.json",
+    "source_sha256": "2bdca5f25ebf0956cc88eb31b21e63cb302ef1a9e69d28f4a542d6854735bbd1",
+    "sha256": "2bdca5f25ebf0956cc88eb31b21e63cb302ef1a9e69d28f4a542d6854735bbd1",
+    "transformation": "Byte-for-byte copy."
+  },
+  {
+    "file": "controlled_geometry.csv",
+    "source": "workbook/source_acquisition_20261029T151111775438Z/geometry.csv",
+    "source_sha256": "7ecd5dd578395b8ccf94d4ac18302affe19c919dd13ef97490a3b6ee36a71ade",
+    "sha256": "7ecd5dd578395b8ccf94d4ac18302affe19c919dd13ef97490a3b6ee36a71ade",
+    "transformation": "Byte-for-byte copy."
+  },
+  {
+    "file": "controlled_source_roles.csv",
+    "source": "workbook/source_acquisition_20261029T151111775438Z/source_roles.csv",
+    "source_sha256": "51e396bcaaa9f12628004ac5f7eaf85ae390939558c03ebd255d2cef06d25c7a",
+    "sha256": "51e396bcaaa9f12628004ac5f7eaf85ae390939558c03ebd255d2cef06d25c7a",
+    "transformation": "Byte-for-byte copy."
+  },
+  {
+    "file": "camelyon17_pilot_protocol.json",
+    "source": "workbook/camelyon17_acquisition_20261030T092422959226Z/protocol.json",
+    "source_sha256": "e0af7d55c05f5416488d09830ae18cc964bf072f3eeb0d138c6f34bd7b1919b9",
+    "sha256": "3e5d03d96f7f4db7237b8596076436629145b41351be7d46c6d2873045191024",
+    "transformation": "Removed machine-local data_root only, if present."
+  },
+  {
+    "file": "camelyon17_pilot_bounds_definition.json",
+    "source": "workbook/camelyon17_acquisition_20261030T092422959226Z/bounds_definition.json",
+    "source_sha256": "07cd2db71e38be1e7e74141870fb9c5ed7512280fa5502867e960d44e31f7d7b",
+    "sha256": "07cd2db71e38be1e7e74141870fb9c5ed7512280fa5502867e960d44e31f7d7b",
+    "transformation": "Byte-for-byte copy."
+  },
+  {
+    "file": "camelyon17_pilot_result.json",
+    "source": "workbook/camelyon17_acquisition_20261030T092422959226Z/result.json",
+    "source_sha256": "37bc895b6bb6d9d91af233454169ef80b6a5cdd9c0b1eeb58f6903b5580d6813",
+    "sha256": "37bc895b6bb6d9d91af233454169ef80b6a5cdd9c0b1eeb58f6903b5580d6813",
+    "transformation": "Byte-for-byte copy."
+  },
+  {
+    "file": "fmow_pilot_protocol.json",
+    "source": "workbook/fmow_acquisition_20261030T094932286096Z/protocol.json",
+    "source_sha256": "9adebbcbd2c05177fb2009274de1210714402c6cad3a05f06a08a9734ec96534",
+    "sha256": "d6cffe0ed55c7f14703e8ef5e13068ae97a30a9aa2ca612d82bef2f7174c2478",
+    "transformation": "Removed machine-local data_root only, if present."
+  },
+  {
+    "file": "fmow_pilot_bounds_definition.json",
+    "source": "workbook/fmow_acquisition_20261030T094932286096Z/bounds_definition.json",
+    "source_sha256": "6c2ef437adc166102389dc9719eded5dbb6c805e47ab39d36b98018eb9596601",
+    "sha256": "6c2ef437adc166102389dc9719eded5dbb6c805e47ab39d36b98018eb9596601",
+    "transformation": "Byte-for-byte copy."
+  },
+  {
+    "file": "fmow_pilot_result.json",
+    "source": "workbook/fmow_acquisition_20261030T094932286096Z/result.json",
+    "source_sha256": "9dd0f20d5a28f911e3764bfffaad724783cdc0651bf314f13b0479a1375a14d0",
+    "sha256": "9dd0f20d5a28f911e3764bfffaad724783cdc0651bf314f13b0479a1375a14d0",
+    "transformation": "Byte-for-byte copy."
+  },
+  {
+    "file": "camelyon17_counter_protocol.json",
+    "source": "workbook/camelyon17_counterexample_20261030T092024988890Z/protocol.json",
+    "source_sha256": "5c7b49af18bd16b9725efdea67bae6fdc9a633390f9bf627262901c57ea0662d",
+    "sha256": "5c7b49af18bd16b9725efdea67bae6fdc9a633390f9bf627262901c57ea0662d",
+    "transformation": "Removed machine-local data_root only, if present."
+  },
+  {
+    "file": "camelyon17_counter_result.json",
+    "source": "workbook/camelyon17_counterexample_20261030T092024988890Z/result.json",
+    "source_sha256": "1db33b3e2cf7291ec90b7de61cb14c5b8e4f3435d5d7ece1d3533691d27d6786",
+    "sha256": "1db33b3e2cf7291ec90b7de61cb14c5b8e4f3435d5d7ece1d3533691d27d6786",
+    "transformation": "Byte-for-byte copy."
+  },
+  {
+    "file": "camelyon17_counter_population_rates.csv",
+    "source": "workbook/camelyon17_counterexample_20261030T092024988890Z/population_rates.csv",
+    "source_sha256": "b72bdb9fde2d11a87c7d1a2b1cc320a256e504885e50fa9138b0175db8bc92a0",
+    "sha256": "b72bdb9fde2d11a87c7d1a2b1cc320a256e504885e50fa9138b0175db8bc92a0",
+    "transformation": "Byte-for-byte copy."
+  },
+  {
+    "file": "fmow_counter_protocol.json",
+    "source": "workbook/fmow_counterexample_20261030T094929883846Z/protocol.json",
+    "source_sha256": "5c7b49af18bd16b9725efdea67bae6fdc9a633390f9bf627262901c57ea0662d",
+    "sha256": "5c7b49af18bd16b9725efdea67bae6fdc9a633390f9bf627262901c57ea0662d",
+    "transformation": "Removed machine-local data_root only, if present."
+  },
+  {
+    "file": "fmow_counter_result.json",
+    "source": "workbook/fmow_counterexample_20261030T094929883846Z/result.json",
+    "source_sha256": "2a65966130bd43069cd66e74f5955df1a59ffc7e39473ca6784aadda5966542d",
+    "sha256": "2a65966130bd43069cd66e74f5955df1a59ffc7e39473ca6784aadda5966542d",
+    "transformation": "Byte-for-byte copy."
+  },
+  {
+    "file": "fmow_counter_population_rates.csv",
+    "source": "workbook/fmow_counterexample_20261030T094929883846Z/population_rates.csv",
+    "source_sha256": "f161559d9ae404c362afbbbc56c4eb9cbd121ae94e290298f9075cea92b8b741",
+    "sha256": "f161559d9ae404c362afbbbc56c4eb9cbd121ae94e290298f9075cea92b8b741",
+    "transformation": "Byte-for-byte copy."
+  },
+  {
+    "source": "workbook/camelyon17_acquisition_20261030T092422959226Z/wilds_vision.py",
+    "source_sha256": "31a1b0d83f1540ce8e8716f22e5e857d053b1b2deb2f8daa1ebb248f8a210d96",
+    "use": "Audited pilot baseline: 128 reference cells/source, 128 deployment cells, 32 identities, 16 labels/available known-source cell."
+  },
+  {
+    "source": "workbook/fmow_acquisition_20261030T094932286096Z/wilds_vision.py",
+    "source_sha256": "31a1b0d83f1540ce8e8716f22e5e857d053b1b2deb2f8daa1ebb248f8a210d96",
+    "use": "Audited pilot baseline: 128 reference cells/source, 128 deployment cells, 32 identities, 16 labels/available known-source cell."
+  },
+  {
+    "file": "visual_endpoints_2048.csv",
+    "sha256": "ae0918bb00ec15d0ccbdd6f276c19fa239a362a77a22d6ec28735979c4fdfa2b",
+    "inputs": [
+      "workbook/camelyon17_acquisition_20261030T092422959226Z/acquisition_record_ids.json",
+      "workbook/camelyon17_acquisition_20261030T092422959226Z/acquisition_intervals.csv",
+      "workbook/camelyon17_acquisition_20261030T092422959226Z/reference_cells.csv",
+      "workbook/camelyon17_acquisition_20261030T092422959226Z/evaluation_cells.csv",
+      "workbook/camelyon17_acquisition_20261030T092422959226Z/bounds_definition.json",
+      "workbook/camelyon17_acquisition_20261030T092422959226Z/source_acquisition.py",
+      "workbook/fmow_acquisition_20261030T094932286096Z/acquisition_record_ids.json",
+      "workbook/fmow_acquisition_20261030T094932286096Z/acquisition_intervals.csv",
+      "workbook/fmow_acquisition_20261030T094932286096Z/reference_cells.csv",
+      "workbook/fmow_acquisition_20261030T094932286096Z/evaluation_cells.csv",
+      "workbook/fmow_acquisition_20261030T094932286096Z/bounds_definition.json",
+      "workbook/fmow_acquisition_20261030T094932286096Z/source_acquisition.py"
+    ],
+    "transformation": "LP replay and equal average over four cells and five repeats at budget 2048 using scripts/check_image_pilots.py."
+  }
+]

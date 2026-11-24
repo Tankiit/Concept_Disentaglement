@@ -1,0 +1,7 @@
+{
+  "architecture": "ResNet18",
+  "pretraining": "ImageNet1K V1",
+  "frozen": true,
+  "weights_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+  "device": "cuda:0"
+}

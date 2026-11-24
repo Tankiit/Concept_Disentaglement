@@ -1,0 +1,46 @@
+{
+  "run": "four_channel_full_seed20261111",
+  "digest_basis": "SHA-256 computed on receipt of the 40-epoch artifacts.",
+  "artifacts": [
+    {
+      "file": "tiny_imagenet_model/resnet18_scratch_seed20261111_epochs40.pt",
+      "bytes": 90281981,
+      "sha256": "8e3d7c414b0dbd5ef4edf8a36cb5d573be497e3f1da741b284a788e457846c9c"
+    },
+    {
+      "file": "tiny_imagenet_model/frozen_tiny_seed20261111_epochs40.npz",
+      "bytes": 56317418,
+      "sha256": "1a79263459ec35324cb5b998959b04ecfe0f5fc36c07d3ac72e38263717ec16e"
+    }
+  ],
+  "matching_primary_exports": [
+    {
+      "file": "TinyImageNet_REACH_Results_v2full/audit.json",
+      "sha256": "b4f660a5bcebe41be33946ff93d0854bff7b752f6d91b0d68bbc30c8f4397593"
+    },
+    {
+      "file": "TinyImageNet_REACH_Results_v2full/exact_identification_benchmarks.csv",
+      "sha256": "44c3d3260e8213845e690fd84c65701c5b768eca1d74b2a3ea823897241d334f"
+    },
+    {
+      "file": "TinyImageNet_REACH_Results_v2full/four_channel_acquisition.pdf",
+      "sha256": "0904c03bb96f68520dc88d6ae682a127d0e29caca61ba72c2ba95d4e25424ceb"
+    },
+    {
+      "file": "TinyImageNet_REACH_Results_v2full/four_channel_acquisition.png",
+      "sha256": "d4e954aab62baf4b4f4062fabf8acb8a0c6342b9a1272dca4055bd9e7c37af40"
+    },
+    {
+      "file": "TinyImageNet_REACH_Results_v2full/intervals.csv",
+      "sha256": "aa1d0ebb829f2e43a0304f349745767401f132a67de7358302175bece0474383"
+    },
+    {
+      "file": "TinyImageNet_REACH_Results_v2full/reference_eval_transfer.csv",
+      "sha256": "2a2f0363a9376e0262bd02af4d5b21e13e6ecf90a9d82dffff4db5b1ac2814f6"
+    },
+    {
+      "file": "TinyImageNet_REACH_Results_v2full/summary.csv",
+      "sha256": "89dd214c464954b9b2f11ba7767335a53fdfe1f59639a3228814edcf84979fcc"
+    }
+  ]
+}

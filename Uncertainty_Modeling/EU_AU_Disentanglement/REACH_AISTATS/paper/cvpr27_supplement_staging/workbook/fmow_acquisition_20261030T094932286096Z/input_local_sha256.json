@@ -1,0 +1,194 @@
+[
+  {
+    "file": "WILDS/id_test-00000-of-00003-740ba55534a79be3.parquet",
+    "bytes": 397942567,
+    "rows": 3776,
+    "sha256": "cb9c0243a3ec4f997a806805031efbe409a78a33c55cd1a4b4912ee069c39517"
+  },
+  {
+    "file": "WILDS/id_test-00001-of-00003-9f1a6c16a002a70b.parquet",
+    "bytes": 386728836,
+    "rows": 3776,
+    "sha256": "58bc0ee7afff9161c4ae15ae2909a4139dfc41572630be36c05b249d7a97b844"
+  },
+  {
+    "file": "WILDS/id_test-00002-of-00003-97883b81f6c22856.parquet",
+    "bytes": 381636909,
+    "rows": 3775,
+    "sha256": "c7a3b643c21563827580eda531a632e45f2973afed4ce3711617f77d5ab895d6"
+  },
+  {
+    "file": "WILDS/id_val-00000-of-00003-1aab51d68cba8b98.parquet",
+    "bytes": 399549103,
+    "rows": 3828,
+    "sha256": "2dfac6de618051dbaad3c4f68c791ab81049cdffc4f5f16923fc3cadafa5ec62"
+  },
+  {
+    "file": "WILDS/id_val-00001-of-00003-59df4f6516114830.parquet",
+    "bytes": 398915679,
+    "rows": 3828,
+    "sha256": "2959744faae4df6de60769170afab7120eebcb638605e3c15650fdd4c4f24242"
+  },
+  {
+    "file": "WILDS/id_val-00002-of-00003-55d81c7cd675f3d8.parquet",
+    "bytes": 390171250,
+    "rows": 3827,
+    "sha256": "9afc2b858626121d83c4d18262e5f86a9f40628a2f083225e55fc2adc325df6f"
+  },
+  {
+    "file": "WILDS/test-00000-of-00005-f71533f5328fb0e7.parquet",
+    "bytes": 472920782,
+    "rows": 4422,
+    "sha256": "e3c191c8d2754c6bce8ade60276750a85f9637ecaa0c9338b758fb739ab74b7e"
+  },
+  {
+    "file": "WILDS/test-00001-of-00005-2e4f0371b31e4655.parquet",
+    "bytes": 459985499,
+    "rows": 4422,
+    "sha256": "bbeda0bc3be5ae88240175219f6c3a0da3ff67198fe137a816c56d67e789b531"
+  },
+  {
+    "file": "WILDS/test-00002-of-00005-8fc37ee8b40cc434.parquet",
+    "bytes": 453831653,
+    "rows": 4422,
+    "sha256": "900b924999b880667ec9ef23646cc4b092340fbeec7438fee3472bae3a862685"
+  },
+  {
+    "file": "WILDS/test-00003-of-00005-2a53b71b23612715.parquet",
+    "bytes": 445288009,
+    "rows": 4421,
+    "sha256": "fa6f3d000be47d607a0a01acadbe356831b6aa86449d07babcf536561c04ed9e"
+  },
+  {
+    "file": "WILDS/test-00004-of-00005-e2f1a51cb03db29b.parquet",
+    "bytes": 446975219,
+    "rows": 4421,
+    "sha256": "104912f721e06f92dcf9c4ebbb1e22e3585ea11beb3319e29fc2fe4da42722fa"
+  },
+  {
+    "file": "WILDS/train-00000-of-00016-5983310cdce01c0f.parquet",
+    "bytes": 509757867,
+    "rows": 4804,
+    "sha256": "2633d7667f2cc173e6c5982bbc0a1c3c7d58ba185afe800bc3f786764c608dc4"
+  },
+  {
+    "file": "WILDS/train-00001-of-00016-971df575b82a46cf.parquet",
+    "bytes": 473333526,
+    "rows": 4804,
+    "sha256": "24aee6349b7d4346e509da06653b637c7a272129d21298d979b1afcdce8b7165"
+  },
+  {
+    "file": "WILDS/train-00002-of-00016-e68faf57ebf0e9e9.parquet",
+    "bytes": 492165686,
+    "rows": 4804,
+    "sha256": "cb589b1d476fbdfeca91df262d732aeae940cb258099608fdc7dceab93a3d3ea"
+  },
+  {
+    "file": "WILDS/train-00003-of-00016-099aae6c0a35b3db.parquet",
+    "bytes": 516009850,
+    "rows": 4804,
+    "sha256": "117b71ebafb1a0d843c1c6c95a8db740fd182ac9f0553ddc52814c7a5cd6d58c"
+  },
+  {
+    "file": "WILDS/train-00004-of-00016-fee4be54287356a5.parquet",
+    "bytes": 486816302,
+    "rows": 4804,
+    "sha256": "d326e828348bf4d03cd1d8851a9e25f5780369415c277a40f21c23015879286c"
+  },
+  {
+    "file": "WILDS/train-00005-of-00016-9cff6357504f95dc.parquet",
+    "bytes": 495098752,
+    "rows": 4804,
+    "sha256": "1fb98dfd60908dea0a6d01750ac4dac943fe7b5a5915af7468bc5ce2cd44fcfb"
+  },
+  {
+    "file": "WILDS/train-00006-of-00016-86f2251e14407dc5.parquet",
+    "bytes": 487785086,
+    "rows": 4804,
+    "sha256": "cd7abcb97fe5ea0a0071c1685863ab2881efceb86d53938296519cf8089f4c0a"
+  },
+  {
+    "file": "WILDS/train-00007-of-00016-f958e8e400780423.parquet",
+    "bytes": 506873628,
+    "rows": 4804,
+    "sha256": "9ed327ffdc883b0ef28463cdf6eefcee02d7928bde2cb5184d865d530938e847"
+  },
+  {
+    "file": "WILDS/train-00008-of-00016-7e2bd4b2acc8f6d3.parquet",
+    "bytes": 475217693,
+    "rows": 4804,
+    "sha256": "6a31ccca7d7a446aca2c998d893060a32911d57c39d95c5cb063a300e045bdbf"
+  },
+  {
+    "file": "WILDS/train-00009-of-00016-28bc07be2aed5fe4.parquet",
+    "bytes": 493275676,
+    "rows": 4804,
+    "sha256": "126572b36d4d5b5b28f776b8155a06bce192c38c57c43dee57b9c7963c1feb26"
+  },
+  {
+    "file": "WILDS/train-00010-of-00016-9ab625d0f87998ad.parquet",
+    "bytes": 495484515,
+    "rows": 4804,
+    "sha256": "070b96738879f241500fb6673e8a376e217db5bbb3987b37252d99e5e2a7f8da"
+  },
+  {
+    "file": "WILDS/train-00011-of-00016-6c266a7a7358302d.parquet",
+    "bytes": 478799566,
+    "rows": 4804,
+    "sha256": "66624a1a00c48f7bea53af31973c96c912893261ff586e551c4ed13091a8f40f"
+  },
+  {
+    "file": "WILDS/train-00012-of-00016-4ade054e9f0d63b2.parquet",
+    "bytes": 502377084,
+    "rows": 4804,
+    "sha256": "898837db7b13e6a5861ce2dcfe52ab46caceb3e7ecd69736bb112e45c165ece7"
+  },
+  {
+    "file": "WILDS/train-00013-of-00016-110984d362b03072.parquet",
+    "bytes": 521309702,
+    "rows": 4804,
+    "sha256": "eef0ab2a6e7ff0e3881b668f856ac67d796b992dc32918122c1aa8cc91192084"
+  },
+  {
+    "file": "WILDS/train-00014-of-00016-b34e17e5975cf6a9.parquet",
+    "bytes": 500247170,
+    "rows": 4804,
+    "sha256": "123ceb967d629fb8a97835e123b527399ed8e5c613612538ec29377e79836fec"
+  },
+  {
+    "file": "WILDS/train-00015-of-00016-fa290c11df7cd368.parquet",
+    "bytes": 495881643,
+    "rows": 4803,
+    "sha256": "d7eb2b069ce2ebb5ca5f40cfd8f7531f3c75a6921b4e6d5c4c69b787dbc1cbff"
+  },
+  {
+    "file": "WILDS/val-00000-of-00005-a0155b1c951d8920.parquet",
+    "bytes": 411257858,
+    "rows": 3983,
+    "sha256": "1aa5a344e8ceab57998ee0bff1c24cd310adf266aa8bd2f78663ef8ddae8f902"
+  },
+  {
+    "file": "WILDS/val-00001-of-00005-641ea3c09154077c.parquet",
+    "bytes": 428522586,
+    "rows": 3983,
+    "sha256": "481e8b652199792f2377edcb3dc8591da799eb8d9d43999e19961d1f50d38a5c"
+  },
+  {
+    "file": "WILDS/val-00002-of-00005-ad0fcb01b79d618b.parquet",
+    "bytes": 399907950,
+    "rows": 3983,
+    "sha256": "6167a7df2b923383037c10207602366270bafa4718abfdcba7180ab5eaad023b"
+  },
+  {
+    "file": "WILDS/val-00003-of-00005-5341323005851c8b.parquet",
+    "bytes": 406677760,
+    "rows": 3983,
+    "sha256": "370e61d367b9006f4dc32ac89f57e6893dea0d57e5a72c3685a5bc635f74ac61"
+  },
+  {
+    "file": "WILDS/val-00004-of-00005-c2208e03589db7a1.parquet",
+    "bytes": 401964431,
+    "rows": 3983,
+    "sha256": "f6a9886724ec39db126c70387ec9a14e959ef4bf513d5ded185c055b2b10f450"
+  }
+]

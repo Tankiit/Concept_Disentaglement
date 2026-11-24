@@ -1,0 +1,9 @@
+{
+  "status": "evaluated",
+  "candidates": 600,
+  "matches": 39,
+  "mi_relative_difference": 0.0001700092095866356,
+  "identity_advantage": 0.0006123457784492983,
+  "label_advantage": 0.0005553662645885679,
+  "confirmed": true
+}

@@ -1,0 +1,19 @@
+{
+  "python": "3.13.5",
+  "matplotlib": "3.10.0",
+  "command": "python scripts/verify_informative_cell.py",
+  "tests_passed": 5,
+  "model": "informative finite cell; not an image-training experiment",
+  "artifacts": {
+    "README.md": "949652d1dac13bab9087a52c3fa32a69dc76ebf05cc7e266c4d4bf8f4432aa35",
+    "joint_laws.csv": "e8a2ee137586c6fbaebed559d55c179c003d76d0a17bbd17c66bd54da89793a9",
+    "multi_budget.csv": "f631ee05b392b1cbc706d1cf2934322183254fa4911d1b978a7e293c8c37b83e",
+    "one_step.csv": "2b10a8755b4d6ee5b0385791f7612a3caa4d5c4441366558570bd3589045abf7",
+    "source/real/informative_cell_counterexample.py": "3ac23217611bff2f19fd478584b67e56c16f235246e7febf4a4b377391579691",
+    "source/scripts/verify_informative_cell.py": "2580356fc66cda5ead760f83de5ba013bb488a058a96d55a06f6b82dd90d0321",
+    "source/tests/test_informative_cell_counterexample.py": "244bed91b6fc011fe7911ae841ac7b5ddfd7d4d56ebae6d4066b0b1e70c1f7d5",
+    "supp_exact_worlds.pdf": "fc7ebef01576531c406c5a65eb94f7abdec3b876efe0b04002a9af6dd76ce4a4",
+    "supp_exact_worlds.png": "9b8100281601c240449f4da6d8b945bcb8ba9fad3b2477e2b5846e98c805d2cd",
+    "table3.tex": "18f2f2b9fb7b846979e2ead438d40fc175503651c59c64b02d0bea6cc5516e85"
+  }
+}

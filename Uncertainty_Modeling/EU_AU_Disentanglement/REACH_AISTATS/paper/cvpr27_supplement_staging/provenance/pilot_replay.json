@@ -1,0 +1,20 @@
+[
+  {
+    "dataset": "CAMELYON17",
+    "run_id": "camelyon17_acquisition_20261030T092422959226Z",
+    "interval_rows": 1200,
+    "empty": 0,
+    "denominator_fallbacks": 366,
+    "known_id_contained": 17,
+    "max_abs_endpoint_difference": 1.1102230246251565e-16
+  },
+  {
+    "dataset": "FMoW",
+    "run_id": "fmow_acquisition_20261030T094932286096Z",
+    "interval_rows": 1200,
+    "empty": 0,
+    "denominator_fallbacks": 140,
+    "known_id_contained": 20,
+    "max_abs_endpoint_difference": 1.1102230246251565e-16
+  }
+]

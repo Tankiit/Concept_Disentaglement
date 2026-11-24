@@ -1,0 +1,214 @@
+{
+  "fit_source_cell_count": [
+    [
+      2036,
+      918,
+      2075,
+      4100
+    ],
+    [
+      6,
+      4886,
+      11,
+      24
+    ],
+    [
+      1890,
+      233,
+      1711,
+      2110
+    ]
+  ],
+  "fit_source_cell_errors": [
+    [
+      664,
+      292,
+      682,
+      1757
+    ],
+    [
+      6,
+      4461,
+      8,
+      16
+    ],
+    [
+      1469,
+      146,
+      1200,
+      1522
+    ]
+  ],
+  "eval_source_cell_count": [
+    [
+      972,
+      444,
+      1009,
+      2030
+    ],
+    [
+      3,
+      2553,
+      4,
+      13
+    ],
+    [
+      970,
+      108,
+      857,
+      1037
+    ]
+  ],
+  "eval_source_cell_errors": [
+    [
+      324,
+      152,
+      366,
+      835
+    ],
+    [
+      3,
+      2349,
+      4,
+      4
+    ],
+    [
+      719,
+      60,
+      578,
+      778
+    ]
+  ],
+  "fit_source_laws": [
+    [
+      0.22356501259721767,
+      0.10354748603351956,
+      0.2277516705006025,
+      0.4451358308686603
+    ],
+    [
+      0.006193423990257763,
+      0.9768449360665719,
+      0.007187943982139233,
+      0.009773695961031052
+    ],
+    [
+      0.3166083445491252,
+      0.04341520861372813,
+      0.2870962314939435,
+      0.35288021534320324
+    ]
+  ],
+  "eval_source_laws": [
+    [
+      0.21818181818181817,
+      0.09966329966329966,
+      0.2264870931537598,
+      0.4556677890011223
+    ],
+    [
+      0.001165954139137194,
+      0.9922269724057521,
+      0.001554605518849592,
+      0.005052467936261173
+    ],
+    [
+      0.3263795423956931,
+      0.03633916554508748,
+      0.2883580080753701,
+      0.34892328398384925
+    ]
+  ],
+  "fit_error_rates": [
+    [
+      0.32621502209131076,
+      0.3182807399347116,
+      0.32875722543352603,
+      0.4285540112167764
+    ],
+    [
+      0.9285714285714286,
+      0.9129322692858605,
+      0.7083333333333334,
+      0.66
+    ],
+    [
+      0.7771020624008461,
+      0.6260683760683761,
+      0.7012266355140186,
+      0.721222169587873
+    ]
+  ],
+  "eval_error_rates": [
+    [
+      0.3333333333333333,
+      0.34234234234234234,
+      0.36273538156590684,
+      0.41133004926108374
+    ],
+    [
+      1.0,
+      0.9200940070505288,
+      1.0,
+      0.3076923076923077
+    ],
+    [
+      0.7412371134020619,
+      0.5555555555555556,
+      0.6744457409568262,
+      0.7502410800385728
+    ]
+  ],
+  "per_source_reference_to_eval_TV": [
+    0.010531958132462035,
+    0.015382036339180158,
+    0.011032974427994596
+  ],
+  "classifier_accuracy_fit": 0.38885000000000003,
+  "classifier_accuracy_eval": 0.38280000000000003,
+  "centroids_fit_only": true,
+  "centroids_known_sources_only": true,
+  "eval_labels_used_to_build_world": false,
+  "source_names": [
+    "clean",
+    "blur",
+    "noise"
+  ],
+  "source_generation": "fixed per-image corruption from clean/blur/noise, NOT recorded native domain",
+  "event": "classifier top-1 error derived from ground-truth Tiny ImageNet class",
+  "smoothed_source_law_implementation": "(1-0.02)*empirical+0.02/cells",
+  "smoothed_event_rate_implementation": "Jeffreys (positive + .5)/(source-cell-count + 1)",
+  "generating_mixture_weights": [
+    0.45,
+    0.25,
+    0.3
+  ],
+  "cells": 4,
+  "probe_cell": 1,
+  "repeats": 6,
+  "budgets": [
+    0,
+    100,
+    1000,
+    10000,
+    100000
+  ],
+  "alpha_fixed_setting": 0.05,
+  "confidence_allocation": "inputs delta/4, identities delta/4, 2 references delta/8 each, 2 labels delta/8 each",
+  "observations": "synthetic nested multinomial/Bernoulli draws WITH replacement from fixed image-derived finite laws",
+  "candidate_law": "Specified EXACT in the compatibility calculation; confounded A2=(A0+A1)/2 by construction",
+  "baseline": {
+    "inputs": 500,
+    "references_per_known_source": 200,
+    "labels_per_known_source_at_probe": 100,
+    "identities": 0
+  },
+  "confidence_coverage": "per fixed setting only, not across all budgets/repeats",
+  "positive_denominator_cutoff": 1e-09,
+  "selection": "probe chosen from known-source fit laws, before sampling; never on held-out",
+  "empty_polytope_n": 0,
+  "zero_denominator_n": 67,
+  "synthetic_world_target_inclusion_n": 720,
+  "total_target_intervals": 720,
+  "no_real_image_paired_acquisition_test": true
+}

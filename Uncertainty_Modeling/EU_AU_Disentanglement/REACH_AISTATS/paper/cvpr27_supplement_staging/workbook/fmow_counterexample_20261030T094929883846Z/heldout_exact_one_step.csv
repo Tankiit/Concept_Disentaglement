@@ -1,0 +1,5 @@
+state_id,role,action,expected_squared_error,initial_squared_error
+287,identity_preferred,source_id,0.0001980717493172825,0.00017717925877681046
+287,identity_preferred,reference_label,0.00017691726476461254,0.00017717925877681046
+561,label_preferred,source_id,2.065736460536596e-05,2.0621049329073508e-05
+561,label_preferred,reference_label,2.1405814944208842e-05,2.0621049329073508e-05

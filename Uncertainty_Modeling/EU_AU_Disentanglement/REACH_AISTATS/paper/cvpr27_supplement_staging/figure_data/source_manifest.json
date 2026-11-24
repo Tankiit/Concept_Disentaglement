@@ -1,0 +1,62 @@
+[
+  {
+    "file": "controlled_summary.csv",
+    "source": "workbook/source_acquisition_20261029T151111775438Z/acquisition_summary.csv",
+    "sha256": "ac0fa24596338d4010a07e94ce19036cb5a0f80a0fee1e1cb200529cd579915f",
+    "source_sha256": "ac0fa24596338d4010a07e94ce19036cb5a0f80a0fee1e1cb200529cd579915f"
+  },
+  {
+    "file": "controlled_oracle.csv",
+    "source": "workbook/source_acquisition_20261029T151111775438Z/oracle_intervals.csv",
+    "sha256": "2edb486125375da13128dbf0c6fba38753214022b8ca4748c405e2eefa993748",
+    "source_sha256": "2edb486125375da13128dbf0c6fba38753214022b8ca4748c405e2eefa993748"
+  },
+  {
+    "file": "camelyon17_pilot_summary.csv",
+    "source": "workbook/camelyon17_acquisition_20261030T092422959226Z/acquisition_summary.csv",
+    "sha256": "33f812b9290d2ccfe68d2ba87fd68708c4e6df0b3e068052e8fad053ad19b707",
+    "source_sha256": "33f812b9290d2ccfe68d2ba87fd68708c4e6df0b3e068052e8fad053ad19b707"
+  },
+  {
+    "file": "fmow_pilot_summary.csv",
+    "source": "workbook/fmow_acquisition_20261030T094932286096Z/acquisition_summary.csv",
+    "sha256": "9162b4591a7313189ad8fa682f72e13ed34a7c7e942acf2dbba53ddfe92abb4f",
+    "source_sha256": "9162b4591a7313189ad8fa682f72e13ed34a7c7e942acf2dbba53ddfe92abb4f"
+  },
+  {
+    "file": "camelyon17_counter_summary.csv",
+    "source": "workbook/camelyon17_counterexample_20261030T092024988890Z/acquisition_summary.csv",
+    "sha256": "2e8e7f89afbd0f20bbed05ed6f1cca0ea757c39e0b2c5aa9accc2ed4c6fc920a",
+    "source_sha256": "2e8e7f89afbd0f20bbed05ed6f1cca0ea757c39e0b2c5aa9accc2ed4c6fc920a"
+  },
+  {
+    "file": "camelyon17_states.csv",
+    "source": "workbook/camelyon17_counterexample_20261030T092024988890Z/selected_states.csv",
+    "sha256": "49f6a415185c5ec8c705a13cff64a526711d63dedfd42b62c5e559c0c5d9583c",
+    "source_sha256": "49f6a415185c5ec8c705a13cff64a526711d63dedfd42b62c5e559c0c5d9583c"
+  },
+  {
+    "file": "camelyon17_exact_one_step.csv",
+    "source": "workbook/camelyon17_counterexample_20261030T092024988890Z/heldout_exact_one_step.csv",
+    "sha256": "c68fd38b94877b353fdfd3ff9d1b0ea2ded2db79cf932554613d9412ef3d9f79",
+    "source_sha256": "c68fd38b94877b353fdfd3ff9d1b0ea2ded2db79cf932554613d9412ef3d9f79"
+  },
+  {
+    "file": "fmow_counter_summary.csv",
+    "source": "workbook/fmow_counterexample_20261030T094929883846Z/acquisition_summary.csv",
+    "sha256": "058d89ed6ea7a9f5007b1a453b08bd76da2c67c9caf74ecef3a1efd1a301ef90",
+    "source_sha256": "058d89ed6ea7a9f5007b1a453b08bd76da2c67c9caf74ecef3a1efd1a301ef90"
+  },
+  {
+    "file": "fmow_states.csv",
+    "source": "workbook/fmow_counterexample_20261030T094929883846Z/selected_states.csv",
+    "sha256": "8bd95506d806615161a6815b45bac0ab4f24b0c14cf6dbf3cb9998dd88086d01",
+    "source_sha256": "8bd95506d806615161a6815b45bac0ab4f24b0c14cf6dbf3cb9998dd88086d01"
+  },
+  {
+    "file": "fmow_exact_one_step.csv",
+    "source": "workbook/fmow_counterexample_20261030T094929883846Z/heldout_exact_one_step.csv",
+    "sha256": "20e01c73daa4454bc13f6ba330ecc9896de5ab8a9f783eab69b1473f953f7855",
+    "source_sha256": "20e01c73daa4454bc13f6ba330ecc9896de5ab8a9f783eab69b1473f953f7855"
+  }
+]

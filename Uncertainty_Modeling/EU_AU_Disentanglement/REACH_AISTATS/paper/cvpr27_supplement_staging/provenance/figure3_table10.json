@@ -1,0 +1,44 @@
+{
+  "figure_3": {
+    "output": {
+      "file": "figures/fig3_visual_targets.pdf",
+      "sha256": "54d1f68dfdc08f4e50eb4cb19be5d218aa7ad826fad87803e2e04ab1929eb734"
+    },
+    "inputs": [
+      {
+        "file": "figure_data/camelyon17_pilot_summary.csv",
+        "sha256": "33f812b9290d2ccfe68d2ba87fd68708c4e6df0b3e068052e8fad053ad19b707"
+      },
+      {
+        "file": "figure_data/fmow_pilot_summary.csv",
+        "sha256": "9162b4591a7313189ad8fa682f72e13ed34a7c7e942acf2dbba53ddfe92abb4f"
+      }
+    ],
+    "script": {
+      "file": "scripts/plot_recorded_studies.py",
+      "sha256": "e534c63cbceb6f4df67b816d06d4017f81a58c721b44c0edcaeea0ae783e2170"
+    }
+  },
+  "table_10": {
+    "output": {
+      "file": "table_data/visual_endpoints_2048.csv",
+      "sha256": "ae0918bb00ec15d0ccbdd6f276c19fa239a362a77a22d6ec28735979c4fdfa2b"
+    },
+    "script": {
+      "file": "scripts/check_image_pilots.py",
+      "sha256": "dfb2c7797ece3b7e9003b168e2f9ae20754bea6631c781147958a265cfe46a57"
+    },
+    "printed_rows_checked": 24,
+    "decimals": 6,
+    "checks": [
+      "mean_lower",
+      "mean_upper",
+      "mean_width",
+      "undefined_count"
+    ]
+  },
+  "runs": [
+    "camelyon17_acquisition_20261030T092422959226Z",
+    "fmow_acquisition_20261030T094932286096Z"
+  ]
+}
